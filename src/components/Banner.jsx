@@ -10,7 +10,7 @@ const Banner = () => {
   const { scrollY } = useScroll();
 
   // Enhanced Parallax Depth Effect
-  const parallaxY = useTransform(scrollY, [0, 500], [20, -150]); // Increased for deeper effect
+  const parallaxY = useTransform(scrollY, [0, 500], [25, -150]); // Increased for deeper effect
   const textParallaxY = useTransform(scrollY, [0, 500], [50, -150]); // Slightly more dynamic
 
   return (
@@ -31,8 +31,8 @@ const Banner = () => {
       <Image
       layout="responsive"
       alt="Banner"
-      width={2000}
-      height={1400} 
+      width={2200}
+      height={1500} 
       src={BannerImage.src}
       
         className="w-full mx-auto lg:w-97 h-[40vh] sm:h-[60vh] md:h-[34vh] lg:h-full object-cover object-[25%_30%] rounded-lg scale-105 banner_img"
@@ -51,7 +51,7 @@ const Banner = () => {
           alt="MSAAcademy-text"
           className="-mt-7 -ml-1 w-40 h-auto shadow-2xl object-contain mb-3 md:hidden shadow-pink200/65"
         />
-        <div className="animate-bounceSlow mt-8 md:mt-auto">
+        <div className="animate-bounceSlow mt-8 md:mt-auto z-100 bg-green-500">
           <Button isRounded={false} />
         </div>
       </motion.div>
