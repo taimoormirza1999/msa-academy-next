@@ -1,29 +1,36 @@
 import React from 'react';
 import BannerImage from '../assets/hero_banner.png';
 import msaText from '../assets/msa_text.png';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Button from './utils/Button';
 import Image from 'next/image';
+import { useMediaQuery } from 'react-responsive';
 
 const Banner = () => {
   // Parallax Scroll Effect Setup
-  const { scrollY } = useScroll();
+  // const { scrollY } = useScroll();
+  const isLargeScreen = useMediaQuery({ minWidth: 1024 });
 
   // Enhanced Parallax Depth Effect
-  const parallaxY = useTransform(scrollY, [0, 500], [0, -150]); 
-  const textParallaxY = useTransform(scrollY, [0, 500], [0, -150]); 
+  // const parallaxY = useTransform(scrollY, [0, 500], [0, -150]); 
+  // const textParallaxY = useTransform(scrollY, [0, 500], [0, -150]); 
 
   return (
     <motion.div
-      initial={{ opacity: 0,scale:0.87 }}
-      whileInView={{
-        opacity: 1,
-        scale: 1,
-        transition: { duration: 1.6, ease: 'easeInOut' },
-      }}
+    initial={isLargeScreen ? { opacity: 0, scale: 0.87 } : false}
+    whileInView={
+      isLargeScreen
+        ? {
+            opacity: 1,
+            scale: 1,
+            transition: { duration: 1.6, ease: 'easeInOut' },
+          }
+        : {}
+    }
+    viewport={  isLargeScreen?{once: true }:{}}
       whileHover={{ scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-      className="relative w-full 2xl:w-85 h-auto mt-16 md:mt-20  mx-auto md:w-97 max-w-[1920px] mb-16 md:mb-10 lg:mb-20 xl:mb-0  pb-10 pt-16 lg:pb-16 "
+      className="relative w-full 2xl:w-85 h-auto mt-16 md:mt-20  mx-auto md:w-97 max-w-[1920px] mb-7 md:mb-10 lg:mb-20 xl:mb-0  pb-10 pt-16 lg:pb-16 "
     >
       {/* Parallax Background Image */}
       
@@ -34,9 +41,7 @@ const Banner = () => {
       // width={2200}
       // height={1500} 
       src={BannerImage.src}
-      // style={{ y: parallaxY }}
-      // style={{ y: parallaxY, top: 'calc(100% - 35%)' }}
-      className=" w-full mx-auto lg:w-97 h-[47vh] sm:h-[60vh] lg:h-auto object-cover object-[25%_30%] rounded-lg scale-105 banner_img"
+      className=" w-full mx-auto lg:w-97 h-[44vh] sm:h-[60vh] lg:h-auto object-cover object-[25%_30%] rounded-lg scale-105 banner_img"
       />
       {/* </motion.span> */}
 

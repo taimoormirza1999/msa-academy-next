@@ -19,16 +19,16 @@ function Contact() {
         <div className="flex flex-row gap-5 lg:gap-3 lg:mx-3">
            <Image
                 layout="responsive"
-                width={20}
-                height={20}
+                width={24}
+                height={24}
             src={HerogramLogo.src}
             alt="Character Foo"
-            className="w-14 h-auto "
+            className="w-16 h-auto "
           />
          <Image
                 layout="responsive"
-                width={20}
-                height={20}
+                width={24}
+                height={24}
             src={logoogdgirl.src}
             alt="Character Foo"
             className="w-16 h-16 md:ml-2"

@@ -22,7 +22,7 @@ const Animation = () => {
      className="w-full md:w-98 h-[38vh] sm:h-[60vh] md:h-full lg:h-full  object-cover object-[20%_30%]"
     />
          </div>
-      <motion.div className="bg-black/40 lg:bg-transparent rounded-xl shadow-xl shadow-pink200/30 lg:shadow-none lg:rounded-none mx-auto lg:absolute top-20 right-10 p-8 text-white w-95 md:w-85 lg:w-[54%] flex flex-col justify-end lg:justify-center md:mt-5 lg:me-5">
+      <motion.div className="bg-black/40 lg:bg-transparent rounded-xl shadow-xl shadow-pink200/30 lg:shadow-none lg:rounded-none mx-auto lg:absolute top-20 right-10 p-8 text-white w-95 md:w-85 mb-16 lg:mb-0 lg:w-[54%] flex flex-col justify-end lg:justify-center md:mt-5 lg:me-5">
         <BannerTextHeading
         paragraphspecificwidth={true}
         heading="ANIMATION COURSES"
