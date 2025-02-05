@@ -10,39 +10,40 @@ const Banner = () => {
   const { scrollY } = useScroll();
 
   // Enhanced Parallax Depth Effect
-  const parallaxY = useTransform(scrollY, [0, 500], [25, -150]); // Increased for deeper effect
-  const textParallaxY = useTransform(scrollY, [0, 500], [50, -150]); // Slightly more dynamic
+  const parallaxY = useTransform(scrollY, [0, 500], [0, -150]); 
+  const textParallaxY = useTransform(scrollY, [0, 500], [0, -150]); 
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
+      initial={{ opacity: 0,scale:0.87 }}
       whileInView={{
         opacity: 1,
-        transition: { duration: 2, ease: 'easeInOut' },
+        scale: 1,
+        transition: { duration: 1.6, ease: 'easeInOut' },
       }}
-     
       whileHover={{ scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-      className="relative w-full 2xl:w-85 h-auto mt-16 md:mt-20 pt-10 mx-auto md:w-97 mb-16 md:mb-10 lg:mb-20 xl:mb-0 max-w-[1920px] pb-10"
+      className="relative w-full 2xl:w-85 h-auto mt-16 md:mt-20  mx-auto md:w-97 max-w-[1920px] mb-16 md:mb-10 lg:mb-20 xl:mb-0  pb-10 pt-16 lg:pb-16 "
     >
       {/* Parallax Background Image */}
       
-      <motion.span style={{ y: parallaxY }}>
-      <Image
+      {/* <motion.span > */}
+      <img
       layout="responsive"
       alt="Banner"
-      width={2200}
-      height={1500} 
+      // width={2200}
+      // height={1500} 
       src={BannerImage.src}
-      
-        className="w-full mx-auto lg:w-97 h-[40vh] sm:h-[60vh] md:h-[34vh] lg:h-full object-cover object-[25%_30%] rounded-lg scale-105 banner_img"
+      // style={{ y: parallaxY }}
+      // style={{ y: parallaxY, top: 'calc(100% - 35%)' }}
+      className=" w-full mx-auto lg:w-97 h-[47vh] sm:h-[60vh] lg:h-auto object-cover object-[25%_30%] rounded-lg scale-105 banner_img"
       />
-      </motion.span>
+      {/* </motion.span> */}
 
       {/* Parallax Foreground Content */}
       <motion.div
-        style={{ y: textParallaxY, top: 'calc(100% - 35%)' }}
-        className="absolute top-10 md:right-16 lg:right-28 md:left-auto left-0 right-0 z-10 mx-auto w-max"
+
+        className="absolute bottom-10 md:right-16 lg:right-28 md:left-auto left-0 right-0 z-10 mx-auto w-max" style={{ transform: 'none', top: 'calc(100% - 35%)' }}
       >
         <Image
         height={700}
@@ -51,7 +52,7 @@ const Banner = () => {
           alt="MSAAcademy-text"
           className="-mt-7 -ml-1 w-40 h-auto shadow-2xl object-contain mb-3 md:hidden shadow-pink200/65"
         />
-        <div className="animate-bounceSlow mt-8 md:mt-auto z-100 bg-green-500">
+        <div className="animate-bounceSlow mt-8 md:mt-auto z-100 ">
           <Button isRounded={false} />
         </div>
       </motion.div>

@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";

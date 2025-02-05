@@ -42,7 +42,7 @@ const Navigation = () => {
 
   return (
     <nav className="bg-black fixed top-0 left-0 right-0 z-50 shadow-lg py-2.5 md:py-3">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between md:justify-center">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between md:justify-center  ">
         <Link href="/" className="cursor-pointer">
            <img
                          
@@ -52,11 +52,11 @@ const Navigation = () => {
           />
         </Link>
 
-        <ul className="hidden md:flex space-x-6 text-white px-3 pl-5">
+        <ul className="hidden md:flex space-x-6 text-white px-3 pl-5 ">
           <li className="animate-bounce">
             <span
               onClick={() => handleScroll("enroll-checkout")}
-              className="animate-textGlow cursor-pointer hover:text-pink200"
+              className="animate-textGlow cursor-pointer hover:text-pink200 font-regular-ccm-m"
             >
               ENROLL
             </span>
@@ -64,7 +64,7 @@ const Navigation = () => {
           <li>
             <span
               onClick={() => handleScroll("drawing-course")}
-              className="cursor-pointer hover:text-pink200"
+              className="cursor-pointer hover:text-pink200 font-regular-ccm-m"
             >
               DRAWING COURSE
             </span>

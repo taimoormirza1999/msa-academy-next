@@ -48,7 +48,7 @@
     font-family: 'Cocogoose-Classic-Medium', sans-serif;
     font-weight: 200;
   }
-  .font-impact-regular{
+    .font-impact-regular{
     font-family: 'ImpactCustom', sans-serif;
   }
   .font-ebold-ccm{
@@ -316,7 +316,6 @@
   }
   @media screen and (min-width: 1921px) {
   .banner_img{
-    /* overflow: visible; */
     object-fit: contain;
   }
   }
