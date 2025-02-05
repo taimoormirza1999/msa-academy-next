@@ -55,9 +55,15 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* <!-- Google Tag Manager (noscript) --> */}
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSX74F6L" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
+        <noscript>
+  <iframe
+    src="https://www.googletagmanager.com/ns.html?id=GTM-KSX74F6L"
+    height="0"
+    width="0"
+    style={{ display: 'none', visibility: 'hidden' }}
+  ></iframe>
+</noscript>
+
     {/* <!-- End Google Tag Manager (noscript) --> */}
     <Script
         src="https://js.stripe.com/v3/"
@@ -85,8 +91,13 @@ export default function RootLayout({ children }) {
         }}
       />
     <noscript>
-  <img height="1" width="1" style="display:none;" alt=""
-  src="https://ct.pinterest.com/v3/?event=init&tid=2613171424440&noscript=1" />
+  <img
+    height="1"
+    width="1"
+    style={{ display: 'none' }}
+    alt=""
+    src="https://ct.pinterest.com/v3/?event=init&tid=2613171424440&noscript=1"
+  />
 </noscript>
         {children}
       </body>
