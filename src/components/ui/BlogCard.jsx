@@ -11,7 +11,7 @@ export default function BlogCard({ blogItem }) {
       {/* Image */}
       <Link
         href={`/blog/${blogItem._id}`}
-        className="relative cursor-pointer w-full max-w-full  "
+        className="cursor-pointer lg:relative w-full max-w-full  "
       >
         <Image
           height={500}
@@ -22,11 +22,11 @@ export default function BlogCard({ blogItem }) {
         />
 
         <div
-          className=" absolute bottom-0 max-w-full left-0 w-full h-[50vh] lg:p-4 bg-gradient-to-t from-black via-black/15 to-black/20 
-       shadow-lg shadow-pink200/15 flex items-end "
+          className=" absolute bottom-0 max-w-[100%] left-0 w-full h-[50vh] lg:p-4 bg-gradient-to-t from-black via-black/15 to-black/20 
+       shadow-lg shadow-pink200/15 p-3 flex items-end z-100" style={{width: '100%', height: '100%'}}
         >
-          <div className="lg:mb-8 pl-2 lg:pl-0 mb-2 w-full max-w-full flex flex-col ">
-            <h3 className="text-lg lg:text-2xl font-bold text-white font-medium-fgm mb-2 lg:mb-4 w-full">
+          <div className="lg:mb-8 pl-2 lg:pl-0 mb-2 w-[100%] max-w-full flex flex-col z-100 ">
+            <h3 className="text-lg lg:text-2xl font-bold text-white font-medium-fgm mb-2 lg:mb-4 w-full " >
               {blogItem.title}
             </h3>
 
@@ -44,7 +44,7 @@ export default function BlogCard({ blogItem }) {
             </div>
             <Link
               href={`/blog/${blogItem._id}`}
-              className="w-1/2 text-center text-gray-50 lg:mt-2 inline-block  border-[1.2px] shadow-lg shadow-pink200/35 border-pink200 px-4 p-1 rounded-full lg:text-sm text-base"
+              className="w-[10rem] text-center text-gray-50 lg:mt-2 inline-block  border-[1.2px] shadow-lg shadow-pink200/35 border-pink200 px-4 p-1 rounded-full lg:text-sm text-base"
             >
               Read More
             </Link>

@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 
 const CustomNextArrow = ({ onClick }) => (
   <button
-    className="absolute shadow-pink200/40 right-2 lg:right-2 -top-14 lg:-top-10 -translate-y-1/2 z-10 bg-black/25 lg:bg-black/45 border-[1.5px] border-pink200 text-pink200 p-3 lg:p-3.5 rounded-full shadow-xl"
+    className="absolute shadow-pink200/40 right-2 lg:right-2 -top-12 lg:-top-10 -translate-y-1/2 z-10 bg-black/25 lg:bg-black/45 border-[1.5px] border-pink200 text-pink200 p-3 lg:p-3.5 rounded-full shadow-xl"
     onClick={onClick}
   >
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
@@ -19,7 +19,7 @@ const CustomNextArrow = ({ onClick }) => (
 
 const CustomPrevArrow = ({ onClick }) => (
   <button
-    className="absolute shadow-pink200/40 me-2 lg:-me-2 right-16  lg:left-auto lg:right-20 -top-14 lg:-top-10 -translate-y-1/2 z-10 bg-black/25 lg:bg-black/45 border-[1.5px] border-pink200 text-pink200 p-3 lg:p-3.5 rounded-full shadow-xl"
+    className="absolute shadow-pink200/40 me-2 lg:-me-2 right-16  lg:left-auto lg:right-20 -top-12 lg:-top-10 -translate-y-1/2 z-10 bg-black/25 lg:bg-black/45 border-[1.5px] border-pink200 text-pink200 p-3 lg:p-3.5 rounded-full shadow-xl"
     onClick={onClick}
   >
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">

@@ -16,22 +16,16 @@ function Contact() {
     <div className="relative mx-auto max-w-[1920px]">
       <div className="flex flex-col lg:flex-row justify-end items-center p-0 lg-w-1/2 lg:p-8  text-white">
         {/* Channel icons */}
-        <div className="flex flex-row gap-5 lg:gap-3 lg:mx-3">
-           <Image
-                layout="responsive"
-                width={24}
-                height={24}
+        <div className="flex flex-row items-center gap-4 lg:gap-3 lg:mx-3">
+           <img 
             src={HerogramLogo.src}
             alt="Character Foo"
-            className="w-16 h-auto "
+            className="w-14 lg:w-16 h-auto "
           />
-         <Image
-                layout="responsive"
-                width={24}
-                height={24}
+         <img
             src={logoogdgirl.src}
             alt="Character Foo"
-            className="w-16 h-16 md:ml-2"
+            className="w-16 lg:w-16 lg:h-16 md:ml-2"
           />
         </div>
         {/* Social Media Links */}
