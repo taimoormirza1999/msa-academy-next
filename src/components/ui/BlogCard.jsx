@@ -18,7 +18,7 @@ export default function BlogCard({ blogItem }) {
           width={500}
           src={blogItem?.coverImage}
           alt="Blog Post"
-          className="w-full object-cover h-[50vh]"
+          className="w-full object-cover h-[50vh] lg:h-[60vh]"
         />
 
         <div
@@ -26,7 +26,7 @@ export default function BlogCard({ blogItem }) {
        shadow-lg shadow-pink200/15 p-3 flex items-end z-100" style={{width: '100%', height: '100%'}}
         >
           <div className="lg:mb-8 pl-2 lg:pl-0 mb-2 w-[100%] max-w-full flex flex-col z-100 ">
-            <h3 className="text-lg lg:text-2xl font-bold text-white font-medium-fgm mb-2 lg:mb-4 w-full " >
+            <h3 className="text-lg lg:text-xl font-bold text-white font-medium-fgm mb-2 lg:mb-4 w-full " >
               {blogItem.title}
             </h3>
 
@@ -44,7 +44,7 @@ export default function BlogCard({ blogItem }) {
             </div>
             <Link
               href={`/blog/${blogItem._id}`}
-              className="w-[10rem] text-center text-gray-50 lg:mt-2 inline-block  border-[1.2px] shadow-lg shadow-pink200/35 border-pink200 px-4 p-1 rounded-full lg:text-sm text-base"
+              className="w-[10rem] bg-gradient-to-tr from-pink200/40 via-black/60 to-purple/50 text-center text-gray-50 lg:mt-2 inline-block  border-[1.2px] shadow-lg shadow-pink200/35 border-pink200 px-4 p-1 rounded-full lg:text-sm text-base"
             >
               Read More
             </Link>

@@ -32,7 +32,7 @@ const Banner = () => {
       layout="responsive"
       alt="Banner"
       src={BannerImage.src}
-      className=" w-full mx-auto lg:w-93 h-[44vh] sm:h-[60vh] lg:h-auto object-cover object-[25%_30%] rounded-lg scale-105 banner_img"
+      className=" w-full mx-auto lg:w-90 2xl:w-93  h-[44vh] sm:h-[60vh] lg:h-auto object-cover object-[25%_30%] rounded-lg scale-105 banner_img"
       />
       {/* </motion.span> */}
 
