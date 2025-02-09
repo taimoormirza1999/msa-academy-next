@@ -8,14 +8,15 @@ import LoaderWrapper from "@/components/utils/LoaderWrapper";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import axios from "axios";
-import { useParams, useSearchParams } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import DOMPurify from "dompurify";
 import Link from "next/link";
 
 const BlogDetail = () => {
  
   const params = useParams();
-  const id = params.id;
+  const friendlyUrl = params.name;
+  // console.log(params)
   const colors = ["bg-blue-500", "bg-pink-500", "bg-indigo-500"];
 
   const [blogData, setBlogData] = useState(null);
@@ -25,7 +26,7 @@ const BlogDetail = () => {
   const fetchBlogs = async () => {
     try {
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs/${id}`
+        `${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs/post/${friendlyUrl}`
       );
       setBlogData(response.data);
     } catch (error) {
@@ -35,10 +36,13 @@ const BlogDetail = () => {
 
   const fetchRecentBlogs = async () => {
     try {
+      console.log("Hello")
       const response = await axios.get(
         `${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs/recent-blogs`
       );
-      const filteredBlogs = response.data.filter((blog) => blog._id !== id);
+  
+      const filteredBlogs = response.data.filter((blog) => blog.friendlyUrl !== friendlyUrl);
+
       setRecentBlogData(filteredBlogs);
     } catch (error) {
       console.error("Error fetching recent blogs:", error);
@@ -46,7 +50,7 @@ const BlogDetail = () => {
   };
 
   useEffect(() => {
-    if (id) { // ✅ Ensuring 'id' is available
+    if (friendlyUrl) { 
       window.scrollTo({ top: 0, behavior: "smooth" });
       const fetchData = async () => {
         await Promise.all([fetchBlogs(), fetchRecentBlogs()]);
@@ -54,7 +58,7 @@ const BlogDetail = () => {
       };
       fetchData();
     }
-  }, [id]);
+  }, [friendlyUrl]);
 
   if (loading) return <Loader />;
 
@@ -134,7 +138,7 @@ const BlogDetail = () => {
                     alt={`Blog ${index + 1} thumbnail`}
                     className="border-[1.5px]  border-pink200/70 shadow shadow-pink200/30 w-20 h-20 object-cover rounded-md"
                   />{" "}
-                  <a
+                  <button
                     href="#"
                     className="w-full text-white text-base font-medium-kgpr"
                     style={{ fontWeight: "900" }}
@@ -152,7 +156,7 @@ const BlogDetail = () => {
                         }
                       )}
                     </div>
-                  </a>{" "}
+                  </button>{" "}
                 </Link>
               ))}{" "}
             </ul>

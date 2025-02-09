@@ -7,7 +7,6 @@ import Footer from "../components/Footer";
 import SignupForm from "../components/SignupForm";
 import ScrollAnimation from "../components/utils/ScrollAnimation";
 import LoaderWrapper from "../components/utils/LoaderWrapper";
-import SubscriptionSuccess from "../components/Pages/SubscriptionSuccess";
 import MarqueeWrapper2 from "../components/MarqueeWrapper2";
 
 import BlogCards from "../components/blog/BlogCards";
@@ -52,7 +51,7 @@ const Home = () => {
     };
   }, []);
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 500);
+    const timer = setTimeout(() => setLoading(false), 200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -61,10 +60,6 @@ const Home = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.9 } },
   };
 
-  const slideIn = (direction) => ({
-    hidden: { opacity: 0, x: direction === "bottom" ? -100 : 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.9 } },
-  });
 
   return (
     <>

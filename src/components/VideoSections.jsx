@@ -34,7 +34,7 @@ const VideoGallery = () => {
             transition: {
               duration: 1.2,
               ease: "easeInOut",
-              delay: index * 0.2, // Staggered delay for smooth flow
+              delay: index * 0.2, 
             },
           }}
           viewport={{ once: true }} // Animate only once when in view

@@ -43,9 +43,12 @@ const Navigation = () => {
   return (
     <nav className="bg-black fixed top-0 left-0 right-0 z-50 shadow-lg py-2.5 md:py-3">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between md:justify-center  ">
-        <Link href="/" className="cursor-pointer">
-           <img
-                         
+        <Link
+          href="/"
+          className="cursor-pointer"
+          suppressHydrationWarning={true}
+        >
+          <img           
             src={logo.src}
             className="w-32 h-auto px-3 md:border-r-2 border-gray636 shadow-xl"
             alt="Logo"

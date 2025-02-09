@@ -29,7 +29,7 @@ const EnrollmentBanner = () => {
   }, []);
 
   return (
-    <div id='enrollment' className="bg-black text-white text-center py-5 md:py-5 ">
+    <div id='enrollment' className="bg-black text-white text-center py-5 md:py-5 " suppressHydrationWarning={true}>
       <div className='flex flex-col lg:flex-row justify-center items-center'>
         <h1 className="text-2xl md:text-4xl mb-1 md:mb-0 font-impact-regular">ENROLLMENT ENDS IN</h1>
         <div className="text-2xl md:text-4xl mb-0 md:mb-0  ml-2 font-impact-regular">

@@ -8,10 +8,10 @@ import Image from 'next/image';
 const Drawing = () => {
   return (
     <motion.div 
-    initial={{opacity:0, scale:0.8}} whileInView={{scale:1,opacity:1,transition:{duration:1.2, ease: "easeInOut", }}}  viewport={{ once: true }}  className="relative w-full md:w-99 h-auto bg-cover bg-center mt-0 md:mt-28 mb-10 md:mb-20 lg:mb-10  mx-auto max-w-[1920px]"
+    initial={{opacity:0, scale:0.85}} whileInView={{scale:1,opacity:1,transition:{duration:1.7, ease: "easeInOut", }}}  viewport={{ once: true }}  className="relative w-full md:w-99 h-auto bg-cover bg-center mt-0 md:mt-28 mb-10 md:mb-20 lg:mb-10  mx-auto max-w-[1920px]"
      id="drawing-course"
     >
-         <div className="relative h-auto mx-auto  w-99 md:w-98 lg:w-100 "  >
+         <div className="relative h-auto mx-auto  w-99 md:w-98 lg:w-[91%] "  >
          <Image
                           height={1080}
                           width={1920}
