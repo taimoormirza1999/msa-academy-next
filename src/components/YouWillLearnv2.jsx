@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const FeatureCard = ({ title, description, icon }) => (
   <motion.div
-    className="bg-gradient-to-tl from-black/5 to-purple/5 rounded-[3rem] shadow-pink200/40 lg:rounded-[2rem] p-6 shadow-2xl shadow-pink/35 border-2 border-pink200"
+    className="bg-[linear-gradient(90deg,rgba(255,255,255,0.1)_3%,rgba(255,255,255,0.04)_97%)] rounded-[3rem] shadow-pink200/40 lg:rounded-[2rem] p-6 shadow-2xl shadow-pink/35 border-2 border-pink200/90"
     whileHover={{ scale: 1.05 }}
     transition={{ type: "spring", stiffness: 300, damping: 10 }}
   >
@@ -15,7 +15,9 @@ const FeatureCard = ({ title, description, icon }) => (
     >
       {icon}
     </motion.div>
-    <h3 className="text-lg lg:text-xl font-bold text-white mb-2 text-center font-medium-fgm">{title}</h3>
+    <h3 className="text-lg lg:text-xl font-bold text-white mb-2 text-center font-medium-fgm">
+      {title}
+    </h3>
     <p className="text-gray-50 text-center font-regular-ccm">{description}</p>
   </motion.div>
 );
@@ -41,8 +43,12 @@ const MSALearningSection = () => {
 
   return (
     <section className="py-16 md:pb-8 md:pt-5">
-      <div className="container mx-auto px-4">
-        <motion.div initial="hidden" animate="visible" variants={containerVariants}>
+      <div className="container mx-auto px-4 ">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
           <motion.h2
             className="text-[1.7rem] lg:text-[3.2rem] font-ebold-ccm uppercase text-white font-bold text-center mb-5 lg:mb-8 animate-textGlow"
             variants={itemVariants}
@@ -53,9 +59,10 @@ const MSALearningSection = () => {
             className="text-base text-gray-50 text-center mb-12 max-w-3xl mx-auto font-regular-ccm"
             variants={itemVariants}
           >
-            Embark on a transformative journey to master the art of content creation, animation, and storytelling. Our
-            curriculum is designed to empower you with the skills and techniques that make MSA's content truly
-            exceptional.
+            Embark on a transformative journey to master the art of content
+            creation, animation, and storytelling. Our curriculum is designed to
+            empower you with the skills and techniques that make MSA's content
+            truly exceptional.
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8 md:gap-5 lg:gap-8 mb-16">
@@ -128,33 +135,48 @@ const MSALearningSection = () => {
           </div>
 
           <motion.div
-            className="border-2 border-pink200 shadow-pink200/40 p-5 lg:p-8 shadow-2xl overflow-hidden rounded-[3rem]"
+          whileInView={ {
+                  opacity: 1,
+                  scale: 1,
+                  transition: { duration: 1.3, ease: "easeInOut" },
+                } }
+          initial={{opacity: 0,scale:0.90 }}
+            className="bg-black/10 border-2 border-pink200/90 shadow-pink200/40 p-5 lg:p-8 shadow-2xl overflow-hidden rounded-[3rem]"
             variants={itemVariants}
           >
             <div className="grid grid-cols-1 md:grid-cols-1 lg:md:grid-cols-2 gap-5 lg:gap-8 items-center md:flex-row">
               {/* List Section */}
               <div className="order-2 md:order-1 ">
+                <h4 className="text-base text-center lg:text-left lg:text-lg uppercase text-white font-bold mb-2 font-medium-fgm z-50">
+                The Outlines
+                </h4>
                 <h3 className="text-2xl text-center lg:text-left lg:text-4xl uppercase text-white font-bold mb-8 font-medium-fgm z-50">
-                  The MSA Learning Experience
-                </h3>
+                What You’ll Learn at MSA
+                                </h3>
                 <ul className="space-y-6">
                   {[
-                    "Hands-on projects mirroring real MSA productions",
-                    "Personalized feedback from industry professionals",
-                    "Access to cutting-edge tools and software",
-                    "Collaborative workshops with fellow creatives",
-                    "Insights into MSA's creative process and workflow",
-                  ].map((item, index) => (
+  "Hands-on animation experience",
+  "Mentorship from top professionals",
+  "Cutting-edge animation tools",
+  "Collaborative creative sessions",
+  "Behind-the-scenes production insights",
+  "Tailored learning for all skill levels",
+  "Creative community support",
+  "Practical project-based learning",
+  "Real-time industry trends integration",
+  "Networking with industry leaders"
+].map((item, index) => (
                     <motion.li
                       key={index}
-                      className="flex items-start border border-pink200 p-2 py-3 rounded-[1rem] bg-gradient-to-tr from-white/15"
+                      className=" gap-2 border border-pink200 p-2.5 py-2.5 rounded-[1rem] bg-gradient-to-tr from-white/15 inline-block mx-1 "
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
                     >
                       {/* Check Icon */}
-                      <svg
-                        className="w-6 h-6 lg:w-8 lg:h-8 text-white mr-3 flex-shrink-0 bg-gradient-to-t bg-pink200 shadow-xl shadow-black/40 from-black/30 via-purple/30 to-pink200/30 rounded-full p-1 font-medium-fgm"
+                     <div className="flex">
+                     <svg
+                        className="w-6 h-6 lg:w-6 lg:h-6 text-white mr-3 flex-shrink-0 bg-gradient-to-t bg-pink200 shadow-xl shadow-black/40 from-black/30 via-purple/30 to-pink200/30 rounded-full p-1 font-medium-fgm"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -167,14 +189,21 @@ const MSALearningSection = () => {
                           d="M5 13l4 4L19 7"
                         />
                       </svg>
+                      {/* <span className="text-white text-xl me-3">
+                      ✦
+                      </span> */}
                       {/* Text */}
-                      <span className="text-gray-100 text-sm lg:text-lg leading-relaxed font-medium-fgm">
+                      <span className="text-gray-100 text-sm lg:text-base leading-relaxed font-medium-fgm">
                         {item}
                       </span>
+                     </div>
                     </motion.li>
                   ))}
                 </ul>
-                <motion.div className="mt-0 flex flex-row justify-center lg:justify-start" variants={itemVariants}>
+                <motion.div
+                  className="mt-0 flex flex-row justify-center lg:justify-start"
+                  variants={itemVariants}
+                >
                   {/* <Link
                     smooth={true}
                     duration={800}
@@ -190,9 +219,9 @@ const MSALearningSection = () => {
               <div className="relative order-1 md:order-2">
                 {/* Image */}
                 <Image
-                height={500}
-                width={500}
-                  src="https://yt3.ggpht.com/rHv7rFC9EFL8qUBNCnKP_JofD4-hVcaeYZMXeMACRaA3D7Q-wBAAjzmx9KRIpamG2vHxVNrORL1-AyI=s1600-rw-nd-v1"
+                  height={500}
+                  width={500}
+                  src="https://yt3.ggpht.com/C5msQoQMtZ7yQZcdTUo3FKAtyrhzClatIuIGlV-ERJvUOfPjSjUHqLjehvLX576esl21Og7nLpJWRQ=s1600-c-fcrop64=1,00002bb0ffffd44f-rw-nd-v1"
                   alt="MSA Learning Experience"
                   className="rounded-xl w-full lg:w-[90%] object-contain shadow-md lg:border-3 border-pink200 relative z-10 mt-4 lg:mt-0"
                 />
@@ -200,7 +229,10 @@ const MSALearningSection = () => {
                 <motion.div
                   className="absolute inset-0 -z-0"
                   initial={{ scale: 1.15 }}
-                  animate={{ scale: [1.15, 1.4, 1.15], borderRadius: ["30% 70%", "50% 50%", "70% 30%"] }}
+                  animate={{
+                    scale: [1.15, 1.4, 1.15],
+                    borderRadius: ["30% 70%", "50% 50%", "70% 30%"],
+                  }}
                   transition={{
                     duration: 6,
                     repeat: Infinity,

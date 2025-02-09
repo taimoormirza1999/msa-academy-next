@@ -10,7 +10,7 @@ export default function BlogCard({ blogItem }) {
     <motion.div className="relative text-white m-1 md:mx-2 lg:m-2  border-2 border-pink200 rounded-[3rem] z-20 overflow-hidden ">
       {/* Image */}
       <Link
-        href={`/blog/${blogItem._id}`}
+        href={`/blog/post/${blogItem.friendlyUrl}`}
         className="cursor-pointer lg:relative w-full max-w-full  "
       >
         <Image
@@ -23,10 +23,11 @@ export default function BlogCard({ blogItem }) {
 
         <div
           className=" absolute bottom-0 max-w-[100%] left-0 w-full h-[50vh] lg:p-4 bg-gradient-to-t from-black via-black/15 to-black/20 
-       shadow-lg shadow-pink200/15 p-3 flex items-end z-100" style={{width: '100%', height: '100%'}}
+       shadow-lg shadow-pink200/15 p-3 flex items-end z-100"
+          style={{ width: "100%", height: "100%" }}
         >
           <div className="lg:mb-8 pl-2 lg:pl-0 mb-2 w-[100%] max-w-full flex flex-col z-100 ">
-            <h3 className="text-lg lg:text-xl font-bold text-white font-medium-fgm mb-2 lg:mb-4 w-full " >
+            <h3 className="text-lg lg:text-xl font-bold text-white font-medium-fgm mb-2 lg:mb-4 w-full ">
               {blogItem.title}
             </h3>
 
@@ -42,12 +43,12 @@ export default function BlogCard({ blogItem }) {
                 </span>
               ))}
             </div>
-            <Link
-              href={`/blog/${blogItem._id}`}
-              className="w-[10rem] bg-gradient-to-tr from-pink200/40 via-black/60 to-purple/50 text-center text-gray-50 lg:mt-2 inline-block  border-[1.2px] shadow-lg shadow-pink200/35 border-pink200 px-4 p-1 rounded-full lg:text-sm text-base"
+            <button
+              // href={`/blog/${blogItem._id}`}
+              className="cursor-pointer w-[10rem] bg-gradient-to-tr from-pink200/40 via-black/60 to-purple/50 text-center text-gray-50 lg:mt-2 inline-block  border-[1.2px] shadow-lg shadow-pink200/35 border-pink200 px-4 p-1 rounded-full lg:text-sm text-base"
             >
               Read More
-            </Link>
+            </button>
           </div>
         </div>
       </Link>

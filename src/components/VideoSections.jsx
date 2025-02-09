@@ -34,10 +34,10 @@ const VideoGallery = () => {
             transition: {
               duration: 1.2,
               ease: "easeInOut",
-              delay: index * 0.2, // Staggered delay for smooth flow
+              delay: index * 0.2, 
             },
           }}
-          viewport={{ once: true }} // Animate only once when in view
+          viewport={{ once: true }} 
           className="h-52 md:h-48 flex justify-center items-center text-center rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
         >
           <VideoSection videoUrl={video.videoUrl} imageUrl={video.imageUrl} />

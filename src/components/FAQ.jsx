@@ -11,7 +11,7 @@ function FAQ() {
     {
 
       question: 'How can I contact support?',
-      answer: 'You can contact support through our help center or by emailing msa@academy.com.',
+      answer: 'You can contact support through our help center or by emailing contact@msa-club.com.',
     },
     {
       question: 'Are there any discounts?',
