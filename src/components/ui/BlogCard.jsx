@@ -18,7 +18,7 @@ export default function BlogCard({ blogItem }) {
           width={500}
           src={blogItem?.coverImage}
           alt="Blog Post"
-          className="w-full object-cover h-[15rem] lg:h-[12rem] 2xl:h-[15rem] rounded-[12px] border-1 border-white/[21%]"
+          className="w-full object-cover h-[15rem] lg:h-[17rem] 2xl:h-[17rem] rounded-[12px] border border-white/[21%]"
         />
 
         {/* <div
@@ -26,7 +26,7 @@ export default function BlogCard({ blogItem }) {
        shadow-lg shadow-pink200/15 p-3 flex items-end z-100"
           style={{ width: "100%", height: "100%" }}
         > */}
-          <div className="lg:mb-5 pl-2 lg:pl-0 mb-2 w-[100%] max-w-full flex flex-col z-100 ">
+          <div className="lg:mb-3 pl-2 lg:pl-0 mb-2 w-[100%] max-w-full flex flex-col z-100 ">
             <h3 className="text-lg lg:text-lg mt-4 font-medium text-white font-medium-fgm mb-2 lg:mb-4 w-full ">
               {blogItem.title}
             </h3>
@@ -35,9 +35,7 @@ export default function BlogCard({ blogItem }) {
               {blogItem.categories?.slice(0, 3).map((category, index) => (
                 <span
                   key={index}
-                  className={`w-auto text-white font-medium py-1 text-xs lg:text-xs px-4 rounded-full font-impact-regular bg-opacity-45 shadow-2xl ${
-                    colors[index % colors.length]
-                  } ${shadows[index % shadows.length]}`}
+                  className={`w-auto text-white font-medium py-1 border border-white/45 text-xs lg:text-xs px-4 rounded-full font-impact-regular bg-opacity-45 shadow-2xl ${shadows[index % shadows.length]}`}
                 >
                   {category}
                 </span>

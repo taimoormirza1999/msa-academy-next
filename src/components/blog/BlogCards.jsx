@@ -11,7 +11,7 @@ const CustomNextArrow = ({ onClick }) => (
     className="absolute shadow-pink200/40 right-2 lg:right-2 -top-12 lg:-top-12 -translate-y-1/2 z-10 lg:bg-white/[10%] border-[1.2px] border-white/[42%] bg-opacity-5 text-white/90 p-3 lg:p-3.5 rounded-full shadow-xl"
     onClick={onClick}
   >
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 lg:w-4 lg:h-4">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
     </svg>
   </button>
@@ -22,7 +22,7 @@ const CustomPrevArrow = ({ onClick }) => (
     className="absolute shadow-pink200/40 me-2 lg:-me-2 right-16  lg:left-auto lg:right-20 -top-12 lg:-top-12 -translate-y-1/2 z-10 bg-black/20 lg:bg-white/[10%] border-[1.2px] border-white/[42%] text-white/90 p-3 lg:p-3.5 rounded-full shadow-xl"
     onClick={onClick}
   >
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 lg:w-4 lg:h-4">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
     </svg>
   </button>

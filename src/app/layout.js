@@ -75,7 +75,7 @@ export default function RootLayout({ children }) {
           <Script
             id="hotjar-script"
             src="https://static.hotjar.com/c/hotjar-5271325.js"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
           <Script
             id="pinterest-tag"
@@ -85,7 +85,7 @@ export default function RootLayout({ children }) {
           <Script
             id="stripe-script"
             src="https://js.stripe.com/v3/"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
           <noscript>
           <iframe

@@ -64,9 +64,7 @@ const Home = () => {
         <Loader />
       ) : (
         <div
-          className="mx-0 relative bg-cover bg-center"
-         
-        >
+          className="mx-0 relative bg-cover bg-center" >
            <Image 
     src={BackgroundImage} 
     alt="Background" 
@@ -76,15 +74,9 @@ const Home = () => {
     className="absolute inset-0 -z-10"
   />
           <Navigation />
-         
               <Banner />
-         
-          <Suspense fallback={<Loader />}>
-            <ScrollAnimation>
-              <LoaderWrapper>
+              <Suspense fallback={<Loader />}>
                 <EnrollmentBanner />
-              </LoaderWrapper>
-            </ScrollAnimation>
           </Suspense>
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
@@ -129,11 +121,7 @@ const Home = () => {
             </ScrollAnimation>
           </Suspense>
           <Suspense fallback={<Loader />}>
-            <ScrollAnimation>
-              <LoaderWrapper>
                 <EnrollmentBanner />
-              </LoaderWrapper>
-            </ScrollAnimation>
           </Suspense>
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
@@ -165,7 +153,9 @@ const Home = () => {
             </ScrollAnimation>
           </Suspense>
           <LoaderWrapper>
-            {showForm && <SignupForm />}
+          <div style={{ minHeight: "300px" }}>
+          {showForm && <SignupForm />}
+          </div>
             <Footer />
           </LoaderWrapper>
         </div>
