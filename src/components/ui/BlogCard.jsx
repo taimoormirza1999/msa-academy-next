@@ -26,7 +26,7 @@ export default function BlogCard({ blogItem }) {
        shadow-lg shadow-pink200/15 p-3 flex items-end z-100"
           style={{ width: "100%", height: "100%" }}
         > */}
-          <div className="lg:mb-8 pl-2 lg:pl-0 mb-2 w-[100%] max-w-full flex flex-col z-100 ">
+          <div className="lg:mb-5 pl-2 lg:pl-0 mb-2 w-[100%] max-w-full flex flex-col z-100 ">
             <h3 className="text-lg lg:text-lg mt-4 font-medium text-white font-medium-fgm mb-2 lg:mb-4 w-full ">
               {blogItem.title}
             </h3>

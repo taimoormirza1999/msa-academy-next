@@ -119,7 +119,7 @@ const BlogDetail = () => {
           </div>
 
           {/* Sidebar Area */}
-          <div className="shadow-2xl shadow-pink200/40 bg-black/35 bg-opacity-90 p-6 rounded-2xl sidebar">
+          <div className="shadow-2xl shadow-pink200/40 bg-white/[5%] border border-white/40 bg-opacity-5 p-6 rounded-2xl sidebar">
             {/* Recent Blogs */}
             <h2 className="text-xl lg:text-2xl font-semibold text-white border-b-2 border-pink200 pb-2.5 mb-5 font-medium-ccm ">
               Recent Blogs
@@ -130,13 +130,13 @@ const BlogDetail = () => {
                 <Link
                   href={`/blog/${recentblogItem._id}`}
                   key={index}
-                  className="flex items-center space-x-4 shadow-xl  hover:scale-[1.03] transition-transform duration-300 shadow-pink200/25 rounded-[13px] p-2.5 mb-5 border-[1.5px] border-pink200"
+                  className="flex items-center space-x-4 shadow-xl  hover:scale-[1.03] transition-transform duration-300 shadow-pink200/25 rounded-[13px] p-2.5 mb-5 border-[1px] border-white/40"
                 >
                   {" "}
                   <img
                     src={recentblogItem?.coverImage}
                     alt={`Blog ${index + 1} thumbnail`}
-                    className="border-[1.5px] self-start  border-pink200/70 shadow shadow-pink200/30 w-20 h-20 object-cover rounded-md"
+                    className="border-[1px] self-start  border-white/40 shadow shadow-pink200/30 w-20 h-20 object-cover rounded-md"
                   />{" "}
                   <button
                     href="#"

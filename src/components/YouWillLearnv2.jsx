@@ -74,18 +74,18 @@ const MSALearningSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-1 lg:md:grid-cols-3 gap-5 lg:gap-0 2xl:gap-8 items-center md:flex-row">
               {/* List Section */}
 
-              <div className="order-2 md:order-1 lg:col-span-2  rounded-xl ">
+              <div className="order-2 md:order-1 lg:col-span-2 rounded-xl ">
                 {/* Tab Buttons */}
                 <div className="flex gap-5 mb-14">
                   {["animation", "drawing"].map((tab) => (
                     <button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
-                      className={`px-6 py-3 border-b-2 uppercase font-bold transition-all duration-300
+                      className={`px-4 py-3 border-b-2 uppercase font-bold transition-all duration-500
               ${
                 activeTab === tab
                   ? " text-white shadow-lg border-white"
-                  : " text-gray-400 border-gray-400"
+                  : " text-gray-400 border-gray-400 "
               }`}
                     >
                       {tab === "animation"
@@ -114,14 +114,14 @@ const MSALearningSection = () => {
   {courses[activeTab].map((item, index) => (
     <motion.li
       key={index}
-      className="inline-flex items-center gap-3 border-[1.3px] border-white/40 p-2.5 rounded-xl bg-white/[4%]"
+      className="inline-flex items-center gap-3 border-[1.3px] border-white/40 p-2.5 xl:p-2 rounded-xl bg-white/[4%]"
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: index * 0.05 }}
     >
       {/* Check Icon */}
       <svg
-        className="w-6 h-6 lg:w-5 lg:h-5 text-white bg-white/25"
+        className="w-6 h-6 lg:w-5 lg:h-5 text-white bg-white/25 rounded-full"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

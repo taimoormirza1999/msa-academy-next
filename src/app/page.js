@@ -67,7 +67,7 @@ const Home = () => {
         <Loader />
       ) : (
         <div
-          className="min-h-screen mx-0 bg-cover bg-center"
+          className="mx-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${BackgroundImage.src})` }}
         >
           <Navigation />
@@ -162,7 +162,7 @@ const Home = () => {
             </ScrollAnimation>
           </Suspense>
           <LoaderWrapper>
-            {/* {showForm && <SignupForm />} */}
+            {showForm && <SignupForm />}
             <Footer />
           </LoaderWrapper>
         </div>
