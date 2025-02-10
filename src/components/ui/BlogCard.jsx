@@ -7,7 +7,7 @@ export default function BlogCard({ blogItem }) {
   const shadows = ["shadow-blue-500", "shadow-pink-500", "shadow-indigo-500"];
 
   return (
-    <motion.div className="relative text-white m-1 md:mx-2  lg:m-2 px-[10px] py-[20px] border-1 border-white/[21%] bg-white/[9%] rounded-[30px] z-20 overflow-hidden border ">
+    <motion.div className="relative text-white m-1 md:mx-2 lg:m-2 px-[10px] py-[15px] lg:py-[20px] border-1 border-white/[21%] bg-white/[9%] rounded-lg lg:rounded-[30px] z-20 overflow-hidden border ">
 
       <Link
         href={`/blog/post/${blogItem.friendlyUrl}`}
@@ -18,7 +18,7 @@ export default function BlogCard({ blogItem }) {
           width={500}
           src={blogItem?.coverImage}
           alt="Blog Post"
-          className="w-full object-cover h-[15rem] lg:h-[17rem] 2xl:h-[17rem] rounded-[12px] border border-white/[21%]"
+          className="w-full object-cover h-[15rem] lg:h-[17rem] 2xl:h-[17rem] rounded-[12px] border border-white/[29%]"
         />
 
           <div className="lg:mb-3 pl-2 lg:pl-0 mb-2 w-[100%] max-w-full flex flex-col z-100 ">
@@ -29,7 +29,7 @@ export default function BlogCard({ blogItem }) {
               {blogItem.categories?.slice(0, 3).map((category, index) => (
                 <span
                   key={index}
-                  className={`w-auto text-white font-medium py-1 border border-white/45 text-xs lg:text-xs px-4 rounded-full font-impact-regular bg-opacity-45 shadow-2xl ${shadows[index % shadows.length]}`}
+                  className={`w-auto text-white font-medium py-1 border border-white/50 text-xs lg:text-xs px-4 rounded-full font-impact-regular bg-opacity-45 shadow-2xl ${shadows[index % shadows.length]}`}
                 >
                   {category}
                 </span>

@@ -68,7 +68,7 @@ const MSALearningSection = () => {
               transition: { duration: 1.3, ease: "easeInOut" },
             }}
             initial={{ opacity: 0, scale: 0.9 }}
-            className="lg:bg-white/[9%] border-[0.7px] border-white/[42%] bg-opacity-0 shadow-pink200/40 p-5 lg:p-16 shadow-2xl overflow-hidden rounded-[1rem]"
+            className="bg-white/[5%] lg:bg-white/[9%] border-[0.7px] border-white/[42%] bg-opacity-0 shadow-pink200/40 p-5 lg:p-16 shadow-2xl overflow-hidden rounded-[1rem]"
             variants={itemVariants}
           >
             <div className="grid grid-cols-1 md:grid-cols-1 lg:md:grid-cols-3 gap-5 lg:gap-0 2xl:gap-8 items-center md:flex-row">
@@ -81,7 +81,7 @@ const MSALearningSection = () => {
                     <button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
-                      className={`px-4 py-3 border-b-2 uppercase font-bold transition-all duration-500
+                      className={`text-sm px-4 py-3 border-b-2 uppercase font-bold transition-all duration-500
               ${
                 activeTab === tab
                   ? " text-white shadow-lg border-white"
@@ -121,7 +121,7 @@ const MSALearningSection = () => {
     >
       {/* Check Icon */}
       <svg
-        className="w-6 h-6 lg:w-5 lg:h-5 text-white bg-white/25 rounded-full"
+        className="w-5 h-5 lg:w-5 lg:h-5 text-white bg-white/25 rounded-full"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -134,7 +134,7 @@ const MSALearningSection = () => {
           d="M5 13l4 4L19 7"
         />
       </svg>
-      <span className="text-white text-base">{item}</span>
+      <span className="text-white  text-xs lg:text-base">{item}</span>
     </motion.li>
   ))}
 </ul>
@@ -145,7 +145,7 @@ const MSALearningSection = () => {
               {/* Image Section */}
               <div className="relative order-1 md:order-2 lg:col-span-1 ">
                 {/* Image */}
-                <div className="relative bg-white/[12%] p-0 flex justify-center py-2.5 rounded-xl  border border-white/30 ">
+                <div className="relative bg-white/[12%] -mt-4 lg:p-0 flex justify-center lg:py-2.5 rounded-xl  lg:border border-white/30 ">
                   <Image
                     height={700}
                     width={700}

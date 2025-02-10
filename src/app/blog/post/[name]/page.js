@@ -11,6 +11,7 @@ import axios from "axios";
 import { useParams } from 'next/navigation'
 import DOMPurify from "dompurify";
 import Link from "next/link";
+import Image from "next/image";
 
 const BlogDetail = () => {
  
@@ -68,16 +69,18 @@ const BlogDetail = () => {
     >
       <Navigation />
 
-      <div className="container w-[92%] xl:w-[80%] mx-auto lg:p-6 my-18 max-w-[1920px] ">
+      <div className="container w-[92%] xl:w-[80%] mx-auto lg:p-6 my-18 max-w-[1920px] pt-10 ">
         {/* Main Blog Content */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Blog Content Area */}
           <div className="shadow-2xl shadow-pink200/40 lg:col-span-2 border border-white/[21%] bg-white/[9%] bg-opacity-90 px-2 lg:p-6 rounded-2xl relative">
             {/* Blog Top Image */}
-            <img
+            <Image
+          height={800}
+          width={1200}
               src={blogData?.coverImage}
               alt="Blog Cover"
-              className="w-full border-2 border-white/[51%] shadow-2xl shadow-pink200/40 h-[23rem] lg:h-[30rem] xl:h-[50vh] object-cover rounded-2xl mb-4 bg-gradient-to-t from-black via-black/50 to-transparent"
+              className="mt-3 lg:mt-0 w-full border-2 border-white/[51%] shadow-2xl shadow-pink200/40 h-[23rem] lg:h-[30rem] xl:h-[50vh] object-cover rounded-2xl mb-4 bg-gradient-to-t from-black via-black/50 to-transparent"
             />
             <div className="px-2 lg:px-0">
               {/* Blog Title */}
@@ -107,7 +110,7 @@ const BlogDetail = () => {
 
               {/* Blog Description */}
               <div
-                className="text-gray-100 blog_description leading-relaxed  bg-opacity-90 px-3 p-3 rounded mt-3 lg:mt-5 font-medium-kgpr  text-sm"
+                className="text-gray-100 blog_description leading-relaxed  bg-opacity-90 lg:p-3 lg:px-0 rounded mt-3 lg:mt-5 font-medium-kgpr  text-sm"
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(blogData?.content),
                 }}
@@ -116,7 +119,7 @@ const BlogDetail = () => {
           </div>
 
           {/* Sidebar Area */}
-          <div className="shadow-2xl shadow-pink200/40 border border-white/[21%] bg-white/[9%] bg-opacity-5 p-6 rounded-2xl sidebar">
+          <div className="shadow-2xl shadow-pink200/40 border border-white/[21%] bg-white/[9%] bg-opacity-5 p-3 py-6 lg:p-6 rounded-2xl sidebar">
             {/* Recent Blogs */}
             <h2 className="text-xl lg:text-2xl font-semibold text-white border-b-2 border-white/[51%] pb-2.5 mb-5 font-medium-ccm ">
               Recent Blogs
