@@ -10,7 +10,7 @@ const CommunityMap = () => {
     >
          <div className="relative h-auto mx-auto w-full md:w-90 lg:w-[77%]" >
          <Image
-              layout="responsive"
+              // layout="responsive"
               alt="Banner"
               width={1920}
               height={1080}

@@ -11,7 +11,7 @@ const Banner = () => {
 
   return (
     <motion.div
-      initial={isLargeScreen ? { opacity: 0, scale: 0.80 } : false}
+      initial={isLargeScreen ? { opacity: 0, scale: 0.87 } : false}
       whileInView={
         isLargeScreen
           ? {
@@ -29,7 +29,7 @@ const Banner = () => {
         damping: 10,
         duration: 1,
       }}
-      className="relative w-full 2xl:w-85 h-auto mt-16 md:mt-20  mx-auto md:w-97 max-w-[1920px] mb-7 md:mb-10 lg:mb-20 xl:mb-0  pb-10 pt-16 lg:pb-16 "
+      className="relative w-full 2xl:w-85 h-auto mt-16 md:mt-20 lg:mt-24  mx-auto md:w-90 lg:w-90 xl:w-[93%] max-w-[1920px] mb-7 md:mb-10 lg:mb-20 xl:mb-0  pb-10 pt-16 lg:pb-16 "
     >
       {/* Parallax Background Image */}
       {/* <motion.span > */}

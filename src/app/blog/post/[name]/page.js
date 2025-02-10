@@ -83,7 +83,7 @@ const BlogDetail = () => {
             <div className="px-2 lg:px-0">
               {/* Blog Title */}
               <div className=" items-center mt-6 lg:mt-10 z-20 w-full ">
-                <h1 className="text-2xl lg:text-4xl font-bold text-pink200  font-impact-regular mb-1 ">
+                <h1 className="text-2xl lg:text-4xl font-bold text-white  font-impact-regular mb-1 ">
                   {blogData?.title}
                 </h1>
                 <span className="justify-end text-xs pe-2 mt-10 text-white font-medium-kgpr text-right">
@@ -121,7 +121,7 @@ const BlogDetail = () => {
           {/* Sidebar Area */}
           <div className="shadow-2xl shadow-pink200/40 bg-black/35 bg-opacity-90 p-6 rounded-2xl sidebar">
             {/* Recent Blogs */}
-            <h2 className="text-xl lg:text-2xl font-semibold text-pink200 border-b-2 border-pink200 pb-2.5 mb-5 font-medium-ccm ">
+            <h2 className="text-xl lg:text-2xl font-semibold text-white border-b-2 border-pink200 pb-2.5 mb-5 font-medium-ccm ">
               Recent Blogs
             </h2>{" "}
             <ul className="space-y-4">
@@ -136,7 +136,7 @@ const BlogDetail = () => {
                   <img
                     src={recentblogItem?.coverImage}
                     alt={`Blog ${index + 1} thumbnail`}
-                    className="border-[1.5px]  border-pink200/70 shadow shadow-pink200/30 w-20 h-20 object-cover rounded-md"
+                    className="border-[1.5px] self-start  border-pink200/70 shadow shadow-pink200/30 w-20 h-20 object-cover rounded-md"
                   />{" "}
                   <button
                     href="#"
@@ -144,7 +144,7 @@ const BlogDetail = () => {
                     style={{ fontWeight: "900" }}
                   >
                     {" "}
-                    <p className="w-full text-xs lg:text-sm font-bold lg:pb-2 ">{recentblogItem?.title}</p>
+                    <p className="w-full text-xs lg:text-sm font-bold lg:pb-2 text-start">{recentblogItem?.title}</p>
                     <div className="text-right text-[0.55rem] lg:text-[0.69rem] w-full pe-2 mt-3">
                       {new Date(recentblogItem?.postedDate).toLocaleDateString(
                         "en-US",
