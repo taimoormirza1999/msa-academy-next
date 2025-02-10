@@ -36,7 +36,6 @@ const BlogDetail = () => {
 
   const fetchRecentBlogs = async () => {
     try {
-      console.log("Hello")
       const response = await axios.get(
         `${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs/recent-blogs`
       );
@@ -73,12 +72,12 @@ const BlogDetail = () => {
         {/* Main Blog Content */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Blog Content Area */}
-          <div className="shadow-2xl shadow-pink200/40 lg:col-span-2 bg-black/35 bg-opacity-90 px-2 lg:p-6 rounded-2xl relative">
+          <div className="shadow-2xl shadow-pink200/40 lg:col-span-2 border border-white/[21%] bg-white/[9%] bg-opacity-90 px-2 lg:p-6 rounded-2xl relative">
             {/* Blog Top Image */}
             <img
               src={blogData?.coverImage}
               alt="Blog Cover"
-              className="w-full border-2 border-pink200 shadow-2xl shadow-pink200/40 h-[23rem] lg:h-[30rem] xl:h-[50vh] object-cover rounded-2xl mb-4 bg-gradient-to-t from-black via-black/50 to-transparent"
+              className="w-full border-2 border-white/[51%] shadow-2xl shadow-pink200/40 h-[23rem] lg:h-[30rem] xl:h-[50vh] object-cover rounded-2xl mb-4 bg-gradient-to-t from-black via-black/50 to-transparent"
             />
             <div className="px-2 lg:px-0">
               {/* Blog Title */}
@@ -89,7 +88,7 @@ const BlogDetail = () => {
                 <span className="justify-end text-xs pe-2 mt-10 text-white font-medium-kgpr text-right">
                   {new Date(blogData?.postedDate).toLocaleDateString("en-US", {
                     weekday: "long",
-                    year: "numeric",
+                    year: "numeric", 
                     month: "long",
                     day: "numeric",
                   })}
@@ -98,9 +97,7 @@ const BlogDetail = () => {
                   {blogData?.categories?.slice(0, 3).map((category, index) => (
                     <span
                       key={index}
-                      className={`text-white  font-medium py-1.5  text-[0.65rem] md:text-xs px-5 lg:px-7 rounded-full font-impact-regular bg-opacity-40 shadow-pink200 shadow-2xl  ${
-                        colors[index % colors.length]
-                      } `}
+                      className={`text-white  font-medium py-1.5  text-[0.65rem] md:text-xs px-5 lg:px-7 rounded-full font-impact-regular bg-opacity-40 shadow-pink200 shadow-2xl border-white/[51%] border`}
                     >
                       {category}
                     </span>
@@ -119,24 +116,24 @@ const BlogDetail = () => {
           </div>
 
           {/* Sidebar Area */}
-          <div className="shadow-2xl shadow-pink200/40 bg-white/[5%] border border-white/40 bg-opacity-5 p-6 rounded-2xl sidebar">
+          <div className="shadow-2xl shadow-pink200/40 border border-white/[21%] bg-white/[9%] bg-opacity-5 p-6 rounded-2xl sidebar">
             {/* Recent Blogs */}
-            <h2 className="text-xl lg:text-2xl font-semibold text-white border-b-2 border-pink200 pb-2.5 mb-5 font-medium-ccm ">
+            <h2 className="text-xl lg:text-2xl font-semibold text-white border-b-2 border-white/[51%] pb-2.5 mb-5 font-medium-ccm ">
               Recent Blogs
             </h2>{" "}
             <ul className="space-y-4">
               {" "}
               {recentblogData?.reverse().map((recentblogItem, index) => (
                 <Link
-                  href={`/blog/${recentblogItem._id}`}
+                  href={`/blog/post/${recentblogItem.friendlyUrl}`}
                   key={index}
-                  className="flex items-center space-x-4 shadow-xl  hover:scale-[1.03] transition-transform duration-300 shadow-pink200/25 rounded-[13px] p-2.5 mb-5 border-[1px] border-white/40"
+                  className="flex items-center space-x-4 shadow-xl  hover:scale-[1.03] transition-transform duration-300 shadow-pink200/25 rounded-[13px] p-2.5 mb-5 border-[1px] border-white/50"
                 >
                   {" "}
                   <img
                     src={recentblogItem?.coverImage}
                     alt={`Blog ${index + 1} thumbnail`}
-                    className="border-[1px] self-start  border-white/40 shadow shadow-pink200/30 w-20 h-20 object-cover rounded-md"
+                    className="border-[1px] self-start  border-white/50 shadow shadow-pink200/30 w-20 h-20 object-cover rounded-md"
                   />{" "}
                   <button
                     href="#"
