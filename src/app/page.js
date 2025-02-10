@@ -10,6 +10,7 @@ import LoaderWrapper from "../components/utils/LoaderWrapper";
 import MarqueeWrapper2 from "../components/MarqueeWrapper2";
 
 import BlogCards from "../components/blog/BlogCards";
+import Image from "next/image";
 const Banner = lazy(() => import("../components/Banner"));
 const EnrollmentBanner = lazy(() => import("../components/EnrollmentBanner"));
 const YourPath = lazy(() => import("../components/YourPath"));
@@ -22,7 +23,7 @@ const Checkout = lazy(() => import("../components/Checkout"));
 const FAQ = lazy(() => import("../components/FAQ"));
 
 const Home = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showForm, setShowForm] = useState(false);
 
@@ -50,10 +51,6 @@ const Home = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 200);
-    return () => clearTimeout(timer);
-  }, []);
 
   const fadeIn = {
     hidden: { opacity: 0, y: 50 },
@@ -67,15 +64,21 @@ const Home = () => {
         <Loader />
       ) : (
         <div
-          className="mx-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${BackgroundImage.src})` }}
+          className="mx-0 relative bg-cover bg-center"
+         
         >
+           <Image 
+    src={BackgroundImage} 
+    alt="Background" 
+    layout="fill" 
+    objectFit="cover" 
+    priority 
+    className="absolute inset-0 -z-10"
+  />
           <Navigation />
-          <Suspense fallback={<Loader />}>
-            <ScrollAnimation variants={fadeIn}>
+         
               <Banner />
-            </ScrollAnimation>
-          </Suspense>
+         
           <Suspense fallback={<Loader />}>
             <ScrollAnimation>
               <LoaderWrapper>

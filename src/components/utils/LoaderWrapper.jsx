@@ -15,7 +15,7 @@ const LoaderWrapper = ({ children }) => {
   return (
     <>
       {!isLoaded ? (
-        <div className="flex justify-center items-center h-full">
+        <div className="flex justify-center items-center h-full z-10">
           {/* <div className="loader-spinner text-white">Loading...</div> */}
           <div className="flex items-center justify-center min-h-screen rounded-circle ">
       <div className="relative w-16 h-16  bg-transparent rounded-circle">
