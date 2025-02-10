@@ -153,9 +153,7 @@ const Home = () => {
             </ScrollAnimation>
           </Suspense>
           <LoaderWrapper>
-          <div style={{ minHeight: "300px" }}>
           {showForm && <SignupForm />}
-          </div>
             <Footer />
           </LoaderWrapper>
         </div>

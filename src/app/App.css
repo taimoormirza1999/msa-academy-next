@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: 'Cocogoose-Classic-Medium';
     src: url('../assets/fonts/Cocogoose-Classic-Medium-trial.ttf') format('truetype');
     font-weight: 400; 
@@ -28,33 +28,46 @@
     src: url('../assets/fonts/FranklinGothicMedium.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-  }
-  body{
+  } */
+  body {
     background: #000000;
-    font-family: 'Cocogoose-Classic-Medium', sans-serif;
-    font-weight: 200; 
-  }
-  .font-medium-fgm{
-    font-family: 'FranklinGothicMedium', sans-serif;
-    font-weight: medium;
-  }
-  .font-medium-kgpr{
-    font-family: 'KozGoPr6NRegular', sans-serif;
-    font-weight: 900;
-  }
-  .font-medium-ccm{
-    font-family: 'Cocogoose-Classic-Medium', sans-serif;
-  }
-  .font-regular-ccm{
-    font-family: 'Cocogoose-Classic-Medium', sans-serif;
+    font-family: var(--font-cocogoose-medium), sans-serif;
     font-weight: 200;
   }
-    .font-impact-regular{
-    font-family: 'ImpactCustom', sans-serif;
+  
+  /* Franklin Gothic Medium */
+  .font-medium-fgm {
+    font-family: var(--font-franklin), sans-serif;
+    font-weight: 400;
   }
-  .font-ebold-ccm{
-    font-family: 'Cocogoose-Classic-ExtraBold', sans-serif;
+  
+  /* KozGoPr6N Regular */
+  .font-medium-kgpr {
+    font-family: var(--font-kozgopr), sans-serif;
+    font-weight: 900;
   }
+  
+  /* Cocogoose Classic Medium */
+  .font-medium-ccm {
+    font-family: var(--font-cocogoose-medium), sans-serif;
+  }
+  
+  /* Cocogoose Classic Medium Regular */
+  .font-regular-ccm {
+    font-family: var(--font-cocogoose-medium), sans-serif;
+    font-weight: 200;
+  }
+  
+  /* Impact Custom */
+  .font-impact-regular {
+    font-family: var(--font-impact), sans-serif;
+  }
+  
+  /* Cocogoose Classic Extra Bold */
+  .font-ebold-ccm {
+    font-family: var(--font-cocogoose-bold), sans-serif;
+  }
+  
   
   ::selection{
     color: #ff00ff;
