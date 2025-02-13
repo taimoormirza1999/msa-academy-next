@@ -11,15 +11,22 @@ const Banner = () => {
 
   return (
     <motion.div
-      initial={isLargeScreen ? { opacity: 0, scale: 0.87 } : false}
+    
+      initial={isLargeScreen ? { opacity: 0,  y:150 } : { opacity: 0,  y:70 } }
       whileInView={
         isLargeScreen
           ? {
               opacity: 1,
-              scale: 1,
-              transition: { duration: 1.6, ease: "easeInOut" },
+             
+              y:0,
+              transition: { duration: 1.8, ease: "easeInOut" },
             }
-          : {}
+          : {
+            opacity: 1,
+           
+            y:0,
+            transition: { duration: 1.8, ease: "easeInOut" },
+          }
       }
       viewport={isLargeScreen ? { once: true } : {}}
       whileHover={{ scale: 1.02 }}
