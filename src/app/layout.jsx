@@ -2,8 +2,17 @@
 import "./globals.css";
 import "./App.css";
 import Script from 'next/script';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import localFont from 'next/font/local';
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import Image from "next/image";
+import BackgroundImage from "../assets/background.jpg";
+import FAQ from "@/components/FAQ";
+import LoaderWrapper from "@/components/utils/LoaderWrapper";
+import Loader from "@/components/Loader";
+import ScrollAnimation from "@/components/utils/ScrollAnimation";
+
 const CocogooseMedium = localFont({
   src: '../../public/fonts/Cocogoose-Classic-Medium-trial.ttf',
   weight: '400',
@@ -43,10 +52,46 @@ export default function RootLayout({ children }) {
   const [loadScripts, setLoadScripts] = useState(false);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoadScripts(true);
-    }, 10000);
-    return () => clearTimeout(timeout); // Cleanup on unmount
+    window.__lc = window.__lc || {};
+    window.__lc.license = 19031842;
+    window.__lc.integration_name = "manual_onboarding";
+    window.__lc.product_name = "livechat";
+    
+    (function (n, t, c) {
+      function i(n) {
+        return e._h ? e._h.apply(null, n) : e._q.push(n);
+      }
+      var e = {
+        _q: [],
+        _h: null,
+        _v: "2.0",
+        on: function () {
+          i(["on", c.call(arguments)]);
+        },
+        once: function () {
+          i(["once", c.call(arguments)]);
+        },
+        off: function () {
+          i(["off", c.call(arguments)]);
+        },
+        get: function () {
+          if (!e._h)
+            throw new Error("[LiveChatWidget] You can't use getters before load.");
+          return i(["get", c.call(arguments)]);
+        },
+        call: function () {
+          i(["call", c.call(arguments)]);
+        },
+        init: function () {
+          var n = t.createElement("script");
+          n.async = !0;
+          n.type = "text/javascript";
+          n.src = "https://cdn.livechatinc.com/tracking.js";
+          t.head.appendChild(n);
+        },
+      };
+      !n.__lc.asyncInit && e.init(), (n.LiveChatWidget = n.LiveChatWidget || e);
+    })(window, document, [].slice);
   }, []);
 
   return (
@@ -84,8 +129,26 @@ export default function RootLayout({ children }) {
         </noscript>
         </>
       )}
-    
+       <div className="mx-0 relative bg-cover bg-center">
+          <Image
+            src={BackgroundImage}
+            alt="Background"
+            layout="fill"
+            objectFit="cover"
+            priority
+            className="absolute inset-0 -z-10"
+          />
+        <Navigation />
         {children}
+          {/* <Suspense fallback={<Loader />}>
+                <ScrollAnimation>
+                  <LoaderWrapper>
+                    <FAQ />
+                  </LoaderWrapper>
+                </ScrollAnimation>
+              </Suspense> */}
+        <Footer />
+        </div>
       </body>
     </html>
   );

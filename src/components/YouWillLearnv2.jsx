@@ -55,21 +55,21 @@ const MSALearningSection = () => {
   return (
     <section className="py-16 md:pb-8 md:pt-5">
       <div className="container mx-auto px-4 ">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
+        <modiv
+          // initial="hidden"
+          // animate="visible"
+          // variants={containerVariants}
         >
          
           <motion.div
-            whileInView={{
-              opacity: 1,
-              scale: 1,
-              transition: { duration: 1.3, ease: "easeInOut" },
-            }}
-            initial={{ opacity: 0, scale: 0.9 }}
+            // whileInView={{
+            //   opacity: 1,
+            //   scale: 1,
+            //   transition: { duration: 1.3, ease: "easeInOut" },
+            // }}
+            // initial={{ opacity: 0, scale: 0.9 }}
             className="bg-white/[5%] lg:bg-white/[9%] border-[0.7px] border-white/[42%] bg-opacity-0 shadow-pink200/40 p-5 lg:p-16 shadow-2xl overflow-hidden rounded-[1rem]"
-            variants={itemVariants}
+            // variants={itemVariants}
           >
             <div className="grid grid-cols-1 md:grid-cols-1 lg:md:grid-cols-3 gap-5 lg:gap-0 2xl:gap-8 items-center md:flex-row">
               {/* List Section */}
@@ -103,21 +103,28 @@ const MSALearningSection = () => {
                   transition={{ duration: 0.3 }}
                   className=""
                 >
-                  <h4 className="text-base text-center lg:text-left lg:text-lg uppercase text-white font-bold mb-2 font-ebold-ccm text-transparent bg-gradient-to-br from-[#B14BF4] to-[#4D91FF] bg-clip-text ">
+                  <motion.h4 initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay:0.2 }} className="text-base text-center lg:text-left lg:text-lg uppercase text-white font-bold mb-2 font-ebold-ccm text-transparent bg-gradient-to-br from-[#B14BF4] to-[#4D91FF] bg-clip-text ">
                     The Outlines
-                  </h4>
-                  <h3 className="text-2xl text-center lg:text-left lg:text-4xl uppercase text-white font-bold mb-6 font-medium-fgm">
+                  </motion.h4>
+                  <motion.h3 initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay:0.4 }} className="text-2xl text-center lg:text-left lg:text-4xl uppercase text-white font-bold mb-6 font-medium-fgm">
                     What You’ll Learn at MSA
-                  </h3>
+                  </motion.h3>
                   <ul className="space-y-2">
                   <ul className="flex flex-wrap gap-4 justify-center lg:justify-start">
   {courses[activeTab].map((item, index) => (
     <motion.li
       key={index}
       className="inline-flex items-center gap-3 border-[1.3px] border-white/40 p-2.5 xl:p-2 rounded-xl bg-white/[4%]"
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: index * 0.05 }}
+      // initial={{ opacity: 0, x: -20 }}
+      // animate={{ opacity: 1, x: 0 }}
+      // transition={{ delay: index * 0.05 }}
+      initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay:0.4 }}
     >
       {/* Check Icon */}
       <svg
@@ -173,7 +180,7 @@ const MSALearningSection = () => {
               </div>
             </div>
           </motion.div>
-        </motion.div>
+        </modiv>
       </div>
     </section>
   );

@@ -7,7 +7,7 @@ export default function BlogCard({ blogItem }) {
   const shadows = ["shadow-blue-500", "shadow-pink-500", "shadow-indigo-500"];
 
   return (
-    <motion.div className="relative text-white m-1 md:mx-2 lg:m-2 px-[10px] py-[15px] lg:py-[20px] border-1 border-white/[21%] bg-white/[9%] rounded-lg lg:rounded-[30px] z-20 overflow-hidden border ">
+    <div className="relative text-white m-1 md:mx-2 lg:m-2 px-[10px] py-[15px] lg:py-[20px] border-1 border-white/[21%] bg-white/[9%] rounded-[3rem] lg:rounded-[30px] z-20 overflow-hidden border ">
 
       <Link
         href={`/blog/post/${blogItem.friendlyUrl}`}
@@ -18,7 +18,7 @@ export default function BlogCard({ blogItem }) {
           width={500}
           src={blogItem?.coverImage}
           alt="Blog Post"
-          className="w-full object-cover h-[15rem] lg:h-[17rem] 2xl:h-[17rem] rounded-[12px] border border-white/[29%]"
+          className="w-full object-cover h-[18rem] lg:h-[17rem] 2xl:h-[17rem] rounded-[2rem] lg:rounded-[2rem] border border-white/[29%]"
         />
 
           <div className="lg:mb-3 pl-2 lg:pl-0 mb-2 w-[100%] max-w-full flex flex-col z-100 ">
@@ -38,6 +38,6 @@ export default function BlogCard({ blogItem }) {
           </div>
         
       </Link>
-    </motion.div>
+    </div>
   );
 }

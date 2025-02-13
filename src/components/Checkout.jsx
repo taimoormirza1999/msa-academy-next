@@ -3,6 +3,8 @@ import { loadStripe } from "@stripe/stripe-js";
 const stripePromise = loadStripe(
   "pk_live_51MKOWOClZeY3V6PeILqmhyHFCw3LsPj0DIix9slFGovMEJkYFt0YoAayUWmfqDzB8O6MRY9nQjSpOZmrHkwevvpC00UhPik0o4"
 );
+import { motion } from "framer-motion"
+
 const Checkout = ({ showModal, setShowModal }) => {
   // const [showModal, setShowModal] = useState(false);
 
@@ -113,15 +115,19 @@ const Checkout = ({ showModal, setShowModal }) => {
             >
               {pkg.name}
             </h2>
-            <span className="text-white font-bold text-[4.1rem] font-medium-fgm">
+            <motion.span initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay:0.2 }} className="text-white font-bold text-[4.1rem] font-medium-fgm">
               ${pkg.price}
-            </span>
+            </motion.span>
             <p className="text-white font-semibold text-xs text-[0.6rem] -mt-2">
               PER MONTH
             </p>
             <ul className="mt-[2.5rem] lg:mt-[3.5rem] mb-[1.5rem] lg:mb-[2.1rem]">
               {pkg.includes.map((item, i) => (
-                <li key={i} className="flex  ">
+                <motion.li initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay:0.2*i }}  key={i} className="flex  ">
                   <span
                     className={`w-4 h-4 flex items-center justify-center rounded-full  ${
                       index == 0 ? "text-purple" : "text-pink200"
@@ -138,7 +144,7 @@ const Checkout = ({ showModal, setShowModal }) => {
                   >
                     {item.text}
                   </span>
-                </li>
+                </motion.li>
               ))}
             </ul>
             <div className="animate-bounceSlow">

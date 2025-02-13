@@ -5,10 +5,9 @@ const LoaderWrapper = ({ children }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Simulate a delay for loading (you can replace this with actual API or resource checks)
     const timer = setTimeout(() => {
       setIsLoaded(true);
-    }, 500); // Adjust duration as needed
+    }, 500); 
     return () => clearTimeout(timer);
   }, []);
 

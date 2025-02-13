@@ -4,7 +4,6 @@ import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
 import logo from "../assets/logo.png";
-import Image from "next/image";
 
 const Navigation = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,12 +16,12 @@ const Navigation = () => {
 
   const handleScroll = (id) => {
     if (pathname !== "/") {
-      router.push("/"); // Navigate to homepage first
-      setTimeout(() => scrollToSection(id), 300); // Delay to ensure the page is loaded
+      router.push("/");
+      setTimeout(() => scrollToSection(id), 300);
     } else {
       scrollToSection(id);
     }
-    setMobileMenuOpen(false); // Close mobile menu after clicking
+    setMobileMenuOpen(false);
   };
 
   const scrollToSection = (id) => {
@@ -32,7 +31,6 @@ const Navigation = () => {
     }
   };
 
-  // Auto-scroll when URL has hash (for direct links)
   useEffect(() => {
     const hash = window.location.hash.substring(1);
     if (hash) {
@@ -48,7 +46,7 @@ const Navigation = () => {
           className="cursor-pointer"
           suppressHydrationWarning={true}
         >
-          <img           
+          <img
             src={logo.src}
             className="w-32 h-auto px-3 md:border-r-2 border-gray636 shadow-xl"
             alt="Logo"
@@ -97,8 +95,8 @@ const Navigation = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="bg-black md:hidden">
-          <ul className="flex flex-col items-center space-y-4 text-white py-4">
+        <div className="bg-black md:hidden py-1">
+          <ul className="flex flex-col items-center space-y-4 text-white ">
             <li onClick={() => handleScroll("enroll-checkout")}>ENROLL</li>
             <li onClick={() => handleScroll("drawing-course")}>
               DRAWING COURSE

@@ -9,7 +9,6 @@ import Image from 'next/image';
 const Animation = () => {
   return (
     <motion.div  
-  
       className="relative w-full md:w-99 h-auto bg-cover bg-center md:mb-10 lg:mb-60 xl:mb-20 mt-10 xl:mt-20 lg:w-[93%] 2xl:w-85 mx-auto max-w-[1920px] "
      id='animation-course'
     >

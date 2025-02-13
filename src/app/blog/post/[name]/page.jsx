@@ -1,6 +1,5 @@
 "use client"
 import React, { Suspense, useEffect, useState } from "react";
-import Navigation from "@/components/Navigation";
 import BackgroundImage from "@/assets/background.jpg";
 import Loader from "@/components/Loader";
 import ScrollAnimation from "@/components/utils/ScrollAnimation";
@@ -17,9 +16,6 @@ const BlogDetail = () => {
  
   const params = useParams();
   const friendlyUrl = params.name;
-  // console.log(params)
-  const colors = ["bg-blue-500", "bg-pink-500", "bg-indigo-500"];
-
   const [blogData, setBlogData] = useState(null);
   const [recentblogData, setRecentBlogData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -67,8 +63,6 @@ const BlogDetail = () => {
       className="min-h-screen mx-0 bg-cover bg-center mt-28"
       style={{ backgroundImage: `url(${BackgroundImage.src})`, height:'auto', width:'100%' }}
     >
-      <Navigation />
-
       <div className="container w-[92%] xl:w-[80%] mx-auto lg:p-6 my-18 max-w-[1920px] pt-10 ">
         {/* Main Blog Content */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -163,18 +157,6 @@ const BlogDetail = () => {
           </div>
         </div>
       </div>
-
-      <Suspense fallback={<Loader />}>
-        <ScrollAnimation>
-          <LoaderWrapper>
-            <FAQ />
-          </LoaderWrapper>
-        </ScrollAnimation>
-      </Suspense>
-
-      <LoaderWrapper>
-        <Footer />
-      </LoaderWrapper>
     </div>
   );
 };
