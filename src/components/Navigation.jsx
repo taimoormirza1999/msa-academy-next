@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
-import logo from "../assets/logo.png";
 
 const Navigation = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -47,7 +46,7 @@ const Navigation = () => {
           suppressHydrationWarning={true}
         >
           <img
-            src={logo.src}
+            src={"/logo.png"}
             className="w-32 h-auto px-3 md:border-r-2 border-gray636 shadow-xl"
             alt="Logo"
           />

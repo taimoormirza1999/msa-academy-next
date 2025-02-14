@@ -28,7 +28,7 @@ const fetchRecentBlogs = async (name) => {
 
 // ✅ 2️⃣ Override Metadata Dynamically (Server-Side)
 export async function generateMetadata({ params }) {
-  const blogData = await fetchBlogData(params.name);
+  const blogData = await fetchBlogData(params?.name);
 
   if (!blogData) {
     return {
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }) {
       title: blogData.title,
       description: blogData.metaDescription || "Read this blog on Dipak Sourcing.",
       images: [blogData.coverImage || "/logo.png"],
-      url: `https://msa-club.com/blog/post/${params.name}`,
+      url: `https://msa-club.com/blog/post/${blogData.friendlyUrl}`,
     },
     twitter: {
       card: "summary_large_image",
@@ -56,15 +56,11 @@ export async function generateMetadata({ params }) {
   };
 }
 
-// ✅ 3️⃣ Make BlogDetail a Server Component (NO "use client")
 export default async function BlogDetail({ params }) {
-  const blogData = await fetchBlogData(params.name);
-  const recentBlogs = await fetchRecentBlogs(params.name);
-
-  // ✅ If no blog is found, return Next.js `notFound()` (prevents hydration issues)
+  const blogData = await fetchBlogData(params?.name);
+  const recentBlogs = await fetchRecentBlogs(params?.name);
   if (!blogData) {
     return notFound();
   }
-
   return <BlogClient blogData={blogData} recentblogData={recentBlogs} />;
 }

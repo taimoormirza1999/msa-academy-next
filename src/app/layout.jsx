@@ -1,24 +1,16 @@
 import "./globals.css";
 import "./App.css";
-import Script from 'next/script';
 import localFont from 'next/font/local';
 import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import Image from "next/image";
 import BackgroundImage from "../assets/background.jpg";
 // import FAQ from "@/components/FAQ";
 // import LoaderWrapper from "@/components/utils/LoaderWrapper";
 // import Loader from "@/components/Loader";
 // import ScrollAnimation from "@/components/utils/ScrollAnimation";
-
 import ScriptsLoader from "@/components/ScriptsLoader";
-import { Suspense } from "react";
-import ScrollAnimation from "@/components/utils/ScrollAnimation";
-import LoaderWrapper from "@/components/utils/LoaderWrapper";
-import FAQ from "@/components/FAQ";
-import Loader from "@/components/Loader";
-import { EnrollmentToast } from "@/components/EnrollmentToast";
 import FooterWrapper from "@/components/utils/FooterWrapper";
+import SuppressErrors from "@/components/utils/SuppressErrors";
 
 const CocogooseMedium = localFont({
   src: '../../public/fonts/Cocogoose-Classic-Medium-trial.ttf',
@@ -83,7 +75,14 @@ export const metadata = {
     title: "MSA Academy | Learn Anime & Character Animation",
     description:
       "MSA Academy (formerly My Story Animated) is the ultimate platform for learning anime character design, drawing, and animation. Join our expert-led courses today!",
-    images: ["/logo.png"],
+   images: [
+    {
+      url: "/logo.png",
+      width: 1200,
+      height: 630,
+      alt: "MSA Academy Logo"
+    }
+  ],
     url: "https://msa-academy.com/",
   },
 
@@ -92,7 +91,14 @@ export const metadata = {
     title: "MSA Academy | Master Anime & Character Animation",
     description:
       "Join MSA Academy's industry-leading animation courses and learn anime character design, 3D animation, and more. Start your journey today!",
-    images: ["/logo.png"],
+   images: [
+    {
+      url: "/logo.png",
+      width: 1200,
+      height: 630,
+      alt: "MSA Academy Logo"
+    }
+  ],
   },
 };
 
@@ -112,6 +118,7 @@ export default function RootLayout({ children }) {
             className="absolute inset-0 -z-10"
           />
         <Navigation />
+        <SuppressErrors/>
         {children}
         {/* <Suspense fallback={<Loader />}>
             <ScrollAnimation >
