@@ -5,31 +5,26 @@ import { motion } from "framer-motion";
 import Button from "./utils/Button";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
-
 const Banner = () => {
   const isLargeScreen = useMediaQuery({ minWidth: 768 });
 
   return (
     <motion.div
-    
       initial={isLargeScreen ? { opacity: 0,  y:150 } : { opacity: 0,  y:70 } }
       whileInView={
         isLargeScreen
-          ? {
-              opacity: 1,
-             
+          ? {opacity: 1,
               y:0,
               transition: { duration: 1.8, ease: "easeInOut" },
             }
           : {
             opacity: 1,
-           
             y:0,
             transition: { duration: 1.8, ease: "easeInOut" },
           }
       }
       viewport={isLargeScreen ? { once: true } : {}}
-      whileHover={{ scale: 1.02 }}
+      // whileHover={{ scale: 1.02 }}
       transition={{
         type: "spring",
         stiffness: 300,
