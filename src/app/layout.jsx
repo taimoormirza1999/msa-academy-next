@@ -75,14 +75,7 @@ export const metadata = {
     title: "MSA Academy | Learn Anime & Character Animation",
     description:
       "MSA Academy (formerly My Story Animated) is the ultimate platform for learning anime character design, drawing, and animation. Join our expert-led courses today!",
-   images: [
-    {
-      url: "/logo.png",
-      width: 1200,
-      height: 630,
-      alt: "MSA Academy Logo"
-    }
-  ],
+   images:  "https://msa-club.com/logo.png",
     url: "https://msa-academy.com/",
   },
 
@@ -93,7 +86,7 @@ export const metadata = {
       "Join MSA Academy's industry-leading animation courses and learn anime character design, 3D animation, and more. Start your journey today!",
    images: [
     {
-      url: "/logo.png",
+      url: "https://msa-club.com/logo.png",
       width: 1200,
       height: 630,
       alt: "MSA Academy Logo"
