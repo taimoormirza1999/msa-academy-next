@@ -99,8 +99,13 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" suppressHydrationWarning={true} className={`${CocogooseMedium.variable} ${CocogooseExtraBold.variable} ${ImpactCustom.variable} ${KozGoPr6NRegular.variable} ${FranklinGothicMedium.variable}`}>
-      <body >
+     <head>
    <ScriptsLoader/>
+     </head>
+      <body >
+                  {/* NoScript Fallback for GTM */}
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSX74F6L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        <div className="mx-0 relative bg-cover bg-center">
           <Image
             src={BackgroundImage}
