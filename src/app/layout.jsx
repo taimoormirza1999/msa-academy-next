@@ -1,17 +1,24 @@
-"use client"
 import "./globals.css";
 import "./App.css";
 import Script from 'next/script';
-import { Suspense, useEffect, useState } from 'react';
 import localFont from 'next/font/local';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import BackgroundImage from "../assets/background.jpg";
-import FAQ from "@/components/FAQ";
-import LoaderWrapper from "@/components/utils/LoaderWrapper";
-import Loader from "@/components/Loader";
+// import FAQ from "@/components/FAQ";
+// import LoaderWrapper from "@/components/utils/LoaderWrapper";
+// import Loader from "@/components/Loader";
+// import ScrollAnimation from "@/components/utils/ScrollAnimation";
+
+import ScriptsLoader from "@/components/ScriptsLoader";
+import { Suspense } from "react";
 import ScrollAnimation from "@/components/utils/ScrollAnimation";
+import LoaderWrapper from "@/components/utils/LoaderWrapper";
+import FAQ from "@/components/FAQ";
+import Loader from "@/components/Loader";
+import { EnrollmentToast } from "@/components/EnrollmentToast";
+import FooterWrapper from "@/components/utils/FooterWrapper";
 
 const CocogooseMedium = localFont({
   src: '../../public/fonts/Cocogoose-Classic-Medium-trial.ttf',
@@ -48,44 +55,53 @@ const FranklinGothicMedium = localFont({
   variable: '--font-franklin',
 });
 
+export const metadata = {
+  title: "MSA Academy | Best Character Animation & Drawing Courses",
+  description:
+    "Learn character animation and drawing with MSA Academy. Master Blender, After Effects, and 3D animation through expert-led courses. Join now for free resources and certification!",
+  keywords: [
+    "animation character course",
+    "character animation course Blender",
+    "character animation course After Effects",
+    "cartoon character course",
+    "animation character design course",
+    "3D character animation course",
+    "animation courses online",
+    "animation courses in Dubai",
+    "animation character drawing",
+    "best online animation courses",
+    "free online animation courses with certificates",
+    "anime character drawing course",
+    "anime animation course",
+    "MSA Academy animation course",
+    "MSA My Story Animated",
+    "animation course for beginners",
+    "animation jobs in Dubai",
+  ].join(", "), 
+
+  openGraph: {
+    title: "MSA Academy | Learn Anime & Character Animation",
+    description:
+      "MSA Academy (formerly My Story Animated) is the ultimate platform for learning anime character design, drawing, and animation. Join our expert-led courses today!",
+    images: ["/logo.png"],
+    url: "https://msa-academy.com/",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "MSA Academy | Master Anime & Character Animation",
+    description:
+      "Join MSA Academy's industry-leading animation courses and learn anime character design, 3D animation, and more. Start your journey today!",
+    images: ["/logo.png"],
+  },
+};
+
 export default function RootLayout({ children }) {
-  const [loadScripts, setLoadScripts] = useState(false);
 
   return (
     <html lang="en" suppressHydrationWarning={true} className={`${CocogooseMedium.variable} ${CocogooseExtraBold.variable} ${ImpactCustom.variable} ${KozGoPr6NRegular.variable} ${FranklinGothicMedium.variable}`}>
-      <body className={`antialiased`}>
-      {loadScripts && (
-        <>
-          <Script
-            id="gtm-head"
-            src="https://www.googletagmanager.com/gtm.js?id=GTM-KSX74F6L"
-            strategy="afterInteractive"
-          />
-          <Script
-            id="hotjar-script"
-            src="https://static.hotjar.com/c/hotjar-5271325.js"
-            strategy="lazyOnload"
-          />
-          <Script
-            id="pinterest-tag"
-            src="https://s.pinimg.com/ct/core.js"
-            strategy="afterInteractive"
-          />
-          <Script
-            id="stripe-script"
-            src="https://js.stripe.com/v3/"
-            strategy="lazyOnload"
-          />
-          <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-KSX74F6L"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          ></iframe>
-        </noscript>
-        </>
-      )}
+      <body >
+   <ScriptsLoader/>
        <div className="mx-0 relative bg-cover bg-center">
           <Image
             src={BackgroundImage}
@@ -97,7 +113,21 @@ export default function RootLayout({ children }) {
           />
         <Navigation />
         {children}
-        <Footer />
+        {/* <Suspense fallback={<Loader />}>
+            <ScrollAnimation >
+              <LoaderWrapper>
+                <FAQ />
+              </LoaderWrapper>
+            </ScrollAnimation>
+          </Suspense> */}
+          {/* <Suspense fallback={<Loader />}>
+          <EnrollmentToast  name="Abhay"
+          courseName="Chracter Animation Design Course"
+          timestamp="About 17 hours ago"
+          onDismiss={() => setShowToast(false)}
+          duration={5000}/>
+          </Suspense> */}
+        <FooterWrapper />
         </div>
       </body>
     </html>

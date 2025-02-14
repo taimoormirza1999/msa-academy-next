@@ -96,7 +96,7 @@ const SignupForm = React.memo(() => {
   );
 
   return showPopup ? (
-    <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
+    <div className="fixed inset-0 bg-black/90 bg-opacity-80 flex justify-center items-center z-50">
       <div className="w-[90%] lg:w-full bg-[#111] rounded-lg max-w-md shadow-2xl shadow-pink200/30 lg:shadow-pink200/20">
         <Image
           height={500}

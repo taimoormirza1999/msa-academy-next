@@ -55,7 +55,7 @@ const MSALearningSection = () => {
   return (
     <section className="py-16 md:pb-8 md:pt-5">
       <div className="container mx-auto px-4 ">
-        <modiv
+        <div
           // initial="hidden"
           // animate="visible"
           // variants={containerVariants}
@@ -180,7 +180,7 @@ const MSALearningSection = () => {
               </div>
             </div>
           </motion.div>
-        </modiv>
+        </div>
       </div>
     </section>
   );

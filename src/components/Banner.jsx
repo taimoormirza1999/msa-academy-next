@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import BannerImage from "../assets/hero_banner.png";
 import msaText from "../assets/msa_text.png";

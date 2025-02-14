@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { IoMdClose } from "react-icons/io";
 
-export function EnrollmentToast({ name, courseName, timestamp, onDismiss, duration = 10000 }) {
+export function EnrollmentToast({ name, courseName, timestamp, onDismiss, duration }) {
   const [isVisible, setIsVisible] = useState(true)
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export function EnrollmentToast({ name, courseName, timestamp, onDismiss, durati
           transition={{ type: "spring", stiffness: 400, damping: 25 }}
           className="fixed bottom-4 lg:left-4 w-[80%] lg:w-[350px] bg-white/[22%] border-[0.7px] border-white/[42%] z-20  backdrop-blur-sm rounded-[1.5rem] shadow-lg overflow-hidden"
         >
-          <div className="p-4 pr-10">
+          <div className="p-2 lg:p-3 pr-2 lg:pr-5">
             <button
               onClick={() => {
                 setIsVisible(false)

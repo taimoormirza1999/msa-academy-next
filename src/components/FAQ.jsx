@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import faqHeading from "../assets/freq_heading.png";
 import Image from "next/image";

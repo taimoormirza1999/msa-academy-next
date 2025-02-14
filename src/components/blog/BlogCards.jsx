@@ -94,11 +94,11 @@ function MultipleItems() {
         <motion.div initial={{opacity:0,scale:0.95}}  whileInView={{ opacity: 1, scale:1 }} transition={{duration:1.6}} className="slider-container mb-10 md:mt-32 lg:-mb-14 mt-10 lg:mt-48 w-[95%] lg:w-[85%] mx-auto ">
         <Slider {...settings} className="rounded">
           {blogData?.map((blogItem, key) => (
-            <motion.div initial={{ opacity: 0, y: 50 }}
+            <motion.div  key={key} initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay:0.2*key }}>
 
-            <BlogCard blogItem={blogItem} key={key} />
+            <BlogCard blogItem={blogItem} />
             </motion.div>
           ))}
         </Slider>
