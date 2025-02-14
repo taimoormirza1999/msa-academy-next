@@ -1,5 +1,5 @@
-import React from 'react';
 
+import React from 'react';
 const Loader = () => {
   return (
     <div className="flex items-center justify-center min-h-screen rounded-circle z-1000">

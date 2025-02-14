@@ -1,8 +1,4 @@
 "use client"
-import Navigation from '@/components/Navigation';
-import React from 'react';
-import BackgroundImage from "@/assets/background.jpg";
-
 const PrivacyPolicy = () => {
   return (
 <div className='lg:pt-20'>

@@ -7,10 +7,12 @@ import SignupForm from "../components/SignupForm";
 import ScrollAnimation from "../components/utils/ScrollAnimation";
 import LoaderWrapper from "../components/utils/LoaderWrapper";
 import MarqueeWrapper2 from "../components/MarqueeWrapper2";
+import dynamic from "next/dynamic";
 
 import BlogCards from "../components/blog/BlogCards";
 // import Image from "next/image";
-const Banner = lazy(() => import("../components/Banner"));
+// const Banner = lazy(() => import("../components/Banner"));
+const Banner = dynamic(() => import("../components/Banner"), { ssr: false });
 const EnrollmentBanner = lazy(() => import("../components/EnrollmentBanner"));
 const YourPath = lazy(() => import("../components/YourPath"));
 const Animation = lazy(() => import("../components/Animation"));
@@ -133,13 +135,7 @@ const Home = () => {
             </ScrollAnimation>
           </Suspense>
           <BlogCards />
-          <Suspense fallback={<Loader />}>
-            <ScrollAnimation variants={fadeIn}>
-              <LoaderWrapper>
-                <FAQ />
-              </LoaderWrapper>
-            </ScrollAnimation>
-          </Suspense>
+         
           {showForm && <SignupForm />}
         </>
       )}

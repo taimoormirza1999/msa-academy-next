@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import BannerImage from "../assets/hero_banner.png";
 import msaText from "../assets/msa_text.png";
@@ -8,7 +9,6 @@ import { useMediaQuery } from "react-responsive";
 
 const Banner = () => {
   const isLargeScreen = useMediaQuery({ minWidth: 768 });
-
   return (
     <motion.div
     
@@ -29,7 +29,7 @@ const Banner = () => {
           }
       }
       viewport={isLargeScreen ? { once: true } : {}}
-      whileHover={{ scale: 1.02 }}
+      // whileHover={{ scale: 1.02 }}
       transition={{
         type: "spring",
         stiffness: 300,
