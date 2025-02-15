@@ -48,6 +48,7 @@ const FranklinGothicMedium = localFont({
 });
 
 export const metadata = {
+  manifest: 'https://msa-club.com/manifest.json',
   title: "Animation Character Design Course	|	Master Chracter Creation | MSA Club",
   description:
     "Learn character animation and drawing with MSA Academy. Master Blender, After Effects, and 3D animation through expert-led courses. Join now for free resources and certification!",
