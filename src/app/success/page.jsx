@@ -1,15 +1,12 @@
 import Navigation from '@/components/Navigation';
 import React from 'react';
-import BackgroundImage from "@/assets/background.jpg";
 const SubscriptionSuccess = () => {
   return (
     <div
-      className="min-h-screen mx-0 bg-cover bg-center  flex items-center justify-center"
-      style={{ backgroundImage: `url(${BackgroundImage.src})`, height:'auto', width:'100%' }}
+      className="pt-52 mx-0 bg-cover bg-center  flex items-center justify-center"
     >
-      <Navigation />
     <div className=" flex items-center justify-center">
-      <div className="relative w-full max-w-2xl p-14 py-10 bg-black/30  rounded-[2rem] border-2  border-pink200 shadow-pink200/35 hover:shadow-pink200/75' shadow-lg transform scale-95 hover:scale-100 transition-all duration-300 ease-in-out">
+      <div className="relative w-full max-w-3xl p-14 py-10 bg-gradient-to-tr  from-black/[10%] to-purple/10  rounded-[2rem] border-2  border-pink200 shadow-pink200/35 hover:shadow-pink200/75' shadow-lg transform scale-95 hover:scale-100 transition-all duration-300 ease-in-out">
         {/* Floating Circles */}
         <div className="absolute top-5 left-5 w-32 h-32 bg-pink200/70 rounded-full animate-pulse opacity-20 blur-lg"></div>
         <div className="absolute bottom-5 right-10 w-32 h-32 bg-pink200/70 rounded-full animate-pulse opacity-20 blur-lg"></div>
@@ -74,7 +71,7 @@ const SubscriptionSuccess = () => {
         </div>
       </div>
     </div>
-    </div>
+     </div>
   );
 };
 

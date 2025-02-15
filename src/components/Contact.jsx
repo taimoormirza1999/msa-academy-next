@@ -30,13 +30,17 @@ function Contact() {
           className="flex flex-row items-center gap-4 lg:gap-3 lg:mx-3"
           suppressHydrationWarning={true}
         >
-          <img
+          <Image
             src={HerogramLogo.src}
+            height={80}
+            width={80}
             alt="Character Foo"
             className="w-14 lg:w-16 h-auto "
           />
-          <img
+          <Image
             src={logoogdgirl.src}
+            height={80}
+            width={80}
             alt="Character Foo"
             className="w-16 lg:w-16 lg:h-16 md:ml-2"
           />

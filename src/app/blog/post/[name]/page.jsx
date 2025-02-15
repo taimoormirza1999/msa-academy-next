@@ -1,7 +1,6 @@
 import BlogClient from "@/components/blog/BlogClient";
 import axios from "axios";
 import { notFound } from "next/navigation";
-// ✅ 1️⃣ Move API calls to the server for better SEO & performance
 const fetchBlogData = async (name) => {
   try {
     const response = await axios.get(

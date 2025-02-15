@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
+import Image from "next/image";
 
 const Navigation = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -45,7 +46,9 @@ const Navigation = () => {
           className="cursor-pointer"
           suppressHydrationWarning={true}
         >
-          <img
+          <Image
+          height={80}
+          width={80}
             src={"/logo.png"}
             className="w-32 h-auto px-3 md:border-r-2 border-gray636 shadow-xl"
             alt="Logo"

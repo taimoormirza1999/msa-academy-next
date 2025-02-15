@@ -2,6 +2,7 @@ import React from "react";
 import YourPathImage from "../assets/path_banner.png"; // Replace with your actual image path
 import BannerTextHeading from "./utils/BannerTextHeading";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const YourPath = () => {
   return (
@@ -14,7 +15,7 @@ const YourPath = () => {
       className="relative w-full h-auto bg-cover bg-center mt-16 mb-10 md:mt-20 md:mb-10 lg:mt-16 mx-auto md:w-99 lg:w-[93%] 2xl:w-85 max-w-[1920px] "
     >
       <div className="relative w-full h-auto lg:w-full lg:ml-1.5" suppressHydrationWarning={true}>
-        <img
+        <Image
           height={1080}
           width={1920}
           src={YourPathImage.src}

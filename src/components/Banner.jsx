@@ -1,6 +1,5 @@
-"use client"
+"use client";
 import React from "react";
-// import BannerImage from "/hero_banner.png";
 import msaText from "../assets/msa_text.png";
 import { motion } from "framer-motion";
 import Button from "./utils/Button";
@@ -11,18 +10,19 @@ const Banner = () => {
 
   return (
     <motion.div
-      initial={isLargeScreen ? { opacity: 0,  y:150 } : { opacity: 0,  y:70 } }
+      initial={isLargeScreen ? { opacity: 0, y: 150 } : { opacity: 0, y: 70 }}
       whileInView={
         isLargeScreen
-          ? {opacity: 1,
-              y:0,
+          ? {
+              opacity: 1,
+              y: 0,
               transition: { duration: 1.8, ease: "easeInOut" },
             }
           : {
-            opacity: 1,
-            y:0,
-            transition: { duration: 1.8, ease: "easeInOut" },
-          }
+              opacity: 1,
+              y: 0,
+              transition: { duration: 1.8, ease: "easeInOut" },
+            }
       }
       viewport={isLargeScreen ? { once: true } : {}}
       // whileHover={{ scale: 1.02 }}
@@ -35,15 +35,22 @@ const Banner = () => {
       className="relative w-full 2xl:w-85 h-auto mt-16 md:mt-20 lg:mt-24  mx-auto md:w-90 lg:w-90 xl:w-[93%] max-w-[1920px] mb-7 md:mb-10 lg:mb-20 xl:mb-0  pb-10 pt-16 lg:pb-16 "
     >
       {/* Parallax Background Image */}
-      {/* <motion.span > */}
-      <img
-        layout="responsive"
-        alt="Banner"
-        src={"/hero_banner.png"}
-        className=" w-full mx-auto lg:w-90 2xl:w-93  h-[44vh] sm:h-[60vh] lg:h-auto object-cover object-[25%_30%] rounded-lg scale-105 banner_img"
-      />
-      {/* </motion.span> */}
-
+      {isLargeScreen ? (
+        <Image
+          height={1080}
+          width={1920}
+          layout="responsive"
+          alt="Banner"
+          src={"/hero_banner.png"}
+          className=" w-full mx-auto lg:w-90 2xl:w-93  h-[44vh] sm:h-[60vh] lg:h-auto object-cover object-[25%_30%] rounded-lg scale-105 banner_img"
+        />
+      ) : (
+        <img
+          alt="Banner"
+          src={"/hero_banner.png"}
+          className=" w-full mx-auto lg:w-90 2xl:w-93  h-[44vh] sm:h-[60vh] lg:h-auto object-cover object-[25%_30%] rounded-lg scale-105 banner_img"
+        />
+      )}
       {/* Parallax Foreground Content */}
       <motion.div
         className="absolute bottom-10 md:right-16 lg:right-28 md:left-auto left-0 right-0 z-10 mx-auto w-max"
