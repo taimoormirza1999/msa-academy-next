@@ -4,10 +4,6 @@ import localFont from 'next/font/local';
 import Navigation from "@/components/Navigation";
 import Image from "next/image";
 import BackgroundImage from "../assets/background.jpg";
-// import FAQ from "@/components/FAQ";
-// import LoaderWrapper from "@/components/utils/LoaderWrapper";
-// import Loader from "@/components/Loader";
-// import ScrollAnimation from "@/components/utils/ScrollAnimation";
 import ScriptsLoader from "@/components/ScriptsLoader";
 import FooterWrapper from "@/components/utils/FooterWrapper";
 import SuppressErrors from "@/components/utils/SuppressErrors";
@@ -138,9 +134,14 @@ export default function RootLayout({ children }) {
    <ScriptsLoader/>
      </head>
       <body >
-                  {/* NoScript Fallback for GTM */}
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSX74F6L"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      {/* NoScript Fallback for GTM */}
+      <noscript>
+  <iframe 
+    height="0" 
+    width="0" 
+    style={{ display: "none", visibility: "hidden" }}
+  ></iframe>
+</noscript>
        <div className="mx-0 relative bg-cover bg-center">
           <Image
             src={BackgroundImage}
@@ -153,20 +154,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <Navigation />
         <SuppressErrors/>
         {children}
-        {/* <Suspense fallback={<Loader />}>
-            <ScrollAnimation >
-              <LoaderWrapper>
-                <FAQ />
-              </LoaderWrapper>
-            </ScrollAnimation>
-          </Suspense> */}
-          {/* <Suspense fallback={<Loader />}>
-          <EnrollmentToast  name="Abhay"
-          courseName="Chracter Animation Design Course"
-          timestamp="About 17 hours ago"
-          onDismiss={() => setShowToast(false)}
-          duration={5000}/>
-          </Suspense> */}
         <FooterWrapper />
         </div>
       </body>
