@@ -9,7 +9,7 @@ export default function BlogCard({ blogItem }) {
   return (
     <div className="relative text-white m-1 md:mx-2 lg:m-2 px-[10px] py-[15px] lg:py-[20px] border-1 border-white/[21%] bg-white/[9%] rounded-[3rem] lg:rounded-[30px] z-20 overflow-hidden border ">
 
-      <Link
+      <a
         href={`/blog/post/${blogItem.friendlyUrl}`}
         className="cursor-pointer lg:relative w-full max-w-full  "
       >
@@ -37,7 +37,7 @@ export default function BlogCard({ blogItem }) {
             </div>
           </div>
         
-      </Link>
+      </a>
     </div>
   );
 }

@@ -48,7 +48,7 @@ const FranklinGothicMedium = localFont({
 });
 
 export const metadata = {
-  title: "MSA Academy | Best Character Animation & Drawing Courses",
+  title: "Animation Character Design Course	|	Master Chracter Creation | MSA Club",
   description:
     "Learn character animation and drawing with MSA Academy. Master Blender, After Effects, and 3D animation through expert-led courses. Join now for free resources and certification!",
   keywords: [
@@ -70,12 +70,46 @@ export const metadata = {
     "animation course for beginners",
     "animation jobs in Dubai",
   ].join(", "), 
-
+  generator:"MSA-Club.com",
+  applicationName:"MSA-Club.com",
+  referrer: 'origin-when-cross-origin',
+  creator: 'Taimoor Hamza',
+  publisher:'Artoul',
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: "MSA Academy | Learn Anime & Character Animation",
+      siteName:"MSA-Club.com",
+      locale: 'en_US',
+      type: 'website',
+    title: "Animation Character Design Course	|	Master Chracter Creation | MSA Club",
     description:
-      "MSA Academy (formerly My Story Animated) is the ultimate platform for learning anime character design, drawing, and animation. Join our expert-led courses today!",
-   images:  "https://msa-club.com/logo.png",
+      "Transform your	artistic skills	with our comprehensive Animation Character Design	Course. Learn	from industry	experts	and	bring	your characters	to life. Enroll now!",
+   images: [
+    {
+      url: 'https://msa-club.com/logo.png', 
+      width: 800,
+      height: 600,
+      alt: 'MSA Club Logo Image',
+    },
+    {
+      url: 'https://msa-club.com/hero_banner.png',
+      width: 1800,
+      height: 1600,
+      alt: 'MSA Club Logo Image',
+    },
+  ],
+  authors: ['Taimoor Hamza',],
     url: "https://msa-academy.com/",
   },
 
@@ -86,7 +120,7 @@ export const metadata = {
       "Join MSA Academy's industry-leading animation courses and learn anime character design, 3D animation, and more. Start your journey today!",
    images: [
     {
-      url: "https://msa-club.com/logo.png",
+      url: "https://msa-club.com/hero_banner.png",
       width: 1200,
       height: 630,
       alt: "MSA Academy Logo"

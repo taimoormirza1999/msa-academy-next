@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import BannerImage from "../assets/hero_banner.png";
+// import BannerImage from "/hero_banner.png";
 import msaText from "../assets/msa_text.png";
 import { motion } from "framer-motion";
 import Button from "./utils/Button";
@@ -39,7 +39,7 @@ const Banner = () => {
       <img
         layout="responsive"
         alt="Banner"
-        src={BannerImage.src}
+        src={"/hero_banner.png"}
         className=" w-full mx-auto lg:w-90 2xl:w-93  h-[44vh] sm:h-[60vh] lg:h-auto object-cover object-[25%_30%] rounded-lg scale-105 banner_img"
       />
       {/* </motion.span> */}

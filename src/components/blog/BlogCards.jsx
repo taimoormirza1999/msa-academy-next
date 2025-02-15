@@ -32,7 +32,7 @@ function MultipleItems() {
   const [blogData, setBlogData] = useState(null);
 
   const fetchBlogs = async () => {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs`);
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs?limit=8`);
     setBlogData(response.data);
   };
 
@@ -49,6 +49,9 @@ function MultipleItems() {
     slidesToScroll: 4,
     autoplay: true,
     speed: 800,
+    draggable: true,
+    lazyLoad: true,
+    centerMode: true,
     cssEase: "linear",
     pauseOnHover: true,
     responsive: [
@@ -79,7 +82,7 @@ function MultipleItems() {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 500,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -93,7 +96,7 @@ function MultipleItems() {
       blogData?(
         <motion.div initial={{opacity:0,scale:0.95}}  whileInView={{ opacity: 1, scale:1 }} transition={{duration:1.6}} className="slider-container mb-10 md:mt-32 lg:-mb-14 mt-10 lg:mt-48 w-[95%] lg:w-[85%] mx-auto ">
         <Slider {...settings} className="rounded">
-          {blogData?.slice().reverse().map((blogItem, key) => (
+          {blogData?.map((blogItem, key) => (
             <motion.div  key={key} initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay:0.2*key }}>

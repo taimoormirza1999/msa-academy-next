@@ -1,0 +1,21 @@
+{
+    "name": "MSA-Club.com",
+  "short_name": "MSA-Club",
+    "icons": [
+      {
+        "src": "/favicon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/favicon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#ff00ff",
+    "background_color": "#000"
+  }
+  

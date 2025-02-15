@@ -46,7 +46,7 @@ export function EnrollmentToast({ name, courseName, timestamp, onDismiss, durati
                   <span className="font-medium">{name}</span> enrolled in the course
                 </p>
                 <p className="text-white font-medium mt-0.5">'{courseName}'</p>
-                <p className="text-gray-300 text-sm mt-1 font-sans font-semibold">{timestamp}</p>
+                <p className="text-gray-300 text-xs mt-1 font-sans font-semibold">{timestamp}</p>
               </div>
             </div>
           </div>

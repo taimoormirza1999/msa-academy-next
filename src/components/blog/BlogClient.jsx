@@ -2,6 +2,7 @@
 import DOMPurify from "dompurify";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 
 const BlogClient = ({ blogData, recentblogData }) => {
   if (!blogData) {
@@ -14,7 +15,39 @@ const BlogClient = ({ blogData, recentblogData }) => {
       </div>
     );
   }
+   // ADDED: Prepare JSON-LD for Article Schema
+   const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": blogData.metaTitle,
+    "datePublished": blogData.postedDate,
+    "image": blogData.coverImage,
+    "author": {
+      "@type": "Person",
+      "name": "Taimoor Hamza"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MSA Club ", 
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://msa-club.com/logo.png" 
+      }
+    },
+    "description": blogData.metaDescription || "",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://msa-club.com/blog/post/${blogData.friendlyUrl}` 
+    }
+  };
   return (
+    <>
+     <Script
+        id="article-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
     <div
       className="min-h-screen mx-0 bg-cover bg-center mt-28"
       // style={{ backgroundImage: `url(${BackgroundImage.src})`, height:'auto', width:'100%' }}
@@ -77,8 +110,8 @@ const BlogClient = ({ blogData, recentblogData }) => {
             </h2>{" "}
             <ul className="space-y-4">
               {" "}
-              {recentblogData?.reverse().map((recentblogItem, index) => (
-                <Link
+              {recentblogData?.map((recentblogItem, index) => (
+                <a
                   href={`/blog/post/${recentblogItem.friendlyUrl}`}
                   key={index}
                   className="flex items-center space-x-4 shadow-xl  hover:scale-[1.03] transition-transform duration-300 shadow-pink200/25 rounded-[13px] p-2.5 mb-5 border-[1px] border-white/50"
@@ -110,13 +143,14 @@ const BlogClient = ({ blogData, recentblogData }) => {
                       )}
                     </div>
                   </button>{" "}
-                </Link>
+                </a>
               ))}{" "}
             </ul>
           </div>
         </div>
       </div>
     </div>
+    </>
   );
 };
 
