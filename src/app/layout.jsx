@@ -45,7 +45,7 @@ const FranklinGothicMedium = localFont({
 
 export const metadata = {
   manifest: 'https://msa-club.com/manifest.json',
-  title: "Animation Character Design Course	|	Master Chracter Creation | MSA Club",
+  title: "Animation Character Design Course | Master Chracter Creation | MSA Club",
   description:
     "Learn character animation and drawing with MSA Academy. Master Blender, After Effects, and 3D animation through expert-led courses. Join now for free resources and certification!",
   keywords: [
@@ -89,9 +89,9 @@ export const metadata = {
       siteName:"MSA-Club.com",
       locale: 'en_US',
       type: 'website',
-    title: "Animation Character Design Course	|	Master Chracter Creation | MSA Club",
+    title: "Animation Character Design Course | Master Chracter Creation | MSA Club",
     description:
-      "Transform your	artistic skills	with our comprehensive Animation Character Design	Course. Learn	from industry	experts	and	bring	your characters	to life. Enroll now!",
+      "Transform your artistic skills with our comprehensive Animation Character Design	Course. Learn from industry experts and bring your characters to life. Enroll now!",
    images: [
     {
       url: 'https://msa-club.com/logo.png', 

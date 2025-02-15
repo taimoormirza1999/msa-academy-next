@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 const stripePromise = loadStripe(
   "pk_live_51MKOWOClZeY3V6PeILqmhyHFCw3LsPj0DIix9slFGovMEJkYFt0YoAayUWmfqDzB8O6MRY9nQjSpOZmrHkwevvpC00UhPik0o4"
@@ -7,6 +8,7 @@ import { motion } from "framer-motion"
 
 const Checkout = ({ showModal, setShowModal }) => {
   // const [showModal, setShowModal] = useState(false);
+  const [loadScript, setLoadScript] = useState(false);
 
   const packages = [
     {
@@ -83,6 +85,13 @@ const Checkout = ({ showModal, setShowModal }) => {
       className="flex flex-col items-center mt-[64.5px] mb-[40.5px] md:mt-24 md:mb-16  lg:mb-0 lg:mt-[87.5px] justify-center w-85 md:w-90 mx-auto lg:w-1/2 2x:w-[75%]  max-w-[1920px]"
       id="enroll-checkout"
     >
+       {loadScript && (
+         <Script
+         id="stripe-script"
+         src="https://js.stripe.com/v3/"
+         strategy="lazyOnload"
+       />
+      )}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
           <div className="relative w-11/12 md:w-1/3 bg-gradient-to-br from-[#7f7fff78]  to-[#ff00ff96] border shadow-lg shadow-pink200 border-pink200 p-6 rounded-3xl shadow-2xl">

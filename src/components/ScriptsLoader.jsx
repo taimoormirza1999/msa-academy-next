@@ -31,20 +31,7 @@ const ScriptsLoader = () => {
             src="https://static.hotjar.com/c/hotjar-5271325.js"
             strategy="lazyOnload"
           />
-          
-          {/* Pinterest Tag */}
-          <Script
-            id="pinterest-tag"
-            src="https://s.pinimg.com/ct/core.js"
-            strategy="afterInteractive"
-          />
-          
-          {/* Stripe JS */}
-          <Script
-            id="stripe-script"
-            src="https://js.stripe.com/v3/"
-            strategy="lazyOnload"
-          />
+             
         </>
       )}
     </>

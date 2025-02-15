@@ -45,7 +45,7 @@ function MultipleItems() {
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
     infinite: true,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 4,
     autoplay: true,
     speed: 800,
@@ -55,6 +55,15 @@ function MultipleItems() {
     cssEase: "linear",
     pauseOnHover: true,
     responsive: [
+      {
+        breakpoint: 1920,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          infinite: true,
+        
+        },
+      },
       {
         breakpoint: 1024,
         settings: {
