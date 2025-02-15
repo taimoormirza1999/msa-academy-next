@@ -46,9 +46,7 @@ const Navigation = () => {
           className="cursor-pointer"
           suppressHydrationWarning={true}
         >
-          <Image
-          height={80}
-          width={80}
+          <img
             src={"/logo.png"}
             className="w-32 h-auto px-3 md:border-r-2 border-gray636 shadow-xl"
             alt="Logo"
