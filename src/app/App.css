@@ -251,7 +251,7 @@
   
   .blog_description td a {
     color:#ff00ff;
-    text-decoration: none;
+    text-decoration: underline;
   }
   
   .blog_description td a:hover {
@@ -274,7 +274,7 @@
   }
   
   .blog_description h3 {
-    font-size: 1.75rem;
+    font-size: 1.55rem;
   
   }
   

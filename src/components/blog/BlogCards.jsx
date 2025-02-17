@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BlogCard from "../ui/BlogCard";
-import axios from "axios";
 import { motion } from 'framer-motion';
 
 const CustomNextArrow = ({ onClick }) => (
@@ -32,8 +31,18 @@ function MultipleItems() {
   const [blogData, setBlogData] = useState(null);
 
   const fetchBlogs = async () => {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs?limit=8`);
-    setBlogData(response.data);
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs?limit=8`);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      setBlogData(data);
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+    }
   };
 
   useEffect(() => {

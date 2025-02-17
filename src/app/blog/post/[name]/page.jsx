@@ -1,29 +1,32 @@
 import BlogClient from "@/components/blog/BlogClient";
-import axios from "axios";
 import { notFound } from "next/navigation";
 const fetchBlogData = async (name) => {
   try {
-    const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs/post/${name}`
-    );
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching blog:", error);
-    return null;
+  const response = await fetch(`${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs/post/${name}`);
+      
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
   }
+  
+  const data = await response.json();
+  return data
+} catch (error) {
+  console.error("Error fetching blogs:", error);
+  return null;
+}
 };
 
 const fetchRecentBlogs = async (name) => {
   try {
-    const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs/recent-blogs?limit=5`
-    );
-    return response.data.filter((blog) => blog.friendlyUrl !== name);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs/recent-blogs?limit=5`)
+    const data = await response.json();
+    return data.filter((blog) => blog.friendlyUrl !== name);
   } catch (error) {
     console.error("Error fetching recent blogs:", error);
     return [];
   }
 };
+
 
 // ✅ 2️⃣ Override Metadata Dynamically (Server-Side)
 export async function generateMetadata({ params }) {
