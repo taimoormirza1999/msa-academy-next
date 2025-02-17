@@ -1,18 +1,10 @@
 "use client"
-import Navigation from '@/components/Navigation';
 import React from 'react';
-import BackgroundImage from "@/assets/background.jpg";
-import Footer from '@/components/Footer';
-import FAQ from '@/components/FAQ';
+
 const PrivacyPolicy = () => {
   return (
-    <div
-      className=" mx-0 bg-cover bg-center  flex  justify-center"
-      style={{ backgroundImage: `url(${BackgroundImage.src})`, height:'auto', width:'100%' }}
-    >
-    <div >
-    <Navigation />
-      <div className="w-90 max-w-5xl font-medium-fgm bg-black/25 border-2 border-pink200 bg-opacity-90 p-6 lg:p-8 rounded-2xl shadow-lg  mt-28 lg:mt-40 mx-auto  mb-5 lg:-mb-16">
+<div className='lg:pt-20'>
+      <div className=" w-90 max-w-5xl font-medium-fgm border-white/[21%] bg-white/[9%] border-2 border-pink200 bg-opacity-90 p-6 lg:p-8 rounded-2xl shadow-lg shadow-pink200/30  mt-28 mx-auto  mb-5  ">
         <h1 className="text-2xl font-bold text-white mb-4">Privacy Policy</h1>
         <p className="text-gray-50">
           This Privacy Statement explains our practices, including your choices, regarding the collection, security, and use of your personal information in connection with the MSA-Academy service.
@@ -55,11 +47,7 @@ const PrivacyPolicy = () => {
           <li>Deleting the app does not cancel your subscription.</li>
         </ul>
       </div>
-      <FAQ/>
-<Footer/>
-    </div>
-    </div>
- 
+</div>
   );
 };
 

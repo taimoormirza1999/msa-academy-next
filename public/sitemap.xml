@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created by Taimoor Hamza https://taimoor-hamza-fullstack-developer.vercel.app/ -->
+
+
+<url>
+  <loc>https://msa-club.com/</loc>
+  <lastmod>2025-02-15T09:26:13+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://msa-club.com/privacy-policy</loc>
+  <lastmod>2025-02-15T09:26:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<!-- Blog Posts -->
+<url>
+  <loc>https://msa-club.com/blog/post/learn-drawing-animation-beginners-guide</loc>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://msa-club.com/blog/post/from-sketch-to-screen-anime-character-creation</loc>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://msa-club.com/blog/post/unleashing-imagination-how-msa-transforms-ordinary-artists-into-anime-storytellers</loc>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://msa-club.com/blog/post/the-art-of-breathing-life-crafting-memorable-anime-characters-from-scratch</loc>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://msa-club.com/blog/post/beyond-drawings-the-emotional-science-of-character-design-in-anime-focused-keyword-emotional-aspe</loc>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://msa-club.com/blog/post/top-5-animation-character-makers-for-beginners-2025</loc>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://msa-club.com/blog/post/10-tips-for-designing-memorable-animation-characters-2025</loc>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://msa-club.com/blog/post/why-dubai-is-becoming-a-hub-for-animation-careers-2025</loc>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://msa-club.com/blog/post/top-10-animation-movies-to-watch-in-2024-for-inspiration</loc>
+  <priority>0.80</priority>
+</url>
+
+</urlset>

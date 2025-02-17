@@ -1,6 +1,8 @@
+"use client"
 import React, { useState } from "react";
 import faqHeading from "../assets/freq_heading.png";
 import Image from "next/image";
+import { motion } from "framer-motion"
 
 function FAQ() {
   const faqs = [
@@ -37,9 +39,12 @@ function FAQ() {
       <div className="w-[90%] ml-auto me-auto lg:me-0 lg:w-[70%] xl:w-[76%] lg:ml-auto  flex flex-row justify-end">
         <div className="flex flex-col lg:flex-row max-w-full mx-auto md:me-10">
           {faqs.map((faq, index) => (
-            <div
+            <motion.div
+            initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay:0.2 }}
               key={index}
-              className=" font-medium-fgm mt-4 lg:mt-0 mx-1 border-2 shadow-2xl shadow-pink200/50 border-pink200 rounded-2xl p-4 xl:px-6 "
+              className=" font-medium-fgm mt-4 lg:mt-0 mx-1 border-2 shadow-2xl shadow-pink200/50 border-pink200 rounded-[1rem] p-4 xl:px-6 "
             >
               <div className="font-medium text-lg text-white flex justify-between items-center">
                 <span>{faq.question}</span>
@@ -47,7 +52,7 @@ function FAQ() {
               <div className="mt-2 text-white text-sm lg:text-base ">
                 {faq.answer}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

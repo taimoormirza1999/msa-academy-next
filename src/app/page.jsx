@@ -1,14 +1,10 @@
-'use client';
+"use client";
 import { useEffect, useState, lazy, Suspense } from "react";
 import Loader from "../components/Loader";
-import BackgroundImage from "../assets/background.jpg";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
 import SignupForm from "../components/SignupForm";
 import ScrollAnimation from "../components/utils/ScrollAnimation";
 import LoaderWrapper from "../components/utils/LoaderWrapper";
 import MarqueeWrapper2 from "../components/MarqueeWrapper2";
-
 import BlogCards from "../components/blog/BlogCards";
 const Banner = lazy(() => import("../components/Banner"));
 const EnrollmentBanner = lazy(() => import("../components/EnrollmentBanner"));
@@ -19,10 +15,9 @@ const Mentors = lazy(() => import("../components/Mentors"));
 const YouWillLearn = lazy(() => import("../components/YouWillLearn"));
 const CommunityMap = lazy(() => import("../components/CommunityMap"));
 const Checkout = lazy(() => import("../components/Checkout"));
-const FAQ = lazy(() => import("../components/FAQ"));
 
 const Home = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showForm, setShowForm] = useState(false);
 
@@ -50,38 +45,23 @@ const Home = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 200);
-    return () => clearTimeout(timer);
-  }, []);
 
   const fadeIn = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.9 } },
   };
+ 
 
 
   return (
     <>
-      {loading ? (
+    {loading ? (
         <Loader />
       ) : (
-        <div
-          className="min-h-screen mx-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${BackgroundImage.src})` }}
-        >
-          <Navigation />
+       <>
+          <Banner />
           <Suspense fallback={<Loader />}>
-            <ScrollAnimation variants={fadeIn}>
-              <Banner />
-            </ScrollAnimation>
-          </Suspense>
-          <Suspense fallback={<Loader />}>
-            <ScrollAnimation>
-              <LoaderWrapper>
-                <EnrollmentBanner />
-              </LoaderWrapper>
-            </ScrollAnimation>
+            <EnrollmentBanner />
           </Suspense>
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
@@ -126,11 +106,7 @@ const Home = () => {
             </ScrollAnimation>
           </Suspense>
           <Suspense fallback={<Loader />}>
-            <ScrollAnimation>
-              <LoaderWrapper>
-                <EnrollmentBanner />
-              </LoaderWrapper>
-            </ScrollAnimation>
+            <EnrollmentBanner />
           </Suspense>
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
@@ -145,27 +121,16 @@ const Home = () => {
                 <main className="flex items-center justify-center pt-5 mb-32 lg:-mb-10 lg:pt-24 overflow-x-hidden ">
                   <div
                     className="container-fluid w-[99.5%] max-w-[1920px]  mx-auto  rounded-full shadow-2xl px-2 py-3 shadow-primary200 radius-[8px]  ultrawide:shadow-inner-left-right "
-                    style={{ "borderRadius": "8px" }}
-                  >
+                    style={{ borderRadius: "8px" }}>
                     <MarqueeWrapper2 />
                   </div>
                 </main>
               </LoaderWrapper>
             </ScrollAnimation>
           </Suspense>
-       <BlogCards/>
-          <Suspense fallback={<Loader />}>
-            <ScrollAnimation variants={fadeIn}>
-              <LoaderWrapper>
-                <FAQ />
-              </LoaderWrapper>
-            </ScrollAnimation>
-          </Suspense>
-          <LoaderWrapper>
-            {showForm && <SignupForm />}
-            <Footer />
-          </LoaderWrapper>
-        </div>
+          <BlogCards />
+          {/* {showForm && <SignupForm />} */}
+        </>
       )}
     </>
   );
