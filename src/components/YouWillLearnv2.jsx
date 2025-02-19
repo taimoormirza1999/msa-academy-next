@@ -3,8 +3,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
-
-
 const MSALearningSection = () => {
   const [activeTab, setActiveTab] = useState("animation");
 
@@ -55,12 +53,7 @@ const MSALearningSection = () => {
   return (
     <section className="py-16 md:pb-8 md:pt-5">
       <div className="container mx-auto px-4 ">
-        <div
-          // initial="hidden"
-          // animate="visible"
-          // variants={containerVariants}
-        >
-         
+        <div>
           <motion.div
             // whileInView={{
             //   opacity: 1,
