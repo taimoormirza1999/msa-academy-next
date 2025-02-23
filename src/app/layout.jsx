@@ -130,6 +130,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" suppressHydrationWarning={true} className={`${CocogooseMedium.variable} ${CocogooseExtraBold.variable} ${ImpactCustom.variable} ${KozGoPr6NRegular.variable} ${FranklinGothicMedium.variable}`}>
+    <meta name="google-site-verification" content="XwcHgu0NYksA4p3lf8Xr_na4o6gCuLD55KaJ6KznLSk" />
      <head>
    <ScriptsLoader/>
      </head>
