@@ -6,6 +6,7 @@ import ScrollAnimation from "../components/utils/ScrollAnimation";
 import LoaderWrapper from "../components/utils/LoaderWrapper";
 import MarqueeWrapper2 from "../components/MarqueeWrapper2";
 import BlogCards from "../components/blog/BlogCards";
+import MSALearningSection from "@/components/YouWillLearnv2";
 const Banner = lazy(() => import("../components/Banner"));
 const EnrollmentBanner = lazy(() => import("../components/EnrollmentBanner"));
 const YourPath = lazy(() => import("../components/YourPath"));
@@ -66,24 +67,18 @@ const Home = () => {
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
               <LoaderWrapper>
-                <YourPath />
-              </LoaderWrapper>
-            </ScrollAnimation>
-          </Suspense>
-          <Suspense fallback={<Loader />}>
-            <ScrollAnimation variants={fadeIn}>
-              <LoaderWrapper>
                 <Animation />
               </LoaderWrapper>
             </ScrollAnimation>
           </Suspense>
-          <Suspense fallback={<Loader />}>
+         
+          {/* <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
               <LoaderWrapper>
                 <Drawing />
               </LoaderWrapper>
             </ScrollAnimation>
-          </Suspense>
+          </Suspense> */}
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
               <LoaderWrapper>
@@ -94,18 +89,25 @@ const Home = () => {
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
               <LoaderWrapper>
-                <YouWillLearn />
+                <YourPath />
               </LoaderWrapper>
             </ScrollAnimation>
           </Suspense>
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
               <LoaderWrapper>
-                <CommunityMap />
+               <MSALearningSection/>
               </LoaderWrapper>
             </ScrollAnimation>
           </Suspense>
-          <Suspense fallback={<Loader />}>
+          {/* <Suspense fallback={<Loader />}>
+            <ScrollAnimation variants={fadeIn}>
+              <LoaderWrapper>
+                <CommunityMap />
+              </LoaderWrapper>
+            </ScrollAnimation>
+          </Suspense> */}
+          {/* <Suspense fallback={<Loader />}>
             <EnrollmentBanner />
           </Suspense>
           <Suspense fallback={<Loader />}>
@@ -114,8 +116,8 @@ const Home = () => {
                 <Checkout showModal={showModal} setShowModal={setShowModal} />
               </LoaderWrapper>
             </ScrollAnimation>
-          </Suspense>
-          <Suspense fallback={<Loader />}>
+          </Suspense> */}
+          {/* <Suspense fallback={<Loader />}>
             <ScrollAnimation>
               <LoaderWrapper>
                 <main className="flex items-center justify-center pt-5 mb-32 lg:-mb-10 lg:pt-24 overflow-x-hidden ">
@@ -127,7 +129,7 @@ const Home = () => {
                 </main>
               </LoaderWrapper>
             </ScrollAnimation>
-          </Suspense>
+          </Suspense> */}
           <BlogCards />
           {/* {showForm && <SignupForm />} */}
         </>

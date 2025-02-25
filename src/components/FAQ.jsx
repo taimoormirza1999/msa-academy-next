@@ -1,10 +1,12 @@
-"use client"
+"use client";
 import React, { useState } from "react";
-import faqHeading from "../assets/freq_heading.png";
-import Image from "next/image";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import ClippedBtn from "./utils/ClippedImageBtn";
+import OutlineTextEffect from "./utils/OutlineTextEffect";
+import SectionWrapper from "./SectionWrapper";
 
-function FAQ() {
+
+const FAQ = () => {
   const faqs = [
     {
       question: "What is the refund policy?",
@@ -23,41 +25,42 @@ function FAQ() {
     },
   ];
 
-  return (
-    <div className="p-3 py-6 pb-14 my-0 md:mb-10 lg:mt-[154px] mx-auto max-w-[1920px]">
-      {/* Section Heading */}
-      <div className="text-center mb-6 md:mb-12">
-        <Image
-          height={100}
-          width={500}
-          src={faqHeading.src}
-          alt="FAQ Section"
-          className="mx-auto w-full md:w-9/12 lg:w-7/12 h-auto"
-        />
-      </div>
+  const [openIndex, setOpenIndex] = useState(null);
 
-      <div className="w-[90%] ml-auto me-auto lg:me-0 lg:w-[70%] xl:w-[76%] lg:ml-auto  flex flex-row justify-end">
-        <div className="flex flex-col lg:flex-row max-w-full mx-auto md:me-10">
-          {faqs.map((faq, index) => (
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <div className="p-6 py-20">
+      <SectionWrapper>
+      <OutlineTextEffect title={"Frequently Asked"}/>
+     <div className="my-2">
+     <OutlineTextEffect title={"Questions"}/>
+     </div>
+      <div className="-space-y-5 ml-auto flex iteem-center">
+        {faqs.map((faq, index) => (
+          <div key={index} className="relative">
+           
+<ClippedBtn text={faq.question} width={675} height={99}/>
+           
             <motion.div
-            initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay:0.2 }}
-              key={index}
-              className=" font-medium-fgm mt-4 lg:mt-0 mx-1 border-2 shadow-2xl shadow-pink200/50 border-pink200 rounded-[1rem] p-4 xl:px-6 "
+              initial={{ height: 0, opacity: 0 }}
+              animate={openIndex === index ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="overflow-hidden"
             >
-              <div className="font-medium text-lg text-white flex justify-between items-center">
-                <span>{faq.question}</span>
-              </div>
-              <div className="mt-2 text-white text-sm lg:text-base ">
+              {/* <div className="bg-black text-white px-6 py-3 border-2 border-pink-500 mt-1">
                 {faq.answer}
-              </div>
+              </div> */}
             </motion.div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
+      </SectionWrapper>
+
     </div>
   );
-}
+};
 
 export default FAQ;

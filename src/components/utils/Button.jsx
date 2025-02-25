@@ -1,28 +1,16 @@
-import Link from 'next/link';
-import React from 'react'
+import ButtonSVG from '@/components/utils/icons/ButtonSVG'
 
-function Button({isRounded = true}) {
-  const style2 = {
-    "--bgColor": '#25d366',
-      };
+const Button = ({width = 250, height = 133, text = "Enroll Now"  }) => {
   return (
-    <div
-    className="outter-wrapper"
-  >
-    <div className="wrapper-inner-main ">
+    <div className="relative inline-block" style={{ width: `${width}px`, height: `${height}px` }}>
+      {/* SVG as background */}
+      <ButtonSVG width={width} height={height} />
       
-         <Link 
-      href='#enroll-checkout' 
-      // smooth={true}
-  duration={800}
-      className={`animate-glowRed  bg-red cursor-pointer text-white border-2 border-red hover:scale-105 hover:text-white py-3 text-sm md:text-[1.129rem] font-medium px-6 md:px-7  shadow-lg transform  transition-all duration-1000  ease-out hover:-translate-y-2 hover:shadow-2xl shadow-red/70 ${isRounded ? 'rounded-[14px]' : 'rounded-[0.7rem]'}`}
-    >ENROLL NOW!
-    </Link>
+      {/* Button text */}
+      <button className="font-primary absolute top-1/2 left-1/2 transform -translate-x-[40%] -translate-y-1/2 bg-transparent border-none text-white text-2xl font-bold cursor-pointer z-10 whitespace-nowrap uppercase ">
+        {text}
+      </button>
     </div>
-    </div>
-   
-  
-  )
-}
-
+  );
+};
 export default Button

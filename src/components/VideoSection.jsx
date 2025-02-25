@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { FaPlay } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import PlayButtonSVG from "@/assets/playbutton.svg";
+import ClippedImage from "./utils/ClippedImage";
+import ClippedImageGeneric from "./utils/ClippedImageGeneric";
 const VideoSection = ({ videoUrl, imageUrl }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   // const [videoUrl, setVideoUrl] = useState(videoUrl);
@@ -19,24 +22,30 @@ const VideoSection = ({ videoUrl, imageUrl }) => {
   return (
     <>
       <div
-        className="relative h-52 md:h-48 flex justify-center items-center text-center rounded-2xl cursor-pointer"
+        className="relative h-52 md:h-52 flex justify-center items-center text-center rounded-2xl cursor-pointer"
         onClick={() => handleVideoClick()}
       >
-        <Image
+        {/* <Image
           height={500}
           width={500}
           src={imageUrl}
           alt="Video Thumbnail"
-          className="w-full h-full object-cover rounded-xl shadow-xl shadow-pink200/45 border-2 border-[#F33C64] "
-        />
-        <div className="absolute rounded-full p-1.5 md:p-2.5 shadow-lg shadow-pink200/35 bg-black bg-opacity-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          className="w-full h-full object-cover rounded-xl shadow-xl shadow-pink200/45 border-2 border-pink200 "
+        /> */}
+       <div className="relative">
+        {/* Background Border */}
+        {/* <ClippedImage imageUrl={imageUrl} width={600} height={400} /> */}
+        <ClippedImageGeneric  imageUrl={imageUrl} width={600} height={400} />
+      </div>
+        <div className="absolute rounded-full p-1.5 md:p-2.5 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
           <motion.div
             whileHover={{
               rotate: 180,
               transition: { duration: 1, ease: "easeInOut" },
             }}
           >
-            <FaPlay className="text-white  p-2 w-10 h-10 md:w-12 md:h-12 shadow-2xl" />
+            {/* <FaPlay className="text-white  p-2 w-10 h-10 md:w-12 md:h-12 shadow-2xl" /> */}
+            <Image src={PlayButtonSVG.src} height={50} width={50} alt="" className="w-12 h-12"/>
           </motion.div>
         </div>
       </div>

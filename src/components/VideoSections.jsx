@@ -22,8 +22,8 @@ const videos = [
 
 const VideoGallery = () => {
   return (
-     <div className="container md:mx-auto px-0 md:px-4 2xl:me-auto lg:flex lg:justify-end lg:pe-10">
-    <div className="grid grid-cols-2 md:grid-cols-2 mt-10 gap-3 md:gap-5">
+     <div className="container md:mx-auto px-0 md:px-4 2xl:me-auto lg:flex lg:justify-end lg:pe-10 -mt-10">
+    <div className="grid grid-cols-2 md:grid-cols-4 mt-10 gap-3 md:gap-7">
       {videos.map((video, index) => (
         <motion.div
           key={index}

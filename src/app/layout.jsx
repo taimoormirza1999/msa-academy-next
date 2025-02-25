@@ -8,6 +8,14 @@ import ScriptsLoader from "@/components/ScriptsLoader";
 import FooterWrapper from "@/components/utils/FooterWrapper";
 import SuppressErrors from "@/components/utils/SuppressErrors";
 
+
+
+const MenschTrialBlack = localFont({
+  src: '../../public/fonts/MenschTrialBlack.otf',
+  weight: '400',
+  style: 'normal',
+  variable: '--font-mensch-trial-black',
+});
 const CocogooseMedium = localFont({
   src: '../../public/fonts/Cocogoose-Classic-Medium-trial.ttf',
   weight: '400',
@@ -129,7 +137,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 
   return (
-    <html lang="en" suppressHydrationWarning={true} className={`${CocogooseMedium.variable} ${CocogooseExtraBold.variable} ${ImpactCustom.variable} ${KozGoPr6NRegular.variable} ${FranklinGothicMedium.variable}`}>
+    <html lang="en" suppressHydrationWarning={true} className={`${MenschTrialBlack.variable} ${CocogooseMedium.variable} ${CocogooseExtraBold.variable} ${ImpactCustom.variable} ${KozGoPr6NRegular.variable} ${FranklinGothicMedium.variable}`}>
      <head>
    <ScriptsLoader/>
      </head>
@@ -149,7 +157,7 @@ export default function RootLayout({ children }) {
             layout="fill"
             objectFit="cover"
             priority
-            className="absolute inset-0 -z-10"
+            className="absolute inset-0 -z-10 opacity-30"
           />
         <Navigation />
         <SuppressErrors/>

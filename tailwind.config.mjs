@@ -14,9 +14,10 @@ export default {
 		  primary: '#ee00a7e4',
 		  red: '#f02d00',
 		  ferozi: '#00ffff',
-		  purple:'#7f7fff',
+		  purple:'#A400E8',
 		  pink200:'#ff00ff',
 		  gray636: '#636363',
+		  grayPrimary:'#9E9E9E'
 		},
 		backgroundImage: {
 		  'custom-gradient': 'linear-gradient(to right, #7f7fff, #ff00ff)',

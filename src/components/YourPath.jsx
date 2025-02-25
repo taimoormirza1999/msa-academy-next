@@ -1,36 +1,72 @@
-import React from "react";
-import YourPathImage from "../assets/path_banner.png"; // Replace with your actual image path
-import BannerTextHeading from "./utils/BannerTextHeading";
-import { motion } from "framer-motion";
+"use client";
 import Image from "next/image";
+import React from "react";
+import Skating from "../assets/Path/Skating.png";
+import LeftEllipse from "../assets/Path/LeftEllipse.png";
+import Bubble from "../assets/SecondSection/Bubble.png";
+import SectionWrapper from "./SectionWrapper";
+// import CTAButton from "./utils/CTAButton";
+import Button from "./utils/Button";
+import VideoSection from "./VideoSection";
+import VideoGallery from "./VideoSections";
 
-const YourPath = () => {
+function Animation() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{
-        opacity: 1,
-        transition: { duration: 1.5, ease: "easeInOut" },
-      }}
-      className="relative w-full h-auto bg-cover bg-center mt-16 mb-10 md:mt-20 md:mb-10 lg:mt-16 mx-auto md:w-99 lg:w-[93%] 2xl:w-85 max-w-[1920px] "
-    >
-      <div className="relative w-full h-auto lg:w-full lg:ml-1.5" suppressHydrationWarning={true}>
-        <Image
-          height={1080}
-          width={1920}
-          src={YourPathImage.src}
-          alt="Banner"
-          className="w-full md:w-98 h-[38vh] sm:h-[60vh] md:h-auto lg:h-full object-cover md:object-contain object-[60%_30%] -z-10  mx-auto "
-        />
-      </div>
-      <div className="bg-black/60 z-50 md:z-0 lg:bg-transparent rounded-xl shadow-xl shadow-pink200/30 lg:shadow-none lg:rounded-none mx-auto lg:absolute md:top-72 lg:top-10 2xl:top-20 lg:left-20 2xl:left-24 p-8 text-white w-95 lg:w-[51%] 2xl:w-30vw flex flex-col justify-center -mt-6 mb-16 md:-mt-4 lg:-mt-0 lg:mb-0">
-        <BannerTextHeading
-          heading="FIND YOUR PATH AND LEARN ONLINE"
-          paragraph="Our courses are designed for students of all skill levels. Explore and learn from scratch with our easy-to-follow videos, allowing you to progress at your own pace."
-        />
-      </div>
-    </motion.div>
-  );
-};
+    <section className="relative  text-white py-16">
+      <SectionWrapper>
+        <div className="flex flex-col-reverse md:flex-row-reverse items-center justify-between px-6 md:px-12 lg:px-2 relative">
+          {/* Left Content */}
+          <div className="relative md:w-1/2 z-10 text-center md:text-left">
+            {/* Floating Bubble */}
+            <Image
+              width={60}
+              height={60}
+              src={Bubble.src}
+              alt="Floating Bubble"
+              className="absolute -top-6 -right-8 md:-top-12 md:-right-[0%] w-10 md:w-16 h-auto animate-pulse"
+            />
+            
+            {/* Title */}
+            <h2 className="font-primary text-3xl md:text-5xl uppercase leading-tight whitespace-nowrap   ">
+            FIND YOUR PATH<br/>AND LEARN ONLINE
+            </h2>
 
-export default YourPath;
+            {/* Description */}
+            <p className="text-gray-300 text-xl md:text-xl mt-4 md:w-4/5 font-primary">
+            Our courses are designed for students of all skill levels. Explore and learn from scratch with our easy-to-follow videos, allowing you to progress at your own pace.
+            </p>
+
+            {/* Call-to-Action Button */}
+            <div className="mt-0">
+              <Button text="Enroll Now" />
+            </div>
+          </div>
+
+          {/* Right Image Section */}
+          <div className="relative w-full md:w-1/2 flex items-center justify-center">
+            {/* Background Ellipse */}
+            <Image
+              width={500}
+              height={500}
+              src={LeftEllipse.src}
+              alt="Background Glow"
+              className="absolute -z-10 w-[90%] md:w-[110%] opacity-40"
+            />
+
+            {/* Puppet Girl Image */}
+            <Image
+              width={600}
+              height={600}
+              src={Skating.src}
+              alt="Puppet Girl"
+              className="w-[90%] md:w-full max-w-md md:max-w-xl"
+            />
+          </div>
+        </div>
+      </SectionWrapper>
+
+    </section>
+  );
+}
+
+export default Animation;

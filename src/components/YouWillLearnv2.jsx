@@ -2,10 +2,50 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import SectionWrapper from "./SectionWrapper";
+import ClippedImageGeneric from "./utils/ClippedImageGeneric";
+import VisualDevelopment from "@/assets/Learn/1.png";
+import AnimationTechniques from "@/assets/Learn/2.png";
+import StoryTelling from "@/assets/Learn/3.png";
+import OutlineTextEffect from "./utils/OutlineTextEffect";
+import ClippedBtn from "./utils/ClippedImageBtn";
+const Card = ({ imageUrl, title, description, title2 }) => {
+  return (
+    <div className="flex flex-col items-center justify-center  rounded-2xl shadow-lg p-6">
+      <ClippedImageGeneric height={320.18} width={466.25} imageUrl={imageUrl} />
+      <OutlineTextEffect title={title} />
+      {title2&&( <OutlineTextEffect title={title2} />)}
+     
+      <p className="text-xl text-grayPrimary mt-5 text-center font-primary">
+        {description}
+      </p>
+    </div>
+  );
+};
 
 const MSALearningSection = () => {
   const [activeTab, setActiveTab] = useState("animation");
-
+  const cards = [
+    {
+      imageUrl: VisualDevelopment?.src,
+      title: "VISUAL DEVELOPMENT",
+      description:
+        "Explore the process of creating stunning visuals, from concept art to final rendered scenes.",
+    },
+    {
+      imageUrl: AnimationTechniques?.src,
+      title: "Animation Techniques",
+      description:
+        "Dive deep into both traditional and digital animation methods to bring your characters and stories to life.",
+    },
+    {
+      imageUrl: StoryTelling?.src,
+      title: "Story",
+      title2:"Telling",
+      description:
+        "Learn the art of crafting compelling narratives that captivate audiences across various media formats.",
+    },
+  ];
   const courses = {
     animation: [
       "Hands-on animation experience",
@@ -52,129 +92,66 @@ const MSALearningSection = () => {
 
   return (
     <section className="py-16 md:pb-8 md:pt-5">
-      <div className="container mx-auto px-4 ">
-        <div>
-          <motion.div
-            // whileInView={{
-            //   opacity: 1,
-            //   scale: 1,
-            //   transition: { duration: 1.3, ease: "easeInOut" },
-            // }}
-            // initial={{ opacity: 0, scale: 0.9 }}
-            className="bg-white/[5%] lg:bg-white/[9%] border-[0.7px] border-white/[42%] bg-opacity-0 shadow-pink200/40 p-5 lg:p-16 shadow-2xl overflow-hidden rounded-[1rem]"
-            // variants={itemVariants}
+      <SectionWrapper>
+        <div className="container mx-auto px-4 ">
+          <motion.h4
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-2xl text-center font-primary lg:text-5xl uppercase text-white font-bold mb-2 font-ebold-ccm text-transparent bg-gradient-to-br from-[#B14BF4] to-[#4D91FF] bg-clip-text "
           >
-            <div className="grid grid-cols-1 md:grid-cols-1 lg:md:grid-cols-3 gap-5 lg:gap-0 2xl:gap-8 items-center md:flex-row">
-              {/* List Section */}
+             {( <OutlineTextEffect title={"LEARN TO CREATE"} />)}
+             <div className="my-2">
+             {( <OutlineTextEffect title={"LIKE MSA"} />)}
+             </div>
+      
+          </motion.h4>
+          <motion.h3
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-base text-center font-primary lg:text-xl lg:w-[60%] mx-auto uppercase text-grayPrimary font-bold mt-3 mb-6 "
+          >
+            Embark on a transformative journey to master the art of content
+            creation, animation, and storytelling. Our curriculum is designed to
+            empower you with the skills and techniques that make MSA's content
+            truly exceptional.
+          </motion.h3>
+          <div>
+          <div className="flex  gap-6 justify-center mb-10">
+      {cards.map((card, index) => (
+        <Card key={index} {...card} />
+      ))}
+    </div>
 
-              <div className="order-2 md:order-1 lg:col-span-2 rounded-xl ">
-                {/* Tab Buttons */}
-                <div className="flex gap-5 mb-14">
-                  {["animation", "drawing"].map((tab) => (
-                    <button
-                      key={tab}
-                      onClick={() => setActiveTab(tab)}
-                      className={`text-sm px-4 py-3 border-b-2 uppercase font-bold transition-all duration-500
-              ${
-                activeTab === tab
-                  ? " text-white shadow-lg border-white"
-                  : " text-gray-400 border-gray-400 "
-              }`}
-                    >
-                      {tab === "animation"
-                        ? "Animation Course"
-                        : "Drawing Course"}
-                    </button>
-                  ))}
+    
+    <ClippedBtn text="What is the refund policy?" width={575} height={79}/>
+            <motion.div
+              // whileInView={{
+              //   opacity: 1,
+              //   scale: 1,
+              //   transition: { duration: 1.3, ease: "easeInOut" },
+              // }}
+              // initial={{ opacity: 0, scale: 0.9 }}
+              className=" p-5 lg:p-16 shadow-2xl overflow-hidden rounded-[1rem]"
+              // variants={itemVariants}
+            >
+               {( <OutlineTextEffect title={"THE MSA LEARNING"} />)}
+               {( <OutlineTextEffect title={"EXPERIENCE"} />)}
+              <div className="grid grid-cols-1 md:grid-cols-1 lg:md:grid-cols-3 gap-5 lg:gap-0 2xl:gap-8 items-center md:flex-row">
+                <div className="order-2 md:order-1 lg:col-span-2 rounded-xl ">
+                
+                  {/* Course Content */}
+             
                 </div>
-
-                {/* Course Content */}
-                <motion.div
-                  key={activeTab}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className=""
-                >
-                  <motion.h4 initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay:0.2 }} className="text-base text-center lg:text-left lg:text-lg uppercase text-white font-bold mb-2 font-ebold-ccm text-transparent bg-gradient-to-br from-[#B14BF4] to-[#4D91FF] bg-clip-text ">
-                    The Outlines
-                  </motion.h4>
-                  <motion.h3 initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay:0.4 }} className="text-2xl text-center lg:text-left lg:text-4xl uppercase text-white font-bold mb-6 font-medium-fgm">
-                    What You’ll Learn at MSA
-                  </motion.h3>
-                  <ul className="space-y-2">
-                  <ul className="flex flex-wrap gap-4 justify-center lg:justify-start">
-  {courses[activeTab].map((item, index) => (
-    <motion.li
-      key={index}
-      className="inline-flex items-center gap-3 border-[1.3px] border-white/40 p-2.5 xl:p-2 rounded-xl bg-white/[4%]"
-      // initial={{ opacity: 0, x: -20 }}
-      // animate={{ opacity: 1, x: 0 }}
-      // transition={{ delay: index * 0.05 }}
-      initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay:0.4 }}
-    >
-      {/* Check Icon */}
-      <svg
-        className="w-5 h-5 lg:w-5 lg:h-5 text-white bg-white/25 rounded-full"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M5 13l4 4L19 7"
-        />
-      </svg>
-      <span className="text-white  text-xs lg:text-base">{item}</span>
-    </motion.li>
-  ))}
-</ul>
-
-                  </ul>
-                </motion.div>
+                {/* Image Section */}
+               
+           
               </div>
-              {/* Image Section */}
-              <div className="relative order-1 md:order-2 lg:col-span-1 ">
-                {/* Image */}
-                <div className="relative bg-white/[12%] -mt-4 lg:p-0 flex justify-center lg:py-2.5 rounded-xl  lg:border border-white/30 ">
-                  <Image
-                    height={700}
-                    width={700}
-                    src="https://yt3.ggpht.com/C5msQoQMtZ7yQZcdTUo3FKAtyrhzClatIuIGlV-ERJvUOfPjSjUHqLjehvLX576esl21Og7nLpJWRQ=s1600-c-fcrop64=1,00002bb0ffffd44f-rw-nd-v1"
-                    alt="MSA Learning Experience"
-                    className="rounded-xl w-full lg:w-[90%] object-contain shadow-md lg:border border-white/30 relative z-10 mt-4 lg:mt-0 "
-                  ></Image>
-                 
-                </div>
-                <motion.div
-                  className="absolute inset-0 -z-0"
-                  initial={{ scale: 1.15 }}
-                  animate={{
-                    scale: [1.15, 1.4, 1.15],
-                    borderRadius: ["30% 70%", "50% 50%", "70% 30%"],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <div className="w-full h-full bg-gradient-to-tl from-pink200 to-purple blur-2xl opacity-60 rounded-full" />
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
-      </div>
+      </SectionWrapper>
     </section>
   );
 };
