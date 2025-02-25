@@ -38,7 +38,7 @@ const FAQ = () => {
      <div className="my-2">
      <OutlineTextEffect title={"Questions"}/>
      </div>
-      <div className="-space-y-5 ml-auto flex iteem-center">
+      <div className="-space-y-5 ml-auto flex flex-col items-center ">
         {faqs.map((faq, index) => (
           <div key={index} className="relative">
            
