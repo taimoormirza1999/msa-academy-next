@@ -5,10 +5,11 @@ import BannerTextHeading from "./utils/BannerTextHeading";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionWrapper from "./SectionWrapper";
+import OutlineTextEffect from "./utils/OutlineTextEffect";
 
 const Drawing = () => {
   return (
-    <SectionWrapper>
+    <SectionWrapper >
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         whileInView={{
@@ -17,7 +18,7 @@ const Drawing = () => {
           transition: { duration: 1.8, ease: "easeInOut" },
         }}
         viewport={{ once: true }}
-        className="relative w-full md:w-99 h-auto bg-cover bg-center mt-0 md:mt-28 lg:mt-80 xl:mt-40 mb-10 md:mb-20 lg:mb-10  mx-auto max-w-[1920px]"
+        className="relative w-full md:w-99 h-auto bg-cover bg-center lg:-mt-14  mb-10 md:mb-20 lg:mb-10  z-10"
         id="drawing-course"
       >
         <div className="relative h-auto mx-auto  w-99 md:w-98 lg:w-[90%] xl:w-[93%]">
@@ -40,12 +41,12 @@ TALENT WHITHIN YOU!"
       <Button textSize="text-sm"/>
       </div>
       </div> */}
-        <h2 className="mt-6 text-center font-primary text-3xl md:text-5xl uppercase leading-tight whitespace-nowrap   ">
-          DRAWING COURSES
-        </h2>
-
+        <div className="mt-6    ">
+          
+<OutlineTextEffect title={"DRAWING COURSES"}/>
+        </div>
         {/* Description */}
-        <p className="text-center text-gray-300 text-lg md:text-xl mt-4 md:w-4/5 font-primary mx-auto">
+        <p className="text-center text-grayPrimary text-lg md:text-xl mt-4 md:w-4/5 font-primary mx-auto">
           We believe everyone is an artist, Join us to
           <br />
           unleash the artistic talent within you.

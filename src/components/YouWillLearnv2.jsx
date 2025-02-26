@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
 import SectionWrapper from "./SectionWrapper";
 import ClippedImageGeneric from "./utils/ClippedImageGeneric";
 import VisualDevelopment from "@/assets/Learn/1.png";
@@ -10,6 +9,7 @@ import StoryTelling from "@/assets/Learn/3.png";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
 import ClippedBtn from "./utils/ClippedImageBtn";
 import CharacterFoo from "@/assets/characterFoo.png";
+import Button from "./utils/Button";
 
 const Card = ({ imageUrl, title, description, title2 }) => {
   return (
@@ -26,7 +26,6 @@ const Card = ({ imageUrl, title, description, title2 }) => {
 };
 
 const MSALearningSection = () => {
-  const [activeTab, setActiveTab] = useState("animation");
   const cards = [
     {
       imageUrl: VisualDevelopment?.src,
@@ -51,28 +50,28 @@ const MSALearningSection = () => {
   const courses_list = [
     {
       title: "Hands-on projects mirroring real MSA productions",
-      height: 79,
-      width: 760,
+      height: 60,
+      width: 610,
     },
     {
       title: "Personalized feedback from industry professionals",
-      height: 79,
-      width: 775,
+      height: 60,
+      width: 620,
     },
     {
       title: "Access to cutting-edge tools and software",
-      height: 79,
-      width: 645,
+      height: 60,
+      width: 525,
     },
     {
       title: "Collaborative workshops with fellow creatives",
-      height: 79,
-      width: 695,
+      height: 60,
+      width: 565,
     },
     {
       title: "Insights into MSA's creative process and workflow",
-      height: 79,
-      width: 755,
+      height: 60,
+      width: 610,
     },
   ];
   const containerVariants = {
@@ -94,9 +93,9 @@ const MSALearningSection = () => {
   };
 
   return (
-    <section className="py-16 md:pb-8 md:pt-5">
+    <section className=" relative py-16 md:pb-8 md:pt-5">
       <SectionWrapper>
-        <div className="container mx-auto px-4 ">
+        <div className="container mx-auto px-4  overflow-x-hidden">
           <motion.h4
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -138,9 +137,11 @@ const MSALearningSection = () => {
               // variants={itemVariants}
             >
               {<OutlineTextEffect title={"THE MSA LEARNING"} />}
-              {<OutlineTextEffect title={"EXPERIENCE"} />}
+              <div className="my-2">
+                {<OutlineTextEffect title={"EXPERIENCE"} />}
+              </div>
 
-              <div className="relative  flex flex-row-reverse gap-5 lg:gap-0 2xl:gap-5 items-center md:flex-row">
+              <div className="relative  flex flex-row-reverse gap-5 lg:gap-0 2xl:gap-5 items-center md:flex-row mt-14">
                 <div className="order md:order-0  w-[30%] ">
                   {/* Course Content */}
                   <ul className="text-lg text-gray-300 font-primary list-disc ">
@@ -151,23 +152,29 @@ const MSALearningSection = () => {
                           text={course.title}
                           width={course.width}
                           height={course.height}
-                          
+                          textSize="text-2xl"
+                          strokeWidth={2.16}
                         />
                       </div>
                     ))}
                   </ul>
+                  <div className="-ml-4">
+                    <Button text="START YOUR JOUREY" height={137} width={337} />
+                  </div>
                 </div>
 
                 {/* Image Section */}
-                <div className="order md:order-1 relative ">
-                  <Image
-                    width={600}
-                    height={600}
-                    src={CharacterFoo.src}
-                    alt="Character Image"
-                    className=" absolute left-0 top-0 mt-4 md:mt-0 mx-auto  scale-x-[-1]"
-                  />
-                </div>
+                {/* <div className=" "> */}
+                <Image
+                  width={600}
+                  height={600}
+                  src={CharacterFoo.src}
+                  alt="Character Image"
+                  // className="mt-4 md:mt-0 mx-auto w-[70%] lg:w-[38rem] h-auto lg:absolute bottom-0 left-1"
+                  // className=" absolute z-10  -right-0 bottom-0 mt-4 md:mt-0 mx-auto object-contain h-[70vh] scale-x-[-1]"
+                  className="mt-4 md:mt-0 w-[28rem] absolute bottom-0 right-0  scale-x-[-1]"
+                />
+                {/* </div> */}
               </div>
             </motion.div>
           </div>

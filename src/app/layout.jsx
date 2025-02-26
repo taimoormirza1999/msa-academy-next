@@ -1,41 +1,41 @@
 import "./globals.css";
 import "./App.css";
-import localFont from 'next/font/local';
+import localFont from "next/font/local";
 import Navigation from "@/components/Navigation";
 import Image from "next/image";
 import BackgroundImage from "../assets/background.jpg";
 import ScriptsLoader from "@/components/ScriptsLoader";
 import FooterWrapper from "@/components/utils/FooterWrapper";
 import SuppressErrors from "@/components/utils/SuppressErrors";
-
-
+import Loading from "@/components/Loading";
+import Menu from "@/components/Menu";
 
 const MenschTrialBlack = localFont({
-  src: '../../public/fonts/MenschTrialBlack.otf',
-  weight: '400',
-  style: 'normal',
-  variable: '--font-mensch-trial-black',
+  src: "../../public/fonts/MenschTrialBlack.otf",
+  weight: "400",
+  style: "normal",
+  variable: "--font-mensch-trial-black",
 });
 
 const EastmanRomanTrialBlack = localFont({
-  src: '../../public/fonts/EastmanRomanTrialBlack.otf',
-  weight: '400',
-  style: 'normal',
-  variable: '--font-eastroman-trial-black',
+  src: "../../public/fonts/EastmanRomanTrialBlack.otf",
+  weight: "400",
+  style: "normal",
+  variable: "--font-eastroman-trial-black",
 });
 
 const EastmanRomanTrialDemiBold = localFont({
-  src: '../../public/fonts/EastmanRomanTrialDemiBold.otf',
-  weight: '400',
-  style: 'normal',
-  variable: '--font-eastroman-trial-demibold',
+  src: "../../public/fonts/EastmanRomanTrialDemiBold.otf",
+  weight: "400",
+  style: "normal",
+  variable: "--font-eastroman-trial-demibold",
 });
 
 const EastmanRomanTrialBold = localFont({
-  src: '../../public/fonts/EastmanRomanTrialBold.otf',
-  weight: '400',
-  style: 'normal',
-  variable: '--font-eastroman-trial-bold',
+  src: "../../public/fonts/EastmanRomanTrialBold.otf",
+  weight: "400",
+  style: "normal",
+  variable: "--font-eastroman-trial-bold",
 });
 // const CocogooseMedium = localFont({
 //   src: '../../public/fonts/Cocogoose-Classic-Medium-trial.ttf',
@@ -73,8 +73,9 @@ const EastmanRomanTrialBold = localFont({
 // });
 
 export const metadata = {
-  manifest: 'https://msa-club.com/manifest.json',
-  title: "Animation Character Design Course | Master Chracter Creation | MSA Club",
+  manifest: "https://msa-club.com/manifest.json",
+  title:
+    "Animation Character Design Course | Master Chracter Creation | MSA Club",
   description:
     "Learn character animation and drawing with MSA Academy. Master Blender, After Effects, and 3D animation through expert-led courses. Join now for free resources and certification!",
   keywords: [
@@ -95,12 +96,12 @@ export const metadata = {
     "MSA My Story Animated",
     "animation course for beginners",
     "animation jobs in Dubai",
-  ].join(", "), 
-  generator:"MSA-Club.com",
-  applicationName:"MSA-Club.com",
-  referrer: 'origin-when-cross-origin',
-  creator: 'Taimoor Hamza',
-  publisher:'Artoul',
+  ].join(", "),
+  generator: "MSA-Club.com",
+  applicationName: "MSA-Club.com",
+  referrer: "origin-when-cross-origin",
+  creator: "Taimoor Hamza",
+  publisher: "Artoul",
   robots: {
     index: true,
     follow: true,
@@ -109,33 +110,34 @@ export const metadata = {
       index: true,
       follow: true,
       noimageindex: false,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   openGraph: {
-      siteName:"MSA-Club.com",
-      locale: 'en_US',
-      type: 'website',
-    title: "Animation Character Design Course | Master Chracter Creation | MSA Club",
+    siteName: "MSA-Club.com",
+    locale: "en_US",
+    type: "website",
+    title:
+      "Animation Character Design Course | Master Chracter Creation | MSA Club",
     description:
       "Transform your artistic skills with our comprehensive Animation Character Design	Course. Learn from industry experts and bring your characters to life. Enroll now!",
-   images: [
-    {
-      url: 'https://msa-club.com/logo.png', 
-      width: 800,
-      height: 600,
-      alt: 'MSA Club Logo Image',
-    },
-    {
-      url: 'https://msa-club.com/hero_banner.png',
-      width: 1800,
-      height: 1600,
-      alt: 'MSA Club Logo Image',
-    },
-  ],
-  authors: ['Taimoor Hamza',],
+    images: [
+      {
+        url: "https://msa-club.com/logo.png",
+        width: 800,
+        height: 600,
+        alt: "MSA Club Logo Image",
+      },
+      {
+        url: "https://msa-club.com/hero_banner.png",
+        width: 1800,
+        height: 1600,
+        alt: "MSA Club Logo Image",
+      },
+    ],
+    authors: ["Taimoor Hamza"],
     url: "https://msa-academy.com/",
   },
 
@@ -144,46 +146,51 @@ export const metadata = {
     title: "MSA Academy | Master Anime & Character Animation",
     description:
       "Join MSA Academy's industry-leading animation courses and learn anime character design, 3D animation, and more. Start your journey today!",
-   images: [
-    {
-      url: "https://msa-club.com/hero_banner.png",
-      width: 1200,
-      height: 630,
-      alt: "MSA Academy Logo"
-    }
-  ],
+    images: [
+      {
+        url: "https://msa-club.com/hero_banner.png",
+        width: 1200,
+        height: 630,
+        alt: "MSA Academy Logo",
+      },
+    ],
   },
 };
 
 export default function RootLayout({ children }) {
-
   return (
-    <html lang="en" suppressHydrationWarning={true} className={`${MenschTrialBlack.variable} ${EastmanRomanTrialBlack.variable} ${EastmanRomanTrialDemiBold.variable} ${EastmanRomanTrialBold.variable} `}>
-     <head>
-   <ScriptsLoader/>
-     </head>
-      <body >
-      {/* NoScript Fallback for GTM */}
-      <noscript>
-  <iframe 
-    height="0" 
-    width="0" 
-    style={{ display: "none", visibility: "hidden" }}
-  ></iframe>
-</noscript>
-       <div className="mx-0 relative bg-cover bg-center">
-          <Image
+    <html
+      lang="en"
+      suppressHydrationWarning={true}
+      className={`${MenschTrialBlack.variable} ${EastmanRomanTrialBlack.variable} ${EastmanRomanTrialDemiBold.variable} ${EastmanRomanTrialBold.variable} `}
+    >
+      <head>
+        <ScriptsLoader />
+      </head>
+      <body>
+        {/* NoScript Fallback for GTM */}
+        <noscript>
+          <iframe
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+        <div className="mx-0 relative bg-cover bg-center">
+          {/* <Image
             src={BackgroundImage}
             alt="Background"
             layout="fill"
             objectFit="cover"
             priority
-            className="absolute inset-0 -z-10 opacity-40"
-          />
-        <Navigation />
-        <SuppressErrors/>
-        {children}
-        <FooterWrapper />
+            className="absolute inset-0 -z-10 opacity-0"
+          /> */}
+          {/* <Navigation /> */}
+          <SuppressErrors />
+          {children}
+          {/* <Menu>
+          </Menu> */}
+         
         </div>
       </body>
     </html>

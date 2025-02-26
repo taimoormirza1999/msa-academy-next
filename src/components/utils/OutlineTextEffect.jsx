@@ -1,10 +1,10 @@
 import React from 'react';
 
-const OutlineTextEffect = ({ title, classes }) => {
+const OutlineTextEffect = ({ title, classes,hCenter="justify-center" }) => {
   return (
     <div className="flex flex-col justify-center">
 
-      <div className="relative w-full flex justify-center items-center">
+      <div className={`relative w-full flex ${hCenter} items-center`}>
         {/* Outline Text (Behind) */}
         <h1 className={`  bsolute text-5xl text-center -mt-2.5 -ml-2.5 font-extrabold uppercase text-transparent stroke-textHeading ${classes}`}>
           {title}

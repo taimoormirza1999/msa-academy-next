@@ -7,20 +7,26 @@ import LoaderWrapper from "../components/utils/LoaderWrapper";
 import MarqueeWrapper2 from "../components/MarqueeWrapper2";
 import BlogCards from "../components/blog/BlogCards";
 import MSALearningSection from "@/components/YouWillLearnv2";
+import Loading from "@/components/Loading";
+import FooterWrapper from "@/components/utils/FooterWrapper";
+import Navigation from "@/components/Navigation";
 const Banner = lazy(() => import("../components/Banner"));
-const EnrollmentBanner = lazy(() => import("../components/EnrollmentBanner"));
 const YourPath = lazy(() => import("../components/YourPath"));
 const Animation = lazy(() => import("../components/Animation"));
 const Drawing = lazy(() => import("../components/Drawing"));
 const Mentors = lazy(() => import("../components/Mentors"));
-const YouWillLearn = lazy(() => import("../components/YouWillLearn"));
 const CommunityMap = lazy(() => import("../components/CommunityMap"));
 const Checkout = lazy(() => import("../components/Checkout"));
 
 const Home = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000); // Wait 3 seconds before showing content
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,13 +63,12 @@ const Home = () => {
   return (
     <>
     {loading ? (
-        <Loader />
+        <Loading />
       ) : (
        <>
+       <Navigation/>
           <Banner />
-          <Suspense fallback={<Loader />}>
-            <EnrollmentBanner />
-          </Suspense>
+          
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
               <LoaderWrapper>
@@ -121,7 +126,7 @@ const Home = () => {
           <Suspense fallback={<Loader />}>
             <ScrollAnimation>
               <LoaderWrapper>
-                <main className="flex items-center justify-center pt-5 mb-32 lg:-mb-10 lg:pt-24 overflow-x-hidden ">
+                <main className="flex items-center justify-center pt-5 lg:-mb-10 lg:pt-24 overflow-x-hidden ">
                   <div
                     className="container-fluid w-[99.5%] max-w-[1920px]  mx-auto  rounded-full shadow-2xl px-2 py-3 shadow-primary200 radius-[8px]  ultrawide:shadow-inner-left-right "
                     style={{ borderRadius: "8px" }}>
@@ -133,6 +138,7 @@ const Home = () => {
           </Suspense>
           <BlogCards />
           {/* {showForm && <SignupForm />} */}
+          <FooterWrapper />
         </>
       )}
     </>

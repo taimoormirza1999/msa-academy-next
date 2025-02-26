@@ -18,12 +18,13 @@ const videos = [
     videoUrl: "https://www.youtube.com/embed/apdV3r2ugrk?si=WnuV7Fmef8xtG9h9",
     imageUrl: "https://i.ytimg.com/vi/apdV3r2ugrk/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAwrP5NNIApS7A38Z-lladEiAeo1g",
   },
+ 
 ];
 
 const VideoGallery = () => {
   return (
-     <div className="container md:mx-auto px-0 md:px-4 2xl:me-auto lg:flex lg:justify-end lg:pe-10 -mt-10">
-    <div className="grid grid-cols-2 md:grid-cols-4 mt-10 gap-3 md:gap-7">
+     <div className=" mx-auto px-0   lg:pe-10 -mt-10">
+    <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row mt-10 gap-3 md:gap-7">
       {videos.map((video, index) => (
         <motion.div
           key={index}

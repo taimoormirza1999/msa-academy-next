@@ -1,10 +1,9 @@
 import React from "react";
 
-const ClippedTextGeneric = ({ text, width = 348, height = 530, strokeWidth=3 }) => {
+const ClippedTextGeneric = ({ text, width = 348, height = 530, strokeWidth=3,textSize="text-3xl" }) => {
   const clipId = `clipShape-${Math.random().toString(36).substr(2, 9)}`; 
   return (
     <div className="relative ">
-
       {/* FOREGROUND TEXT WITH WHITE BORDER */}
       <svg
         width={width}
@@ -29,7 +28,7 @@ const ClippedTextGeneric = ({ text, width = 348, height = 530, strokeWidth=3 }) 
           height={height}
           clipPath={`url(#${clipId})`} // Corrected unique clip ID
         >
-          <h3 className="text-center flex items-center whitespace-nowrap w-full justify-center bg-black text-white text-3xl leading-tight font-primary  p-4">
+          <h3 className={`text-center flex items-center whitespace-nowrap w-full justify-center bg-black text-white ${textSize} leading-tight font-primary  p-4`}>
             {text}
           </h3>
         </foreignObject>

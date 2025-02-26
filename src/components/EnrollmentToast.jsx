@@ -1,19 +1,25 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
 
-export function EnrollmentToast({ name, courseName, timestamp, onDismiss, duration }) {
-  const [isVisible, setIsVisible] = useState(true)
+export function EnrollmentToast({
+  name,
+  courseName,
+  timestamp,
+  onDismiss,
+  duration,
+}) {
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisible(false)
-    }, duration)
+      setIsVisible(false);
+    }, duration);
 
-    return () => clearTimeout(timer)
-  }, [duration])
+    return () => clearTimeout(timer);
+  }, [duration]);
 
   return (
     <AnimatePresence>
@@ -28,8 +34,8 @@ export function EnrollmentToast({ name, courseName, timestamp, onDismiss, durati
           <div className="p-2 lg:p-3 pr-2 lg:pr-5">
             <button
               onClick={() => {
-                setIsVisible(false)
-                onDismiss?.()
+                setIsVisible(false);
+                onDismiss?.();
               }}
               className="absolute right-2 top-2 p-0 rounded-full transition-colors"
             >
@@ -38,15 +44,20 @@ export function EnrollmentToast({ name, courseName, timestamp, onDismiss, durati
 
             <div className="flex gap-2 lg:gap-3 items-center">
               <div className="lg:size-12 size-10 rounded-full bg-pink200 flex items-center justify-center flex-shrink-0">
-                <span className="text-lg font-semibold text-white">{name[0]}</span>
+                <span className="text-lg font-semibold text-white">
+                  {name[0]}
+                </span>
               </div>
 
               <div className="flex-1 min-w-0">
                 <p className="text-white">
-                  <span className="font-medium">{name}</span> enrolled in the course
+                  <span className="font-medium">{name}</span> enrolled in the
+                  course
                 </p>
                 <p className="text-white font-medium mt-0.5">'{courseName}'</p>
-                <p className="text-gray-300 text-xs mt-1 font-sans font-semibold">{timestamp}</p>
+                <p className="text-gray-300 text-xs mt-1 font-sans font-semibold">
+                  {timestamp}
+                </p>
               </div>
             </div>
           </div>
@@ -61,6 +72,5 @@ export function EnrollmentToast({ name, courseName, timestamp, onDismiss, durati
         </motion.div>
       )}
     </AnimatePresence>
-  )
+  );
 }
-

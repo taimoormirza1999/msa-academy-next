@@ -3,15 +3,23 @@ import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
-import Image from "next/image";
+import Button from "./utils/Button";
+import Menu from "./Menu";
+import { motion, AnimatePresence } from "framer-motion";
+import DownElipse from "@/assets/DownElipse.png";
 
 const Navigation = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!isMobileMenuOpen);
+  // const toggleMobileMenu = () => {
+  //   setMobileMenuOpen(!isMobileMenuOpen);
+  // };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const handleScroll = (id) => {
@@ -39,21 +47,34 @@ const Navigation = () => {
   }, [pathname]);
 
   return (
-    <nav className="bg-black fixed top-0 left-0 right-0 z-50 shadow-lg py-2.5 md:py-3">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between md:justify-center  ">
-        <Link
-          href="/"
-          className="cursor-pointer"
-          suppressHydrationWarning={true}
-        >
-          <img
-            src={"/logo.png"}
-            className="w-32 h-auto px-3 md:border-r-2 border-gray636 shadow-xl"
-            alt="Logo"
-          />
-        </Link>
-
-        <ul className="hidden md:flex space-x-6 text-white px-3 pl-5 ">
+    <>
+      <nav className="relative py-2.5 ">
+        <img
+          src={DownElipse.src}
+          alt="Elipse Top"
+          className="  absolute -top-10  scale-y-[-1]"
+        />
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between   ">
+          <Link
+            href="/"
+            className="cursor-pointer"
+            suppressHydrationWarning={true}
+          >
+            <img
+              src={"/logo.png"}
+              className="w-32 lg:w-40 h-auto px-3   shadow-xl"
+              alt="Logo"
+            />
+          </Link>
+          {/* Menu Button */}
+          <Button
+            text="MENU"
+            height={88.51}
+            width={126}
+            textSize="text-xl"
+            onClick={toggleMenu}
+          />{" "}
+          {/* <ul className="hidden space-x-6 text-white px-3 pl-5 ">
           <li className="animate-bounce">
             <span
               onClick={() => handleScroll("enroll-checkout")}
@@ -78,9 +99,8 @@ const Navigation = () => {
               ANIMATION COURSE
             </span>
           </li>
-        </ul>
-
-        <div className="md:hidden flex items-center">
+        </ul> */}
+          {/* <div className="md:hidden flex items-center">
           <button
             className="text-white text-2xl focus:outline-none"
             onClick={toggleMobileMenu}
@@ -91,10 +111,10 @@ const Navigation = () => {
               <FiMenu className="text-white text-4xl" />
             )}
           </button>
+        </div> */}
         </div>
-      </div>
 
-      {isMobileMenuOpen && (
+        {/* {isMobileMenuOpen && (
         <div className="bg-black md:hidden py-1">
           <ul className="flex flex-col items-center space-y-4 text-white ">
             <li onClick={() => handleScroll("enroll-checkout")}>ENROLL</li>
@@ -106,8 +126,23 @@ const Navigation = () => {
             </li>
           </ul>
         </div>
-      )}
-    </nav>
+      )} */}
+      </nav>
+      {/* Menu Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            className="fixed inset-0 z-50 bg-black"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+          >
+            <Menu onClose={() => setIsMenuOpen(false)} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

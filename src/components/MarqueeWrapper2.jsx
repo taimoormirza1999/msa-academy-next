@@ -87,40 +87,39 @@ const firstRow = reviews.slice(0, reviews.length / 2);
 const ReviewCard = ({ img, name, username, body }) => {
   return (
     <ClippedTestimonialCard height={190} width={410} strokeWidth={1.16}>
-      <div
-     className="mx-6 "
-    >
-      <div className="flex flex-row items-start gap-4 mt-7">
-        {/* <Image
-          height={35}
-          width={35}
-          className="rounded-full w-10 h-10 lg:w-14 lg:h-14 object-cover shadow-xl shadow-pink200/20 border border-pink200"
-          alt=""
-          src={img}
-        /> */}
-        {/* Image */}
-        <div className="self-start -mt-12">
-        <ClippedImageGeneric 
-          imageUrl={img}
-          width={165.26}
-          height={165.26}
-          value={15}
-          rightTopClass='top-[7.5px] right-[7.5px]'
-         
-        />
-        </div>
-        <div className="flex flex-col">
-          <figcaption className="text-xl font-medium font-eastroman-trial-black">
-            {name}
-          </figcaption>
-          <p className="text-lg capitalize font-medium font-eastroman-trial-demibold text-grayPrimary">{username}</p>
+      <div className="mx-6 ">
+        <div className="flex flex-row items-start gap-4 mt-7">
+          {/* <Image
+        height={35}
+        width={35}
+        className="rounded-full w-10 h-10 lg:w-14 lg:h-14 object-cover shadow-xl shadow-pink200/20 border border-pink200"
+        alt=""
+        src={img}
+      /> */}
+          {/* Image */}
+          <div className="self-start -mt-12">
+            <ClippedImageGeneric
+              imageUrl={img}
+              width={165.26}
+              height={165.26}
+              value={15}
+              rightTopClass="top-[7.5px] right-[7.5px]"
+            />
+          </div>
+          <div className="flex flex-col">
+            <figcaption className="text-xl font-medium font-eastroman-trial-black">
+              {name}
+            </figcaption>
+            <p className="text-lg capitalize font-medium font-eastroman-trial-demibold text-grayPrimary">
+              {username}
+            </p>
 
-      <blockquote className=" text-xs lg:text-base font-eastroman-trial-bold mb-4">
-        {body}
-      </blockquote>
+            <blockquote className=" text-xs lg:text-base font-eastroman-trial-bold mb-4">
+              {body}
+            </blockquote>
+          </div>
         </div>
       </div>
-    </div>
     </ClippedTestimonialCard>
     // <div
     //   className={cn(
@@ -161,7 +160,7 @@ export default function MarqueeWrapper2() {
           <ReviewCard key={review.username} {...review} />
         ))}
       </Marquee>
-   
+
       <div className="pointer-events-none absolute inset-y-0 left-0 w-full  dark:from-background "></div>
       {/* <div className="pointer-events-none absolute inset-y-0 right-0 w-full dark:from-background"></div> */}
     </div>

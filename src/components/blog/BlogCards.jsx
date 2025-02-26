@@ -8,13 +8,13 @@ import ClippedTestimonialCard from "../utils/ClippedTestimonialCard";
 
 const CustomNextArrow = ({ onClick }) => (
   <button
-    className="absolute right-2 lg:right-[45%] lg:-bottom-16 -translate-y-1/2 z-10  text-white/90 p-3 lg:p-3.5 rounded-full shadow-xl "
+    className="absolute right-2 lg:right-[46%] lg:-bottom-24 -translate-y-1/2 z-10  text-white/90 p-3 lg:p-3.5 rounded-full shadow-xl "
     onClick={onClick}
   >
     <ClippedTestimonialCard
       width={55}
       height={50}
-      value={15}
+      value={12}
       strokeWidth={1.26}
       bgColor="rgba(255,0,255,0.3)"
     >
@@ -40,13 +40,13 @@ const CustomNextArrow = ({ onClick }) => (
 
 const CustomPrevArrow = ({ onClick }) => (
   <button
-    className="absolute  me-2 lg:-me-2 right-16  lg:left-auto lg:right-[50.5%]  lg:-bottom-16 -translate-y-1/2 z-10  text-white/90 p-3 lg:p-3.5 "
+    className="absolute  me-2 lg:-me-2 right-16 lg:left-auto lg:right-[50.5%]  lg:-bottom-24 -translate-y-1/2 z-10  text-white/90 p-3 lg:p-3.5 "
     onClick={onClick}
   >
     <ClippedTestimonialCard
       width={55}
       height={50}
-      value={15}
+      value={12}
       strokeWidth={1.26}
       strokeColor="#A400E8"
     >
@@ -95,16 +95,15 @@ function MultipleItems() {
   }, []);
 
   const settings = {
-    // dots: true,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
     infinite: true,
     slidesToShow: 5,
-    slidesToScroll: 4,
+    slidesToScroll: 5,
     autoplay: true,
     speed: 800,
     draggable: true,
-    lazyLoad: true,
+    lazyLoad: "ondemand", // Fix for lazyLoad
     centerMode: true,
     cssEase: "linear",
     pauseOnHover: true,
@@ -114,7 +113,20 @@ function MultipleItems() {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 4,
-          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        },
+      },
+      {
+        breakpoint: 1780,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
         },
       },
       {
@@ -122,15 +134,13 @@ function MultipleItems() {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: true,
         },
       },
       {
         breakpoint: 769,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 3,
-          infinite: true,
+          slidesToScroll: 2, // Fix: Ensure consistency
         },
       },
       {
@@ -138,7 +148,6 @@ function MultipleItems() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2,
         },
       },
       {
@@ -150,13 +159,14 @@ function MultipleItems() {
       },
     ],
   };
+  
 
   return blogData ? (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.6 }}
-      className="slider-container mb-10 md:mt-32 lg:-mb-14 mt-10 lg:mt-48 w-[95%] lg:w-[100%] mx-auto pb-20 "
+      className="slider-container md:mt-32 lg:-mb-14 mt-10 lg:mt-20 mb-20 w-[95%] lg:w-[100%] mx-auto pb-20 "
     >
       <Slider {...settings} className="rounded">
         {blogData?.map((blogItem, key) => (
