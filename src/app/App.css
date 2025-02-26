@@ -38,40 +38,28 @@ body {
 .page-max-width {
   @apply mx-auto max-w-[1280];
 }
-/* Franklin Gothic Medium */
-.font-medium-fgm {
-  font-family: var(--font-franklin), sans-serif;
-  font-weight: 400;
-}
 
-/* KozGoPr6N Regular */
-.font-medium-kgpr {
-  font-family: var(--font-kozgopr), sans-serif;
-  font-weight: 900;
-}
-
-/* Cocogoose Classic Medium */
-.font-medium-ccm {
-  font-family: var(--font-cocogoose-medium), sans-serif;
-}
-
-/* Cocogoose Classic Medium Regular */
-.font-regular-ccm {
-  font-family: var(--font-cocogoose-medium), sans-serif;
-  font-weight: 200;
-}
 
 /* Impact Custom */
-.font-impact-regular {
+/* .font-impact-regular {
   font-family: var(--font-impact), sans-serif;
-}
+} */
 
 /* Cocogoose Classic Extra Bold */
-.font-ebold-ccm {
+/* .font-ebold-ccm {
   font-family: var(--font-cocogoose-bold), sans-serif;
-}
+} */
 .font-primary{
   font-family: var(--font-mensch-trial-black), sans-serif;
+}
+.font-eastroman-trial-black{
+  font-family: var(--font-eastroman-trial-black), sans-serif;
+}
+.font-eastroman-trial-demibold{
+  font-family: var(--font-eastroman-trial-demibold), sans-serif;
+}
+.font-eastroman-trial-bold{
+  font-family: var(--font-eastroman-trial-bold), sans-serif;
 }
 .custom-border {
   position: relative;

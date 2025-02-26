@@ -18,6 +18,17 @@ const CommunityMap = () => {
       className="w-full h-auto sm:h-[60vh] md:h-auto lg:h-auto object-contain md:object-contain rounded-lg"
     />
          </div>
+         <p className="text-center text-gray-300 text-lg md:text-xl mt-4 md:w-4/5 font-primary mx-auto">
+         Be a part of
+        </p>
+         <h2 className="mt-6 text-white text-center font-primary text-3xl md:text-5xl uppercase leading-tight whitespace-nowrap   ">
+         MSA ART COMMUNITY
+        </h2>
+
+        {/* Description */}
+        <p className="text-center text-gray-300 text-lg md:text-xl mt-4 md:w-4/5 font-primary mx-auto">
+        No matter where you are
+        </p>
     
     </div>
   );

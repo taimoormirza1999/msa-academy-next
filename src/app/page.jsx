@@ -72,13 +72,7 @@ const Home = () => {
             </ScrollAnimation>
           </Suspense>
          
-          {/* <Suspense fallback={<Loader />}>
-            <ScrollAnimation variants={fadeIn}>
-              <LoaderWrapper>
-                <Drawing />
-              </LoaderWrapper>
-            </ScrollAnimation>
-          </Suspense> */}
+         
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
               <LoaderWrapper>
@@ -100,24 +94,31 @@ const Home = () => {
               </LoaderWrapper>
             </ScrollAnimation>
           </Suspense>
-          {/* <Suspense fallback={<Loader />}>
+           <Suspense fallback={<Loader />}>
+            <ScrollAnimation variants={fadeIn}>
+              <LoaderWrapper>
+                <Drawing />
+              </LoaderWrapper>
+            </ScrollAnimation>
+          </Suspense>
+          <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
               <LoaderWrapper>
                 <CommunityMap />
               </LoaderWrapper>
             </ScrollAnimation>
-          </Suspense> */}
+          </Suspense>
           {/* <Suspense fallback={<Loader />}>
             <EnrollmentBanner />
-          </Suspense>
+          </Suspense> */}
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
               <LoaderWrapper>
                 <Checkout showModal={showModal} setShowModal={setShowModal} />
               </LoaderWrapper>
             </ScrollAnimation>
-          </Suspense> */}
-          {/* <Suspense fallback={<Loader />}>
+          </Suspense>
+          <Suspense fallback={<Loader />}>
             <ScrollAnimation>
               <LoaderWrapper>
                 <main className="flex items-center justify-center pt-5 mb-32 lg:-mb-10 lg:pt-24 overflow-x-hidden ">
@@ -129,7 +130,7 @@ const Home = () => {
                 </main>
               </LoaderWrapper>
             </ScrollAnimation>
-          </Suspense> */}
+          </Suspense>
           <BlogCards />
           {/* {showForm && <SignupForm />} */}
         </>

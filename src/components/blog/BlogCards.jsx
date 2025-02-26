@@ -4,48 +4,69 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BlogCard from "../ui/BlogCard";
 import { motion } from "framer-motion";
+import ClippedTestimonialCard from "../utils/ClippedTestimonialCard";
 
 const CustomNextArrow = ({ onClick }) => (
   <button
-    className="absolute shadow-pink200/40 right-2 lg:right-2 -top-12 lg:-top-12 -translate-y-1/2 z-10 bg-pink200/[30%] border-[1.2px] border-pink200 bg-opacity-5 text-white/90 p-3 lg:p-3.5 rounded-full shadow-xl"
+    className="absolute right-2 lg:right-[45%] lg:-bottom-16 -translate-y-1/2 z-10  text-white/90 p-3 lg:p-3.5 rounded-full shadow-xl "
     onClick={onClick}
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      className="w-6 h-6 lg:w-4 lg:h-4"
+    <ClippedTestimonialCard
+      width={55}
+      height={50}
+      value={15}
+      strokeWidth={1.26}
+      bgColor="rgba(255,0,255,0.3)"
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M9 5l7 7-7 7"
-      />
-    </svg>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          className="w-8 h-8 lg:w-4 lg:h-4"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </div>
+    </ClippedTestimonialCard>
   </button>
 );
 
 const CustomPrevArrow = ({ onClick }) => (
   <button
-    className="absolute shadow-pink200/40 me-2 lg:-me-2 right-16  lg:left-auto lg:right-20 -top-12 lg:-top-12 -translate-y-1/2 z-10  border-[1.6px] border-purple text-white/90 p-3 lg:p-3.5 rounded-full shadow-xl"
+    className="absolute  me-2 lg:-me-2 right-16  lg:left-auto lg:right-[50.5%]  lg:-bottom-16 -translate-y-1/2 z-10  text-white/90 p-3 lg:p-3.5 "
     onClick={onClick}
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      className="w-6 h-6 lg:w-4 lg:h-4"
+    <ClippedTestimonialCard
+      width={55}
+      height={50}
+      value={15}
+      strokeWidth={1.26}
+      strokeColor="#A400E8"
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M15 19l-7-7 7-7"
-      />
-    </svg>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          className="w-6 h-6 lg:w-4 lg:h-4"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </div>
+    </ClippedTestimonialCard>
   </button>
 );
 
@@ -135,7 +156,7 @@ function MultipleItems() {
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.6 }}
-      className="slider-container mb-10 md:mt-32 lg:-mb-14 mt-10 lg:mt-48 w-[95%] lg:w-[100%] mx-auto "
+      className="slider-container mb-10 md:mt-32 lg:-mb-14 mt-10 lg:mt-48 w-[95%] lg:w-[100%] mx-auto pb-20 "
     >
       <Slider {...settings} className="rounded">
         {blogData?.map((blogItem, key) => (

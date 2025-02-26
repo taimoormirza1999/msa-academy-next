@@ -5,6 +5,8 @@ const stripePromise = loadStripe(
   "pk_live_51MKOWOClZeY3V6PeILqmhyHFCw3LsPj0DIix9slFGovMEJkYFt0YoAayUWmfqDzB8O6MRY9nQjSpOZmrHkwevvpC00UhPik0o4"
 );
 import { motion } from "framer-motion"
+import ClippedCard from "./utils/ClippedCard";
+import Button from "./utils/Button";
 
 const Checkout = ({ showModal, setShowModal }) => {
   // const [showModal, setShowModal] = useState(false);
@@ -111,25 +113,25 @@ const Checkout = ({ showModal, setShowModal }) => {
         {packages.map((pkg, index) => (
           <div
             key={index}
-            className={`bg-black/40 rounded-[3rem] border-2 ${
-              index == 0
-                ? "border-purple shadow-purple/35 hover:shadow-purple/75"
-                : "border-pink200 shadow-pink200/35 hover:shadow-pink200/75"
-            } shadow-xl p-6 px-7 lg:px-8  mx-auto hover:shadow-2xl transition duration-300 text-center cursor-pointer`}
+            className={`
+              
+            p-6 lg:px-8  mx-auto hover:shadow-2xl transition duration-300 text-center cursor-pointer`}
           >
+            <ClippedCard height={627} width={346.36} strokeColor={index == 0 ? "#8339FC" : "#FF00FF"} >
+            <div className="px-5">
             <h2
               className={`mt-[1rem] text-[13.32pt] text-base font-medium text-center uppercase ${
                 index == 0 ? "text-purple" : "text-pink200"
-              } -mb-3 font-regular-ccm text-left`}
+              } -mb-3 font-primary text-left`}
             >
               {pkg.name}
             </h2>
             <motion.span initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay:0.2 }} className="text-white font-bold text-[4.1rem] font-medium-fgm">
+          transition={{ duration: 0.8, delay:0.2 }} className="text-white font-bold text-[4.1rem] font-primary">
               ${pkg.price}
             </motion.span>
-            <p className="text-white font-semibold text-xs text-[0.6rem] -mt-2">
+            <p className="text-white font-semibold text-xs text-[0.6rem] -mt-2 font-primary">
               PER MONTH
             </p>
             <ul className="mt-[2.5rem] lg:mt-[3.5rem] mb-[1.5rem] lg:mb-[2.1rem]">
@@ -149,7 +151,7 @@ const Checkout = ({ showModal, setShowModal }) => {
                       item.status == 1
                         ? "text-white"
                         : " text-white text-opacity-20"
-                    } text-sm uppercase my-1 text-left text-[0.84rem]`}
+                    } text-sm uppercase my-1 text-left text-[0.84rem] font-eastroman-trial-bold`}
                   >
                     {item.text}
                   </span>
@@ -157,7 +159,7 @@ const Checkout = ({ showModal, setShowModal }) => {
               ))}
             </ul>
             <div className="animate-bounceSlow">
-              <button
+              {/* <button
                 onClick={() => handleCheckout(pkg, index)}
                 className={`animate-animate-glow  lg:text-[1.0956rem] mt-10 mb-3 px-12 border-[1.7px] ${
                   index == 0
@@ -166,8 +168,11 @@ const Checkout = ({ showModal, setShowModal }) => {
                 }  text-white pt-[12px] pb-[9px] px-[42.5px] rounded-[19px] shadow-xl hover:${index === 0 ? "bg-purple-500" : "bg-pink-200/40"} hover:shadow-2xl  transition duration-300 uppercase`}
               >
                 Enroll Now!
-              </button>
+              </button> */}
+              <Button height={97.39} width={335}/>
             </div>
+            </div>
+            </ClippedCard>
           </div>
         ))}
       </div>

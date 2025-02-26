@@ -16,40 +16,61 @@ const MenschTrialBlack = localFont({
   style: 'normal',
   variable: '--font-mensch-trial-black',
 });
-const CocogooseMedium = localFont({
-  src: '../../public/fonts/Cocogoose-Classic-Medium-trial.ttf',
+
+const EastmanRomanTrialBlack = localFont({
+  src: '../../public/fonts/EastmanRomanTrialBlack.otf',
   weight: '400',
   style: 'normal',
-  variable: '--font-cocogoose-medium',
+  variable: '--font-eastroman-trial-black',
 });
 
-const CocogooseExtraBold = localFont({
-  src: '../../public/fonts/Cocogoose-Classic-ExtraBold-trial.ttf',
-  weight: '800',
-  style: 'normal',
-  variable: '--font-cocogoose-bold',
-});
-
-const ImpactCustom = localFont({
-  src: '../../public/fonts/impact.ttf',
+const EastmanRomanTrialDemiBold = localFont({
+  src: '../../public/fonts/EastmanRomanTrialDemiBold.otf',
   weight: '400',
   style: 'normal',
-  variable: '--font-impact',
+  variable: '--font-eastroman-trial-demibold',
 });
 
-const KozGoPr6NRegular = localFont({
-  src: '../../public/fonts/KozGoPr6NRegular.woff',
+const EastmanRomanTrialBold = localFont({
+  src: '../../public/fonts/EastmanRomanTrialBold.otf',
   weight: '400',
   style: 'normal',
-  variable: '--font-kozgopr',
+  variable: '--font-eastroman-trial-bold',
 });
+// const CocogooseMedium = localFont({
+//   src: '../../public/fonts/Cocogoose-Classic-Medium-trial.ttf',
+//   weight: '400',
+//   style: 'normal',
+//   variable: '--font-cocogoose-medium',
+// });
 
-const FranklinGothicMedium = localFont({
-  src: '../../public/fonts/FranklinGothicMedium.ttf',
-  weight: '400',
-  style: 'normal',
-  variable: '--font-franklin',
-});
+// const CocogooseExtraBold = localFont({
+//   src: '../../public/fonts/Cocogoose-Classic-ExtraBold-trial.ttf',
+//   weight: '800',
+//   style: 'normal',
+//   variable: '--font-cocogoose-bold',
+// });
+
+// const ImpactCustom = localFont({
+//   src: '../../public/fonts/impact.ttf',
+//   weight: '400',
+//   style: 'normal',
+//   variable: '--font-impact',
+// });
+
+// const KozGoPr6NRegular = localFont({
+//   src: '../../public/fonts/KozGoPr6NRegular.woff',
+//   weight: '400',
+//   style: 'normal',
+//   variable: '--font-kozgopr',
+// });
+
+// const FranklinGothicMedium = localFont({
+//   src: '../../public/fonts/FranklinGothicMedium.ttf',
+//   weight: '400',
+//   style: 'normal',
+//   variable: '--font-franklin',
+// });
 
 export const metadata = {
   manifest: 'https://msa-club.com/manifest.json',
@@ -137,7 +158,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 
   return (
-    <html lang="en" suppressHydrationWarning={true} className={`${MenschTrialBlack.variable} ${CocogooseMedium.variable} ${CocogooseExtraBold.variable} ${ImpactCustom.variable} ${KozGoPr6NRegular.variable} ${FranklinGothicMedium.variable}`}>
+    <html lang="en" suppressHydrationWarning={true} className={`${MenschTrialBlack.variable} ${EastmanRomanTrialBlack.variable} ${EastmanRomanTrialDemiBold.variable} ${EastmanRomanTrialBold.variable} `}>
      <head>
    <ScriptsLoader/>
      </head>
@@ -157,7 +178,7 @@ export default function RootLayout({ children }) {
             layout="fill"
             objectFit="cover"
             priority
-            className="absolute inset-0 -z-10 opacity-30"
+            className="absolute inset-0 -z-10 opacity-40"
           />
         <Navigation />
         <SuppressErrors/>

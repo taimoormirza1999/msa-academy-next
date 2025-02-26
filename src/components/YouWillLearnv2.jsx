@@ -9,13 +9,15 @@ import AnimationTechniques from "@/assets/Learn/2.png";
 import StoryTelling from "@/assets/Learn/3.png";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
 import ClippedBtn from "./utils/ClippedImageBtn";
+import CharacterFoo from "@/assets/characterFoo.png";
+
 const Card = ({ imageUrl, title, description, title2 }) => {
   return (
-    <div className="flex flex-col items-center justify-center  rounded-2xl shadow-lg p-6">
+    <div className="flex flex-col items-center justify-center   p-6">
       <ClippedImageGeneric height={320.18} width={466.25} imageUrl={imageUrl} />
       <OutlineTextEffect title={title} />
-      {title2&&( <OutlineTextEffect title={title2} />)}
-     
+      {title2 && <OutlineTextEffect title={title2} />}
+
       <p className="text-xl text-grayPrimary mt-5 text-center font-primary">
         {description}
       </p>
@@ -41,37 +43,38 @@ const MSALearningSection = () => {
     {
       imageUrl: StoryTelling?.src,
       title: "Story",
-      title2:"Telling",
+      title2: "Telling",
       description:
         "Learn the art of crafting compelling narratives that captivate audiences across various media formats.",
     },
   ];
-  const courses = {
-    animation: [
-      "Hands-on animation experience",
-      "Mentorship from top professionals",
-      "Cutting-edge animation tools",
-      "Collaborative creative sessions",
-      "Behind-the-scenes production insights",
-      "Tailored learning for all skill levels",
-      "Creative community support",
-      "Practical project-based learning",
-      "Real-time industry trends integration",
-      "Networking with industry leaders",
-    ],
-    drawing: [
-      "Fundamentals of drawing",
-      "Understanding proportions and anatomy",
-      "Shading and lighting techniques",
-      "Perspective and composition",
-      "Character and environment sketching",
-      "Using digital and traditional tools",
-      "Gesture drawing for movement",
-      "Creative thinking and visualization",
-      "Portfolio-building tips",
-      "Live drawing sessions with experts",
-    ],
-  };
+  const courses_list = [
+    {
+      title: "Hands-on projects mirroring real MSA productions",
+      height: 79,
+      width: 760,
+    },
+    {
+      title: "Personalized feedback from industry professionals",
+      height: 79,
+      width: 775,
+    },
+    {
+      title: "Access to cutting-edge tools and software",
+      height: 79,
+      width: 645,
+    },
+    {
+      title: "Collaborative workshops with fellow creatives",
+      height: 79,
+      width: 695,
+    },
+    {
+      title: "Insights into MSA's creative process and workflow",
+      height: 79,
+      width: 755,
+    },
+  ];
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -100,11 +103,10 @@ const MSALearningSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-2xl text-center font-primary lg:text-5xl uppercase text-white font-bold mb-2 font-ebold-ccm text-transparent bg-gradient-to-br from-[#B14BF4] to-[#4D91FF] bg-clip-text "
           >
-             {( <OutlineTextEffect title={"LEARN TO CREATE"} />)}
-             <div className="my-2">
-             {( <OutlineTextEffect title={"LIKE MSA"} />)}
-             </div>
-      
+            {<OutlineTextEffect title={"LEARN TO CREATE"} />}
+            <div className="my-2">
+              {<OutlineTextEffect title={"LIKE MSA"} />}
+            </div>
           </motion.h4>
           <motion.h3
             initial={{ opacity: 0, y: 50 }}
@@ -118,14 +120,13 @@ const MSALearningSection = () => {
             truly exceptional.
           </motion.h3>
           <div>
-          <div className="flex  gap-6 justify-center mb-10">
-      {cards.map((card, index) => (
-        <Card key={index} {...card} />
-      ))}
-    </div>
+            <div className="flex  gap-6 justify-center mb-10">
+              {cards.map((card, index) => (
+                <Card key={index} {...card} />
+              ))}
+            </div>
 
-    
-    <ClippedBtn text="What is the refund policy?" width={575} height={79}/>
+            {/* <ClippedBtn text="What is the refund policy?" width={575} height={79}/> */}
             <motion.div
               // whileInView={{
               //   opacity: 1,
@@ -136,17 +137,37 @@ const MSALearningSection = () => {
               className=" p-5 lg:p-16 shadow-2xl overflow-hidden rounded-[1rem]"
               // variants={itemVariants}
             >
-               {( <OutlineTextEffect title={"THE MSA LEARNING"} />)}
-               {( <OutlineTextEffect title={"EXPERIENCE"} />)}
-              <div className="grid grid-cols-1 md:grid-cols-1 lg:md:grid-cols-3 gap-5 lg:gap-0 2xl:gap-8 items-center md:flex-row">
-                <div className="order-2 md:order-1 lg:col-span-2 rounded-xl ">
-                
+              {<OutlineTextEffect title={"THE MSA LEARNING"} />}
+              {<OutlineTextEffect title={"EXPERIENCE"} />}
+
+              <div className="relative  flex flex-row-reverse gap-5 lg:gap-0 2xl:gap-5 items-center md:flex-row">
+                <div className="order md:order-0  w-[30%] ">
                   {/* Course Content */}
-             
+                  <ul className="text-lg text-gray-300 font-primary list-disc ">
+                    {courses_list.map((course, index) => (
+                      <div className=" p-2.5">
+                        <ClippedBtn
+                          key={index}
+                          text={course.title}
+                          width={course.width}
+                          height={course.height}
+                          
+                        />
+                      </div>
+                    ))}
+                  </ul>
                 </div>
+
                 {/* Image Section */}
-               
-           
+                <div className="order md:order-1 relative ">
+                  <Image
+                    width={600}
+                    height={600}
+                    src={CharacterFoo.src}
+                    alt="Character Image"
+                    className=" absolute left-0 top-0 mt-4 md:mt-0 mx-auto  scale-x-[-1]"
+                  />
+                </div>
               </div>
             </motion.div>
           </div>

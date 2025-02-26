@@ -5,7 +5,6 @@ import ClippedBtn from "./utils/ClippedImageBtn";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
 import SectionWrapper from "./SectionWrapper";
 
-
 const FAQ = () => {
   const faqs = [
     {
@@ -34,31 +33,30 @@ const FAQ = () => {
   return (
     <div className="p-6 py-20">
       <SectionWrapper>
-      <OutlineTextEffect title={"Frequently Asked"}/>
-     <div className="my-2">
-     <OutlineTextEffect title={"Questions"}/>
-     </div>
-      <div className="-space-y-5 ml-auto flex flex-col items-center ">
-        {faqs.map((faq, index) => (
-          <div key={index} className="relative">
-           
-<ClippedBtn text={faq.question} width={675} height={99}/>
-           
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={openIndex === index ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-              transition={{ duration: 0.4 }}
-              className="overflow-hidden"
-            >
-              {/* <div className="bg-black text-white px-6 py-3 border-2 border-pink-500 mt-1">
-                {faq.answer}
-              </div> */}
-            </motion.div>
-          </div>
-        ))}
-      </div>
-      </SectionWrapper>
+        <OutlineTextEffect title={"Frequently Asked"} />
+        <div className="my-2">
+          <OutlineTextEffect title={"Questions"} />
+        </div>
+        <div className="-space-y-5 ml-auto flex flex-col items-center ">
+          {faqs.map((faq, index) => (
+            <div key={index} className="relative py-5">
+              <ClippedBtn text={faq.question} width={500} height={70} strokeWidth={1.5} />
 
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={
+                  openIndex === index
+                    ? { height: "auto", opacity: 1 }
+                    : { height: 0, opacity: 0 }
+                }
+                transition={{ duration: 0.4 }}
+                className="overflow-hidden"
+              >
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </SectionWrapper>
     </div>
   );
 };
