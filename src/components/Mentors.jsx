@@ -38,16 +38,16 @@ const Mentors = () => {
           </div>
 
           <div className="flex flex-col justify-center">
-            <h3 className="font-primary text-3xl text-grayPrimary text-center mb-7">
+            <h3 className="font-primary text-2xl lg:text-3xl text-grayPrimary text-center mb-2 lg:mb-7">
               Get feedback directly from
             </h3>
             <div className="relative w-full flex justify-center items-center py-10">
               {/* Outline Text (Behind) */}
-              <h1 className="absolute text-[8rem] mt-5 font-extrabold uppercase text-transparent stroke-text">
+              <h1 className="absolute text-[3.5rem] lg:text-[8rem] mt-5 font-extrabold uppercase text-transparent stroke-text">
                 MENTORS
               </h1>
               {/* Gradient Filled Text (Front) */}
-              <h1 className=" absolute  text-[8rem]  ml-4 font-extrabold uppercase bg-gradient-to-r from-[#A400E8] to-[#F7009E] text-transparent bg-clip-text font-primary  ">
+              <h1 className=" absolute  text-[3.5rem] lg:text-[8rem]  ml-4 font-extrabold uppercase bg-gradient-to-r from-[#A400E8] to-[#F7009E] text-transparent bg-clip-text font-primary  ">
                 MENTORS
               </h1>
             </div>

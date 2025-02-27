@@ -19,7 +19,7 @@ const Checkout = ({ showModal, setShowModal }) => {
       name: "Basic",
       description: "Basic plan with essential features.",
       price: 20,
-      bubble:{classes:' -top-8 -left-12'},
+      bubble:{classes:' -top-8 left-5 lg:-left-12'},
       includes: [
         { text: "ACCESS TO ALL DRAWING COURSES", status: 1 },
         {
@@ -39,7 +39,7 @@ const Checkout = ({ showModal, setShowModal }) => {
       name: "Premium",
       description: "Standard plan with more features.",
       price: 30,
-      bubble:{classes:' -bottom-6 -right-16'},
+      bubble:{classes:' -bottom-6 right-8 lg:-right-16'},
       includes: [
         { text: "Access to all drawing courses", status: 1 },
         { text: "Access to all animation courses", status: 1 },
@@ -126,7 +126,7 @@ const Checkout = ({ showModal, setShowModal }) => {
               height={60}
               src={Bubbles.src}
               alt="Floating Bubble"
-              className={`absolute ${pkg.bubble.classes}  w-10 md:w-24 h-auto animate-pulse`}
+              className={`absolute ${pkg.bubble.classes}  w-20 md:w-24 h-auto animate-pulse`}
             />
             <ClippedCard
               height={570}

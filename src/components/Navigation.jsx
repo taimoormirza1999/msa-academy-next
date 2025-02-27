@@ -7,6 +7,7 @@ import Button from "./utils/Button";
 import Menu from "./Menu";
 import { motion, AnimatePresence } from "framer-motion";
 import DownElipse from "@/assets/DownElipse.png";
+import Image from "next/image";
 
 const Navigation = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,10 +50,12 @@ const Navigation = () => {
   return (
     <>
       <nav className="relative py-2.5 ">
-        <img
-          src={DownElipse.src}
+        <Image
+        height={500}
+        width={500}
+        src={DownElipse.src}
           alt="Elipse Top"
-          className="  absolute -top-10  scale-y-[-1]"
+          className="w-full  absolute -top-10  scale-y-[-1]"
         />
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between   ">
           <Link

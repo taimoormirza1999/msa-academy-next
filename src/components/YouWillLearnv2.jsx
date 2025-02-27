@@ -141,7 +141,7 @@ const MSALearningSection = () => {
                 {<OutlineTextEffect title={"EXPERIENCE"} />}
               </div>
 
-              <div className="relative  flex flex-row-reverse gap-5 lg:gap-0 2xl:gap-5 items-center md:flex-row mt-14">
+              <div className="relative  flex flex-col lg:flex-row-reverse gap-5 lg:gap-0 2xl:gap-5 items-center md:flex-row mt-14">
                 <div className="order md:order-0  w-[30%] ">
                   {/* Course Content */}
                   <ul className="text-lg text-gray-300 font-primary list-disc ">

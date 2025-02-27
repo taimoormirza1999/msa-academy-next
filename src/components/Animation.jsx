@@ -5,7 +5,6 @@ import PuppetGirl from "../assets/SecondSection/PuppetGirl.png";
 import LeftEllipse from "../assets/LeftEllipse.png";
 import Bubble from "@/assets/bubble.svg";
 import SectionWrapper from "./SectionWrapper";
-// import CTAButton from "./utils/CTAButton";
 import Button from "./utils/Button";
 import VideoGallery from "./VideoSections";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
@@ -14,7 +13,7 @@ function Animation() {
   return (
     
     <section className="relative text-white py-16 overflow-visible">
-       <div className="absolute -right-10   w-full h-full overflow-visible ">
+       <div className="absolute lg:-right-10   w-full h-full overflow-visible ">
               <Image
                 width={500}
                 height={500}
@@ -34,7 +33,7 @@ function Animation() {
                 height={60}
                 src={Bubble.src}
                 alt="Floating Bubble"
-                className="absolute -top-6 -left-10 md:-top-20 md:-left-12 w-10 md:w-20 h-auto animate-pulse"
+                className="absolute -top-6 left-10 md:-top-20 md:-left-12 w-10 md:w-20 h-auto animate-pulse"
               />
             </div>
 

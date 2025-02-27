@@ -37,7 +37,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="p-6 py-24">
+    <div className="p-6 py-24 overflow-x-hidden">
       <SectionWrapper>
         <OutlineTextEffect title={"Frequently Asked"} />
         <div className="my-2">

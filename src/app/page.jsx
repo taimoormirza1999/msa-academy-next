@@ -57,18 +57,16 @@ const Home = () => {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.9 } },
   };
- 
-
 
   return (
     <>
-    {loading ? (
+      {loading ? (
         <Loading />
       ) : (
-       <>
-       <Navigation/>
+        <>
+          <Navigation />
           <Banner />
-          
+
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
               <LoaderWrapper>
@@ -76,8 +74,7 @@ const Home = () => {
               </LoaderWrapper>
             </ScrollAnimation>
           </Suspense>
-         
-         
+
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
               <LoaderWrapper>
@@ -95,11 +92,11 @@ const Home = () => {
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
               <LoaderWrapper>
-               <MSALearningSection/>
+                <MSALearningSection />
               </LoaderWrapper>
             </ScrollAnimation>
           </Suspense>
-           <Suspense fallback={<Loader />}>
+          <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
               <LoaderWrapper>
                 <Drawing />
@@ -113,9 +110,7 @@ const Home = () => {
               </LoaderWrapper>
             </ScrollAnimation>
           </Suspense>
-          {/* <Suspense fallback={<Loader />}>
-            <EnrollmentBanner />
-          </Suspense> */}
+
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
               <LoaderWrapper>
@@ -129,14 +124,15 @@ const Home = () => {
                 <main className="flex items-center justify-center pt-5 lg:-mb-10 lg:pt-24 overflow-x-hidden ">
                   <div
                     className="container-fluid w-[99.5%] max-w-[1920px]  mx-auto  rounded-full shadow-2xl px-2 py-3 shadow-primary200 radius-[8px]  ultrawide:shadow-inner-left-right "
-                    style={{ borderRadius: "8px" }}>
+                    style={{ borderRadius: "8px" }}
+                  >
                     <MarqueeWrapper2 />
                   </div>
                 </main>
               </LoaderWrapper>
             </ScrollAnimation>
           </Suspense>
-          <BlogCards />
+          <BlogCards /> 
           {/* {showForm && <SignupForm />} */}
           <FooterWrapper />
         </>

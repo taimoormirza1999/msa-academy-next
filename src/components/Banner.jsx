@@ -15,20 +15,28 @@ import C4D from "@/assets/C4D.png";
 import Blender from "@/assets/Blender.png";
 import Bubble from "@/assets/bubble.svg";
 import DownElipse from "@/assets/DownElipse.png";
+
 const GradeinetOutlineText = ({ text, classes }) => {
   return (
     <div className="absolute w-full flex justify-center items-center py-10">
-      {/* Outline Text (Behind) */}
-      <h1 className="absolute text-[9rem] mt-5 font-extrabold uppercase text-transparent stroke-text">
+      <h1 className="absolute lg:text-[7rem] 2xl:text-[9rem] mt-5 font-extrabold uppercase text-transparent stroke-text">
         {text}
       </h1>
-
-      {/* Gradient Filled Text (Front) */}
-      <h1 className=" absolute  text-[9rem]  ml-4 font-extrabold uppercase bg-gradient-to-r from-[#A400E8] to-[#F7009E] text-transparent bg-clip-text font-primary  ">
+      <h1 className="absolut lg:text-[7rem]  2xl:text-[9rem] ml-4 font-extrabold uppercase bg-gradient-to-r from-[#A400E8] to-[#F7009E] text-transparent bg-clip-text font-primary">
         {text}
       </h1>
     </div>
   );
+};
+
+const toolVariants = {
+  hidden: { opacity: 0, scale: 0.9, y: 100 },
+  visible: (delay) => ({
+    y: 0,
+    scale: 1,
+    opacity: 1,
+    transition: { delay, duration: 1.8, ease: "easeInOut" },
+  }),
 };
 
 const Banner = () => {
@@ -37,148 +45,46 @@ const Banner = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: isLargeScreen ? 150 : 70 }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        transition: { duration: 1.8, ease: "easeInOut" },
-      }}
+      whileInView={{ opacity: 1, y: 0, transition: { duration: 1.8, ease: "easeInOut" } }}
       viewport={isLargeScreen ? { once: true } : {}}
       transition={{ type: "spring", stiffness: 300, damping: 10, duration: 1 }}
-      className="relative w-full mx-auto max-w-[1920px] mb-7 md:mb-10 lg:mb-20 xl:mb-0 pb-10 pt-5 lg:pb-16 h-[80vh] z-20 "
+      className="relative w-full mx-auto max-w-[1920px] mb-7 md:mb-10 lg:mb-20 xl:mb-0 pb-10 pt-5 lg:pb-16 h-[80vh] z-20 overflow-x-clip"
     >
-      {/* Left Arrow */}
-      <Image
-        width={100}
-        height={100}
-        src={RightArrow.src}
-        alt="Left Arrow"
-        className="absolute -bottom-6 left-14 w-7 scale-y-[-1]"
-      />
-
-      {/* Chinese Text */}
-      <Image
-        width={200}
-        height={200}
-        src={ChinsiseText.src}
-        alt="Chinese Text"
-        className="absolute bottom-1/2 right-5 lg:right-10 w-5 lg:w-10 h-auto"
-      />
-
-      {/* Moon */}
-      <Image
-        width={1080}
-        height={1080}
-        src={Moon.src}
-        alt="Moon"
-        className="absolute -top-24 left-[18%] lg:w-[60rem] "
-      />
+      <Image width={100} height={100} src={RightArrow.src} alt="Left Arrow" className="absolute -bottom-6 left-14 w-7 scale-y-[-1]" />
+      <Image width={200} height={200} src={ChinsiseText.src} alt="Chinese Text" className="absolute bottom-1/2 right-5 lg:right-10 w-5 lg:w-10 h-auto" />
+      <motion.div initial={{ opacity: 0, y: 100 }} whileInView={{ y: 0, opacity: 1, transition: { delay: 0.3, duration: 1.8, ease: "easeInOut" } }}>
+        <Image width={1080} height={1080} src={Moon.src} alt="Moon" className="absolute -top-24 left-[18%] xl:w-[45rem] 2xl:w-[60rem]" />
+      </motion.div>
       <div className="relative">
-        <div className="realtive absolute  left-[6%] -top-20 w-[55%] lg:w-[52rem]">
-          {/* Left Lady */}
-          <Image
-            width={1080}
-            height={1080}
-            src={LeftLady.src}
-            alt="Left Lady"
-            className="inset-0"
-          />
-          {/* all tools images */}
-          <div className="flex flex-col items-center absolute space-y-7  left-[6%] top-32">
-            <motion.div
-              initial={{ opacity: 0,scale:0.9, y: 100 }}
-              whileInView={{
-                y: 0,
-                scale:1,
-                opacity: 1,
-                transition: { delay: 0.2, duration: 1.8, ease: "easeInOut" },
-              }}
-            >
-              <Image
-                width={100}
-                height={100}
-                src={C4D.src}
-                alt="Left Arrow"
-                className=" w-24 scale-y-[-1]"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0,scale:0.9, y: 100 }}
-              whileInView={{
-                y: 0,
-                scale:1,
-                opacity: 1,
-                transition: { delay: 0.4, duration: 1.8, ease: "easeInOut" },
-              }}
-            >
-              {" "}
-              <Image
-                width={100}
-                height={100}
-                src={ps.src}
-                alt="Left Arrow"
-                className=" w-16 scale-y-[-1]"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ delay: 0.8, opacity: 0,scale:0.8, y: 100 }}
-              whileInView={{
-                y: 0,
-                scale:1,
-                opacity: 1,
-                transition: { duration: 1.8, ease: "easeInOut" },
-              }}
-            >
-              <Image
-                width={100}
-                height={100}
-                src={Blender.src}
-                alt="Left Arrow"
-                className=" w-14 scale-y-[-1]"
-              />
-            </motion.div>
-          </div>
+        <div className="absolute left-[6%] -top-20 w-[55%] xl:w-[45rem] 2xl:w-[52rem]">
+          <motion.div initial={{ opacity: 0, y: 100 }} whileInView={{ y: 0, opacity: 1, transition: { delay: 0.1, duration: 1.8, ease: "easeInOut" } }}>
+            <Image width={1080} height={1080} src={LeftLady.src} alt="Left Lady" className="inset-0" />
+          </motion.div>
+          {/* Optimized all tools images */}
+          <motion.div className="flex flex-col items-center absolute space-y-7 left-[6%] top-32" initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            {[{ src: C4D, delay: 0.6, size: "w-24" }, { src: ps, delay: 0.8, size: "w-16" }, { src: Blender, delay: 1, size: "w-14" }].map((tool, index) => (
+              <motion.div key={index} variants={toolVariants} custom={tool.delay}>
+                <Image width={100} height={100} src={tool.src.src} alt="Tool" className={`${tool.size} scale-y-[-1]`} />
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
-        {/* Right Lady */}
-        <Image
-          width={1080}
-          height={1080}
-          src={RightLady.src}
-          alt="Right Lady"
-          className="absolute right-[20%] lg:w-[64rem] -top-8 z-10"
-        />
+        <motion.div initial={{ opacity: 0, y: 100 }} whileInView={{ y: 0, opacity: 1, transition: { delay: 0.4, duration: 1.8, ease: "easeInOut" } }} className="z-10">
+          <Image width={1080} height={1080} src={RightLady.src} alt="Right Lady" className="absolute right-[20%] xl:w-[55rem] 2xl:w-[64rem] -top-8 z-10" />
+        </motion.div>
       </div>
-      {/* Floating Bubble */}
-      <Image
-        width={60}
-        height={60}
-        src={Bubble.src}
-        alt="Floating Bubble"
-        className="absolute -bottom-6 right-32 w-10 md:w-20 h-auto animate-pulse"
-      />
-
-      <div className="absolute bottom-[39%]  left-[31%] ">
+      <Image width={60} height={60} src={Bubble.src} alt="Floating Bubble" className="absolute -bottom-10 right-32 w-10 md:w-24 h-auto animate-pulse" />
+      <div className="absolute lg:bottom-[44%] 2xl:bottom-[39%] left-[31%]">
         <GradeinetOutlineText text={"MSA"} />
       </div>
-      <div className="absolute bottom-[25%] left-[50%] ">
+      <div className="absolute lg:bottom-[30%] 2xl:bottom-[25%] lg:left-[44%] 2xl:left-[50%]">
         <GradeinetOutlineText text={"ACADEMY"} />
       </div>
-
-      {/* Enroll Button */}
-      <div className="absolute -bottom-2 right-[30%] animate-bounceSlow mt-9 md:mt-auto z-100">
+      <div className="absolute -bottom-2 lg:right-[18%] 2xl:right-[30%] animate-bounceSlow mt-9 md:mt-auto z-100">
         <Button isRounded={false} />
       </div>
-      <motion.div
-        className="absolute bottom-10 md:right-16 lg:right-28 md:left-auto left-0 right-0 z-10 mx-auto w-max"
-        style={{ top: "calc(100% - 35%)" }}
-      >
-        <Image
-          height={500}
-          width={500}
-          src={msaText.src}
-          alt="MSA Academy Text"
-          className="-mt-7 -ml-1 w-40 h-auto shadow-2xl object-contain mb-3 md:hidden shadow-pink200/65"
-        />
-      </motion.div>
+     
+      <Image height={500} width={500} src={DownElipse.src} alt="Elipse Top" className="w-full absolute -bottom-10 z-20 scale-y-[1] opacity-50 overflow-auto" />
     </motion.div>
   );
 };
