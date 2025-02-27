@@ -53,10 +53,10 @@ const Banner = () => {
       <Image width={100} height={100} src={RightArrow.src} alt="Left Arrow" className="absolute -bottom-6 left-14 w-7 scale-y-[-1]" />
       <Image width={200} height={200} src={ChinsiseText.src} alt="Chinese Text" className="absolute bottom-1/2 right-5 lg:right-10 w-5 lg:w-10 h-auto" />
       <motion.div initial={{ opacity: 0, y: 100 }} whileInView={{ y: 0, opacity: 1, transition: { delay: 0.3, duration: 1.8, ease: "easeInOut" } }}>
-        <Image width={1080} height={1080} src={Moon.src} alt="Moon" className="absolute -top-24 left-[18%] xl:w-[45rem] 2xl:w-[60rem]" />
+        <Image width={1080} height={1080} src={Moon.src} alt="Moon" className="absolute top-10 lg:-top-24 left-[3%] lg:left-[18%] xl:w-[45rem] 2xl:w-[60rem]" />
       </motion.div>
       <div className="relative">
-        <div className="absolute left-[6%] -top-20 w-[55%] xl:w-[45rem] 2xl:w-[52rem]">
+        <div className="absolute left-[2%] lg:left-[6%] top-20 lg:-top-20 w-[25rem] xl:w-[45rem] 2xl:w-[52rem]">
           <motion.div initial={{ opacity: 0, y: 100 }} whileInView={{ y: 0, opacity: 1, transition: { delay: 0.1, duration: 1.8, ease: "easeInOut" } }}>
             <Image width={1080} height={1080} src={LeftLady.src} alt="Left Lady" className="inset-0" />
           </motion.div>
@@ -70,7 +70,7 @@ const Banner = () => {
           </motion.div>
         </div>
         <motion.div initial={{ opacity: 0, y: 100 }} whileInView={{ y: 0, opacity: 1, transition: { delay: 0.4, duration: 1.8, ease: "easeInOut" } }} className="z-10">
-          <Image width={1080} height={1080} src={RightLady.src} alt="Right Lady" className="absolute right-[20%] xl:w-[55rem] 2xl:w-[64rem] -top-8 z-10" />
+          <Image width={1080} height={1080} src={RightLady.src} alt="Right Lady" className="absolute top-20  lg:-top-8 lg:right-[20%] w-[65rem] xl:w-[55rem] 2xl:w-[64rem]  z-10" />
         </motion.div>
       </div>
       <Image width={60} height={60} src={Bubble.src} alt="Floating Bubble" className="absolute -bottom-10 right-32 w-10 md:w-24 h-auto animate-pulse" />
