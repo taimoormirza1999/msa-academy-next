@@ -1,7 +1,7 @@
 import React from "react";
-import MentorsCard1 from "../assets/Mentors/1.png"; // Replace with your actual image path
-import MentorsCard2 from "../assets/Mentors/2.png"; // Replace with your actual image path
-import MentorsCard3 from "../assets/Mentors/3.png"; // Replace with your actual image path
+import MentorsCard1 from "../assets/Mentors/1.png"; 
+import MentorsCard2 from "../assets/Mentors/2.png"; 
+import MentorsCard3 from "../assets/Mentors/3.png"; 
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Bubble from "@/assets/bubble.svg";
@@ -43,11 +43,11 @@ const Mentors = () => {
             </h3>
             <div className="relative w-full flex justify-center items-center py-10">
               {/* Outline Text (Behind) */}
-              <h1 className="absolute text-[3.5rem] lg:text-[8rem] mt-5 font-extrabold uppercase text-transparent stroke-text">
+              <h1 className="absolute text-[4.2rem] lg:text-[8rem] mt-5 font-extrabold uppercase text-transparent stroke-text">
                 MENTORS
               </h1>
               {/* Gradient Filled Text (Front) */}
-              <h1 className=" absolute  text-[3.5rem] lg:text-[8rem]  ml-4 font-extrabold uppercase bg-gradient-to-r from-[#A400E8] to-[#F7009E] text-transparent bg-clip-text font-primary  ">
+              <h1 className=" absolute  text-[4.2rem] lg:text-[8rem]  ml-4 font-extrabold uppercase bg-gradient-to-r from-[#A400E8] to-[#F7009E] text-transparent bg-clip-text font-primary  ">
                 MENTORS
               </h1>
             </div>

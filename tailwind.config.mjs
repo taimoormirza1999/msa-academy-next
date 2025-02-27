@@ -10,6 +10,12 @@ export default {
 		screens: {
 		  'ultrawide': '1920px', 
 		},
+		fontSize:{
+			'4.5xl': '2.50rem',
+		},
+		lineHeight: {
+			'4.5': '2.50rem',
+		  },
 		colors: {
 		  primary: '#ee00a7e4',
 		  red: '#f02d00',

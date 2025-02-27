@@ -49,13 +49,13 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="relative py-2.5 ">
+      <nav className="relative py-2 lg:py-2.5 ">
         <Image
         height={500}
         width={500}
         src={DownElipse.src}
           alt="Elipse Top"
-          className="w-full  absolute -top-10  scale-y-[-1]"
+          className="w-full absolute -top-1 lg:-top-10  scale-y-[-1]"
         />
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between   ">
           <Link

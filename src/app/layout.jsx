@@ -9,6 +9,7 @@ import FooterWrapper from "@/components/utils/FooterWrapper";
 import SuppressErrors from "@/components/utils/SuppressErrors";
 import Loading from "@/components/Loading";
 import Menu from "@/components/Menu";
+import ScreenProvider from "@/components/ScreenProvider";
 
 const MenschTrialBlack = localFont({
   src: "../../public/fonts/MenschTrialBlack.otf",
@@ -176,7 +177,7 @@ export default function RootLayout({ children }) {
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        <div className="mx-0 relative bg-cover bg-center">
+        <div className="mx-0 relative bg-cover bg-center overflow-hidden">
           {/* <Image
             src={BackgroundImage}
             alt="Background"
@@ -187,10 +188,9 @@ export default function RootLayout({ children }) {
           /> */}
           {/* <Navigation /> */}
           <SuppressErrors />
-          {children}
+          <ScreenProvider>{children}</ScreenProvider>
           {/* <Menu>
           </Menu> */}
-         
         </div>
       </body>
     </html>

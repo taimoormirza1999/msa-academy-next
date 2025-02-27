@@ -9,7 +9,7 @@ const Loading = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setProgress((prev) => (prev < 100 ? prev + 5 : 100)); // Slower increments
+      setProgress((prev) => (prev < 100 ? prev + 5 : 100)); 
     }, 200); // Reduced interval time for smoother animation
     return () => clearInterval(interval);
   }, []);
@@ -28,7 +28,7 @@ const Loading = () => {
       <motion.img
         src="/logo.png"
         alt="MSA Academy Logo"
-        className="w-36 lg:w-64 2xl:w-54 h-auto relative z-10 mb-10"
+        className="w-40 lg:w-64 2xl:w-54 h-auto relative z-10 mb-10"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
@@ -37,7 +37,7 @@ const Loading = () => {
      
       {/* Loading Percentage */}
       <motion.h4
-        className="text-pink200 absolute bottom-16 text-2xl lg:text-6xl 2xl:text-5xl font-primary z-10 mt-4"
+        className="text-pink200 absolute bottom-16 lg:bottom-16 text-5xl lg:text-6xl 2xl:text-5xl font-primary z-10 mt-4"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}

@@ -12,8 +12,8 @@ import VideoGallery from "./VideoSections";
 
 function YourPath() {
   return (
-    <section className="relative  text-white py-16">
-       <Image
+    <section className="relative  text-white py-0">
+      <Image
         width={500}
         height={500}
         src={LeftEllipse.src}
@@ -26,31 +26,33 @@ function YourPath() {
           {/* Left Content */}
           <div className="relative md:w-1/2 z-10 text-center md:text-left">
             {/* Floating Bubble */}
-           
-            
+
             {/* Title */}
             <div className="relative   ">
-
-            <h2 className="font-primary text-3xl md:text-5xl uppercase leading-tight whitespace-nowrap   ">
-            FIND YOUR PATH<br/>AND LEARN ONLINE
-            </h2>
-            <Image
-              width={60}
-              height={60}
-              src={Bubble.src}
-              alt="Floating Bubble"
-              className="absolute -top-6 right-[30%] md:-top-12  w-10 md:w-16 h-auto animate-pulse"
-            />
+              <h2 className="font-primary text-3xl md:text-5xl uppercase leading-tight whitespace-nowrap   ">
+                FIND YOUR PATH
+                <br />
+                AND LEARN ONLINE
+              </h2>
+              <Image
+                width={60}
+                height={60}
+                src={Bubble.src}
+                alt="Floating Bubble"
+                className="absolute -top-6 right-[30%] md:-top-12  w-10 md:w-16 h-auto animate-pulse"
+              />
             </div>
 
             {/* Description */}
             <p className="text-gray-300 text-xl md:text-xl mt-4 md:w-4/5 font-primary">
-            Our courses are designed for students of all skill levels. Explore and learn from scratch with our easy-to-follow videos, allowing you to progress at your own pace.
+              Our courses are designed for students of all skill levels. Explore
+              and learn from scratch with our easy-to-follow videos, allowing
+              you to progress at your own pace.
             </p>
 
             {/* Call-to-Action Button */}
             <div className="mt-0">
-              <Button text="Enroll Now" />
+              <Button text="Enroll Now" height={97.39} width={225} />
             </div>
           </div>
 
@@ -76,7 +78,6 @@ function YourPath() {
           </div>
         </div>
       </SectionWrapper>
-
     </section>
   );
 }

@@ -33,7 +33,7 @@ function Animation() {
                 height={60}
                 src={Bubble.src}
                 alt="Floating Bubble"
-                className="absolute -top-6 left-10 md:-top-20 md:-left-12 w-10 md:w-20 h-auto animate-pulse"
+                className="absolute -top-72 lg:-top-6 left-10 md:-top-20 md:-left-12 w-10 md:w-20 h-auto animate-pulse"
               />
             </div>
 
@@ -46,7 +46,7 @@ function Animation() {
 
             {/* Call-to-Action Button */}
             <div className="mt-0">
-              <Button text="Enroll Now" />
+              <Button text="Enroll Now" height={97.39} width={225} />
             </div>
           </div>
 

@@ -1,7 +1,9 @@
+import useScreenStore from "@/store/useScreenStore";
 import React from "react";
 
 const ClippedTextGeneric = ({ text, width = 348, height = 530, strokeWidth=3,textSize="text-3xl" }) => {
   const clipId = `clipShape-${Math.random().toString(36).substr(2, 9)}`; 
+
   return (
     <div className="relative ">
       {/* FOREGROUND TEXT WITH WHITE BORDER */}
@@ -26,9 +28,9 @@ const ClippedTextGeneric = ({ text, width = 348, height = 530, strokeWidth=3,tex
           y="0"
           width={width}
           height={height}
-          clipPath={`url(#${clipId})`} // Corrected unique clip ID
+          clipPath={`url(#${clipId})`} 
         >
-          <h3 className={`text-center flex items-center whitespace-nowrap w-full justify-center bg-black text-white ${textSize} leading-tight font-primary  p-4`}>
+          <h3 className={`text-center flex items-center lg:whitespace-nowrap w-full justify-center bg-black text-white ${textSize} leading-tight font-primary  p-4`}>
             {text}
           </h3>
         </foreignObject>

@@ -21,12 +21,12 @@ const Menu = ({onClose}) => {
       <img
         src="/logo.png"
         alt="MSA Academy Logo"
-        className="w-52 h-auto relative z-10 mb-20"
+        className="w-40 lg:w-64 h-auto relative z-10 mb-10 lg:mb-20"
       /></button>
 
       {/* Menu Percentage */}
-      <div className="  py-1 z-10 ">
-        <ul className="flex flex-col items-center space-y-10  text-5xl font-primary">
+      <div className="py-1 z-10 ">
+        <ul className="flex flex-col items-center space-y-5 lg:space-y-10  text-3xl lg:text-5xl font-primary">
           <li className="hover:text-pink200 duration-500 cursor-pointer transition-all text-grayPrimary" onClick={() => handleScroll("enroll-checkout")}>ENROLL NOW</li>
           <li className="hover:text-pink200 duration-500 cursor-pointer transition-all text-grayPrimary" onClick={() => handleScroll("drawing-course")}>DRAWING COURSE</li>
           <li className="hover:text-pink200 duration-500 cursor-pointer transition-all text-grayPrimary" onClick={() => handleScroll("animation-course")}>
