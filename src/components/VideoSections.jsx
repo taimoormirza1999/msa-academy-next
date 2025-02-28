@@ -23,8 +23,9 @@ const videos = [
 
 const VideoGallery = () => {
   return (
-     <div className=" mx-auto px-0   lg:pe-10 -mt-10">
-    <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row mt-10 gap-3 md:gap-7">
+     <div className=" mx-auto px-2 w-[96%]   lg:pe-10 mt-28 lg:-mt-10">
+    <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row mt-10 gap-3
+    gap-x-6 md:gap-7">
       {videos.map((video, index) => (
         <motion.div
           key={index}
@@ -39,7 +40,7 @@ const VideoGallery = () => {
             },
           }}
           viewport={{ once: true }} // Animate only once when in view
-          className="h-54 md:h-48 flex justify-center items-center text-center rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
+          className={`h-54 md:h-48 flex justify-center items-center text-center rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ${index === 0 || index === 2 ? '-mt-32 lg:-mt-0 ' : '-mt-10 lg:-mt-0'}`}
         >
           <VideoSection videoUrl={video.videoUrl} imageUrl={video.imageUrl} />
         </motion.div>

@@ -5,10 +5,13 @@ import "slick-carousel/slick/slick-theme.css";
 import BlogCard from "../ui/BlogCard";
 import { motion } from "framer-motion";
 import ClippedTestimonialCard from "../utils/ClippedTestimonialCard";
+import useScreenStore from "@/store/useScreenStore";
 
-const CustomNextArrow = ({ onClick }) => (
+
+const CustomNextArrow = ({ onClick, isLargeScreen }) => (
+
   <button
-    className="absolute right-2 lg:right-[46%] lg:-bottom-24 -translate-y-1/2 z-10  text-white/90 p-3 lg:p-3.5 rounded-full shadow-xl "
+    className="absolute left-1/2 -ml-9 -translate-x-1/2 lg:right-[45%] lg:-bottom-24 -translate-y-1/2 z-10 text-white/90 p-3 lg:p-3.5 rounded-full shadow-xl"
     onClick={onClick}
   >
     <ClippedTestimonialCard
@@ -24,7 +27,7 @@ const CustomNextArrow = ({ onClick }) => (
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          className="w-8 h-8 lg:w-4 lg:h-4"
+          className="w-7 h-7 lg:w-4 lg:h-4"
         >
           <path
             strokeLinecap="round"
@@ -40,7 +43,7 @@ const CustomNextArrow = ({ onClick }) => (
 
 const CustomPrevArrow = ({ onClick }) => (
   <button
-    className="absolute  me-2 lg:-me-2 right-16 lg:left-auto lg:right-[50.5%]  lg:-bottom-24 -translate-y-1/2 z-10  text-white/90 p-3 lg:p-3.5 "
+    className="absolute  lg:-me-2 left-1/2 ml-9 -translate-x-1/2 lg:left-1/2  -bottom-[9%] lg:-bottom-24 lg:-translate-y-1/2 z-10  text-white/90 p-3 lg:p-3.5 "
     onClick={onClick}
   >
     <ClippedTestimonialCard
@@ -49,6 +52,7 @@ const CustomPrevArrow = ({ onClick }) => (
       value={12}
       strokeWidth={1.26}
       strokeColor="#A400E8"
+      
     >
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <svg
@@ -56,7 +60,7 @@ const CustomPrevArrow = ({ onClick }) => (
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          className="w-6 h-6 lg:w-4 lg:h-4"
+          className="w-7 h-7 lg:w-4 lg:h-4"
         >
           <path
             strokeLinecap="round"
@@ -72,7 +76,7 @@ const CustomPrevArrow = ({ onClick }) => (
 
 function MultipleItems() {
   const [blogData, setBlogData] = useState(null);
-
+  const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
   const fetchBlogs = async () => {
     try {
       const response = await fetch(
@@ -95,8 +99,8 @@ function MultipleItems() {
   }, []);
 
   const settings = {
-    nextArrow: <CustomNextArrow />,
-    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow isLargeScreen={isLargeScreen} />,
+    prevArrow: <CustomPrevArrow isLargeScreen={isLargeScreen} />,
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 5,

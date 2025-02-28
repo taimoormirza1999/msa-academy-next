@@ -67,13 +67,13 @@ const Home = () => {
         
           <Navigation />
           <Banner />
-          {/* <Suspense fallback={<Loader />}>
+          <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>
               <LoaderWrapper>
                 <Animation />
               </LoaderWrapper>
             </ScrollAnimation>
-          </Suspense> */}
+          </Suspense>
 
           <Suspense fallback={<Loader />}>
             <ScrollAnimation variants={fadeIn}>

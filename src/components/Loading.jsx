@@ -37,7 +37,7 @@ const Loading = () => {
      
       {/* Loading Percentage */}
       <motion.h4
-        className="text-pink200 absolute bottom-16 lg:bottom-16 text-5xl lg:text-6xl 2xl:text-5xl font-primary z-10 mt-4"
+        className="text-pink200 lg:absolute bottom-16 lg:bottom-16 text-6xl lg:text-6xl 2xl:text-5xl font-primary z-10 mt-4"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}

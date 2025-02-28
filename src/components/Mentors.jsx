@@ -1,15 +1,24 @@
-import React from "react";
-import MentorsCard1 from "../assets/Mentors/1.png"; 
-import MentorsCard2 from "../assets/Mentors/2.png"; 
-import MentorsCard3 from "../assets/Mentors/3.png"; 
+import React, { useRef, useEffect } from 'react';
+import MentorsCard1 from "../assets/Mentors/1.png";
+import MentorsCard2 from "../assets/Mentors/2.png";
+import MentorsCard3 from "../assets/Mentors/3.png";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Bubble from "@/assets/bubble.svg";
 import SectionWrapper from "./SectionWrapper";
-import ClippedImage from "./utils/ClippedImage";
+// import ClippedImage from "./utils/ClippedImage";
 import ClippedImageGeneric from "./utils/ClippedImageGeneric";
+import { useMediaQuery } from "react-responsive";
 
 const Mentors = () => {
+  const isLargeScreen = useMediaQuery({ minWidth: 768 });
+  const sliderRef = useRef(null);
+
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft = sliderRef.current.scrollWidth / 3;
+    }
+  }, []);
   return (
     <motion.div
       initial={{ opacity: 0, y: 100 }}
@@ -21,20 +30,26 @@ const Mentors = () => {
       className="relative w-full h-auto bg-cover bg-center mt-16 md:mb-8 md:mt-16 lg:mt-24 lg:mb-10  md:w-95  lg:w-95 2xl:w-85 mx-auto max-w-[1920px]"
     >
       <SectionWrapper>
-        <div className="relative h-auto mx-auto w-full md:w-95 lg:w-80">
-          <div className=" relative flex gap-16 mb-2">
-            <ClippedImageGeneric imageUrl={MentorsCard3.src} />
-            <div className="-mt-12 relative">
-              <ClippedImageGeneric imageUrl={MentorsCard2.src} />
+        <div className="relative h-auto mx-auto w-full md:w-95 lg:w-80 flex flex-col-reverse lg:flex-col">
+          <div className="mt-10  pb-12 lg:pb-0 flex gap-0 lg:gap-6 lg:justify-center justify-start overflow-x-auto lg:overflow-visible snap-x snap-mandatory  scrollbar-hide w-full lg:pr-0">
+            {/* <div className="relative flex gap-16 mb-20 mt-10 overflow-x-auto snap-x snap-mandatory  scrollbar-hide w-full pr-6"> */}
+
+            <div className="flex-none snap-center">
+              <ClippedImageGeneric imageUrl={MentorsCard1.src} width ={ isLargeScreen ? 348 : 200} height ={ isLargeScreen ? 530 : 300}/>
+            </div>
+            <div className="lg:-mt-12 relative flex-none snap-center">
+              <ClippedImageGeneric imageUrl={MentorsCard2.src} width ={ isLargeScreen ? 348 : 200} height ={ isLargeScreen ? 530 : 300} />
               <Image
                 width={60}
                 height={60}
                 src={Bubble.src}
                 alt="Floating Bubble"
-                className="absolute bottom-12 -right-8 z-10  w-10 md:w-24 h-auto animate-pulse"
+                className="absolute bottom-12 -right-8 z-10 w-10 md:w-24 h-auto animate-pulse"
               />
             </div>
-            <ClippedImageGeneric imageUrl={MentorsCard1.src} />
+            <div className="flex-none snap-center">
+              <ClippedImageGeneric imageUrl={MentorsCard3.src} width ={ isLargeScreen ? 348 : 200} height ={ isLargeScreen ? 530 : 300} />
+            </div>
           </div>
 
           <div className="flex flex-col justify-center">

@@ -16,7 +16,7 @@ import { useState, useRef, useEffect } from "react";
 const Card = ({ imageUrl, title, description, title2, key }) => {
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
   return (
-    <motion.div 
+    <motion.div
       className="flex flex-col items-center justify-center p-3 lg:p-6 -mt-20 lg:mt-0 min-w-[300px] lg:min-w-auto snap-center"
       whileTap={{ scale: 0.95 }}
       initial={{ y: -100, x: 100, opacity: 0 }}
@@ -26,7 +26,7 @@ const Card = ({ imageUrl, title, description, title2, key }) => {
         stiffness: 100,
         damping: 20,
         duration: 0.8,
-        delay:key*0.2
+        delay: key * 0.2,
       }}
     >
       <ClippedImageGeneric
@@ -82,8 +82,8 @@ const MSALearningSection = () => {
       setCurrentIndex(newIndex);
     };
 
-    container.addEventListener('scroll', handleScroll);
-    return () => container.removeEventListener('scroll', handleScroll);
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
   }, [isLargeScreen]);
 
   const scrollToIndex = (index) => {
@@ -91,7 +91,7 @@ const MSALearningSection = () => {
     const slideWidth = scrollContainerRef.current.clientWidth;
     scrollContainerRef.current.scrollTo({
       left: slideWidth * index,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
@@ -158,29 +158,32 @@ const MSALearningSection = () => {
             </div>
           ) : (
             <div className="relative">
-              <div 
+              <div
                 ref={scrollContainerRef}
                 className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4"
                 style={{
-                  scrollSnapType: 'x mandatory',
-                  WebkitOverflowScrolling: 'touch',
-                  scrollbarWidth: 'none',
-                  msOverflowStyle: 'none'
+                  scrollSnapType: "x mandatory",
+                  WebkitOverflowScrolling: "touch",
+                  scrollbarWidth: "none",
+                  msOverflowStyle: "none",
                 }}
               >
                 {cards.map((card, index) => (
-                  <div key={index} className="w-full flex-shrink-0 snap-center px-4">
+                  <div
+                    key={index}
+                    className="w-full flex-shrink-0 snap-center px-4"
+                  >
                     <Card {...card} />
                   </div>
                 ))}
               </div>
-              
+
               <div className="flex justify-center gap-2 mt-4">
                 {cards.map((_, index) => (
                   <button
                     key={index}
                     className={`w-2 h-2 rounded-full transition-colors duration-200 ${
-                      currentIndex === index ? 'bg-white' : 'bg-gray-500'
+                      currentIndex === index ? "bg-white" : "bg-gray-500"
                     }`}
                     onClick={() => scrollToIndex(index)}
                   />
@@ -206,7 +209,7 @@ const MSALearningSection = () => {
                         duration: 0.8,
                         delay: index * 0.2,
                         type: "spring",
-                        stiffness: 100
+                        stiffness: 100,
                       }}
                       className="p-2.5"
                     >
@@ -229,7 +232,7 @@ const MSALearningSection = () => {
                       delay: 6 * 0.2,
                       duration: 0.8,
                       type: "spring",
-                      stiffness: 100
+                      stiffness: 100,
                     }}
                   >
                     <Button
@@ -248,7 +251,7 @@ const MSALearningSection = () => {
                   duration: 1,
                   type: "spring",
                   stiffness: 70,
-                  damping: 20
+                  damping: 20,
                 }}
               >
                 <Image

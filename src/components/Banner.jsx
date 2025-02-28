@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
 import Button from "./utils/Button";
-import msaText from "../assets/msa_text.png";
 import RightArrow from "@/assets/rightArrows.png";
 import ChinsiseText from "@/assets/chinise.png";
 import Moon from "@/assets/moon.png";
@@ -17,18 +16,18 @@ import Bubble from "@/assets/bubble.svg";
 import DownElipse from "@/assets/DownElipse.png";
 import BannerMSAText from "./BannerMSAText";
 
-const GradeinetOutlineText = ({ text, classes }) => {
-  return (
-    <div className="w-full flex justify-center items-center py-10">
-      <h1 className="absolute text-[3.5rem] lg:text-[8rem] 2xl:text-[8rem] mt-5 font-extrabold uppercase text-transparent stroke-text">
-        {text}
-      </h1>
-      <h1 className="absolute text-[3.5rem] lg:text-[8rem]  2xl:text-89rem] ml-4 font-extrabold uppercase bg-gradient-to-r from-[#A400E8] to-[#F7009E] text-transparent bg-clip-text font-primary">
-        {text}
-      </h1>
-    </div>
-  );
-};
+// const GradeinetOutlineText = ({ text, classes }) => {
+//   return (
+//     <div className="w-full flex justify-center items-center py-10">
+//       <h1 className="absolute text-[3.5rem] lg:text-[8rem] 2xl:text-[8rem] mt-5 font-extrabold uppercase text-transparent stroke-text">
+//         {text}
+//       </h1>
+//       <h1 className="absolute text-[3.5rem] lg:text-[8rem]  2xl:text-89rem] ml-4 font-extrabold uppercase bg-gradient-to-r from-[#A400E8] to-[#F7009E] text-transparent bg-clip-text font-primary">
+//         {text}
+//       </h1>
+//     </div>
+//   );
+// };
 
 const toolVariants = {
   hidden: { opacity: 0, scale: 0.9, y: 100 },
@@ -103,7 +102,7 @@ const Banner = () => {
                   height={1080}
                   src={RightLady.src}
                   alt="Right Lady"
-                  className="absolute top-20 lg:top-36 -left-[10%] lg:left-[20rem] w-[25rem] md:w-full xl:w-[55rem] 2xl:w-[70rem] z-10 "
+                  className="absolute top-16 lg:top-36 -left-[10%] lg:left-[20rem] w-[25rem] md:w-full xl:w-[55rem] 2xl:w-[70rem] z-10 "
                 />
               </div>
             </motion.div>
@@ -124,7 +123,9 @@ const Banner = () => {
                 className=" absolute w-[22rem] lg:w-full -left-5 -top-10 lg:inset-0 lg:relative "
               />
             </motion.div>
+            <div className="lg:static absolute top-[27rem] left-16">
             <BannerMSAText />
+            </div>
 
             <div className="relative ">
               <Image
@@ -134,13 +135,13 @@ const Banner = () => {
                 alt="Floating Bubble"
                 className="absolute lg:-top-14 top-72 right-10 lg:-right-[35rem] w-10 md:w-24 h-auto animate-pulse"
               />
-              <div className="absolute top-[10rem] -right-[30rem] animate-bounceSlow  z-100">
-                <Button isRounded={false} />
+              <div className="absolute top-[36rem] lg:top-[10rem] right-[5rem] lg:-right-[30rem] animate-bounceSlow  z-100">
+                <Button isRounded={false} height={97.39} width={225}/>
               </div>
             </div>
             {/* Optimized all tools images */}
             <motion.div
-              className="flex flex-col items-center absolute space-y-7 lg:left-[6%] -top-10 lg:top-32"
+              className="flex flex-col items-center absolute space-y-7 -left-[2%] lg:left-[6%] -top-16 lg:top-32"
               initial="hidden"
               whileInView="visible"
               // viewport={{ once: true }}

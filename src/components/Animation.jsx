@@ -12,7 +12,7 @@ import OutlineTextEffect from "./utils/OutlineTextEffect";
 function Animation() {
   return (
     
-    <section className="relative text-white py-16 overflow-visible">
+    <section className="relative text-white pt-20 pb-0 lg:py-16 overflow-visible">
        <div className="absolute lg:-right-10   w-full h-full overflow-visible ">
               <Image
                 width={500}
@@ -65,6 +65,7 @@ function Animation() {
           
           </div>
         </div>
+      
       <VideoGallery />
       </SectionWrapper>
 
