@@ -14,6 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
+import ClippedTestimonialCard from "./utils/ClippedTestimonialCard";
 
 function Contact() {
     const issmallScreen = useMediaQuery({ maxWidth: 768 });
@@ -51,33 +52,78 @@ function Contact() {
         transition={issmallScreen&&{ duration: 0.8, delay:0.4 }} className="flex space-x-6 md:mx-4 my-5">
           <a
             href="#"
-            className="text-xl hover:text-pink200 transition duration-300"
+            className="text-xl flex justify-center items-center text-white hover:text-pink200 transition duration-300 mx-auto"
           >
-            <FaYoutube />
+          <ClippedTestimonialCard
+      width={35}
+      height={35}
+      value={5}
+      strokeWidth={1.26}
+      // bgColor="rgba(255,0,255,0.3)"
+    >
+            <FaYoutube className="mx-auto mt-[20%]" />
+          </ClippedTestimonialCard>
           </a>
           <a
             href="#"
-            className="text-xl hover:text-pink200 transition duration-300"
+            className="text-xl flex justify-center items-center text-white hover:text-pink200 transition duration-300 mx-auto"
           >
-            <FaFacebook />
+          <ClippedTestimonialCard
+      width={35}
+      height={35}
+      value={5}
+      strokeWidth={1.26}
+      // bgColor="rgba(255,0,255,0.3)"
+    >
+            <FaFacebook className="mx-auto mt-[20%]" />
+
+            </ClippedTestimonialCard>
           </a>
           <a
             href="#"
-            className="text-xl hover:text-pink200 transition duration-300"
+            className="text-xl flex justify-center items-center text-white hover:text-pink200 transition duration-300 -mx-10"
           >
-            <FaInstagram />
+
+             <ClippedTestimonialCard
+      width={35}
+      height={35}
+      value={5}
+      strokeWidth={1.26}
+      // bgColor="rgba(255,0,255,0.3)"
+    >
+
+            <FaInstagram className="mx-auto mt-[20%]"/>
+
+            </ClippedTestimonialCard>
           </a>
           <a
             href="#"
-            className="text-xl hover:text-pink200 transition duration-300"
+            className="text-xl flex justify-center items-center text-white hover:text-pink200 transition duration-300 -mx-10"
           >
-            <FaTwitter />
+            <ClippedTestimonialCard
+      width={35}
+      height={35}
+      value={5}
+      strokeWidth={1.26}
+      // bgColor="rgba(255,0,255,0.3)"
+    >
+            <FaTwitter className="mx-auto mt-[20%]"/>
+          </ClippedTestimonialCard>
           </a>
           <a
             href="#"
-            className="text-xl hover:text-pink200 transition duration-300"
+            className="text-xl hover:text-pink200 transition duration-300 -mx-10"
           >
-            <FaTiktok />
+            <ClippedTestimonialCard
+
+  width={35}
+      height={35}
+      value={5}
+      strokeWidth={1.26}
+      // bgColor="rgba(255,0,255,0.3)"
+    >
+            <FaTiktok className="mx-auto mt-[20%]"/>
+          </ClippedTestimonialCard>
           </a>
         </motion.div>
 
@@ -86,7 +132,8 @@ function Contact() {
         initial={issmallScreen&&{ opacity: 0, y: 50 }}
         whileInView={issmallScreen&&{ opacity: 1, y: 0 }}
         transition={issmallScreen&&{ duration: 0.8, delay:0.4 }} className="mb-5 mt-4 md:mb-7 lg:mb-0">
-          <Link href={"/privacy-policy"} className="md:mx-4 text-lg text-white border-2 border-white rounded-2xl py-2 px-6 hover:bg-white hover:text-gray-800 transition duration-300 shadow-xl shadow-pink200/35">
+          
+          <Link href={"/privacy-policy"} className="font-primary md:mx-4 text-lg text-white border-2 border-white rounded-2xl py-2 px-6 hover:bg-white hover:text-gray-800 transition duration-300 shadow-xl shadow-pink200/35">
             Privacy Policy
           </Link>
         </motion.div>
@@ -96,13 +143,13 @@ function Contact() {
          className="flex flex-col items-center lg:items-start md:mx-3">
           <motion.h5 initial={issmallScreen&&{ opacity: 0, y: 50 }}
         whileInView={issmallScreen&&{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay:0.4 }}  className="font-semibold text-xl mb-3 lg:mb-2 ">CONTACT US</motion.h5>
+        transition={{ duration: 0.8, delay:0.4 }}  className="font-semibold text-xl mb-3 lg:mb-2 font-primary ">CONTACT US</motion.h5>
           <motion.p  initial={issmallScreen&&{ opacity: 0, y: 50 }}
         whileInView={issmallScreen&&{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay:0.4 }} className="text-sm mb-2">Contact@msa-club.com</motion.p>
+        transition={{ duration: 0.8, delay:0.4 }} className="text-base mb-2 font-primary">Contact@msa-club.com</motion.p>
           <motion.p   initial={issmallScreen&&{ opacity: 0, y: 50 }}
         whileInView={issmallScreen&&{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay:0.4 }} className="text-sm mb-2">
+        transition={{ duration: 0.8, delay:0.4 }} className="text-sm mb-2 font-primary">
             Dubai, United Arab Emirates - <br /> Dubai World Trade Center, The
             Offices
           </motion.p>
