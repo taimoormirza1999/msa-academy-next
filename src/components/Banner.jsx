@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
 import Button from "./utils/Button";
@@ -13,33 +13,29 @@ import ps from "@/assets/ps.png";
 import C4D from "@/assets/C4D.png";
 import Blender from "@/assets/Blender.png";
 import Bubble from "@/assets/bubble.svg";
-import DownElipse from "@/assets/DownElipse.png";
 import BannerMSAText from "./BannerMSAText";
 
-const toolVariants = {
-  hidden: { opacity: 0, scale: 0.9, y: 100 },
-  visible: (delay) => ({
-    y: 0,
-    scale: 1,
-    opacity: 1,
-    transition: { delay, duration: 1.8, ease: "easeInOut" },
-  }),
-};
-
 const Banner = () => {
+  const targetRef = useRef(null);
   const isLargeScreen = useMediaQuery({ minWidth: 768 });
+
+  // Track scroll progress
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end end"],
+  });
+
+  // Transformations based on scroll position
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]); // Shrink banner
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]); // Fade out
+  
+
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: isLargeScreen ? 150 : 70 }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        transition: { duration: 1.8, ease: "easeInOut" },
-      }}
-      viewport={isLargeScreen ? { once: true } : {}}
-      transition={{ type: "spring", stiffness: 300, damping: 10, duration: 1 }}
-      className="relative w-full mx-auto max-w-[1920px] mb-7 md:mb-10 lg:mb-20 xl:mb-0 pb-10 pt-5 lg:pb-16 min-h-[600px] lg:min-h-[800px] z-20"
+      ref={targetRef}
+      style={{ scale, opacity }}
+      className="relative w-full mx-auto max-w-[1920px] mb-7 md:mb-10 lg:mb-20 xl:mb-0 pb-10 pt-5 lg:pb-16 min-h-[600px] lg:min-h-[800px] z-20 bg-background"
     >
       <Image
         width={100}
@@ -55,6 +51,8 @@ const Banner = () => {
         alt="Chinese Text"
         className="absolute top-[0rem] right-5 lg:right-10 w-5 lg:w-10 h-auto"
       />
+
+      {/* Animated Content */}
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         whileInView={{
@@ -65,6 +63,7 @@ const Banner = () => {
         className="w-full flex justify-center items-center"
       >
         <div className="relative -mt-10 lg:mt-0 w-full max-w-[1400px] flex justify-center">
+          {/* Moon Image */}
           <Image
             width={1080}
             height={1080}
@@ -72,6 +71,7 @@ const Banner = () => {
             alt="Moon"
             className="rotate-[338deg] lg:rotate-0 absolute -top-1 lg:-top-24 left-[15%] lg:left-[18%] w-[18rem] lg:w-[23rem] xl:w-[45rem] 2xl:w-[55rem]"
           />
+
           <div className="absolute left-[2%] lg:left-[6%] top-20 lg:-top-20 w-[25rem] xl:w-[45rem] 2xl:w-[52rem]">
             {/* Left Lady */}
             <motion.div
@@ -88,7 +88,7 @@ const Banner = () => {
                 height={1080}
                 src={LeftLady.src}
                 alt="Left Lady"
-                className="absolute w-[20rem] md;w-[22rem] lg:w-full -left-3 -top-16 lg:inset-0 lg:relative"
+                className="absolute w-[20rem] md:w-[22rem] lg:w-full -left-3 -top-16 lg:inset-0 lg:relative"
               />
             </motion.div>
 
@@ -127,38 +127,9 @@ const Banner = () => {
                 <Button isRounded={false} height={97.39} width={225} />
               </div>
             </div>
-            {/* Optimized all tools images */}
-            <motion.div
-              className="flex flex-col items-center absolute space-y-3.5 lg:space-y-7 left-[1%] lg:left-[6%] -top-16 lg:top-32"
-              initial="hidden"
-              whileInView="visible"
-              // viewport={{ once: true }}
-            >
-              {[
-                { src: C4D, delay: 1, size: "w-16 lg:w-24" },
-                { src: ps, delay: 1.2, size: "w-10 lg:w-16" },
-                { src: Blender, delay: 1.4, size: "w-8 lg:w-14" },
-              ].map((tool, index) => (
-                <motion.div
-                  key={index}
-                  variants={toolVariants}
-                  custom={tool.delay}
-                >
-                  <Image
-                    width={100}
-                    height={100}
-                    src={tool.src.src}
-                    alt="Tool"
-                    className={`${tool.size} scale-y-[-1]`}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
         </div>
       </motion.div>
-
-      
     </motion.div>
   );
 };

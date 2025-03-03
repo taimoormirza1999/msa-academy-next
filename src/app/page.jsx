@@ -17,7 +17,7 @@ const Drawing = lazy(() => import("../components/Drawing"));
 const Mentors = lazy(() => import("../components/Mentors"));
 const CommunityMap = lazy(() => import("../components/CommunityMap"));
 const Checkout = lazy(() => import("../components/Checkout"));
-
+import { ReactLenis } from "lenis/react";
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -63,7 +63,7 @@ const Home = () => {
       {loading ? (
         <Loading />
       ) : (
-        <>
+        <ReactLenis root>
         
           <Navigation />
           <Banner />
@@ -135,7 +135,7 @@ const Home = () => {
           <BlogCards /> 
           {/* {showForm && <SignupForm />} */}
           <FooterWrapper />
-        </>
+        </ReactLenis>
       )}
     </>
   );

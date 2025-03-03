@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import PuppetGirl from "../assets/SecondSection/PuppetGirl.png";
 import LeftEllipse from "../assets/LeftEllipse.png";
 import Bubble from "@/assets/bubble.svg";
@@ -8,11 +8,22 @@ import SectionWrapper from "./SectionWrapper";
 import Button from "./utils/Button";
 import VideoGallery from "./VideoSections";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
+import { motion,useScroll, useTransform } from "framer-motion";
 
 function Animation() {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end end"],
+  });
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]); // Shrink banner
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]); // Fade out
+  
   return (
     
-    <section className="relative text-white pt-20 pb-0 lg:py-16 overflow-visible">
+    <motion.section 
+    ref={targetRef}
+    style={{ scale, opacity }}className="relative text-white pt-20 pb-0 lg:py-16 overflow-visible">
        <div className="absolute lg:-right-10   w-full h-full overflow-visible ">
               <Image
                 width={500}
@@ -70,7 +81,7 @@ function Animation() {
       </SectionWrapper>
 
       {/* Video Gallery Section */}
-    </section>
+    </motion.section>
   );
 }
 
