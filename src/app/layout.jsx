@@ -3,7 +3,7 @@ import "./App.css";
 import localFont from "next/font/local";
 import Navigation from "@/components/Navigation";
 import Image from "next/image";
-import BackgroundImage from "../assets/background.jpg";
+// import BackgroundImage from "../assets/background.jpg";
 import ScriptsLoader from "@/components/ScriptsLoader";
 import FooterWrapper from "@/components/utils/FooterWrapper";
 import SuppressErrors from "@/components/utils/SuppressErrors";
@@ -187,7 +187,7 @@ export default function RootLayout({ children }) {
             className="absolute inset-0 -z-10 opacity-0"
           /> */}
           {/* <Navigation /> */}
-          <SuppressErrors />
+          {/* <SuppressErrors /> */}
           <ScreenProvider>{children}</ScreenProvider>
           {/* <Menu>
           </Menu> */}

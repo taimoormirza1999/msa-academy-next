@@ -13,7 +13,7 @@ import ps from "@/assets/ps.png";
 import C4D from "@/assets/C4D.png";
 import Blender from "@/assets/Blender.png";
 import Bubble from "@/assets/bubble.svg";
-import DownElipse from "@/assets/DownElipse.png";
+// import DownElipse from "@/assets/DownElipse.png";
 import BannerMSAText from "./BannerMSAText";
 
 const toolVariants = {
@@ -62,17 +62,17 @@ const Banner = () => {
           opacity: 1,
           transition: { delay: 0.5, duration: 1.8, ease: "easeInOut" },
         }}
-        className="w-full flex justify-center items-center"
+        className="flex justify-center items-center mx-auto"
       >
-        <div className="relative -mt-10 lg:mt-0 w-full max-w-[1400px] flex justify-center">
+        <div className="relative -mt-10 lg:mt-0 w-full md:w-[85%] lg:w-full max-w-[1400px] flex justify-center ">
           <Image
             width={1080}
             height={1080}
             src={Moon.src}
             alt="Moon"
-            className="rotate-[338deg] lg:rotate-0 absolute -top-1 lg:-top-24 left-[15%] lg:left-[18%] w-[18rem] lg:w-[23rem] xl:w-[45rem] 2xl:w-[55rem]"
+            className="rotate-[338deg] lg:rotate-0 absolute -top-1 md:-top-5 lg:-top-24 left-[15%] lg:left-[18%] w-[19rem] md:w-[24rem] lg:w-[23rem] xl:w-[45rem] 2xl:w-[50rem]"
           />
-          <div className="absolute left-[2%] lg:left-[6%] top-20 lg:-top-20 w-[25rem] xl:w-[45rem] 2xl:w-[52rem]">
+          <div className="absolute left-[4%] lg:left-[6%] top-20 lg:-top-20 w-[92vw] md:w-[80vw] xl:w-[45rem] 2xl:w-[47rem]">
             {/* Left Lady */}
             <motion.div
               initial={{ opacity: 0, y: 100 }}
@@ -88,7 +88,7 @@ const Banner = () => {
                 height={1080}
                 src={LeftLady.src}
                 alt="Left Lady"
-                className="absolute w-[20rem] md;w-[22rem] lg:w-full -left-3 -top-16 lg:inset-0 lg:relative"
+                className="absolute w-[20rem]  md:w-[29rem] lg:w-full -left-3 -top-16 lg:inset-0 lg:relative"
               />
             </motion.div>
 
@@ -107,11 +107,11 @@ const Banner = () => {
                 height={1080}
                 src={RightLady.src}
                 alt="Right Lady"
-                className="absolute top-5 lg:-top-96 left-[2%] w-[24rem] md:w-full lg:left-[20rem] xl:w-[55rem] 2xl:w-[70rem]"
+                className="absolute -top-3 left-[5%] lg:-top-96 w-[25rem] md:w-[50rem] lg:w-full xl:w-[55rem] 2xl:w-[70rem] lg:left-[20rem] "
               />
             </motion.div>
 
-            <div className="lg:static absolute top-[22rem] left-[18%]">
+            <div className="lg:static absolute top-[17rem] left-[18%]">
               <BannerMSAText />
             </div>
 
@@ -123,21 +123,21 @@ const Banner = () => {
                 alt="Floating Bubble"
                 className="absolute lg:-top-14 top-96 right-10 lg:-right-[35rem] w-16 md:w-24 h-auto animate-pulse"
               />
-              <div className="absolute top-[30rem] lg:top-[10rem] right-[5rem] lg:-right-[30rem] animate-bounceSlow z-100">
+              <div className="absolute top-[24rem] lg:top-[10rem] right-[5rem] lg:-right-[30rem] animate-bounceSlow z-100">
                 <Button isRounded={false} height={97.39} width={225} />
               </div>
             </div>
             {/* Optimized all tools images */}
             <motion.div
-              className="flex flex-col items-center absolute space-y-3.5 lg:space-y-7 left-[1%] lg:left-[6%] -top-16 lg:top-32"
+              className="flex flex-col items-center absolute space-y-3.5 lg:space-y-7 left-[1%] lg:left-[6%] -top-16 md:-top-10 lg:top-32"
               initial="hidden"
               whileInView="visible"
               // viewport={{ once: true }}
             >
               {[
-                { src: C4D, delay: 1, size: "w-16 lg:w-24" },
-                { src: ps, delay: 1.2, size: "w-10 lg:w-16" },
-                { src: Blender, delay: 1.4, size: "w-8 lg:w-14" },
+                { src: C4D, delay: 1, size: "w-16 md:w-20 lg:w-24" },
+                { src: ps, delay: 1.2, size: "w-10 md:w-14 lg:w-16" },
+                { src: Blender, delay: 1.4, size: "w-8 md:w-10 lg:w-14" },
               ].map((tool, index) => (
                 <motion.div
                   key={index}
@@ -157,8 +157,6 @@ const Banner = () => {
           </div>
         </div>
       </motion.div>
-
-      
     </motion.div>
   );
 };

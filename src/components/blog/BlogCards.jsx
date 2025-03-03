@@ -43,7 +43,7 @@ const CustomNextArrow = ({ onClick, isLargeScreen }) => (
 
 const CustomPrevArrow = ({ onClick }) => (
   <button
-    className="absolute  lg:-me-2 left-1/2 ml-9 -translate-x-1/2 lg:left-1/2  -bottom-[9%] lg:-bottom-24 lg:-translate-y-1/2 z-10  text-white/90 p-3 lg:p-3.5 "
+    className="absolute  lg:-me-2  left-1/2 ml-9 -translate-x-1/2 lg:left-1/2  -bottom-[9%] lg:-bottom-24 lg:-translate-y-1/2 z-10  text-white/90 p-3 lg:p-3.5 "
     onClick={onClick}
   >
     <ClippedTestimonialCard
@@ -54,7 +54,7 @@ const CustomPrevArrow = ({ onClick }) => (
       strokeColor="#A400E8"
       
     >
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute top-1/2 left-1/2 text-white transform -translate-x-1/2 -translate-y-1/2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -170,7 +170,7 @@ function MultipleItems() {
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.6 }}
-      className="slider-container md:mt-32 lg:-mb-14 mt-10 lg:mt-20 mb-20 w-[95%] lg:w-[100%] mx-auto pb-20 "
+      className="slider-container  lg:-mb-14 mt-0  mb-8 lg:mt-20  w-[95%] lg:w-[100%] mx-auto pb-20 "
     >
       <Slider {...settings} className="rounded">
         {blogData?.map((blogItem, key) => (

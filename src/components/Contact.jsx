@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import {
   FaYoutube,
@@ -15,18 +15,19 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import ClippedTestimonialCard from "./utils/ClippedTestimonialCard";
+import ClippedBtn from "./utils/ClippedImageBtn";
+import OuterBorderChildren from "./utils/OuterBorderChildren";
 
 function Contact() {
-    const issmallScreen = useMediaQuery({ maxWidth: 768 });
-  
+  const issmallScreen = useMediaQuery({ maxWidth: 768 });
+
   return (
     <div className="relative mx-auto max-w-[1920px]">
       <div className="flex flex-col lg:flex-row justify-end items-center p-0 lg-w-1/2 lg:p-8  text-white">
         <motion.div
-    
-        initial={issmallScreen?{ opacity: 0, y: 50 }:{}}
-        whileInView={issmallScreen?{ opacity: 1, y: 0 }:{}}
-        transition={{ duration: 0.8, delay:0.4 }}
+          initial={issmallScreen ? { opacity: 0, y: 50 } : {}}
+          whileInView={issmallScreen ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-row items-center gap-4 lg:gap-3 lg:mx-3"
           suppressHydrationWarning={true}
         >
@@ -47,121 +48,92 @@ function Contact() {
         </motion.div>
         {/* Social Media Links */}
         <motion.div
-        initial={issmallScreen&&{ opacity: 0, y: 50 }}
-        whileInView={issmallScreen&&{ opacity: 1, y: 0 }}
-        transition={issmallScreen&&{ duration: 0.8, delay:0.4 }} className="flex space-x-6 md:mx-4 my-5">
-          <a
-            href="#"
-            className="text-xl flex justify-center items-center text-white hover:text-pink200 transition duration-300 mx-auto"
-          >
-          <ClippedTestimonialCard
-      width={35}
-      height={35}
-      value={5}
-      strokeWidth={1.26}
-      // bgColor="rgba(255,0,255,0.3)"
-    >
-            <FaYoutube className="mx-auto mt-[20%]" />
-          </ClippedTestimonialCard>
-          </a>
-          <a
-            href="#"
-            className="text-xl flex justify-center items-center text-white hover:text-pink200 transition duration-300 mx-auto"
-          >
-          <ClippedTestimonialCard
-      width={35}
-      height={35}
-      value={5}
-      strokeWidth={1.26}
-      // bgColor="rgba(255,0,255,0.3)"
-    >
-            <FaFacebook className="mx-auto mt-[20%]" />
-
-            </ClippedTestimonialCard>
-          </a>
-          <a
-            href="#"
-            className="text-xl flex justify-center items-center text-white hover:text-pink200 transition duration-300 -mx-10"
-          >
-
-             <ClippedTestimonialCard
-      width={35}
-      height={35}
-      value={5}
-      strokeWidth={1.26}
-      // bgColor="rgba(255,0,255,0.3)"
-    >
-
-            <FaInstagram className="mx-auto mt-[20%]"/>
-
-            </ClippedTestimonialCard>
-          </a>
-          <a
-            href="#"
-            className="text-xl flex justify-center items-center text-white hover:text-pink200 transition duration-300 -mx-10"
-          >
-            <ClippedTestimonialCard
-      width={35}
-      height={35}
-      value={5}
-      strokeWidth={1.26}
-      // bgColor="rgba(255,0,255,0.3)"
-    >
-            <FaTwitter className="mx-auto mt-[20%]"/>
-          </ClippedTestimonialCard>
-          </a>
-          <a
-            href="#"
-            className="text-xl hover:text-pink200 transition duration-300 -mx-10"
-          >
-            <ClippedTestimonialCard
-
-  width={35}
-      height={35}
-      value={5}
-      strokeWidth={1.26}
-      // bgColor="rgba(255,0,255,0.3)"
-    >
-            <FaTiktok className="mx-auto mt-[20%]"/>
-          </ClippedTestimonialCard>
-          </a>
+          initial={issmallScreen ? { opacity: 0, y: 50 } : undefined}
+          whileInView={issmallScreen ? { opacity: 1, y: 0 } : undefined}
+          transition={issmallScreen ? { duration: 0.8, delay: 0.4 } : undefined}
+          className="flex justify-center items-center space-x-0.5 md:mx-4 my-5"
+        >
+          {[
+            { icon: <FaYoutube />, href: "#" },
+            { icon: <FaFacebook />, href: "#" },
+            { icon: <FaInstagram />, href: "#" },
+            { icon: <FaTwitter />, href: "#" },
+            { icon: <FaTiktok />, href: "#" },
+          ].map((item, index) => (
+            <a
+              key={index}
+              href={item.href}
+              className="text-xl flex justify-center items-center hover:text-pink200 transition duration-300 mx-auto"
+            >
+              <OuterBorderChildren
+                width={35}
+                height={35}
+                value={5}
+                strokeWidth={1.26}
+                strokeColor="#FF00FF"
+                clipId={`clip-${index}`}
+              >
+                <div className="w-full h-full flex justify-center items-center text-white">
+                  <span className="text-xl">{item.icon}</span>
+                </div>
+              </OuterBorderChildren>
+            </a>
+          ))}
         </motion.div>
 
         {/* Privacy Policy Button */}
         <motion.div
-        initial={issmallScreen&&{ opacity: 0, y: 50 }}
-        whileInView={issmallScreen&&{ opacity: 1, y: 0 }}
-        transition={issmallScreen&&{ duration: 0.8, delay:0.4 }} className="mb-5 mt-4 md:mb-7 lg:mb-0">
-          
-          <Link href={"/privacy-policy"} className="font-primary md:mx-4 text-lg text-white border-2 border-white rounded-2xl py-2 px-6 hover:bg-white hover:text-gray-800 transition duration-300 shadow-xl shadow-pink200/35">
+          initial={issmallScreen && { opacity: 0, y: 50 }}
+          whileInView={issmallScreen && { opacity: 1, y: 0 }}
+          transition={issmallScreen && { duration: 0.8, delay: 0.4 }}
+          className="mb-5 mt-4 md:mb-7 lg:mb-0"
+        >
+          <Link
+            href={"/privacy-policy"}
+            className="font-primary md:mx-4 text-lg text-white border-2 border-white rounded-2xl py-2 px-6 hover:bg-white hover:text-gray-800 transition duration-300 shadow-xl shadow-pink200/35"
+          >
             Privacy Policy
           </Link>
         </motion.div>
 
         {/* Contact Us Section */}
-        <div
-         className="flex flex-col items-center lg:items-start md:mx-3">
-          <motion.h5 initial={issmallScreen&&{ opacity: 0, y: 50 }}
-        whileInView={issmallScreen&&{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay:0.4 }}  className="font-semibold text-xl mb-3 lg:mb-2 font-primary ">CONTACT US</motion.h5>
-          <motion.p  initial={issmallScreen&&{ opacity: 0, y: 50 }}
-        whileInView={issmallScreen&&{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay:0.4 }} className="text-base mb-2 font-primary">Contact@msa-club.com</motion.p>
-          <motion.p   initial={issmallScreen&&{ opacity: 0, y: 50 }}
-        whileInView={issmallScreen&&{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay:0.4 }} className="text-sm mb-2 font-primary">
+        <div className="flex flex-col items-center lg:items-start md:mx-3">
+          <motion.h5
+            initial={issmallScreen && { opacity: 0, y: 50 }}
+            whileInView={issmallScreen && { opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="font-semibold text-xl mb-3 lg:mb-2 font-primary "
+          >
+            CONTACT US
+          </motion.h5>
+          <motion.p
+            initial={issmallScreen && { opacity: 0, y: 50 }}
+            whileInView={issmallScreen && { opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-base mb-2 font-primary"
+          >
+            Contact@msa-club.com
+          </motion.p>
+          <motion.p
+            initial={issmallScreen && { opacity: 0, y: 50 }}
+            whileInView={issmallScreen && { opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-sm mb-2 font-primary"
+          >
             Dubai, United Arab Emirates - <br /> Dubai World Trade Center, The
             Offices
           </motion.p>
         </div>
       </div>
-      <Image
-        width={600}
-        height={600}
-        src={CharacterFoo.src}
-        alt="Character Image"
-        className="mt-4 md:mt-0 mx-auto w-[70%] lg:w-[38rem] h-auto lg:absolute bottom-0 left-1"
-      />
+      <div className="flex justify-start  mx-auto lg:absolute bottom-0 left-1">
+        <Image
+          width={600}
+          height={600}
+          src={CharacterFoo.src}
+          alt="Character Image"
+          className="mt-4 md:mt-0  w-[75%] lg:w-[38rem] h-auto "
+        />
+      </div>
     </div>
   );
 }

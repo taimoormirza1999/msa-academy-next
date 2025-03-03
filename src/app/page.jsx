@@ -25,7 +25,7 @@ const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 3000); // Wait 3 seconds before showing content
+    }, 3000); 
   }, []);
 
   useEffect(() => {

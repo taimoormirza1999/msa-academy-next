@@ -56,13 +56,13 @@ const ReviewCard = ({ img, name, username, body }) => {
       strokeWidth={1.16}
     >
       <div className="mx-2 ml-5 lg:mx-6 ">
-        <div className="flex flex-row items-start gap-2 lg:gap-4 mt-7 pt-[8%]">
+        <div className="flex flex-row items-start gap-2 lg:gap-4 mt-7 pt-[2%] md:pt-[1%] lg:pt-[4%]">
           {/* Image */}
-          <div className="self-start mt-0 lg:-mt-32 ">
+          <div className="self-start mt-0 lg:-mt-16 ">
             <ClippedImageGeneric
               imageUrl={img}
-              width={isLargeScreen ? 165.26 :65.26}
-              height={isLargeScreen ? 165.26 :65.26}
+              width={isLargeScreen ? 145.26 :65.26}
+              height={isLargeScreen ? 145.26 :65.26}
               value={15}
               rightTopClass="top-[7.5px] right-[7.5px]"
             />
@@ -87,7 +87,7 @@ const ReviewCard = ({ img, name, username, body }) => {
 
 export default function MarqueeWrapper2() {
   return (
-    <div className="relative flex max-w-[1920px] bg-gradient-to-tr w-full flex-col items-center justify-center rounded-lg">
+    <div className="relative flex max-w-[1920px] w-full flex-col items-center justify-center rounded-lg">
       <Marquee pauseOnHover className=" lg:mb-4 ">
         {firstRow.map((review) => (
           <ReviewCard key={review.username}{...review} />

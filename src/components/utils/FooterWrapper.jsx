@@ -8,7 +8,7 @@ import { EnrollmentToast } from "../EnrollmentToast";
 import Footer from "../Footer";
 
 export default function FooterWrapper() {
-  const [showToast, setShowToast] = useState(false);
+  const [showToast, setShowToast] = useState(true);
   const names = ["Mark", "Rachel", "Emma", "Sophia", "Liam", "Olivia", "Taimoor", "Thomas", 'Jonathon'];
   const [currentName, setCurrentName] = useState(names[0]);
   const [joinTime, setjoinTime] = useState(1);
@@ -47,7 +47,7 @@ export default function FooterWrapper() {
             courseName="Character Animation Design Course"
             timestamp={`About ${Math.round(joinTime)} hours ago`}
             onDismiss={() => setShowToast(false)}
-            duration={10000}
+            duration={10000000}
           />
         </Suspense>
     )} 

@@ -9,7 +9,7 @@ const Loading = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setProgress((prev) => (prev < 100 ? prev + 5 : 100)); 
+      setProgress((prev) => (prev < 100 ? prev + 5 : 100));
     }, 200); // Reduced interval time for smoother animation
     return () => clearInterval(interval);
   }, []);
@@ -17,8 +17,8 @@ const Loading = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen bg-black relative overflow-hidden">
       {/* Background Gradient */}
-      <motion.div 
-        className="absolute inset-0 bg-gradient-to-t from-purple-900 to-black" 
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-t from-purple-900 to-black"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -33,11 +33,9 @@ const Loading = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
       />
-
-     
       {/* Loading Percentage */}
       <motion.h4
-        className="text-pink200 lg:absolute bottom-16 lg:bottom-16 text-6xl lg:text-6xl 2xl:text-5xl font-primary z-10 mt-4"
+        className="text-pink200 lg:absolute bottom-16 lg:bottom-16 text-5xl lg:text-6xl 2xl:text-5xl font-primary z-10 mt-10 lg:mt-4"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}

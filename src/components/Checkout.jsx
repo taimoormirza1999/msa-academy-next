@@ -113,7 +113,7 @@ const Checkout = ({ showModal, setShowModal }) => {
           </div>
         </div>
       )}
-      <div className="grid gap-8 md:gap-5 lg:gap-8  sm:grid-cols-2">
+      <div className="grid gap-8 gap-y-2 md:gap-5 lg:gap-8  lg:grid-cols-2">
         {packages.map((pkg, index) => (
           <div
             key={index}

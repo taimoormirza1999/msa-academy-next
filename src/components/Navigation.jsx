@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import { FiMenu, FiX } from "react-icons/fi";
+// import { FiMenu, FiX } from "react-icons/fi";
 import Button from "./utils/Button";
 import Menu from "./Menu";
 import { motion, AnimatePresence } from "framer-motion";
@@ -77,59 +77,7 @@ const Navigation = () => {
             textSize="text-xl"
             onClick={toggleMenu}
           />{" "}
-          {/* <ul className="hidden space-x-6 text-white px-3 pl-5 ">
-          <li className="animate-bounce">
-            <span
-              onClick={() => handleScroll("enroll-checkout")}
-              className="animate-textGlow cursor-pointer hover:text-pink200 font-regular-ccm-m"
-            >
-              ENROLL
-            </span>
-          </li>
-          <li>
-            <span
-              onClick={() => handleScroll("drawing-course")}
-              className="cursor-pointer hover:text-pink200 font-regular-ccm-m"
-            >
-              DRAWING COURSE
-            </span>
-          </li>
-          <li>
-            <span
-              onClick={() => handleScroll("animation-course")}
-              className="cursor-pointer hover:text-pink200"
-            >
-              ANIMATION COURSE
-            </span>
-          </li>
-        </ul> */}
-          {/* <div className="md:hidden flex items-center">
-          <button
-            className="text-white text-2xl focus:outline-none"
-            onClick={toggleMobileMenu}
-          >
-            {isMobileMenuOpen ? (
-              <FiX className="text-pink200 text-4xl" />
-            ) : (
-              <FiMenu className="text-white text-4xl" />
-            )}
-          </button>
-        </div> */}
         </div>
-
-        {/* {isMobileMenuOpen && (
-        <div className="bg-black md:hidden py-1">
-          <ul className="flex flex-col items-center space-y-4 text-white ">
-            <li onClick={() => handleScroll("enroll-checkout")}>ENROLL</li>
-            <li onClick={() => handleScroll("drawing-course")}>
-              DRAWING COURSE
-            </li>
-            <li onClick={() => handleScroll("animation-course")}>
-              ANIMATION COURSE
-            </li>
-          </ul>
-        </div>
-      )} */}
       </nav>
       {/* Menu Overlay */}
       <AnimatePresence>

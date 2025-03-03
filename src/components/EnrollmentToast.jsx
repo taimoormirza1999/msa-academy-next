@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
+import OuterBorderChildren from "./utils/OuterBorderChildren";
 
 export function EnrollmentToast({
   name,
@@ -15,7 +16,7 @@ export function EnrollmentToast({
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisible(false);
+      // setIsVisible(false);
     }, duration);
 
     return () => clearTimeout(timer);
@@ -24,13 +25,22 @@ export function EnrollmentToast({
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 20, scale: 0.95 }}
-          transition={{ type: "spring", stiffness: 400, damping: 25 }}
-          className="fixed bottom-4 lg:left-4 w-[80%] lg:w-[350px] bg-white/[22%] border-[0.7px] border-white/[42%] z-20  backdrop-blur-sm rounded-[1.5rem] shadow-lg overflow-hidden"
-        >
+ 
+
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            className="fixed bottom-4 lg:left-4 w-[80%] lg:w-[350px] z-20 backdrop-blur-sm rounded-[1.5rem] shadow-lg overflow-hidden"
+          >
+       
+        <OuterBorderChildren width={380}
+        height={170}
+        value={25}
+        strokeWidth={1.26}
+        strokeColor="#FF00FF"
+        clipId={`clip-9999`}>       
           <div className="p-2 lg:p-3 pr-2 lg:pr-5">
             <button
               onClick={() => {
@@ -69,7 +79,10 @@ export function EnrollmentToast({
             transition={{ duration: duration / 1000, ease: "linear" }}
             className="h-1.5 bg-white origin-left"
           />
+        
+        </OuterBorderChildren>
         </motion.div>
+      
       )}
     </AnimatePresence>
   );

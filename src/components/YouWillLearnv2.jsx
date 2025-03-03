@@ -11,9 +11,9 @@ import ClippedBtn from "./utils/ClippedImageBtn";
 import CharacterFoo from "@/assets/characterFoo.png";
 import Button from "./utils/Button";
 import useScreenStore from "@/store/useScreenStore";
-import { useState, useRef, useEffect } from "react";
-
-const Card = ({ imageUrl, title, description, title2, key }) => {
+import { useState, useRef } from "react";
+import Bubble from "@/assets/bubble.svg";
+const Card = ({ imageUrl, title, description, title2, index }) => {
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
   return (
     <motion.div
@@ -26,7 +26,7 @@ const Card = ({ imageUrl, title, description, title2, key }) => {
         stiffness: 100,
         damping: 20,
         duration: 0.8,
-        delay: key * 0.2,
+        delay: index * 0.2,
       }}
     >
       <ClippedImageGeneric
@@ -34,8 +34,8 @@ const Card = ({ imageUrl, title, description, title2, key }) => {
         width={isLargeScreen ? 466.25 : 390}
         imageUrl={imageUrl}
       />
-      <OutlineTextEffect title={title} />
-      {title2 && <OutlineTextEffect title={title2} />}
+      <OutlineTextEffect title={title}  classes="mt-2 lg:mt-0 w-full"/>
+      {title2 && <OutlineTextEffect title={title2}  classes="w-full"/>}
 
       <p className="text-xl text-grayPrimary mt-5 text-center font-primary">
         {description}
@@ -46,8 +46,6 @@ const Card = ({ imageUrl, title, description, title2, key }) => {
 
 const MSALearningSection = () => {
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const scrollContainerRef = useRef(null);
 
   const cards = [
     {
@@ -71,29 +69,29 @@ const MSALearningSection = () => {
     },
   ];
 
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container || isLargeScreen) return;
+  // useEffect(() => {
+  //   const container = scrollContainerRef.current;
+  //   if (!container || isLargeScreen) return;
 
-    const handleScroll = () => {
-      const slideWidth = container.clientWidth;
-      const scrollPosition = container.scrollLeft;
-      const newIndex = Math.round(scrollPosition / slideWidth);
-      setCurrentIndex(newIndex);
-    };
+  //   const handleScroll = () => {
+  //     const slideWidth = container.clientWidth;
+  //     const scrollPosition = container.scrollLeft;
+  //     const newIndex = Math.round(scrollPosition / slideWidth);
+  //     setCurrentIndex(newIndex);
+  //   };
 
-    container.addEventListener("scroll", handleScroll);
-    return () => container.removeEventListener("scroll", handleScroll);
-  }, [isLargeScreen]);
+  //   container.addEventListener("scroll", handleScroll);
+  //   return () => container.removeEventListener("scroll", handleScroll);
+  // }, [isLargeScreen]);
 
-  const scrollToIndex = (index) => {
-    if (!scrollContainerRef.current) return;
-    const slideWidth = scrollContainerRef.current.clientWidth;
-    scrollContainerRef.current.scrollTo({
-      left: slideWidth * index,
-      behavior: "smooth",
-    });
-  };
+  // const scrollToIndex = (index) => {
+  //   if (!scrollContainerRef.current) return;
+  //   const slideWidth = scrollContainerRef.current.clientWidth;
+  //   scrollContainerRef.current.scrollTo({
+  //     left: slideWidth * index,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   const courses_list = [
     {
@@ -124,18 +122,35 @@ const MSALearningSection = () => {
   ];
 
   return (
-    <section className="relative py-16 md:pb-8 md:pt-5 overflow-x-clip">
+    <section className="relative py-16 md:pb-8 md:pt-5 ">
       <SectionWrapper>
-        <div className="container mx-auto px-4 overflow-x-clip">
+        <div className="container mx-auto px-4 ">
           <motion.h4
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-2xl text-center font-primary lg:text-5xl uppercase text-white font-bold mb-2 font-ebold-ccm text-transparent bg-gradient-to-br from-[#B14BF4] to-[#4D91FF] bg-clip-text"
           >
+            <div className="relative mx-auto w-full md:w-[70%] lg:w-full justify-start ">
+
             {<OutlineTextEffect title={"LEARN TO CREATE"} />}
             <div className="my-2">
               {<OutlineTextEffect title={"LIKE MSA"} />}
+            </div>
+            <Image
+                width={60}
+                height={60}
+                src={Bubble.src}
+                alt="Floating Bubble small"
+                className="absolute top-[15rem] -left-[2%] w-10 md:w-10 h-auto "
+              />
+            <Image
+                width={60}
+                height={60}
+                src={Bubble.src}
+                alt="Floating Bubble"
+                className="absolute top-[5rem] -left-[9%] w-10 md:w-28 h-auto "
+              />
             </div>
           </motion.h4>
           <motion.h3
@@ -150,56 +165,24 @@ const MSALearningSection = () => {
             truly exceptional.
           </motion.h3>
 
-          {isLargeScreen ? (
-            <div className="flex justify-center gap-6 mb-10 overflow-x-hidden ">
+
+            <div className="flex flex-col lg:flex-row gap-16 lg:gap-6 justify-center mb-10 overflow-x-hidden ">
               {cards.map((card, index) => (
-                <Card key={index} {...card} />
+                <div key={index}>
+                <Card index={index} {...card} />
+                </div>
               ))}
             </div>
-          ) : (
-            <div className="relative">
-              <div
-                ref={scrollContainerRef}
-                className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4"
-                style={{
-                  scrollSnapType: "x mandatory",
-                  WebkitOverflowScrolling: "touch",
-                  scrollbarWidth: "none",
-                  msOverflowStyle: "none",
-                }}
-              >
-                {cards.map((card, index) => (
-                  <div
-                    key={index}
-                    className="w-full flex-shrink-0 snap-center px-4"
-                  >
-                    <Card {...card} />
-                  </div>
-                ))}
-              </div>
+         
 
-              <div className="flex justify-center gap-2 mt-4">
-                {cards.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`w-2 h-2 rounded-full transition-colors duration-200 ${
-                      currentIndex === index ? "bg-white" : "bg-gray-500"
-                    }`}
-                    onClick={() => scrollToIndex(index)}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-
-          <motion.div className="px-2 lg:p-16 shadow-2xl rounded-[1rem] mt-10">
-            {<OutlineTextEffect title={"THE MSA LEARNING"} />}
+          <motion.div className="  lg:p-16 shadow-2xl rounded-[1rem] mt-10">
+            {<OutlineTextEffect title={"THE MSA LEARNING"} classes="w-full"/>}
             <div className="my-2">
               {<OutlineTextEffect title={"EXPERIENCE"} />}
             </div>
-            <div className="relative flex flex-col-reverse lg:flex-row-reverse lg:gap-0 2xl:gap-5 lg:items-center md:flex-row mt-14">
+            <div className="relative flex flex-col-reverse justify-center items-center lg:flex-row-reverse lg:gap-0 2xl:gap-5 lg:items-center md:flex-row mt-14 ">
               <div className="order md:order-0 lg:w-full flex flex-col">
-                <ul className="text-lg text-gray-300 font-primary list-disc">
+                <ul className="text-lg text-gray-300 font-primary list-disc flex flex-col justify-start  ">
                   {courses_list.map((course, index) => (
                     <motion.div
                       key={index}
@@ -211,7 +194,7 @@ const MSALearningSection = () => {
                         type: "spring",
                         stiffness: 100,
                       }}
-                      className="p-2.5"
+                      className="lg:p-2.5 py-1.5"
                     >
                       <ClippedBtn
                         text={course.title}
@@ -224,7 +207,7 @@ const MSALearningSection = () => {
                     </motion.div>
                   ))}
                 </ul>
-                <div className="lg:-ml-4 self-center lg:self-start">
+                <div className="lg:-ml-4 self-center lg:self-start ">
                   <motion.div
                     initial={{ x: -100, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -238,28 +221,29 @@ const MSALearningSection = () => {
                     <Button
                       text="START YOUR JOURNEY"
                       height={isLargeScreen ? 127 : 115}
-                      width={isLargeScreen ? 337 : 320}
+                      width={isLargeScreen ? 337 : 350}
                     />
                   </motion.div>
                 </div>
               </div>
 
               <motion.div
-                initial={{ x: 900, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
+                initial={{ scale: 0.5, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
                 transition={{
-                  duration: 1,
+                  duration: 0.5, 
                   type: "spring",
-                  stiffness: 70,
-                  damping: 20,
+                  stiffness: 100, 
+                  damping: 15,
                 }}
               >
                 <Image
-                  className="-mt-3 lg:mt-4 md:mt-0 w-[18rem] self-center mb-5 lg:w-[28rem] lg:absolute bottom-0 lg:right-0 scale-x-[-1]"
+                  className="-mt-3 lg:mt-4 md:mt-0 w-[18rem] self-center mb-5 lg:w-[28rem] lg:absolute bottom-0 lg:right-0 "
                   width={600}
                   height={600}
                   src={CharacterFoo.src}
                   alt="Character Image"
+                  priority
                 />
               </motion.div>
             </div>

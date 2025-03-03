@@ -1,15 +1,17 @@
 import React from "react";
 import DrawingImage from "../assets/drawing_banner.png";
-import Button from "./utils/Button";
-import BannerTextHeading from "./utils/BannerTextHeading";
+// import Button from "./utils/Button";
+// import BannerTextHeading from "./utils/BannerTextHeading";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionWrapper from "./SectionWrapper";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
+import Bubble from "@/assets/bubble.svg";
+import RightEllipseSVG from "./utils/icons/RightEllipseSVG";
 
 const Drawing = () => {
   return (
-    <SectionWrapper >
+    <SectionWrapper>
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         whileInView={{
@@ -30,20 +32,19 @@ const Drawing = () => {
             className="w-full h-[45vh] sm:h-[60vh] md:h-full lg:h-full 2xl:h-3/4 object-cover md:object-contain"
           />
         </div>
-        {/* <div className="bg-black/50 lg:bg-transparent rounded-xl shadow-xl shadow-pink200/30 lg:shadow-none lg:rounded-none mx-auto lg:absolute top-28 md:top-32 2xl:top-64 left-32 2xl:left-48 p-8  text-white w-95 md:w-85  lg:w-1/2 2xl:w-[37%] flex flex-col justify-center md:mt-5">
-        <BannerTextHeading
-        heading="DRAWING COURSES"
-        paragraph="WE BELIEVE EVERYONE IS AN ARTIST, 
-JOIN US TO UNLEASH THE ARTISTIC 
-TALENT WHITHIN YOU!"
-      />
-        <div className='mt-2 mb-3 lg:mt-[30pt] animate-bounceSlow'>
-      <Button textSize="text-sm"/>
-      </div>
-      </div> */}
-        <div className="mt-6    ">
-          
-<OutlineTextEffect title={"DRAWING COURSES"}/>
+        <div className="relative w-full mt-6 ">
+          {/* <OutlineTextEffect title={"Animation Courses"} hCenter="none" /> */}
+          <OutlineTextEffect title={"DRAWING COURSES"} />
+          <Image
+            width={60}
+            height={60}
+            src={Bubble.src}
+            alt="Floating Bubble"
+            className="absolute lg:bottom-[25rem] left-10  md:left-24 w-10 md:w-24 h-auto animate-pulse"
+          />
+        </div>
+        <div className="absolute right-0 top-0 lg:-left-5 w-full h-full   z-10">
+          <RightEllipseSVG height={900} width={900} />
         </div>
         {/* Description */}
         <p className="text-center text-grayPrimary text-lg md:text-xl mt-4 md:w-4/5 font-primary mx-auto">

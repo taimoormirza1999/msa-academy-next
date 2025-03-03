@@ -18,8 +18,8 @@
 <rect x="47" y="18" width="90" height="90" fill="url(#pattern5_2_393)"/>
 </g>
 <defs>
-<filter id="filter0_f_2_393" x="2.9" y="82.9" width="77.2" height="77.2" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter0_f_2_393" x="2.9" y="82.9" width="77.2" height="77.2" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feGaussianBlur stdDeviation="8.55" result="effect1_foregroundBlur_2_393"/>
 </filter>
@@ -29,8 +29,8 @@
 <pattern id="pattern1_2_393" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_2_393" transform="scale(0.00588235)"/>
 </pattern>
-<filter id="filter1_f_2_393" x="0.9" y="56.9" width="53.2" height="53.2" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter1_f_2_393" x="0.9" y="56.9" width="53.2" height="53.2" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feGaussianBlur stdDeviation="8.55" result="effect1_foregroundBlur_2_393"/>
 </filter>
@@ -40,8 +40,8 @@
 <pattern id="pattern3_2_393" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_2_393" transform="scale(0.00588235)"/>
 </pattern>
-<filter id="filter2_f_2_393" x="29.9" y="0.9" width="124.2" height="124.2" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter2_f_2_393" x="29.9" y="0.9" width="124.2" height="124.2" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feGaussianBlur stdDeviation="8.55" result="effect1_foregroundBlur_2_393"/>
 </filter>

@@ -5,6 +5,8 @@ import ClippedBtn from "./utils/ClippedImageBtn";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
 import SectionWrapper from "./SectionWrapper";
 import useScreenStore from "@/store/useScreenStore";
+import Bubble from "@/assets/bubble.svg";
+import Image from "next/image";
 
 const FAQ = () => {
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
@@ -42,10 +44,29 @@ const FAQ = () => {
   return (
     <div className="p-6 pt-7 lg:py-24 overflow-hidden px-10">
       <SectionWrapper>
+      <div className="relative mx-auto w-full md:w-[70%] lg:w-full justify-start ">
+              <br />
+              {/* AND LEARN ONLINE */}
+
         <OutlineTextEffect title={"Frequently Asked"} />
         <div className="my-2">
           <OutlineTextEffect title={"Questions"} />
         </div>
+              <Image
+                width={60}
+                height={60}
+                src={Bubble.src}
+                alt="Floating Bubble"
+                className="absolute -top-6 right-[32%] md:-top-12 lg:top-12 mt-3  w-12 md:w-12 h-auto"
+              />
+              <Image
+                width={60}
+                height={60}
+                src={Bubble.src}
+                alt="Floating Bubble"
+                className="absolute -top-6 left-[30%] md:-top-6 lg:-top-10 mt-3  w-12 md:w-8 h-auto"
+              />
+            </div>
         <div className="ml-auto flex flex-col items-center my-10 space-y-4 lg:space-y-6">
           {faqs.map((faq, index) => (
             <div
