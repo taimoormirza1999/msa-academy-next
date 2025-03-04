@@ -4,12 +4,13 @@ import { loadStripe } from "@stripe/stripe-js";
 import Bubbles from "@/assets/bubbles.svg";
 
 const stripePromise = loadStripe(
-  "pk_live_51MKOWOClZeY3V6PeILqmhyHFCw3LsPj0DIix9slFGovMEJkYFt0YoAayUWmfqDzB8O6MRY9nQjSpOZmrHkwevvpC00UhPik0o4"
+  "pk_live_51Qhw1HLwU3D5iSNdsBrJTd7f7yj9esN4q1AHQq5mrIZ97b9zMIXZm2bGuGE4rWor9g834yX69XQaJyTK7YTZZoBv006QEY1UVB"
 );
 import { motion } from "framer-motion";
 import ClippedCard from "./utils/ClippedCard";
 import Button from "./utils/Button";
 import useScreenStore from "@/store/useScreenStore";
+import OuterBorderChildren from "./utils/OuterBorderChildren";
 
 const Checkout = ({ showModal, setShowModal }) => {
   // const [showModal, setShowModal] = useState(false);
@@ -17,6 +18,7 @@ const Checkout = ({ showModal, setShowModal }) => {
   const isMediumScreen = useScreenStore((state) => state.isMediumScreen);
   const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
   const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
+  const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
   const packages = [
     {
       name: "Basic",
@@ -91,7 +93,7 @@ const Checkout = ({ showModal, setShowModal }) => {
   };
   return (
     <div
-      className="flex flex-col items-center mt-[64.5px] mb-[40.5px] md:mt-24 md:mb-16  lg:mb-0 lg:mt-[87.5px] justify-center w-85 md:w-90 mx-auto lg:w-1/2 2x:w-[75%]  max-w-[1920px]"
+      className="flex flex-col items-center mt-[64.5px] mb-[40.5px] md:mt-24 md:mb-16 lg:mb-0 lg:mt-[87.5px] justify-center w-85 md:w-90 mx-auto lg:w-1/2 2x:w-[75%] max-w-[1920px]"
       id="enroll-checkout"
     >
       {loadScript && (
@@ -103,16 +105,27 @@ const Checkout = ({ showModal, setShowModal }) => {
       )}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
-          <div className="relative w-11/12 md:w-1/3 bg-gradient-to-br from-[#7f7fff78]  to-[#ff00ff96] border shadow-lg shadow-pink200 border-pink200 p-6 rounded-3xl shadow-2xl">
-            <h2 className="text-white text-2xl font-bold font-medium-fgm text-center">
+          <div className={`relative ${isMobileSScreen?'w-[95%]':"w-[80%]"} w-[80%] md:w-[70%]`}>
+         <OuterBorderChildren
+                  width={isMediumScreen?555:isLargeScreen?555:385}
+                  height={isLargeScreen?200:isMediumScreen?200:200}
+                  value={30}
+                  strokeWidth={3.6}
+                  strokeColor="rgba(255, 0, 255, 0.8)"
+                  clipId={`clip-privacypolicy}`}
+                >
+            <div className="flex flex-col items-center justify-center my-10" >
+            <h2 className="text-white text-2xl text-center font-primary">
               Redirecting to Secure Checkout...
             </h2>
-            <p className="text-white text-sm text-center font-medium-kgpr mt-2">
+            <p className="text-white text-sm text-center mt-2 font-primary">
               Please wait while we process your request.
             </p>
             <div className="flex justify-center my-5">
-              <div className="w-10 h-10 border-4 border-white border-opacity-50 rounded-full border-t-[#ff00ff] animate-spin"></div>
+              <div className="w-10 h-10 border-4 border-white border-opacity-90 rounded-full border-t-[#ff00ff]/90 animate-spin"></div>
             </div>
+            </div>
+          </OuterBorderChildren>
           </div>
         </div>
       )}
@@ -185,7 +198,7 @@ const Checkout = ({ showModal, setShowModal }) => {
                   ))}
                 </ul>
                 <div className="animate-bounceSlow">
-                  <Button height={97.39} width={225}  textSize={isMobileSScreen?"text-xl":"text-2xl"} onClick={()=>handleCheckout(item, i)}/>
+                  <Button height={97.39} width={225}  textSize={isMobileSScreen?"text-xl":"text-2xl"} onClick={()=>handleCheckout(pkg, index)}/>
                 </div>
               </div>
             </ClippedCard>

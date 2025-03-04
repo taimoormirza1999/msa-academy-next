@@ -13,10 +13,10 @@ import ps from "@/assets/ps.png";
 import C4D from "@/assets/C4D.png";
 import Blender from "@/assets/Blender.png";
 import Bubble from "@/assets/bubble.svg";
-// import DownEllipse from "@/assets/DownElipse.png";
 import BannerMSAText from "./BannerMSAText";
 import RightEllipseSVG from "./utils/icons/RightEllipseSVG";
 import useScrollHandler from "@/store/useScrollHandler";
+import useScreenStore from "@/store/useScreenStore";
 
 const toolVariants = {
   hidden: { opacity: 0, scale: 0.9, y: 100 },
@@ -29,13 +29,13 @@ const toolVariants = {
 };
 
 const Banner = () => {
-  const isLargeScreen = useMediaQuery({ minWidth: 768 });
+  // const isLargeScreen = useMediaQuery({ minWidth: 768 });
+  const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
+
   const { handleScroll } = useScrollHandler();
   return (
-    <motion.div
-      className="relative w-full mx-auto max-w-[1920px]  mb-7 md:mb-10 lg:mb-20 xl:mb-0 pb-10 pt-5 lg:pb-16 min-h-[600px] lg:min-h-[950px] xl:min-h-[70vh] 2xl:min-h-[1150px] z-20 overflow-visible"
-    >
-      <div className="absolute left-[50%] -translate-x-[50%] -bottom-40 xl:-bottom-10 -z-10">
+    <motion.div className="relative w-full mx-auto max-w-[1920px]  mb-7 md:mb-10 lg:mb-20 xl:mb-0 pb-10 pt-5 lg:pb-16 min-h-[600px] lg:min-h-[950px] xl:min-h-[70vh] 2xl:min-h-[1150px] z-20 overflow-visible">
+      <div className="absolute left-[50%] -translate-x-[50%] -bottom-40 xl:-bottom-10 -z-50">
         <RightEllipseSVG
           width={isLargeScreen ? 2786 : 1600}
           height={isLargeScreen ? 1000 : 600}
@@ -123,7 +123,7 @@ const Banner = () => {
                 alt="Floating Bubble"
                 className="absolute top-80 md:top-96 lg:-top-14  right-10 lg:-right-[15rem] xl:-right-[35rem] w-12 md:w-20 lg:w-24 h-auto animate-pulse"
               />
-              <div className="absolute top-[24rem] md:top-[30rem] lg:top-[10rem] right-[5rem] lg:-right-[18rem] xl:-right-[30rem] animate-bounceSlow z-100">
+              <div className="absolute top-[24rem] md:top-[30rem] lg:top-[10rem] right-[5rem] lg:-right-[18rem] xl:-right-[30rem] animate-bounceSlow z-50">
                 <Button
                   isRounded={false}
                   height={97.39}
