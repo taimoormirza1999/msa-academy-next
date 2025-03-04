@@ -177,15 +177,8 @@ export default function RootLayout({ children }) {
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        <div className="mx-0 relative bg-cover bg-center overflow-x-hidden">
-          {/* <Image
-            src={BackgroundImage}
-            alt="Background"
-            layout="fill"
-            objectFit="cover"
-            priority
-            className="absolute inset-0 -z-10 opacity-0"
-          /> */}
+        <div className="mx-0 relative bg-cover bg-center overflow-hidden xl:overflow-x-hidden">
+       
           {/* <Navigation /> */}
           {/* <SuppressErrors /> */}
           <ScreenProvider>{children}</ScreenProvider>

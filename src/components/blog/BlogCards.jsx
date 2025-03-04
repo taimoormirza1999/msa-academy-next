@@ -21,7 +21,7 @@ const CustomNextArrow = ({ onClick, isLargeScreen }) => (
       strokeWidth={1.26}
       // bgColor="rgba(255,0,255,0.3)"
     >
-      <div className="absolute top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 ">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
         <HiChevronLeft className="w-7 h-7 " />
       </div>
     </ClippedTestimonialCard>

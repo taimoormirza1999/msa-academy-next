@@ -132,12 +132,12 @@ const Checkout = ({ showModal, setShowModal }) => {
               className={`absolute ${pkg.bubble.classes} w-24 md:w-24 h-auto animate-pulse`}
             />
             <ClippedCard
-              height={isMobileSScreen?610:isMobileMScreen?590:isMediumScreen?540:570}
+              height={isMobileSScreen?610:isMobileMScreen?580:isMediumScreen?540:540}
               width={isMobileSScreen?290:isMobileMScreen?330:359.36}
               strokeColor={index == 0 ? "#8339FC" : "#FF00FF"}
               strokeWidth={2.1}
             >
-              <div className="px-5">
+              <div className="px-5 py-2 lg:py-1">
                 <h2
                   className={`mt-[1rem] text-[13.32pt] text-base font-medium text-center uppercase ${
                     index == 0 ? "text-purple" : "text-pink200"

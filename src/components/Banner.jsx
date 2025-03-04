@@ -13,7 +13,7 @@ import ps from "@/assets/ps.png";
 import C4D from "@/assets/C4D.png";
 import Blender from "@/assets/Blender.png";
 import Bubble from "@/assets/bubble.svg";
-import DownEllipse from "@/assets/DownElipse.png";
+// import DownEllipse from "@/assets/DownElipse.png";
 import BannerMSAText from "./BannerMSAText";
 import RightEllipseSVG from "./utils/icons/RightEllipseSVG";
 import useScrollHandler from "@/store/useScrollHandler";
@@ -30,26 +30,11 @@ const toolVariants = {
 
 const Banner = () => {
   const isLargeScreen = useMediaQuery({ minWidth: 768 });
-  const {handleScroll } = useScrollHandler();
+  const { handleScroll } = useScrollHandler();
   return (
     <motion.div
-      initial={{ opacity: 0, y: isLargeScreen ? 150 : 70 }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        transition: { duration: 1.8, ease: "easeInOut" },
-      }}
-      viewport={isLargeScreen ? { once: true } : {}}
-      transition={{ type: "spring", stiffness: 300, damping: 10, duration: 1 }}
-      className="relative w-full mx-auto max-w-[1920px] mb-7 md:mb-10 lg:mb-20 xl:mb-0 pb-10 pt-5 lg:pb-16 min-h-[600px] lg:min-h-[950px] xl:min-h-[70vh] 2xl:min-h-[1150px] z-20 overflow-visible"
+      className="relative w-full mx-auto max-w-[1920px]  mb-7 md:mb-10 lg:mb-20 xl:mb-0 pb-10 pt-5 lg:pb-16 min-h-[600px] lg:min-h-[950px] xl:min-h-[70vh] 2xl:min-h-[1150px] z-20 overflow-visible"
     >
-      {/* <Image
-        width={500}
-        height={500}
-        src={DownEllipse.src}
-        alt="Background Glow"
-        className=" absolute  w-[80rem] h-[80rem] left-[50%] -translate-x-[50%] bottom-0 -z-10 overflow-visible"
-      /> */}
       <div className="absolute left-[50%] -translate-x-[50%] -bottom-40 xl:-bottom-10 -z-10">
         <RightEllipseSVG
           width={isLargeScreen ? 2786 : 1600}
@@ -139,7 +124,12 @@ const Banner = () => {
                 className="absolute top-80 md:top-96 lg:-top-14  right-10 lg:-right-[15rem] xl:-right-[35rem] w-12 md:w-20 lg:w-24 h-auto animate-pulse"
               />
               <div className="absolute top-[24rem] md:top-[30rem] lg:top-[10rem] right-[5rem] lg:-right-[18rem] xl:-right-[30rem] animate-bounceSlow z-100">
-                <Button isRounded={false} height={97.39} width={225} handleScroll={()=>handleScroll("enroll-checkout")} />
+                <Button
+                  isRounded={false}
+                  height={97.39}
+                  width={225}
+                  handleScroll={() => handleScroll("enroll-checkout")}
+                />
               </div>
             </div>
             {/* Optimized all tools images */}
