@@ -36,7 +36,7 @@ useEffect(()=>{
             animate={controls}
             // animate={{ opacity: 1, y: 0 }} 
             // transition={{ duration: 1.2, ease: "easeOut",delay:2.5 }}
-            className=" fixed bottom-0  transform -translate-x-1/2 border-[1.2px] border-[#CA2AD3] bg-gradient-to-r from-[#A400E8] to-[#F7009E]  text-white/70 p-4 lg:py-5 rounded-lg shadow-lg w-full z-[99999099999] ">
+            className=" fixed bottom-0  transform -translate-x-1/2 bg-gradient-to-r from-[#A400E8]/30 to-[#F7009E]/50  text-white/70 p-4 lg:py-5 rounded-lg shadow-lg w-full z-[99999099999] ">
            <div className='lg:flex'>
             <p className="text-sm">
               This website uses cookies to supplement a balanced diet and provide a much-deserved reward to the senses after consuming bland but nutritious meals. Accepting our cookies is optional but recommended, as they are delicious. 

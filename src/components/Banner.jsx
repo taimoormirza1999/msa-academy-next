@@ -70,6 +70,7 @@ const Banner = () => {
             height={1080}
             src={Moon.src}
             alt="Moon"
+            priority
             className="rotate-[338deg] lg:rotate-0 absolute -top-1 md:-top-5 lg:-top-10 xl:-top-24 left-[15%] lg:left-[20%] xl:left-[18%] w-[19rem] md:w-[24rem] lg:w-[33rem] xl:w-[45rem] 2xl:w-[50rem]"
           />
           <div className="absolute left-[4%] lg:left-[6%] top-20 lg:-top-5 xl:-top-20 w-[92vw] md:w-[80vw] lg:w-[55vw] xl:w-[46rem] 2xl:w-[48rem]">
@@ -88,6 +89,7 @@ const Banner = () => {
                 height={1080}
                 src={LeftLady.src}
                 alt="Left Lady"
+                priority
                 className="absolute w-[20rem]  md:w-[29rem] lg:w-full -left-3 -top-16 lg:inset-0 lg:relative"
               />
             </motion.div>
@@ -107,6 +109,7 @@ const Banner = () => {
                 height={1080}
                 src={RightLady.src}
                 alt="Right Lady"
+                priority
                 className="absolute -top-3 left-[5%] lg:-top-96 w-[25rem] md:w-[50rem] lg:w-full xl:w-[55rem] 2xl:w-[70rem] lg:left-[13rem] xl:left-[20rem] "
               />
             </motion.div>
@@ -121,6 +124,7 @@ const Banner = () => {
                 width={500}
                 src={Bubble.src}
                 alt="Floating Bubble"
+                priority
                 className="absolute top-80 md:top-96 lg:-top-14  right-10 lg:-right-[15rem] xl:-right-[35rem] w-12 md:w-20 lg:w-24 h-auto animate-pulse"
               />
               <div className="absolute top-[24rem] md:top-[30rem] lg:top-[10rem] right-[5rem] lg:-right-[18rem] xl:-right-[30rem] animate-bounceSlow z-50">
