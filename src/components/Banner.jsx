@@ -13,6 +13,7 @@ import ps from "@/assets/ps.png";
 import C4D from "@/assets/C4D.png";
 import Blender from "@/assets/Blender.png";
 import Bubble from "@/assets/bubble.svg";
+import DownEllipse from "@/assets/ElipseDown.png";
 // import DownElipse from "@/assets/DownElipse.png";
 import BannerMSAText from "./BannerMSAText";
 
@@ -39,14 +40,21 @@ const Banner = () => {
       }}
       viewport={isLargeScreen ? { once: true } : {}}
       transition={{ type: "spring", stiffness: 300, damping: 10, duration: 1 }}
-      className="relative w-full mx-auto max-w-[1920px] mb-7 md:mb-10 lg:mb-20 xl:mb-0 pb-10 pt-5 lg:pb-16 min-h-[600px] lg:min-h-[800px] z-20"
+      className="relative w-full mx-auto max-w-[1920px] mb-7 md:mb-10 lg:mb-20 xl:mb-0 pb-10 pt-5 lg:pb-16 min-h-[600px] lg:min-h-[950px] z-20"
     >
+       <Image
+        width={500}
+        height={500}
+        src={DownEllipse.src}
+        alt="Background Glow"
+        className=" absolute  w-[80rem] h-[80rem] left-[50%] -translate-x-[50%] bottom-0 -z-10 overflow-visible"
+      />
       <Image
         width={100}
         height={100}
         src={RightArrow.src}
         alt="Left Arrow"
-        className="absolute bottom-[5%] left-14 w-7 scale-y-[-1] hidden lg:block"
+        className="absolute bottom-[20%] lg:bottom-[25%] left-14 w-7 scale-y-[-1] hidden lg:block"
       />
       <Image
         width={200}
@@ -64,15 +72,15 @@ const Banner = () => {
         }}
         className="flex justify-center items-center mx-auto"
       >
-        <div className="relative -mt-10 lg:mt-0 w-full md:w-[85%] lg:w-full max-w-[1400px] flex justify-center ">
+        <div className="relative -mt-10 lg:mt-0 w-full md:w-[85%] lg:w-[90%] xl:w-full max-w-[1400px] flex justify-center ">
           <Image
             width={1080}
             height={1080}
             src={Moon.src}
             alt="Moon"
-            className="rotate-[338deg] lg:rotate-0 absolute -top-1 md:-top-5 lg:-top-24 left-[15%] lg:left-[18%] w-[19rem] md:w-[24rem] lg:w-[23rem] xl:w-[45rem] 2xl:w-[50rem]"
+            className="rotate-[338deg] lg:rotate-0 absolute -top-1 md:-top-5 lg:-top-10 xl:-top-24 left-[15%] lg:left-[20%] xl:left-[18%] w-[19rem] md:w-[24rem] lg:w-[33rem] xl:w-[45rem] 2xl:w-[50rem]"
           />
-          <div className="absolute left-[4%] lg:left-[6%] top-20 lg:-top-20 w-[92vw] md:w-[80vw] xl:w-[45rem] 2xl:w-[47rem]">
+          <div className="absolute left-[4%] lg:left-[6%] top-20 lg:-top-5 xl:-top-20 w-[92vw] md:w-[80vw] lg:w-[55vw] xl:w-[46rem] 2xl:w-[48rem]">
             {/* Left Lady */}
             <motion.div
               initial={{ opacity: 0, y: 100 }}
@@ -107,11 +115,11 @@ const Banner = () => {
                 height={1080}
                 src={RightLady.src}
                 alt="Right Lady"
-                className="absolute -top-3 left-[5%] lg:-top-96 w-[25rem] md:w-[50rem] lg:w-full xl:w-[55rem] 2xl:w-[70rem] lg:left-[20rem] "
+                className="absolute -top-3 left-[5%] lg:-top-96 w-[25rem] md:w-[50rem] lg:w-full xl:w-[55rem] 2xl:w-[70rem] lg:left-[13rem] xl:left-[20rem] "
               />
             </motion.div>
 
-            <div className="lg:static absolute top-[17rem] left-[18%]">
+            <div className="lg:static absolute top-[17rem] md:top-[18rem] lg:top-[17rem] left-[18%]">
               <BannerMSAText />
             </div>
 
@@ -121,15 +129,15 @@ const Banner = () => {
                 width={500}
                 src={Bubble.src}
                 alt="Floating Bubble"
-                className="absolute lg:-top-14 top-96 right-10 lg:-right-[35rem] w-16 md:w-24 h-auto animate-pulse"
+                className="absolute top-80 md:top-96 lg:-top-14  right-10 lg:-right-[15rem] xl:-right-[35rem] w-12 md:w-20 lg:w-24 h-auto animate-pulse"
               />
-              <div className="absolute top-[24rem] lg:top-[10rem] right-[5rem] lg:-right-[30rem] animate-bounceSlow z-100">
+              <div className="absolute top-[24rem] md:top-[30rem] lg:top-[10rem] right-[5rem] lg:-right-[18rem] xl:-right-[30rem] animate-bounceSlow z-100">
                 <Button isRounded={false} height={97.39} width={225} />
               </div>
             </div>
             {/* Optimized all tools images */}
             <motion.div
-              className="flex flex-col items-center absolute space-y-3.5 lg:space-y-7 left-[1%] lg:left-[6%] -top-16 md:-top-10 lg:top-32"
+              className="flex flex-col items-center absolute space-y-3.5 lg:space-y-7 left-[1%] lg:left-[6%] -top-16 md:-top-10 lg:top-7 xl:top-32"
               initial="hidden"
               whileInView="visible"
               // viewport={{ once: true }}

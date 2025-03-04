@@ -4,6 +4,7 @@ import { Marquee } from "./utils/marquee";
 import ClippedTestimonialCard from "./utils/ClippedTestimonialCard";
 import ClippedImageGeneric from "./utils/ClippedImageGeneric";
 import useScreenStore from "@/store/useScreenStore";
+import OutlineTextEffect from "./utils/OutlineTextEffect";
 
 const reviews = [
   {
@@ -61,8 +62,8 @@ const ReviewCard = ({ img, name, username, body }) => {
           <div className="self-start mt-0 lg:-mt-16 ">
             <ClippedImageGeneric
               imageUrl={img}
-              width={isLargeScreen ? 145.26 :65.26}
-              height={isLargeScreen ? 145.26 :65.26}
+              width={isLargeScreen ? 145.26 : 65.26}
+              height={isLargeScreen ? 145.26 : 65.26}
               value={15}
               rightTopClass="top-[7.5px] right-[7.5px]"
             />
@@ -87,13 +88,31 @@ const ReviewCard = ({ img, name, username, body }) => {
 
 export default function MarqueeWrapper2() {
   return (
-    <div className="relative flex max-w-[1920px] w-full flex-col items-center justify-center rounded-lg">
-      <Marquee pauseOnHover className=" lg:mb-4 ">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.username}{...review} />
-        ))}
-      </Marquee>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-full  dark:from-background"></div>
-    </div>
+    <>
+      <div className="mb-5">
+        <p className="text-center text-gray-300 text-lg md:text-xl mt-2 md:w-4/5 font-primary mx-auto">
+        One Story At A Time
+        </p>
+
+        <div className="mt-6">
+          <OutlineTextEffect
+            title={"MSA ART COMMUNITY"}
+            classes={"w-full -mt-3"}
+          />
+        </div>
+
+        <p className="text-center text-gray-300 text-lg md:text-xl mt-1 md:w-4/5 font-primary mx-auto">
+          No matter where you are
+        </p>
+      </div>
+      <div className="relative flex max-w-[1920px] w-full flex-col items-center justify-center rounded-lg">
+        <Marquee pauseOnHover className=" lg:mb-4 ">
+          {firstRow.map((review) => (
+            <ReviewCard key={review.username} {...review} />
+          ))}
+        </Marquee>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-full  dark:from-background"></div>
+      </div>
+    </>
   );
 }

@@ -7,9 +7,7 @@ import { motion } from "framer-motion";
 import ClippedTestimonialCard from "../utils/ClippedTestimonialCard";
 import useScreenStore from "@/store/useScreenStore";
 
-
 const CustomNextArrow = ({ onClick, isLargeScreen }) => (
-
   <button
     className="absolute left-1/2 -ml-9 -translate-x-1/2 lg:right-[45%] lg:-bottom-24 -translate-y-1/2 z-10 text-white/90 p-3 lg:p-3.5 rounded-full shadow-xl"
     onClick={onClick}
@@ -52,7 +50,6 @@ const CustomPrevArrow = ({ onClick }) => (
       value={12}
       strokeWidth={1.26}
       strokeColor="#A400E8"
-      
     >
       <div className="absolute top-1/2 left-1/2 text-white transform -translate-x-1/2 -translate-y-1/2">
         <svg
@@ -163,7 +160,6 @@ function MultipleItems() {
       },
     ],
   };
-  
 
   return blogData ? (
     <motion.div
@@ -172,6 +168,24 @@ function MultipleItems() {
       transition={{ duration: 1.6 }}
       className="slider-container  lg:-mb-14 mt-0  mb-8 lg:mt-20  w-[95%] lg:w-[100%] mx-auto pb-20 "
     >
+      <div className="mb-5">
+        <p className="text-center text-gray-300 text-lg md:text-xl mt-2 md:w-4/5 font-primary mx-auto">
+        Enroll With MSA
+        </p>
+
+        <div className="mt-6">
+          <OutlineTextEffect
+            title={"FUEL YOUR"}
+            classes={"w-full "}
+          />
+          <OutlineTextEffect
+            title={"CREATIVITY"}
+            classes={"w-full "}
+          />
+        </div>
+
+       
+      </div>
       <Slider {...settings} className="rounded">
         {blogData?.map((blogItem, key) => (
           <motion.div

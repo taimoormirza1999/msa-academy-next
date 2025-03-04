@@ -14,17 +14,17 @@ function Animation() {
     <section className="relative text-white pt-20 pb-0 lg:py-16 ">
       <SectionWrapper>
         <div className="relative">
-          <div className="flex flex-col-reverse mx-auto lg:flex-row items-center justify-between px-6  md:px-6 lg:px-2 relative ">
+          <div className="flex flex-col-reverse mx-auto lg:flex-row items-center w-full lg:w-[90%] justify-between px-6  md:px-6 lg:px-2 relative ">
             {/* Left Content */}
-            <div className="relative flex flex-col items-center lg:items-start lg:w-1/2 z-10 text-center md:text-left">
-              <div className="relative w-full md:w-[70%] lg:w-full ">
-                <OutlineTextEffect title={"Animation Courses"} hCenter="none" />
+            <div className="relative flex flex-col items-center lg:items-start xl:items-start lg:w-1/2 z-10 text-center md:text-left">
+              <div className="relative w-full lg:w-full ">
+                <OutlineTextEffect title={"Animation Courses"} classes="lg:text-left " />
                 <Image
                   width={60}
                   height={60}
                   src={Bubble.src}
                   alt="Floating Bubble"
-                  className="absolute -top-72 lg:-top-16 left-10 md:-top-20 md:-left-12 w-10 md:w-14 h-auto animate-pulse"
+                  className="absolute -top-72 left-10 md:-top-[29rem] lg:-top-16 md:left-14 lg:-left-12 w-10 md:w-16 lg:w-14 h-auto animate-pulse"
                 />
               </div>
 
@@ -50,7 +50,7 @@ function Animation() {
                 height={600}
                 src={PuppetGirl.src}
                 alt="Puppet Girl"
-                className="w-[90%] md:w-full max-w-md md:max-w-xl"
+                className="w-[90%] md:w-[70%] lg:w-full max-w-md md:max-w-xl"
               />
               <div className="absolute right-0 top-0 lg:right-5 w-full h-full   overflow-visible">
                 <RightEllipseSVG height={900} width={900} />

@@ -6,13 +6,14 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Bubble from "@/assets/bubble.svg";
 import SectionWrapper from "./SectionWrapper";
-// import ClippedImage from "./utils/ClippedImage";
 import ClippedImageGeneric from "./utils/ClippedImageGeneric";
-import { useMediaQuery } from "react-responsive";
+import useScreenStore from "@/store/useScreenStore";
 
 const Mentors = () => {
-  const isLargeScreen = useMediaQuery({ minWidth: 768 });
+  const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
   const sliderRef = useRef(null);
+  const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
+  // const isMediumScreen = useScreenStore((state) => state.isMediumScreen);
 
   useEffect(() => {
     if (sliderRef.current) {
@@ -31,15 +32,15 @@ const Mentors = () => {
     >
       <SectionWrapper>
         <div className="relative h-auto mx-auto w-full md:w-95 lg:w-80 flex flex-col-reverse lg:flex-col">
-          <div className="mt-10 pb-12 lg:pb-0 flex gap-10  md:gap-16 lg:gap-16 lg:justify-center justify-start overflow-x-auto lg:overflow-visible snap-x snap-mandatory scrollbar-hide w-full pl-5 lg:pr-0">
-            <div className="flex-none snap-center lg:mx-0">
+          <div className="mt-10 pb-12 lg:pb-0 flex gap-10  md:gap-8 lg:gap-16 justify-center justify-start overflow-x-auto lg:overflow-visible snap-x snap-mandatory scrollbar-hide w-full pl-5 lg:pr-0">
+            <div className=" flex-none snap-center lg:mx-0">
               <ClippedImageGeneric
                 imageUrl={MentorsCard1.src}
                 width={isLargeScreen ? 348 : 210}
                 height={isLargeScreen ? 530 : 320}
               />
             </div>
-            <div className="lg:-mt-12 relative flex-none snap-center lg:mx-0">
+            <div className="md:mt-10 lg:-mt-12  relative flex-none snap-center lg:mx-0">
               <ClippedImageGeneric
                 imageUrl={MentorsCard2.src}
                 width={isLargeScreen ? 348 : 220}
@@ -50,7 +51,7 @@ const Mentors = () => {
                 height={60}
                 src={Bubble.src}
                 alt="Floating Bubble"
-                className="absolute bottom-12 -right-8 z-10 w-10 md:w-24 h-auto animate-pulse"
+                className="absolute bottom-12 md:bottom-5 lg:bottom-12 -right-8 z-10 w-10 md:w-16 lg:w-24 h-auto animate-pulse"
               />
             </div>
             <div className="flex-none snap-center lg:mx-0">
@@ -68,11 +69,11 @@ const Mentors = () => {
             </h3>
             <div className="relative w-full flex justify-center items-center py-10">
               {/* Outline Text (Behind) */}
-              <h1 className="absolute text-[4.3rem] lg:text-[8rem] mt-3.5 lg:mt-5 font-extrabold uppercase text-transparent stroke-text">
+              <h1 className={`absolute ${isMobileSScreen?"text-[3.3rem]":"text-[4.3rem]"}  lg:text-[8rem] mt-3.5 lg:mt-5 font-extrabold uppercase text-transparent stroke-text`}>
                 MENTORS
               </h1>
               {/* Gradient Filled Text (Front) */}
-              <h1 className=" absolute  text-[4.3rem] lg:text-[8rem] ml-3 lg:ml-4 font-extrabold uppercase bg-gradient-to-r from-[#A400E8] to-[#F7009E] text-transparent bg-clip-text font-primary  ">
+              <h1 className={`absolute  ${isMobileSScreen?"text-[3.3rem]":"text-[4.3rem]"} lg:text-[8rem] ml-3 lg:ml-4 font-extrabold uppercase bg-gradient-to-r from-[#A400E8] to-[#F7009E] text-transparent bg-clip-text font-primary `}>
                 MENTORS
               </h1>
             </div>

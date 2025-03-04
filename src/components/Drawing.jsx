@@ -29,25 +29,24 @@ const Drawing = () => {
             width={1920}
             src={DrawingImage.src}
             alt="Banner"
-            className="w-full h-[45vh] sm:h-[60vh] md:h-full lg:h-full 2xl:h-3/4 object-cover md:object-contain"
+            className="w-full h-[37vh] sm:h-[60vh] md:h-full lg:h-full 2xl:h-3/4 object-cover md:object-contain"
           />
         </div>
-        <div className="relative w-full mt-6 ">
-          {/* <OutlineTextEffect title={"Animation Courses"} hCenter="none" /> */}
+        <div className="relative w-full mt-6 z-20">
           <OutlineTextEffect title={"DRAWING COURSES"} />
           <Image
             width={60}
             height={60}
             src={Bubble.src}
             alt="Floating Bubble"
-            className="absolute lg:bottom-[25rem] left-10  md:left-24 w-10 md:w-24 h-auto animate-pulse"
+            className="absolute bottom-[13rem] md:bottom-[25rem]  lg:bottom-[25rem] xl:bottom-[30rem] left-2  md:left-24 w-12 md:w-24 h-auto animate-pulse -z-30"
           />
         </div>
-        <div className="absolute right-0 top-0 lg:-left-5 w-full h-full   z-10">
+        <div className="absolute -left-[135%] md:-left-[10%] lg:-left-[10%]  -top-52 lg:top-0  overflow-visible md:scale-x-[-1] -z-20 xl:z-10 ">
           <RightEllipseSVG height={900} width={900} />
         </div>
         {/* Description */}
-        <p className="text-center text-grayPrimary text-lg md:text-xl mt-4 md:w-4/5 font-primary mx-auto">
+        <p className="text-center text-grayPrimary text-lg md:text-xl mt-4 md:w-4/5 font-primary mx-auto z-50">
           We believe everyone is an artist, Join us to
           <br />
           unleash the artistic talent within you.

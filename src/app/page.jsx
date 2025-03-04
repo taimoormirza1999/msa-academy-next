@@ -126,6 +126,7 @@ const Home = () => {
                     className="container-fluid w-[99.5%] max-w-[1920px]  mx-auto  rounded-full shadow-2xl px-2 py-3 shadow-primary200 radius-[8px]  ultrawide:shadow-inner-left-right "
                     style={{ borderRadius: "8px" }}
                   >
+                    
                     <MarqueeWrapper2 />
                   </div>
                 </main>

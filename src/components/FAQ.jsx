@@ -10,28 +10,29 @@ import Image from "next/image";
 
 const FAQ = () => {
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
-
+  const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
+  const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
   const faqs = [
     {
       question: "What is the refund policy?",
       answer:
         "Our refund policy allows you to request a refund within 30 days of purchase.",
       answerwidth: isLargeScreen?750:350,
-      answerheight: isLargeScreen?60:100,
+      answerheight: isLargeScreen?60:isMobileSScreen?100:100,
     },
     {
       question: "How can I contact support?",
       answer:
         "You can contact support through our help center or by emailing contact@msa-club.com.",
       answerwidth: isLargeScreen?850:350,
-      answerheight: isLargeScreen?60:100,
+      answerheight: isLargeScreen?60:isMobileSScreen?130:100,
     },
     {
       question: "Are there any discounts?",
       answer:
         "Yes, we offer a 20% discount for students with valid identification.",
       answerwidth: isLargeScreen?670:300,
-      answerheight: isLargeScreen?60:100,
+      answerheight: isLargeScreen?60:isMobileSScreen?100:100,
     },
   ];
 
@@ -56,15 +57,15 @@ const FAQ = () => {
                 width={60}
                 height={60}
                 src={Bubble.src}
-                alt="Floating Bubble"
-                className="absolute -top-6 right-[32%] md:-top-12 lg:top-12 mt-3  w-12 md:w-12 h-auto"
+                alt="Floating big Bubble"
+                className="absolute top-10 right-[2%] lg:right-[24%] xl:right-[32%] lg:top-[54%] xl:top-14  mt-3  w-12 md:w-12 h-auto"
               />
               <Image
                 width={60}
                 height={60}
                 src={Bubble.src}
-                alt="Floating Bubble"
-                className="absolute -top-6 left-[30%] md:-top-6 lg:-top-10 mt-3  w-12 md:w-8 h-auto"
+                alt="Floating small Bubble"
+                className="absolute -top-6 -left-[5%] md:left-[4%] lg:left-[22%] xl:left-[30%] md:-top-6 lg:-top-10 mt-3  w-8 md:w-8 h-auto"
               />
             </div>
         <div className="ml-auto flex flex-col items-center my-10 space-y-4 lg:space-y-6">
@@ -76,8 +77,8 @@ const FAQ = () => {
               <button className="cursor-pointer" onClick={() => toggleFAQ(index)}>
                 <ClippedBtn
                   text={faq.question}
-                  width={isLargeScreen?400:350}
-                  height={isLargeScreen?60:55}
+                  width={isLargeScreen?400:isMobileSScreen?300:350}
+                  height={isLargeScreen?60:isMobileSScreen?90:55}
                   strokeWidth={1.6}
                   textSize={isLargeScreen?"text-2xl":'text-[1.5rem]'}
                   // Toggle answer
@@ -95,7 +96,7 @@ const FAQ = () => {
                     <div className="py-3">
                       <ClippedBtn
                         text={faq.answer}
-                        width={faq.answerwidth}
+                        width={isMobileSScreen?300:faq.answerwidth }
                         height={faq.answerheight}
                         strokeWidth={1.6}
                         textSize="text-xl"

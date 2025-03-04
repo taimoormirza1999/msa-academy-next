@@ -9,11 +9,14 @@ const stripePromise = loadStripe(
 import { motion } from "framer-motion";
 import ClippedCard from "./utils/ClippedCard";
 import Button from "./utils/Button";
+import useScreenStore from "@/store/useScreenStore";
 
 const Checkout = ({ showModal, setShowModal }) => {
   // const [showModal, setShowModal] = useState(false);
   const [loadScript, setLoadScript] = useState(false);
-
+  const isMediumScreen = useScreenStore((state) => state.isMediumScreen);
+  const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
+  const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
   const packages = [
     {
       name: "Basic",
@@ -39,7 +42,7 @@ const Checkout = ({ showModal, setShowModal }) => {
       name: "Premium",
       description: "Standard plan with more features.",
       price: 30,
-      bubble:{classes:' -bottom-6 right-8 lg:-right-16'},
+      bubble:{classes:' -bottom-6 right-8 lg:-right-10 xl:-right-16'},
       includes: [
         { text: "Access to all drawing courses", status: 1 },
         { text: "Access to all animation courses", status: 1 },
@@ -113,7 +116,7 @@ const Checkout = ({ showModal, setShowModal }) => {
           </div>
         </div>
       )}
-      <div className="grid gap-8 gap-y-2 md:gap-5 lg:gap-8  lg:grid-cols-2">
+      <div className="grid gap-8 gap-y-2 md:gap-5 lg:gap-8  lg:grid-cols-1 xl:grid-cols-2 ">
         {packages.map((pkg, index) => (
           <div
             key={index}
@@ -126,11 +129,11 @@ const Checkout = ({ showModal, setShowModal }) => {
               height={60}
               src={Bubbles.src}
               alt="Floating Bubble"
-              className={`absolute ${pkg.bubble.classes}  w-20 md:w-24 h-auto animate-pulse`}
+              className={`absolute ${pkg.bubble.classes} w-24 md:w-24 h-auto animate-pulse`}
             />
             <ClippedCard
-              height={570}
-              width={359.36}
+              height={isMobileSScreen?610:isMobileMScreen?590:isMediumScreen?540:570}
+              width={isMobileSScreen?290:isMobileMScreen?330:359.36}
               strokeColor={index == 0 ? "#8339FC" : "#FF00FF"}
               strokeWidth={2.1}
             >
@@ -153,7 +156,7 @@ const Checkout = ({ showModal, setShowModal }) => {
                 <p className="text-white font-semibold text-xs text-[0.6rem] -mt-2 font-primary">
                   PER MONTH
                 </p>
-                <ul className="mt-[2.5rem] lg:mt-[3.5rem] mb-[1.5rem] lg:mb-[1.1rem]">
+                <ul className="mt-[2.5rem] lg:mt-[3.5rem] mb-[0.7rem] lg:mb-[1.1rem]">
                   {pkg.includes.map((item, i) => (
                     <motion.li
                       initial={{ opacity: 0, y: 50 }}
@@ -174,7 +177,7 @@ const Checkout = ({ showModal, setShowModal }) => {
                           item.status == 1
                             ? "text-white"
                             : " text-white text-opacity-30"
-                        } text-sm uppercase my-1 text-left text-[0.84rem] font-eastroman-trial-bold`}
+                        } text-sm uppercase my-1 text-left text-[0.84rem]  xl:text-[0.84rem] font-eastroman-trial-bold`}
                       >
                         {item.text}
                       </span>
@@ -182,17 +185,7 @@ const Checkout = ({ showModal, setShowModal }) => {
                   ))}
                 </ul>
                 <div className="animate-bounceSlow">
-                  {/* <button
-                onClick={() => handleCheckout(pkg, index)}
-                className={`animate-animate-glow  lg:text-[1.0956rem] mt-10 mb-3 px-12 border-[1.7px] ${
-                  index == 0
-                    ? "border-purple shadow-purple/40 hover:shadow-purple"
-                    : "border-pink200 hover:shadow-pink200 shadow-pink200/40"
-                }  text-white pt-[12px] pb-[9px] px-[42.5px] rounded-[19px] shadow-xl hover:${index === 0 ? "bg-purple-500" : "bg-pink-200/40"} hover:shadow-2xl  transition duration-300 uppercase`}
-              >
-                Enroll Now!
-              </button> */}
-                  <Button height={97.39} width={225} />
+                  <Button height={97.39} width={225}  textSize={isMobileSScreen?"text-xl":"text-2xl"} />
                 </div>
               </div>
             </ClippedCard>
