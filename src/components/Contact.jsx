@@ -92,7 +92,7 @@ function Contact() {
           </motion.div>
         </div>
 
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col xl:items-start">
           {/* Contact Us Section */}
           <div className="flex flex-col items-center lg:items-start md:mx-3">
             <motion.h5
@@ -122,7 +122,7 @@ function Contact() {
             </motion.p>
           </div>
           {/* Privacy Policy Button */}
-          <div className="flex flex-row items-center justify-between">
+          <div className="flex flex-row items-center justify-between gap-3">
             <motion.div
               initial={issmallScreen && { opacity: 0, y: 50 }}
               whileInView={issmallScreen && { opacity: 1, y: 0 }}
