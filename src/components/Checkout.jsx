@@ -185,7 +185,7 @@ const Checkout = ({ showModal, setShowModal }) => {
                   ))}
                 </ul>
                 <div className="animate-bounceSlow">
-                  <Button height={97.39} width={225}  textSize={isMobileSScreen?"text-xl":"text-2xl"} />
+                  <Button height={97.39} width={225}  textSize={isMobileSScreen?"text-xl":"text-2xl"} onClick={()=>handleCheckout(item, i)}/>
                 </div>
               </div>
             </ClippedCard>

@@ -99,7 +99,7 @@ function Contact() {
               initial={issmallScreen && { opacity: 0, y: 50 }}
               whileInView={issmallScreen && { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-semibold text-xl mb-3 lg:mb-2 font-primary "
+              className="font-semibold text-2xl xl:text-3xl mb-3 lg:mb-2 font-primary "
             >
               CONTACT US
             </motion.h5>
@@ -122,7 +122,7 @@ function Contact() {
             </motion.p>
           </div>
           {/* Privacy Policy Button */}
-          <div className="flex flex-row items-center justify-between gap-3">
+          <div className="flex flex-row items-center justify-between gap-3 -mt-2 xl:-mt-10">
             <motion.div
               initial={issmallScreen && { opacity: 0, y: 50 }}
               whileInView={issmallScreen && { opacity: 1, y: 0 }}
@@ -131,9 +131,18 @@ function Contact() {
             >
               <Link
                 href={"/privacy-policy"}
-                className="font-primary md:mx-4 text-lg text-white border-2 border-white rounded-2xl py-2 px-6 hover:bg-white hover:text-gray-800 transition duration-300 shadow-xl shadow-pink200/35"
+                className="font-primary md:mx-4 text-lg text-white py-2 hover:bg-white hover:text-gray-800 transition duration-300 text-center mt-10"
               >
+                <OuterBorderChildren
+                  width={155}
+                  height={35}
+                  value={10}
+                  strokeWidth={1.26}
+                  strokeColor="#fff"
+                  clipId={`clip-privacypolicy}`}
+                >
                 Privacy Policy
+                </OuterBorderChildren>
               </Link>
             </motion.div>
             <motion.div
@@ -144,9 +153,9 @@ function Contact() {
             >
               <Link
                 href={"/privacy-policy"}
-                className="font-primary md:mx-4 text-lg text-white border-2 border-white rounded-2xl py-2 px-6 hover:bg-white hover:text-gray-800 transition duration-300 shadow-xl shadow-pink200/35"
+                className="font-primary text-lg text-white  hover:bg-white hover:text-gray-800 transition duration-300 "
               >
-                MSA Club Official
+               @ MSA Club Official
               </Link>
             </motion.div>
           </div>
@@ -161,13 +170,19 @@ function Contact() {
             alt="Character Image"
             className="mt-4 md:mt-0  w-[75%] xl:w-[32rem] h-auto "
           />
+          <motion.div  initial={issmallScreen && { opacity: 0, y: 50 }}
+              whileInView={issmallScreen && { opacity: 1, y: 0 }}
+              transition={issmallScreen && { duration: 0.8, delay: 0.8 }}
+              className="absolute bottom-44 lg:top-24 right-36 xl:right-10 mt-3">
+
           <Image
             width={60}
             height={60}
             src={Bubble.src}
             alt="Floating small Bubble"
-            className="absolute bottom-44 lg:top-24 right-36 xl:right-10 mt-3  w-12 md:w-72 xl:w-16 h-auto "
-          />
+            className="  w-12 md:w-72 xl:w-16 h-auto "
+            />
+            </motion.div>
         </div>
       </div>
     </div>

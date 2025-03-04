@@ -12,6 +12,8 @@ import CharacterFoo from "@/assets/characterFoo.png";
 import Button from "./utils/Button";
 import useScreenStore from "@/store/useScreenStore";
 import Bubble from "@/assets/bubble.svg";
+import LeftEllipse from "@/assets/LeftEllipse.png";
+
 const Card = ({ imageUrl, title, description, title2, index }) => {
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
   return (
@@ -33,8 +35,13 @@ const Card = ({ imageUrl, title, description, title2, index }) => {
         width={isLargeScreen ? 466.25 : 390}
         imageUrl={imageUrl}
       />
-      <OutlineTextEffect title={title} classes="mt-1.5 lg:-mt-8 xl:-mt-0 w-full lg:text-[2.5rem]" />
-      {title2 && <OutlineTextEffect title={title2} classes="w-full lg:text-[2.5rem]" />}
+      <OutlineTextEffect
+        title={title}
+        classes="mt-1.5 lg:-mt-8 xl:-mt-0 w-full lg:text-[2.5rem]"
+      />
+      {title2 && (
+        <OutlineTextEffect title={title2} classes="w-full lg:text-[2.5rem]" />
+      )}
 
       <p className="text-xl text-grayPrimary mt-5 text-center font-primary">
         {description}
@@ -74,28 +81,98 @@ const MSALearningSection = () => {
   const courses_list = [
     {
       title: "Hands-on projects mirroring real MSA productions",
-      height: isLargeScreen ? 60 :isMobileSScreen? 105:isMediumScreen?60:75,
-      width: isLargeScreen ? 610 :isMobileSScreen?270:isMobileMScreen?320:isMediumScreen?580:370,
+      height: isLargeScreen
+        ? 60
+        : isMobileSScreen
+        ? 105
+        : isMediumScreen
+        ? 60
+        : 75,
+      width: isLargeScreen
+        ? 610
+        : isMobileSScreen
+        ? 270
+        : isMobileMScreen
+        ? 320
+        : isMediumScreen
+        ? 580
+        : 370,
     },
     {
       title: "Personalized feedback from industry professionals",
-      height: isLargeScreen ? 60 :isMobileSScreen? 105:isMediumScreen?60:75,
-      width: isLargeScreen ? 620 :isMobileSScreen?270:isMobileMScreen?320:isMediumScreen?580:370,
+      height: isLargeScreen
+        ? 60
+        : isMobileSScreen
+        ? 105
+        : isMediumScreen
+        ? 60
+        : 75,
+      width: isLargeScreen
+        ? 620
+        : isMobileSScreen
+        ? 270
+        : isMobileMScreen
+        ? 320
+        : isMediumScreen
+        ? 580
+        : 370,
     },
     {
       title: "Access to cutting-edge tools and software",
-      height: isLargeScreen ? 60 :isMobileSScreen? 80:isMediumScreen?60:75,
-      width: isLargeScreen ? 520 :isMobileSScreen?270:isMobileMScreen?320:isMediumScreen?580:370,
+      height: isLargeScreen
+        ? 60
+        : isMobileSScreen
+        ? 80
+        : isMediumScreen
+        ? 60
+        : 75,
+      width: isLargeScreen
+        ? 520
+        : isMobileSScreen
+        ? 270
+        : isMobileMScreen
+        ? 320
+        : isMediumScreen
+        ? 580
+        : 370,
     },
     {
       title: "Collaborative workshops with fellow creatives",
-      height: isLargeScreen ? 60 :isMobileSScreen? 80:isMediumScreen?60:75,
-      width: isLargeScreen ? 620 :isMobileSScreen?270:isMobileMScreen?320:isMediumScreen?580:370,
+      height: isLargeScreen
+        ? 60
+        : isMobileSScreen
+        ? 80
+        : isMediumScreen
+        ? 60
+        : 75,
+      width: isLargeScreen
+        ? 620
+        : isMobileSScreen
+        ? 270
+        : isMobileMScreen
+        ? 320
+        : isMediumScreen
+        ? 580
+        : 370,
     },
     {
       title: "Insights into MSA's creative process and workflow",
-      height: isLargeScreen ? 60 :isMobileSScreen? 105:isMediumScreen?60:75,
-      width: isLargeScreen ? 610 :isMobileSScreen?270:isMobileMScreen?320:isMediumScreen?580:370,
+      height: isLargeScreen
+        ? 60
+        : isMobileSScreen
+        ? 105
+        : isMediumScreen
+        ? 60
+        : 75,
+      width: isLargeScreen
+        ? 610
+        : isMobileSScreen
+        ? 270
+        : isMobileMScreen
+        ? 320
+        : isMediumScreen
+        ? 580
+        : 370,
     },
   ];
 
@@ -195,9 +272,9 @@ const MSALearningSection = () => {
                   >
                     <Button
                       text="START YOUR JOURNEY"
-                      textSize={isMobileSScreen?"text-xl":"text-2xl"}
-                      height={isLargeScreen ? 127 :isMobileSScreen?100: 115}
-                      width={isLargeScreen ? 337:isMobileSScreen?300 : 350}
+                      textSize={isMobileSScreen ? "text-xl" : "text-2xl"}
+                      height={isLargeScreen ? 127 : isMobileSScreen ? 100 : 115}
+                      width={isLargeScreen ? 337 : isMobileSScreen ? 300 : 350}
                     />
                   </motion.div>
                 </div>
@@ -220,6 +297,13 @@ const MSALearningSection = () => {
                   src={CharacterFoo.src}
                   alt="Character Image"
                   priority
+                />
+                <Image
+                  width={500}
+                  height={500}
+                  src={LeftEllipse.src}
+                  alt="Background Glow"
+                  className="absolute  w-[50rem] h-[50rem] xl:h-[60rem] xl:w-[70rem] -right-[15%] xl:-right-[35%] -top-[35%] xl:-top-[70%] -z-10"
                 />
               </motion.div>
             </div>

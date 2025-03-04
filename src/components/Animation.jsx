@@ -8,17 +8,25 @@ import Button from "./utils/Button";
 import VideoGallery from "./VideoSections";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
 import RightEllipseSVG from "./utils/icons/RightEllipseSVG";
+import useScrollHandler from "@/store/useScrollHandler";
 
 function Animation() {
+  const {handleScroll } = useScrollHandler();
   return (
-    <section className="relative text-white pt-20 pb-0 lg:py-16 ">
+    <section
+      className="relative text-white pt-20 pb-0 lg:py-16 "
+      id="animation-course"
+    >
       <SectionWrapper>
         <div className="relative">
           <div className="flex flex-col-reverse mx-auto lg:flex-row items-center w-full lg:w-[90%] justify-between px-6  md:px-6 lg:px-2 relative ">
             {/* Left Content */}
             <div className="relative flex flex-col items-center lg:items-start xl:items-start lg:w-1/2 z-10 text-center md:text-left">
               <div className="relative w-full lg:w-full ">
-                <OutlineTextEffect title={"Animation Courses"} classes="lg:text-left " />
+                <OutlineTextEffect
+                  title={"Animation Courses"}
+                  classes="lg:text-left "
+                />
                 <Image
                   width={60}
                   height={60}
@@ -37,7 +45,7 @@ function Animation() {
 
               {/* Call-to-Action Button */}
               <div className="mt-0">
-                <Button text="Enroll Now" height={97.39} width={225} />
+                <Button text="Enroll Now" height={97.39} width={225} handleScroll={()=>handleScroll("enroll-checkout")} />
               </div>
             </div>
 

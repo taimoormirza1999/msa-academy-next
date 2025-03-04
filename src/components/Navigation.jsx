@@ -8,44 +8,40 @@ import Menu from "./Menu";
 import { motion, AnimatePresence } from "framer-motion";
 import DownElipse from "@/assets/DownElipse.png";
 import Image from "next/image";
+import useScrollHandler from "@/store/useScrollHandler";
 
 const Navigation = () => {
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const router = useRouter();
-  const pathname = usePathname();
+  const { isMenuOpen, toggleMenu, handleScroll, setIsMenuOpen } = useScrollHandler();
 
-  // const toggleMobileMenu = () => {
-  //   setMobileMenuOpen(!isMobileMenuOpen);
+  // const router = useRouter();
+  // const pathname = usePathname();
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const toggleMenu = () => {
+  //   setIsMenuOpen(!isMenuOpen);
   // };
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const handleScroll = (id) => {
+  //   if (pathname !== "/") {
+  //     router.push("/");
+  //     setTimeout(() => scrollToSection(id), 500);
+  //   } else {
+  //     scrollToSection(id);
+  //   }
+  //   setIsMenuOpen(false);
+  // };
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  // const scrollToSection = (id) => {
+  //   const section = document.getElementById(id);
+  //   if (section) {
+  //     section.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
-  const handleScroll = (id) => {
-    if (pathname !== "/") {
-      router.push("/");
-      setTimeout(() => scrollToSection(id), 300);
-    } else {
-      scrollToSection(id);
-    }
-    setMobileMenuOpen(false);
-  };
-
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  useEffect(() => {
-    const hash = window.location.hash.substring(1);
-    if (hash) {
-      setTimeout(() => scrollToSection(hash), 300);
-    }
-  }, [pathname]);
+  // useEffect(() => {
+  //   const hash = window.location.hash.substring(1);
+  //   if (hash) {
+  //     setTimeout(() => scrollToSection(hash), 300);
+  //   }
+  // }, [pathname]);
 
   return (
     <>
@@ -76,6 +72,8 @@ const Navigation = () => {
             width={126}
             textSize="text-xl"
             onClick={toggleMenu}
+            handleScroll={handleScroll}
+            navButton={true}
           />{" "}
         </div>
       </nav>
@@ -89,7 +87,7 @@ const Navigation = () => {
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
           >
-            <Menu onClose={() => setIsMenuOpen(false)} />
+            <Menu onClose={() => setIsMenuOpen(false)} handleScroll={handleScroll} />
           </motion.div>
         )}
       </AnimatePresence>

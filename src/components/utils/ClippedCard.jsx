@@ -14,7 +14,7 @@ const ClippedCard = ({
   return (
     <div
       className={cn(
-        "relative  cursor-pointer overflow-hidden p-1   ",
+        "relative  cursor-pointer overflow-x-hidden p-1   ",
         "",
         " hover:scale(105) animate-marquee text-white flex justify-center items-center "
       )}

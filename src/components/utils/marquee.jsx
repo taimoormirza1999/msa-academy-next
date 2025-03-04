@@ -33,7 +33,7 @@ export function Marquee({
               "[animation-direction:reverse]": reverse,
             })}
           >
-            {children}
+            {children}  
           </div>
         ))}
     </div>

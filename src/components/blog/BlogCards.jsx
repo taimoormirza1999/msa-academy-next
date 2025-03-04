@@ -6,6 +6,8 @@ import BlogCard from "../ui/BlogCard";
 import { motion } from "framer-motion";
 import ClippedTestimonialCard from "../utils/ClippedTestimonialCard";
 import useScreenStore from "@/store/useScreenStore";
+import OutlineTextEffect from "../utils/OutlineTextEffect";
+import { HiChevronLeft } from "react-icons/hi";
 
 const CustomNextArrow = ({ onClick, isLargeScreen }) => (
   <button
@@ -13,59 +15,33 @@ const CustomNextArrow = ({ onClick, isLargeScreen }) => (
     onClick={onClick}
   >
     <ClippedTestimonialCard
-      width={55}
-      height={50}
+      width={!isLargeScreen ? 45 : 55}
+      height={!isLargeScreen ? 40 : 50}
       value={12}
       strokeWidth={1.26}
-      bgColor="rgba(255,0,255,0.3)"
+      // bgColor="rgba(255,0,255,0.3)"
     >
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="w-7 h-7 lg:w-4 lg:h-4"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 5l7 7-7 7"
-          />
-        </svg>
+      <div className="absolute top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 ">
+        <HiChevronLeft className="w-7 h-7 " />
       </div>
     </ClippedTestimonialCard>
   </button>
 );
 
-const CustomPrevArrow = ({ onClick }) => (
+const CustomPrevArrow = ({ onClick, isLargeScreen }) => (
   <button
     className="absolute  lg:-me-2  left-1/2 ml-9 -translate-x-1/2 lg:left-1/2  -bottom-[9%] lg:-bottom-24 lg:-translate-y-1/2 z-10  text-white/90 p-3 lg:p-3.5 "
     onClick={onClick}
   >
     <ClippedTestimonialCard
-      width={55}
-      height={50}
+      width={!isLargeScreen ? 45 : 55}
+      height={!isLargeScreen ? 40 : 50}
       value={12}
       strokeWidth={1.26}
       strokeColor="#A400E8"
     >
-      <div className="absolute top-1/2 left-1/2 text-white transform -translate-x-1/2 -translate-y-1/2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="w-7 h-7 lg:w-4 lg:h-4"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
+      <div className="absolute top-1/2 left-1/2 text-white  -translate-x-1/2 -translate-y-1/2 scale-x-[-1]">
+        <HiChevronLeft className="w-7 h-7 " />
       </div>
     </ClippedTestimonialCard>
   </button>
@@ -74,6 +50,8 @@ const CustomPrevArrow = ({ onClick }) => (
 function MultipleItems() {
   const [blogData, setBlogData] = useState(null);
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
+  const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
+
   const fetchBlogs = async () => {
     try {
       const response = await fetch(
@@ -96,8 +74,18 @@ function MultipleItems() {
   }, []);
 
   const settings = {
-    nextArrow: <CustomNextArrow isLargeScreen={isLargeScreen} />,
-    prevArrow: <CustomPrevArrow isLargeScreen={isLargeScreen} />,
+    nextArrow: (
+      <CustomNextArrow
+        isLargeScreen={isLargeScreen}
+        isMobileSScreen={isMobileSScreen}
+      />
+    ),
+    prevArrow: (
+      <CustomPrevArrow
+        isLargeScreen={isLargeScreen}
+        isMobileSScreen={isMobileSScreen}
+      />
+    ),
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 5,
@@ -168,23 +156,15 @@ function MultipleItems() {
       transition={{ duration: 1.6 }}
       className="slider-container  lg:-mb-14 mt-0  mb-8 lg:mt-20  w-[95%] lg:w-[100%] mx-auto pb-20 "
     >
-      <div className="mb-5">
+      <div className="-mb-8">
         <p className="text-center text-gray-300 text-lg md:text-xl mt-2 md:w-4/5 font-primary mx-auto">
-        Enroll With MSA
+          Enroll With MSA
         </p>
 
         <div className="mt-6">
-          <OutlineTextEffect
-            title={"FUEL YOUR"}
-            classes={"w-full "}
-          />
-          <OutlineTextEffect
-            title={"CREATIVITY"}
-            classes={"w-full "}
-          />
+          <OutlineTextEffect title={"FUEL YOUR"} classes={"w-full "} />
+          <OutlineTextEffect title={"CREATIVITY"} classes={"w-full mt-2"} />
         </div>
-
-       
       </div>
       <Slider {...settings} className="rounded">
         {blogData?.map((blogItem, key) => (

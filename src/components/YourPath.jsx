@@ -7,16 +7,20 @@ import Bubble from "@/assets/bubble.svg";
 import SectionWrapper from "./SectionWrapper";
 import Button from "./utils/Button";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
+import useScrollHandler from "@/store/useScrollHandler";
 
 function YourPath() {
+  const {handleScroll } = useScrollHandler();
+
   return (
-    <section className="relative  text-white py-0">
+    <section className="relative  text-white py-0 overflow-x-visible  ">
       <Image
         width={500}
         height={500}
         src={LeftEllipse.src}
         alt="Background Glow"
-        className=" absolute  w-[65rem] h-[65rem] left-[0%] top-0"
+        // w-[65rem] h-[65rem]
+        className=" absolute  w-[80rem] h-[55rem]  xl:h-[85rem] xl:w-[85rem] left-[0%] 2xl:left-[0%] -top-20 "
       />
 
       <SectionWrapper>
@@ -41,7 +45,7 @@ function YourPath() {
                 height={60}
                 src={Bubble.src}
                 alt="Floating Bubble"
-                className="absolute -top-6 right-[30%] md:-top-12  w-10 md:w-16 h-auto animate-pulse"
+                className="absolute -top-6 right-[30%]  md:-top-12  w-10 md:w-16 h-auto animate-pulse"
               />
             </div>
 
@@ -54,7 +58,7 @@ function YourPath() {
 
             {/* Call-to-Action Button */}
             <div className="mt-0">
-              <Button text="Enroll Now" height={97.39} width={225} />
+              <Button text="Enroll Now" height={97.39} width={225} handleScroll={()=>handleScroll("enroll-checkout")} />
             </div>
           </div>
 

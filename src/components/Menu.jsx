@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import DownElipse from "@/assets/DownElipse.png";
 import AnimatedNumber from "./AnimatedNumber";
-const Menu = ({onClose}) => {
+const Menu = ({onClose, handleScroll}) => {
   const [progress, setProgress] = useState(10);
 
   useEffect(() => {

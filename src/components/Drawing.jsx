@@ -42,7 +42,7 @@ const Drawing = () => {
             className="absolute bottom-[13rem] md:bottom-[25rem]  lg:bottom-[25rem] xl:bottom-[30rem] left-2  md:left-24 w-12 md:w-24 h-auto animate-pulse -z-30"
           />
         </div>
-        <div className="absolute -left-[135%] md:-left-[10%] lg:-left-[10%]  -top-52 lg:top-0  overflow-visible md:scale-x-[-1] -z-20 xl:z-10 ">
+        <div className="absolute -left-[40%] md:-left-[10%] lg:-left-[10%]  -top-72 lg:top-0  overflow-visible md:scale-x-[-1] -z-20 xl:z-10 ">
           <RightEllipseSVG height={900} width={900} />
         </div>
         {/* Description */}

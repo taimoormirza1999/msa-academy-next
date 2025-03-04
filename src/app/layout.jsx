@@ -177,7 +177,7 @@ export default function RootLayout({ children }) {
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        <div className="mx-0 relative bg-cover bg-center overflow-hidden">
+        <div className="mx-0 relative bg-cover bg-center overflow-x-hidden">
           {/* <Image
             src={BackgroundImage}
             alt="Background"
