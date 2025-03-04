@@ -13,7 +13,7 @@ const CommunityMap = () => {
           src={BackgroundImage.src}
           height={1000}
           width={1000}
-          objectFit="cover"
+          fill="cover"
           className="rounded-lg w-full h-[40rem] xl:h-[70rem]"
           
         />

@@ -11,10 +11,11 @@ import ClippedCard from "./utils/ClippedCard";
 import Button from "./utils/Button";
 import useScreenStore from "@/store/useScreenStore";
 import OuterBorderChildren from "./utils/OuterBorderChildren";
+import Script from "next/script";
 
 const Checkout = ({ showModal, setShowModal }) => {
   // const [showModal, setShowModal] = useState(false);
-  const [loadScript, setLoadScript] = useState(false);
+  const [loadScript, setLoadScript] = useState(true);
   const isMediumScreen = useScreenStore((state) => state.isMediumScreen);
   const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
   const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
@@ -61,13 +62,15 @@ const Checkout = ({ showModal, setShowModal }) => {
       ],
     },
   ];
-  const handleCheckout = async (packageDetails, index) => {
+  const handleCheckout = async (packageDetails) => {
     setShowModal(true);
     const body = {
-      packageName: packageDetails.name,
-      description: packageDetails.description,
-      priceAmount: packageDetails.price,
+      packageName: packageDetails?.name || "Default Name",
+      description: packageDetails?.description || "Default Description",
+      priceAmount: packageDetails?.price || 0,
     };
+    console.log(body)
+    // return body;
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_VITE_BACKEND_API}create-checkout-session`,
       {
@@ -198,7 +201,9 @@ const Checkout = ({ showModal, setShowModal }) => {
                   ))}
                 </ul>
                 <div className="animate-bounceSlow">
-                  <Button height={97.39} width={225}  textSize={isMobileSScreen?"text-xl":"text-2xl"} onClick={()=>handleCheckout(pkg, index)}/>
+                  <Button height={97.39} width={225}  textSize={isMobileSScreen?"text-xl":"text-2xl"} onClick={()=>handleCheckout({name: pkg.name,
+      description: pkg.description,
+      price: pkg.price})}/>
                 </div>
               </div>
             </ClippedCard>
