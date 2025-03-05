@@ -1,14 +1,13 @@
 "use client";
-
-import { useEffect, useState } from "react";
-import DOMPurify from "dompurify";
+import React from "react";
 import Image from "next/image";
-import Script from "next/script";
+import Link from "next/link";
+import DOMPurify from "dompurify";
+import BlogStructuredData from "./BlogStructuredData";
 
 const BlogClient = ({ blogData, recentblogData }) => {
   const [sanitizedContent, setSanitizedContent] = useState("");
 
-  // Sanitize the blog content after the component mounts
   useEffect(() => {
     if (blogData?.content) {
       const sanitized = DOMPurify.sanitize(blogData.content);
@@ -26,132 +25,77 @@ const BlogClient = ({ blogData, recentblogData }) => {
       </div>
     );
   }
-  // ADDED: Prepare JSON-LD for Article Schema
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": blogData.metaTitle,
-    "datePublished": blogData.postedDate,
-    "image": blogData.coverImage,
-    "author": {
-      "@type": "Person",
-      "name": "Taimoor Hamza"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "MSA Club ", 
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://msa-club.com/logo.png" 
-      }
-    },
-    "description": blogData.metaDescription || "",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://msa-club.com/blog/post/${blogData.friendlyUrl}` 
-    }
-  };
 
   return (
-    <>
-      <Script
-        id="article-schema"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
-      <div
-        className="min-h-screen mx-0 bg-cover bg-center mt-28"
-        // style={{ backgroundImage: `url(${BackgroundImage.src})`, height:'auto', width:'100%' }}
-      >
-        <div className="container w-[92%] xl:w-[80%] mx-auto lg:p-6 my-18 max-w-[1920px] pt-10 ">
-          {/* Main Blog Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Blog Content Area */}
-            <div className="shadow-2xl shadow-pink200/40 lg:col-span-2 border border-white/[21%] bg-white/[9%] bg-opacity-90 px-2 lg:p-4  rounded-2xl relative">
-              {/* Blog Top Image */}
-              <Image
-                height={800}
-                width={1200}
-                src={blogData?.coverImage}
-                alt="Blog Cover"
-                className="mt-3 lg:mt-0 w-full border border-white/[51%] shadow-2xl shadow-pink200/40 h-[23rem] lg:h-[30rem] xl:h-[50vh] object-cover rounded-2xl mb-4 bg-gradient-to-t from-black via-black/50 to-transparent"
-              />
-              <div className="px-2 lg:px-0">
-                {/* Blog Title */}
-                <div className=" items-center mt-6 lg:mt-10 z-20 w-full ">
-                  <h1 className="text-2xl lg:text-4xl font-bold text-white  font-impact-regular mb-1 ">
-                    {blogData?.title}
-                  </h1>
-                  <span className="justify-end text-xs pe-2 mt-10 text-white font-medium-kgpr text-right"></span>
-                  <div className="mb-0 mt-3 lg:my-4 flex flex-wrap gap-1.5">
-                    {blogData?.categories?.slice(0, 3).map((category, index) => (
-                      <span
-                        key={index}
-                        className={`text-white  font-medium py-1.5  text-[0.65rem] md:text-xs px-5 lg:px-7 rounded-full font-impact-regular bg-opacity-40 shadow-pink200 shadow-2xl border-white/[51%] border`}
-                      >
-                        {category}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Blog Description */}
-                <div
-                  className="text-gray-100 blog_description leading-relaxed  bg-opacity-90 lg:p-3 lg:px-0 rounded mt-3 lg:mt-5 font-medium-kgpr  text-sm"
-                  dangerouslySetInnerHTML={{
-                    __html: sanitizedContent,
-                  }}
-                ></div>
-              </div>
-            </div>
-
-            {/* Sidebar Area */}
-            <div className="shadow-2xl shadow-pink200/40 border border-white/[21%] bg-white/[9%] bg-opacity-5 p-3 py-6 lg:p-6 rounded-2xl sidebar">
-              {/* Recent Blogs */}
-              <h2 className="text-xl lg:text-2xl font-semibold text-white border-b-2 border-white/[51%] pb-2.5 mb-5 font-medium-ccm ">
-                Recent Blogs
-              </h2>{" "}
-              <ul className="space-y-4">
-                {recentblogData?.map((recentblogItem, index) => (
-                  <a
-                    href={`/blog/post/${recentblogItem.friendlyUrl}`}
-                    key={index}
-                    className="flex items-center space-x-4 shadow-xl  hover:scale-[1.03] transition-transform duration-300 shadow-pink200/25 rounded-[13px] p-2.5 mb-5 border-[1px] border-white/50"
-                  >
-                    <img
-                      src={recentblogItem?.coverImage}
-                      alt={`Blog ${index + 1} thumbnail`}
-                      className="border-[1px] self-start  border-white/50 shadow shadow-pink200/30 w-20 h-20 object-cover rounded-md"
-                    />
-                    <button
-                      href="#"
-                      className="w-full text-white text-base font-medium-kgpr"
-                      style={{ fontWeight: "900" }}
-                    >
-                      <p className="w-full text-xs lg:text-sm font-bold lg:pb-2 text-start">
-                        {recentblogItem?.title}
-                      </p>
-                      <div className="text-right text-[0.55rem] lg:text-[0.69rem] w-full pe-2 mt-3">
-                        {new Date(recentblogItem?.postedDate).toLocaleDateString(
-                          "en-US",
-                          {
-                            weekday: "long",
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          }
-                        )}
-                      </div>
-                    </button>
-                  </a>
-                ))}
-              </ul>
-            </div>
-          </div>
+    <article className="w-full max-w-[1200px] mx-auto px-4 py-8 md:py-12">
+      <BlogStructuredData blogData={blogData} />
+      <header className="mb-8">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" itemProp="headline">
+          {blogData.title}
+        </h1>
+        <div className="flex items-center text-gray-600 mb-4">
+          <time dateTime={blogData.postedDate} itemProp="datePublished">
+            {new Date(blogData.postedDate).toLocaleDateString()}
+          </time>
         </div>
-      </div>
-    </>
+        {blogData.coverImage && (
+          <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-lg overflow-hidden">
+            <Image
+              src={blogData.coverImage}
+              alt={blogData.title}
+              layout="fill"
+              objectFit="cover"
+              priority
+              className="rounded-lg"
+              itemProp="image"
+            />
+          </div>
+        )}
+      </header>
+
+      <div 
+        className="prose max-w-none"
+        itemProp="articleBody"
+        dangerouslySetInnerHTML={{ __html: sanitizedContent }}
+      />
+
+      {recentblogData && recentblogData.length > 0 && (
+        <aside className="mt-12">
+          <h2 className="text-2xl font-bold mb-6">Recent Posts</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {recentblogData.map((blog) => (
+              <Link
+                key={blog._id}
+                href={`/blog/post/${blog.friendlyUrl}`}
+                className="group"
+              >
+                <article className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                  {blog.coverImage && (
+                    <div className="relative w-full h-48">
+                      <Image
+                        src={blog.coverImage}
+                        alt={blog.title}
+                        layout="fill"
+                        objectFit="cover"
+                        className="group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
+                  <div className="p-4">
+                    <h3 className="font-semibold text-lg mb-2 group-hover:text-primary">
+                      {blog.title}
+                    </h3>
+                    <time dateTime={blog.postedDate} className="text-sm text-gray-600">
+                      {new Date(blog.postedDate).toLocaleDateString()}
+                    </time>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+        </aside>
+      )}
+    </article>
   );
 };
 
