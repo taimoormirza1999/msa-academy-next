@@ -7,6 +7,7 @@ import BackgroundImage from "../assets/background.jpg";
 import ScriptsLoader from "@/components/ScriptsLoader";
 import FooterWrapper from "@/components/utils/FooterWrapper";
 import SuppressErrors from "@/components/utils/SuppressErrors";
+import StructuredData from "@/components/utils/StructuredData";
 
 const CocogooseMedium = localFont({
   src: '../../public/fonts/Cocogoose-Classic-Medium-trial.ttf',
@@ -72,6 +73,9 @@ export const metadata = {
   referrer: 'origin-when-cross-origin',
   creator: 'Taimoor Hamza',
   publisher:'Artoul',
+  alternates: {
+    canonical: 'https://msa-club.com'
+  },
   robots: {
     index: true,
     follow: true,
@@ -132,7 +136,9 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning={true} className={`${CocogooseMedium.variable} ${CocogooseExtraBold.variable} ${ImpactCustom.variable} ${KozGoPr6NRegular.variable} ${FranklinGothicMedium.variable}`}>
     <meta name="google-site-verification" content="XwcHgu0NYksA4p3lf8Xr_na4o6gCuLD55KaJ6KznLSk" />
      <head>
-   <ScriptsLoader/>
+      <link rel="canonical" href="https://msa-club.com" />
+      <ScriptsLoader/>
+      <StructuredData />
      </head>
       <body >
       {/* NoScript Fallback for GTM */}
