@@ -28,6 +28,7 @@ const Loading = () => {
       <motion.img
         src="/logo.png"
         alt="MSA Academy Logo"
+        draggable="false"
         className="w-40 lg:w-64 2xl:w-54 h-auto relative z-10 mb-10"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}

@@ -29,6 +29,7 @@ function Contact() {
         src={LeftEllipse.src}
         alt="Background Glow"
         className=" absolute  w-[80rem] h-[80rem] left-[50%] -translate-x-[50%] bottom-0 -z-10"
+        draggable="false"
       />
       <div className="flex flex-col lg:flex-row justify-end items-center p-0 lg-w-1/2 lg:p-8  text-white">
         <div className="flex flex-col items-center">
@@ -45,6 +46,7 @@ function Contact() {
               width={80}
               alt="Character Foo"
               className="w-14 lg:w-16 h-auto "
+              draggable="false"
             />
             <Image
               src={logoogdgirl.src}
@@ -52,6 +54,7 @@ function Contact() {
               width={80}
               alt="Character Foo"
               className="w-16 lg:w-16 lg:h-16 md:ml-2"
+              draggable="false"
             />
           </motion.div>
           {/* Social Media Links */}
@@ -135,13 +138,16 @@ function Contact() {
               >
                 <OuterBorderChildren
                   width={155}
-                  height={35}
+                  height={38}
                   value={10}
+                  classes={"mt-1"}
                   strokeWidth={1.26}
                   strokeColor="#fff"
                   clipId={`clip-privacypolicy}`}
                 >
-                Privacy Policy
+              
+                  <span className="text-white">Privacy Policy</span>
+          
                 </OuterBorderChildren>
               </Link>
             </motion.div>
@@ -168,19 +174,21 @@ function Contact() {
             height={600}
             src={CharacterFoo.src}
             alt="Character Image"
+            draggable="false"
             className="mt-4 md:mt-0  w-[75%] xl:w-[32rem] h-auto "
           />
           <motion.div  initial={issmallScreen && { opacity: 0, y: 50 }}
               whileInView={issmallScreen && { opacity: 1, y: 0 }}
               transition={issmallScreen && { duration: 0.8, delay: 0.8 }}
-              className="absolute bottom-44 lg:top-24 right-36 xl:right-10 mt-3">
+              className="absolute bottom-44 lg:top-10 xl:top-24 right-36 xl:right-10 mt-3">
 
           <Image
             width={60}
             height={60}
             src={Bubble.src}
             alt="Floating small Bubble"
-            className="  w-12 md:w-72 xl:w-16 h-auto "
+            className="  w-12 md:w-72 lg:w-16 xl:w-16 h-auto "
+            draggable="false"
             />
             </motion.div>
         </div>

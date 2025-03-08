@@ -3,7 +3,7 @@ import React from 'react';
 const RightEllipseSVG = ({ width, height }) => {
   const viewBox = "0 0 1786 1686";
   return (
-    <svg width={width} height={height} viewBox={viewBox} fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width} height={height} viewBox={viewBox} fill="none" xmlns="http://www.w3.org/2000/svg" className='-z-40'>
       <g filter="url(#filter0_f_180_10)">
         <ellipse cx="893" cy="843" rx="277" ry="227" fill="#CA2AD3" />
       </g>

@@ -37,6 +37,7 @@ const ClippedImage = ({ imageUrl, width = 600, height = 400 }) => {
           y="0"
           width="600"
           height="400"
+          draggable="false"
           xlinkHref={imageUrl}
           clipPath="url(#clipShape)"
           preserveAspectRatio="xMidYMid slice"

@@ -29,6 +29,7 @@ const Drawing = () => {
             width={1920}
             src={DrawingImage.src}
             alt="Banner"
+            draggable="false"
             className="w-full h-[37vh] sm:h-[60vh] md:h-full lg:h-full 2xl:h-3/4 object-cover md:object-contain"
           />
         </div>
@@ -39,6 +40,7 @@ const Drawing = () => {
             height={60}
             src={Bubble.src}
             alt="Floating Bubble"
+            draggable="false"
             className="absolute bottom-[13rem] md:bottom-[25rem]  lg:bottom-[25rem] xl:bottom-[30rem] left-2  md:left-24 w-12 md:w-24 h-auto animate-pulse -z-30"
           />
         </div>

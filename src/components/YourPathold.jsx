@@ -20,6 +20,7 @@ const YourPath = () => {
           width={1920}
           src={YourPathImage.src}
           alt="Banner"
+          draggable="false"
           className="w-full md:w-98 h-[38vh] sm:h-[60vh] md:h-auto lg:h-full object-cover md:object-contain object-[60%_30%] -z-10  mx-auto "
         />
       </div>

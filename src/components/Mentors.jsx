@@ -11,7 +11,8 @@ import useScreenStore from "@/store/useScreenStore";
 import RightEllipseSVG from "./utils/icons/RightEllipseSVG";
 
 const Mentors = () => {
-  const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
+  const isLargeScreen = useScreenStore((state) => state.isLargeScreen); 
+  const isLaptopMediumScreen = useScreenStore((state) => state.isLaptopMediumScreen);
   const sliderRef = useRef(null);
   const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
   // const isMediumScreen = useScreenStore((state) => state.isMediumScreen);
@@ -32,23 +33,23 @@ const Mentors = () => {
       className="relative h-auto bg-cover bg-center mt-5 md:mb-8 md:mt-16 lg:mt-24 lg:mb-10  w-[100%] md:w-full lg:w-95 2xl:w-85 mx-auto max-w-[1920px]"
     >
       <SectionWrapper>
-        <div className="relative h-auto mx-auto w-full md:w-95 lg:w-[90%] flex flex-col-reverse lg:flex-col">
+        <div className="relative h-auto mx-auto w-full md:w-95 xl:w-[90%] flex flex-col-reverse lg:flex-col">
           <div
             ref={sliderRef}
-            className="mt-10 pb-12 lg:pb-0 flex gap-10 md:gap-8 lg:gap-16 justify-start snap-x snap-mandatory scrollbar-hide w-full overflow-x-auto lg:overflow-visible  overflow-y-visible"
+            className="mt-10 pb-12 lg:pb-0 flex gap-10 md:gap-8 xl:gap-16 justify-start snap-x snap-mandatory scrollbar-hide w-full overflow-x-auto lg:overflow-visible  overflow-y-visible"
           >
             <div className="flex-none snap-start lg:mx-0 overflow-y-visible pl-5 lg:pl-0">
               <ClippedImageGeneric
                 imageUrl={MentorsCard1.src}
-                width={isLargeScreen ? 348 : 210}
-                height={isLargeScreen ? 530 : 350}
+                width={isLaptopMediumScreen ? 280:isLargeScreen ? 348 : 180}
+                height={ isLaptopMediumScreen ? 450 :isLargeScreen ? 530 : 300}
               />
             </div>
             <div className="mt-10 md:mt-10 lg:-mt-12 relative flex-none snap-center lg:mx-0 overflow-y-visible">
               <ClippedImageGeneric
                 imageUrl={MentorsCard2.src}
-                width={isLargeScreen ? 348 : 220}
-                height={isLargeScreen ? 530 : 350}
+                width={isLaptopMediumScreen ? 280:isLargeScreen ? 348 : 220}
+                height={isLaptopMediumScreen ? 450 :isLargeScreen ? 530 : 350}
               />
               <Image
                 width={60}
@@ -66,8 +67,8 @@ const Mentors = () => {
             <div className="flex-none snap-center lg:mx-0">
               <ClippedImageGeneric
                 imageUrl={MentorsCard3.src}
-                width={isLargeScreen ? 348 : 210}
-                height={isLargeScreen ? 530 : 350}
+                width={isLaptopMediumScreen ? 280:isLargeScreen ? 348 : 210}
+                height={isLaptopMediumScreen ? 450 :isLargeScreen ? 530 : 350}
               />
             </div>
           </div>

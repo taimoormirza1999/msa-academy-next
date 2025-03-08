@@ -1,9 +1,8 @@
 import ButtonSVG from '@/components/utils/icons/ButtonSVG'
-import Link from 'next/link';
 
 const Button = ({width = 250, height = 133, text = "Enroll Now", textSize="text-2xl", handleScroll , onClick, navButton=false }) => {
   return (
-    <div className="relative inline-block" style={{ width: `${width}px`, height: `${height}px` }}>
+    <div className="relative inline-block z-40" style={{ width: `${width}px`, height: `${height}px` }}>
       {/* SVG as background */}
       <ButtonSVG width={width} height={height} />
       

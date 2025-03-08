@@ -25,7 +25,7 @@ function Animation() {
               <div className="relative w-full lg:w-full ">
                 <OutlineTextEffect
                   title={"Animation Courses"}
-                  classes="lg:text-left "
+                  classes="lg:text-left xl:-ml-14"
                 />
                 <Image
                   width={60}
@@ -57,6 +57,7 @@ function Animation() {
                 width={600}
                 height={600}
                 src={PuppetGirl.src}
+                draggable="false"
                 alt="Puppet Girl"
                 className="w-[90%] md:w-[70%] lg:w-full max-w-md md:max-w-xl"
               />

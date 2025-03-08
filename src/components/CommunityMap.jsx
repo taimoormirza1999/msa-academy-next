@@ -13,6 +13,7 @@ const CommunityMap = () => {
           src={BackgroundImage.src}
           height={1000}
           width={1000}
+      
           fill="cover"
           className="rounded-lg w-full h-[40rem] xl:h-[70rem]"
           
@@ -25,6 +26,7 @@ const CommunityMap = () => {
             alt="Community Map"
             width={1920}
             height={1080}
+            draggable="false"
             src={CommunityMapImage}
             className="w-full h-auto sm:h-[60vh] md:h-auto lg:h-[40rem] xl:w-[80%] xl:h-auto object-cover mx-auto rounded-lg"
           />

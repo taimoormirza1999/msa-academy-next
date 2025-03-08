@@ -6,16 +6,17 @@ export default function OuterBorderChildren({
     value,
     strokeColor,
     clipId,
+    classes
   }) {
     return (
       <div
-        className="relative cursor-pointer overflow-hidden p-1 text-white flex justify-center items-center"
+        className="relative cursor-pointer overflow-hidden p-1  text-white flex justify-center items-center"
       >
         <svg
           width={width}
           height={height}
           viewBox={`0 0 ${width} ${height}`}
-          className="relative z-10"
+          className="relative z-10 "
           preserveAspectRatio="none"
         >
           <defs>
@@ -36,7 +37,7 @@ export default function OuterBorderChildren({
             height={height}
             clipPath={`url(#${clipId})`}
           >
-            <div className="w-full h-full">{children}</div>
+            <div className={`w-full h-full ${classes}`}>{children}</div>
           </foreignObject>
   
           {/* WHITE BORDER */}

@@ -363,6 +363,9 @@ nav.bg-black.fixed.top-0.left-0.right-0.z-50.shadow-lg.py-2\.5.md\:py-3 {
   }
 }
 @media screen and (max-width: 768px) {
+  .stroke-text {
+-webkit-text-stroke-width: 0.4px;
+   }
   .blog_description h2 {
     font-size: 1.32rem;
   }

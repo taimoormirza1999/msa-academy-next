@@ -1,6 +1,6 @@
 import React from "react";
 
-const ClippedImageGeneric = ({ rightTopClass='top-2.5 right-2.5', imageUrl, width = 348, height = 530, value=40,preserveAspectRatio=false }) => {
+const ClippedImageGeneric = ({ heightAuto=false, rightTopClass='top-2.5 right-2.5', imageUrl, width = 348, height = 530, value=40,preserveAspectRatio=false }) => {
   const clipId = `clipShape-${Math.random().toString(36).substr(2, 9)}`; // Unique clip ID
 
   return (
@@ -10,7 +10,7 @@ const ClippedImageGeneric = ({ rightTopClass='top-2.5 right-2.5', imageUrl, widt
         width={width}
         height={height}
         viewBox={`0 0 ${width} ${height}`}
-        className={`absolute ${rightTopClass} w-full h-full z-0 `}
+        className={`absolute ${rightTopClass} w-full ${heightAuto&& "h-auto"} z-0 `}
         // preserveAspectRatio="none"
       >
         <path
@@ -26,7 +26,7 @@ const ClippedImageGeneric = ({ rightTopClass='top-2.5 right-2.5', imageUrl, widt
         width={width}
         height={height}
         viewBox={`0 0 ${width} ${height}`}
-        className="relative w-full max-w-[348px] z-10"
+        className={`relative w-full ${heightAuto&& "h-auto"} max-w-[348px] z-10`}
         // preserveAspectRatio="none"
       >
         <defs>

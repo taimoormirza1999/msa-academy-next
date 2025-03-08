@@ -195,6 +195,7 @@ const MSALearningSection = () => {
                 width={60}
                 height={60}
                 src={Bubble.src}
+                draggable="false"
                 alt="Floating Bubble small"
                 className="absolute -top-[2.5rem] md:-top-[3rem] lg:-top-[4rem]  xl:top-[15rem]   left-[4%] md:left-[8%] lg:left-[22%] xl:-left-[2%] w-7 md:w-8 lg:w-10 h-auto "
               />
@@ -202,6 +203,7 @@ const MSALearningSection = () => {
                 width={60}
                 height={60}
                 src={Bubble.src}
+                draggable="false"
                 alt="Floating Bubble"
                 className="absolute -top-[7rem] lg:-top-[1rem] xl:top-[5rem] -left-[5%] md:-left-[9%] lg:left-[10%] xl:-left-[9%] w-14 md:w-16 lg:w-20 xl:w-28 h-auto "
               />
@@ -297,11 +299,13 @@ const MSALearningSection = () => {
                   src={CharacterFoo.src}
                   alt="Character Image"
                   priority
+                  draggable="false"
                 />
                 <Image
                   width={500}
                   height={500}
                   src={LeftEllipse.src}
+                  draggable="false"
                   alt="Background Glow"
                   className="absolute  w-[50rem] h-[50rem] xl:h-[60rem] xl:w-[70rem] -right-[15%] xl:-right-[35%] -top-[35%] xl:-top-[70%] -z-10"
                 />

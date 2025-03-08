@@ -75,6 +75,7 @@ const BlogClient = ({ blogData, recentblogData }) => {
                 width={1200}
                 src={blogData?.coverImage}
                 alt="Blog Cover"
+                draggable="false"
                 className="mt-3 lg:mt-0 w-full border border-white/[51%] shadow-2xl shadow-pink200/40 h-[23rem] lg:h-[30rem] xl:h-[50vh] object-cover rounded-2xl mb-4 bg-gradient-to-t from-black via-black/50 to-transparent"
               />
               <div className="px-2 lg:px-0">

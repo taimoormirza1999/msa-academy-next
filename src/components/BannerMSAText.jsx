@@ -3,7 +3,7 @@ import React from 'react'
 export default function BannerMSAText() {
     const GradeinetOutlineText = ({ text, classes }) => {
         return (
-          <div className="w-full flex justify-center items-center py-5   lg:py-10">
+          <div className="w-full flex justify-center items-center py-5 lg:py-10">
             <h1 className="absolute text-[3rem] md:text-[5.5rem] lg:text-[6rem] xl:text-[8rem]  2xl:text-[8rem] mt-3 lg:mt-5 font-extrabold uppercase text-transparent stroke-text">
               {text}
             </h1>
@@ -16,7 +16,7 @@ export default function BannerMSAText() {
   return (
 <div className="relative ">
         {/* MSA text */}
-        <div className="mb-[-2rem] md:mb-[-4rem] lg:mb-[-6rem]">
+        <div className="mb-[-2rem] md:mb-[-4rem] lg:mb-[-6rem] animate-bounceSlow">
           <GradeinetOutlineText text="MSA" className="text-8xl md:text-8xl lg:text-9xl xl:text-[10rem]" />
         </div>
         {/* ACADEMY text */}
