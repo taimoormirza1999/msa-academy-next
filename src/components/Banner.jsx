@@ -43,8 +43,6 @@ const floatingAnimation = {
 const Banner = () => {
   // const isLargeScreen = useMediaQuery({ minWidth: 768 });
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
-  const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
-  const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
   const { handleScroll } = useScrollHandler();
   const [scrollY, setScrollY] = React.useState(0);
 

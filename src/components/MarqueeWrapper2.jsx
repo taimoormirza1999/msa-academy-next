@@ -49,7 +49,9 @@ const firstRow = reviews.slice(0, reviews.length / 2);
 
 const ReviewCard = ({ img, name, username, body }) => {
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
-
+  const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
+  const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
+  const isMobileL = useScreenStore((state) => state.isMobileLScreen);
   return (
     <ClippedTestimonialCard
       height={isLargeScreen ? 190 : 150}
@@ -59,13 +61,13 @@ const ReviewCard = ({ img, name, username, body }) => {
       <div className="mx-2 ml-5 lg:mx-6 ">
         <div className="flex flex-row items-start gap-2 lg:gap-4 mt-7 pt-[2%] md:pt-[1%] lg:pt-[4%]">
           {/* Image */}
-          <div className="self-start mt-0 lg:-mt-16 ">
+          <div className="self-start ms:-mt-10 ml:-mt-10 mt-0 lg:-mt-16 ">
             <ClippedImageGeneric
               imageUrl={img}
-              width={isLargeScreen ? 145.26 : 65.26}
-              height={isLargeScreen ? 145.26 : 65.26}
-              value={15}
-              rightTopClass="top-[7.5px] right-[7.5px]"
+              width={isMobileSScreen?100:isMobileMScreen?120:isMobileL?120:isLargeScreen ? 145 : 65}
+              height={isMobileSScreen?100:isMobileMScreen?120:isMobileL?120:isLargeScreen ? 145 : 65}
+              value={isMobileSScreen?13:15}
+              rightTopClass="top-[7.5px] ms:right-[5px] right-[7.5px]"
             />
           </div>
           <div className="flex flex-col">
