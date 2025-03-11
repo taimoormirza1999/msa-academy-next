@@ -8,11 +8,14 @@ import ClippedTestimonialCard from "../utils/ClippedTestimonialCard";
 import useScreenStore from "@/store/useScreenStore";
 import OutlineTextEffect from "../utils/OutlineTextEffect";
 import { HiChevronLeft } from "react-icons/hi";
+import Link from "next/link";
+import { BlogPostingListSchema } from "@/components/SEO/SchemaMarkup";
 
 const CustomNextArrow = ({ onClick, isLargeScreen }) => (
   <button
     className="absolute left-1/2 -ml-9 -translate-x-1/2 lg:right-[45%] lg:-bottom-24 -translate-y-1/2 z-10 text-white/90 p-3 lg:p-3.5 rounded-full shadow-xl"
     onClick={onClick}
+    aria-label="Next slide"
   >
     <ClippedTestimonialCard
       width={!isLargeScreen ? 45 : 55}
@@ -32,6 +35,7 @@ const CustomPrevArrow = ({ onClick, isLargeScreen }) => (
   <button
     className="absolute  lg:-me-2  left-1/2 ml-9 -translate-x-1/2 lg:left-1/2  -bottom-[9%] lg:-bottom-24 lg:-translate-y-1/2 z-10  text-white/90 p-3 lg:p-3.5 "
     onClick={onClick}
+    aria-label="Previous slide"
   >
     <ClippedTestimonialCard
       width={!isLargeScreen ? 45 : 55}
@@ -55,7 +59,8 @@ function MultipleItems() {
   const fetchBlogs = async () => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs?limit=8`
+        `${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs?limit=8`,
+        { next: { revalidate: 3600 } }
       );
 
       if (!response.ok) {
@@ -88,55 +93,56 @@ function MultipleItems() {
     ),
     infinite: true,
     slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToScroll: 1,
     autoplay: true,
     speed: 800,
+    autoplaySpeed: 5000,
     draggable: true,
-    lazyLoad: "ondemand", // Fix for lazyLoad
+    lazyLoad: "ondemand",
     centerMode: true,
-    cssEase: "linear",
+    cssEase: "ease-in-out",
     pauseOnHover: true,
     responsive: [
       {
         breakpoint: 1920,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 4,
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 1440,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 4,
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 1780,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 4,
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 769,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2, // Fix: Ensure consistency
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
         },
       },
       {
@@ -150,35 +156,51 @@ function MultipleItems() {
   };
 
   return blogData ? (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1.6 }}
-      className="slider-container  lg:-mb-14 mt-0  mb-8 lg:mt-20  w-[95%] lg:w-[100%] mx-auto pb-20 "
-    >
-      <div className="-mb-8">
-        <p className="text-center text-gray-300 text-lg md:text-xl mt-2 md:w-4/5 font-primary mx-auto">
-          Enroll With MSA
-        </p>
+    <section aria-label="Blog Posts Carousel" className="py-10">
+      {/* Add structured data for blog list */}
+      <BlogPostingListSchema blogPosts={blogData} />
+      
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.6 }}
+        className="slider-container  lg:-mb-14 mt-0  mb-8 lg:mt-20  w-[95%] lg:w-[100%] mx-auto pb-20 "
+      >
+        <div className="-mb-8">
+          <p className="text-center text-gray-300 text-lg md:text-xl mt-2 md:w-4/5 font-primary mx-auto">
+            Enroll With MSA
+          </p>
 
-        <div className="mt-6">
-          <OutlineTextEffect title={"FUEL YOUR"} classes={"w-full "} />
-          <OutlineTextEffect title={"CREATIVITY"} classes={"w-full mt-2"} />
+          <div className="mt-6">
+            <OutlineTextEffect title={"FUEL YOUR"} classes={"w-full "} />
+            <OutlineTextEffect title={"CREATIVITY"} classes={"w-full mt-2"} />
+          </div>
         </div>
-      </div>
-      <Slider {...settings} className="rounded">
-        {blogData?.map((blogItem, key) => (
-          <motion.div
-            key={key}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 * key }}
+        
+        <div className="flex justify-center mt-4 mb-8">
+          <Link 
+            href="/blog" 
+            className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 px-6 py-2 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
+            aria-label="View All Blog Posts"
           >
-            <BlogCard blogItem={blogItem} />
-          </motion.div>
-        ))}
-      </Slider>
-    </motion.div>
+            View All Blog Posts
+          </Link>
+        </div>
+        
+        <Slider {...settings} className="rounded">
+          {blogData?.map((blogItem, key) => (
+            <motion.div
+              key={key}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 * key }}
+            >
+              <BlogCard blogItem={blogItem} />
+            </motion.div>
+          ))}
+        </Slider>
+      </motion.div>
+    </section>
   ) : null;
 }
 

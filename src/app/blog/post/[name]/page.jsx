@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 const fetchBlogData = async (name) => {
   try {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs/post/${name}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs/post/${name}`, { next: { revalidate: 3600 } });
       
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -18,7 +18,7 @@ const fetchBlogData = async (name) => {
 
 const fetchRecentBlogs = async (name) => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs/recent-blogs?limit=5`)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs/recent-blogs?limit=5`, { next: { revalidate: 3600 } })
     const data = await response.json();
     return data.filter((blog) => blog.friendlyUrl !== name);
   } catch (error) {
@@ -28,9 +28,7 @@ const fetchRecentBlogs = async (name) => {
 };
 
 
-// ✅ 2️⃣ Override Metadata Dynamically (Server-Side)
-// export async function generateMetadata({ params }) {
-//   const name = await params?.name;
+// 2️⃣ Override Metadata Dynamically (Server-Side)
 export async function generateMetadata({ params }) {
   const { name } = await params;
   const blogData = await fetchBlogData(name);
@@ -42,13 +40,17 @@ export async function generateMetadata({ params }) {
     };
   }
 
+  // Create a clean description without HTML tags
+  const cleanDescription = blogData.metaDescription || 
+    (blogData.content ? blogData.content.replace(/<[^>]*>/g, '').slice(0, 160) + '...' : "Read this blog on MSA-Club.com.");
+
   return {
     generator:"MSA-Club.com",
     applicationName:"MSA-Club.com",
     referrer: 'origin-when-cross-origin',
-     creator: 'Taimoor Hamza',
-     publisher:'Artoul',
-     robots: {
+    creator: 'Taimoor Hamza',
+    publisher:'Artoul',
+    robots: {
       index: true,
       follow: true,
       nocache: false,
@@ -62,39 +64,45 @@ export async function generateMetadata({ params }) {
       },
     },
     title: `${blogData.metaTitle} | MSA-Club.com`,
-    description: blogData.metaDescription || "Read this blog on MSA-Club.com.",
-    keywords: blogData.metaTags?.join(", ") || "Sourcing, Manufacturing, Supply Chain",
+    description: cleanDescription,
+    keywords: blogData.metaTags?.join(", ") || "Animation, Character Design, 3D Animation, MSA Academy",
     openGraph: {
       siteName:"MSA-Club.com",
       locale: 'en_US',
-      type: 'website',
+      type: 'article',
       title: blogData.title,
-      description: blogData.metaDescription || "Read this blog on MSA-Club.com.",
+      description: cleanDescription,
       images: [blogData.coverImage || "https://msa-club.com/hero_banner.png"],
       url: `https://msa-club.com/blog/post/${blogData.friendlyUrl}`,
-      authors: ['Taimoor Hamza',],
+      authors: ['Taimoor Hamza'],
+      publishedTime: blogData.postedDate,
+      modifiedTime: blogData.updatedDate || blogData.postedDate,
+      section: blogData.categories?.[0] || "Animation",
+      tags: blogData.metaTags || [],
     },
     twitter: {
       card: "summary_large_image",
       title: blogData.metaTitle,
-      description: blogData.metaDescription || "Read this blog on MSA-Club.com.",
+      description: cleanDescription,
       images: [blogData.coverImage || "https://msa-club.com/hero_banner.png"],
+      creator: "@msaacademy",
+    },
+    alternates: {
+      canonical: `https://msa-club.com/blog/post/${blogData.friendlyUrl}`,
     },
   };
 }
 
-// export default async function BlogDetail({ params }) {
-//   const name = await params?.name;
-//   const recentBlogs = await fetchRecentBlogs(name);
-//   const blogData = await fetchBlogData(name);
 export default async function BlogDetail({ params }) {
   const { name } = await params;
   const blogData = await fetchBlogData(name);
   const recentBlogs = await fetchRecentBlogs(name);
+  
   if (!name) return notFound();
 
   if (!blogData) {
     return notFound();
   }
+  
   return <BlogClient blogData={blogData} recentblogData={recentBlogs} />;
 }

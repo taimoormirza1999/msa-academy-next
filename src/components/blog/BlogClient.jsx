@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import DOMPurify from "dompurify";
 import Image from "next/image";
 import Script from "next/script";
+import Link from "next/link";
+import Breadcrumbs from "@/components/SEO/Breadcrumbs";
 
 const BlogClient = ({ blogData, recentblogData }) => {
   const [sanitizedContent, setSanitizedContent] = useState("");
@@ -26,12 +28,21 @@ const BlogClient = ({ blogData, recentblogData }) => {
       </div>
     );
   }
-  // ADDED: Prepare JSON-LD for Article Schema
+  
+  // Prepare breadcrumb items
+  const breadcrumbItems = [
+    { name: "Home", url: "/" },
+    { name: "Blog", url: "/blog" },
+    { name: blogData.title, url: `/blog/post/${blogData.friendlyUrl}` }
+  ];
+
+  // Prepare JSON-LD for Article Schema
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": blogData.metaTitle,
     "datePublished": blogData.postedDate,
+    "dateModified": blogData.updatedDate || blogData.postedDate,
     "image": blogData.coverImage,
     "author": {
       "@type": "Person",
@@ -39,7 +50,7 @@ const BlogClient = ({ blogData, recentblogData }) => {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "MSA Club ", 
+      "name": "MSA Club", 
       "logo": {
         "@type": "ImageObject",
         "url": "https://msa-club.com/logo.png" 
@@ -49,7 +60,9 @@ const BlogClient = ({ blogData, recentblogData }) => {
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": `https://msa-club.com/blog/post/${blogData.friendlyUrl}` 
-    }
+    },
+    "keywords": blogData.metaTags?.join(", ") || "Animation, Character Design, 3D Animation",
+    "articleSection": blogData.categories?.[0] || "Animation"
   };
 
   return (
@@ -65,6 +78,9 @@ const BlogClient = ({ blogData, recentblogData }) => {
         // style={{ backgroundImage: `url(${BackgroundImage.src})`, height:'auto', width:'100%' }}
       >
         <div className="container w-[92%] xl:w-[80%] mx-auto lg:p-6 my-18 max-w-[1920px] pt-10 ">
+          {/* Breadcrumbs */}
+          <Breadcrumbs items={breadcrumbItems} />
+          
           {/* Main Blog Content */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Blog Content Area */}
@@ -74,9 +90,10 @@ const BlogClient = ({ blogData, recentblogData }) => {
                 height={800}
                 width={1200}
                 src={blogData?.coverImage}
-                alt="Blog Cover"
+                alt={`${blogData.title} - Featured Image`}
                 draggable="false"
                 className="mt-3 lg:mt-0 w-full border border-white/[51%] shadow-2xl shadow-pink200/40 h-[23rem] lg:h-[30rem] xl:h-[50vh] object-cover rounded-2xl mb-4 bg-gradient-to-t from-black via-black/50 to-transparent"
+                priority
               />
               <div className="px-2 lg:px-0">
                 {/* Blog Title */}
@@ -84,6 +101,24 @@ const BlogClient = ({ blogData, recentblogData }) => {
                   <h1 className="text-2xl lg:text-4xl font-bold text-white  font-impact-regular mb-1 ">
                     {blogData?.title}
                   </h1>
+                  <div className="flex items-center text-white/70 text-sm mt-2">
+                    <span className="mr-4">
+                      Published: {new Date(blogData?.postedDate).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric"
+                      })}
+                    </span>
+                    {blogData?.updatedDate && blogData.updatedDate !== blogData.postedDate && (
+                      <span>
+                        Updated: {new Date(blogData?.updatedDate).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric"
+                        })}
+                      </span>
+                    )}
+                  </div>
                   <span className="justify-end text-xs pe-2 mt-10 text-white font-medium-kgpr text-right"></span>
                   <div className="mb-0 mt-3 lg:my-4 flex flex-wrap gap-1.5">
                     {blogData?.categories?.slice(0, 3).map((category, index) => (
@@ -98,12 +133,63 @@ const BlogClient = ({ blogData, recentblogData }) => {
                 </div>
 
                 {/* Blog Description */}
-                <div
+                <article
                   className="text-gray-100 blog_description leading-relaxed  bg-opacity-90 lg:p-3 lg:px-0 rounded mt-3 lg:mt-5 font-medium-kgpr  text-sm"
                   dangerouslySetInnerHTML={{
                     __html: sanitizedContent,
                   }}
-                ></div>
+                ></article>
+                
+                {/* Tags Section */}
+                {blogData?.metaTags && blogData.metaTags.length > 0 && (
+                  <div className="mt-8 pt-4 border-t border-white/20">
+                    <h3 className="text-white text-lg mb-2">Tags:</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {blogData.metaTags.map((tag, index) => (
+                        <span 
+                          key={index}
+                          className="bg-white/10 text-white text-xs px-3 py-1 rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                {/* Share Section */}
+                <div className="mt-8 pt-4 border-t border-white/20">
+                  <h3 className="text-white text-lg mb-2">Share this article:</h3>
+                  <div className="flex space-x-4">
+                    <a 
+                      href={`https://twitter.com/intent/tweet?url=https://msa-club.com/blog/post/${blogData.friendlyUrl}&text=${encodeURIComponent(blogData.title)}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-blue-400 transition-colors"
+                      aria-label="Share on Twitter"
+                    >
+                      Twitter
+                    </a>
+                    <a 
+                      href={`https://www.facebook.com/sharer/sharer.php?u=https://msa-club.com/blog/post/${blogData.friendlyUrl}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-blue-600 transition-colors"
+                      aria-label="Share on Facebook"
+                    >
+                      Facebook
+                    </a>
+                    <a 
+                      href={`https://www.linkedin.com/shareArticle?mini=true&url=https://msa-club.com/blog/post/${blogData.friendlyUrl}&title=${encodeURIComponent(blogData.title)}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-blue-700 transition-colors"
+                      aria-label="Share on LinkedIn"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -115,18 +201,19 @@ const BlogClient = ({ blogData, recentblogData }) => {
               </h2>{" "}
               <ul className="space-y-4">
                 {recentblogData?.map((recentblogItem, index) => (
-                  <a
+                  <Link
                     href={`/blog/post/${recentblogItem.friendlyUrl}`}
                     key={index}
                     className="flex items-center space-x-4 shadow-xl  hover:scale-[1.03] transition-transform duration-300 shadow-pink200/25 rounded-[13px] p-2.5 mb-5 border-[1px] border-white/50"
                   >
-                    <img
+                    <Image
                       src={recentblogItem?.coverImage}
-                      alt={`Blog ${index + 1} thumbnail`}
+                      alt={`${recentblogItem.title} thumbnail`}
+                      width={80}
+                      height={80}
                       className="border-[1px] self-start  border-white/50 shadow shadow-pink200/30 w-20 h-20 object-cover rounded-md"
                     />
-                    <button
-                      href="#"
+                    <div
                       className="w-full text-white text-base font-medium-kgpr"
                       style={{ fontWeight: "900" }}
                     >
@@ -144,8 +231,8 @@ const BlogClient = ({ blogData, recentblogData }) => {
                           }
                         )}
                       </div>
-                    </button>
-                  </a>
+                    </div>
+                  </Link>
                 ))}
               </ul>
             </div>

@@ -16,6 +16,7 @@ const MenschTrialBlack = localFont({
   weight: "400",
   style: "normal",
   variable: "--font-mensch-trial-black",
+  display: "swap",
 });
 
 const EastmanRomanTrialBlack = localFont({
@@ -23,6 +24,7 @@ const EastmanRomanTrialBlack = localFont({
   weight: "400",
   style: "normal",
   variable: "--font-eastroman-trial-black",
+  display: "swap",
 });
 
 const EastmanRomanTrialDemiBold = localFont({
@@ -30,6 +32,7 @@ const EastmanRomanTrialDemiBold = localFont({
   weight: "400",
   style: "normal",
   variable: "--font-eastroman-trial-demibold",
+  display: "swap",
 });
 
 const EastmanRomanTrialBold = localFont({
@@ -37,6 +40,7 @@ const EastmanRomanTrialBold = localFont({
   weight: "400",
   style: "normal",
   variable: "--font-eastroman-trial-bold",
+  display: "swap",
 });
 // const CocogooseMedium = localFont({
 //   src: '../../public/fonts/Cocogoose-Classic-Medium-trial.ttf',
@@ -76,7 +80,7 @@ const EastmanRomanTrialBold = localFont({
 export const metadata = {
   manifest: "https://msa-club.com/manifest.json",
   title:
-    "Animation Character Design Course | Master Chracter Creation | MSA Club",
+    "Animation Character Design Course | Master Character Creation | MSA Club",
   description:
     "Learn character animation and drawing with MSA Academy. Master Blender, After Effects, and 3D animation through expert-led courses. Join now for free resources and certification!",
   keywords: [
@@ -121,9 +125,9 @@ export const metadata = {
     locale: "en_US",
     type: "website",
     title:
-      "Animation 3D Design Course | Master Chracter Creation | MSA Club",
+      "Animation 3D Design Course | Master Character Creation | MSA Club",
     description:
-      "Transform your artistic skills with our comprehensive Animation Character Design	Course. Learn from industry experts and bring your characters to life. Enroll now!",
+      "Transform your artistic skills with our comprehensive Animation Character Design Course. Learn from industry experts and bring your characters to life. Enroll now!",
     images: [
       {
         url: "https://msa-club.com/logo.png",
@@ -157,16 +161,13 @@ export const metadata = {
         alt: "MSA Academy Logo",
       },
     ],
+    creator: "@msaacademy",
+    site: "@msaacademy",
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+  alternates: {
+    canonical: "https://msa-club.com",
+    languages: {
+      'en-US': 'https://msa-club.com',
     },
   },
   verification: {
@@ -181,8 +182,11 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning={true}
       className={`${MenschTrialBlack.variable} ${EastmanRomanTrialBlack.variable} ${EastmanRomanTrialDemiBold.variable} ${EastmanRomanTrialBold.variable} `}
     >
-      <meta name="google-site-verification" content="XwcHgu0NYksA4p3lf8Xr_na4o6gCuLD55KaJ6KznLSk" />
       <head>
+        <meta name="google-site-verification" content="XwcHgu0NYksA4p3lf8Xr_na4o6gCuLD55KaJ6KznLSk" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <ScriptsLoader />
       </head>
       <body>
@@ -192,15 +196,12 @@ export default function RootLayout({ children }) {
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager NoScript"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
           ></iframe>
         </noscript>
         <div className="mx-0 relative bg-cover bg-center overflow-hidden xl:overflow-x-hidden">
-       
-          {/* <Navigation /> */}
-          {/* <SuppressErrors /> */}
           <ScreenProvider>{children}</ScreenProvider>
-          {/* <Menu>
-          </Menu> */}
         </div>
       </body>
     </html>
