@@ -6,7 +6,7 @@ import LoaderWrapper from "./LoaderWrapper";
 import FAQ from "../FAQ";
 import { EnrollmentToast } from "../EnrollmentToast";
 import Footer from "../Footer";
-import CookiePolicy from "../PrivacyPolicy";
+// import CookiePolicy from "../PrivacyPolicy";
 
 export default function FooterWrapper() {
   const [showToast, setShowToast] = useState(true);
@@ -50,7 +50,7 @@ export default function FooterWrapper() {
             onDismiss={() => setShowToast(false)}
             duration={10000000}
           /> */}
-          <CookiePolicy/>
+          {/* <CookiePolicy/> */}
         </Suspense>
     )} 
       <Footer />
