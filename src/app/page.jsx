@@ -134,7 +134,7 @@ const Home = () => {
             </ScrollAnimation>
           </Suspense>
           <BlogCards /> 
-          {/* {showForm && <SignupForm />} */}
+          {showForm && <SignupForm />}
           <FooterWrapper />
         </>
       )}

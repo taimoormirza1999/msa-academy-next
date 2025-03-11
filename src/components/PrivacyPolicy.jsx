@@ -29,17 +29,17 @@ useEffect(()=>{
     },2000)
     },[])
   return (
-    <div className='w-full'>
+    <div className=' mx-auto'>
     {
         showPolicy && (
             <motion.div  initial={{ opacity: 0, y: 150 }} 
             animate={controls}
             // animate={{ opacity: 1, y: 0 }} 
             // transition={{ duration: 1.2, ease: "easeOut",delay:2.5 }}
-            className=" fixed bottom-0  transform -translate-x-1/2 bg-gradient-to-r from-[#A400E8]/30 to-[#F7009E]/30  text-white/70 p-4 lg:py-5 rounded-lg shadow-lg w-full z-[99999099999] ">
+            className=" w-1/2 fixed bottom-0  transform -translate-x-1/2 bg-gradient-to-r from-[#000]/30 to-[#F7009E]/30  text-white/70 p-4 lg:py-5 rounded-lg shadow-lg md:w-full z-[9999909999] ">
            <div className='lg:flex'>
             <p className="text-sm">
-              This website uses cookies to supplement a balanced diet and provide a much-deserved reward to the senses after consuming bland but nutritious meals. Accepting our cookies is optional but recommended, as they are delicious. 
+            This website uses cookies to improve your experience and analyze traffic.
               <a href="#" className="text-white/90 hover:text-white/100 underline normal-transition">See our cookie policy.</a>
             </p>
             <div className="mt-3 lg:mt-0 flex lg:justify-end space-x-2 lg:mx-5 font-medium">

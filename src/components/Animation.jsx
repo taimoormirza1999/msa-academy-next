@@ -9,11 +9,18 @@ import VideoGallery from "./VideoSections";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
 import RightEllipseSVG from "./utils/icons/RightEllipseSVG";
 import useScrollHandler from "@/store/useScrollHandler";
+import { motion } from "framer-motion";
 
 function Animation() {
   const {handleScroll } = useScrollHandler();
   return (
-    <section
+    <motion.section
+    initial={{ opacity: 0, y: 100 }}
+    whileInView={{
+      y: 0,
+      opacity: 1,
+      transition: { duration: 1.8, ease: "easeInOut" },
+    }}
       className="relative text-white pt-20 pb-0 lg:py-16 "
       id="animation-course"
     >
@@ -69,7 +76,7 @@ function Animation() {
         </div>
         <VideoGallery />
       </SectionWrapper>
-    </section>
+    </motion.section>
   );
 }
 

@@ -77,10 +77,11 @@ const FAQ = () => {
               <button className="cursor-pointer" onClick={() => toggleFAQ(index)}>
                 <ClippedBtn
                   text={faq.question}
-                  width={isLargeScreen?400:isMobileSScreen?300:350}
-                  height={isLargeScreen?60:isMobileSScreen?90:55}
+                  width={isLargeScreen?400:isMobileSScreen?290:isMobileMScreen?320:350}
+                  height={isLargeScreen?60:isMobileSScreen?50:55}
                   strokeWidth={1.6}
-                  textSize={isLargeScreen?"text-2xl":'text-[1.5rem]'}
+                  // textSize={isLargeScreen?"text-2xl":'text-[1.5rem]'}
+                  textSize={isLargeScreen ? "text-2xl" : "text-xl"}
                   // Toggle answer
                 />
               </button>

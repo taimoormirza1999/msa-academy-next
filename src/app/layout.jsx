@@ -121,7 +121,7 @@ export const metadata = {
     locale: "en_US",
     type: "website",
     title:
-      "Animation Character Design Course | Master Chracter Creation | MSA Club",
+      "Animation 3D Design Course | Master Chracter Creation | MSA Club",
     description:
       "Transform your artistic skills with our comprehensive Animation Character Design	Course. Learn from industry experts and bring your characters to life. Enroll now!",
     images: [
@@ -139,6 +139,8 @@ export const metadata = {
       },
     ],
     authors: ["Taimoor Hamza"],
+    locale: 'en_US',
+    type: 'website',
     url: "https://msa-academy.com/",
   },
 
@@ -156,6 +158,20 @@ export const metadata = {
       },
     ],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: ' XwcHgu0NYksA4p3lf8Xr_na4o6gCuLD55KaJ6KznLSk', // آپ کا Google Search Console verification ID
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -165,6 +181,7 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning={true}
       className={`${MenschTrialBlack.variable} ${EastmanRomanTrialBlack.variable} ${EastmanRomanTrialDemiBold.variable} ${EastmanRomanTrialBold.variable} `}
     >
+      <meta name="google-site-verification" content="XwcHgu0NYksA4p3lf8Xr_na4o6gCuLD55KaJ6KznLSk" />
       <head>
         <ScriptsLoader />
       </head>

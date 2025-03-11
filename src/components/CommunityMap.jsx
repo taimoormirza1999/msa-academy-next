@@ -6,7 +6,7 @@ import OutlineTextEffect from "./utils/OutlineTextEffect";
 
 const CommunityMap = () => {
   return (
-    <div className="relative  mt-2 lg:mb-20 md:mb-24 md:-mt-24  bg-cover bg-center mx-auto">
+    <div className="relative  mt-2 lg:mb-20 md:mb-24 md:-mt-24 bg-cover bg-center mx-auto">
       <div className="absolute inset-0  ">
         <img
           alt="Background"
@@ -15,13 +15,13 @@ const CommunityMap = () => {
           width={1000}
       
           fill="cover"
-          className="rounded-lg w-full h-[40rem] xl:h-[70rem]"
+          className="rounded-lg w-full h-[40rem]  xl:h-[70rem]"
           
         />
       </div>
 
       <div className="relative xl:pt-20 pb-10 flex flex-col items-center justify-center xl:min-h-screen z-10">
-        <div className="w-full md:w-90 lg:w-[73%] mb-10">
+        <div className="w-full md:w-90 xl:w-[73%] mb-10">
           <Image
             alt="Community Map"
             width={1920}

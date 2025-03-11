@@ -24,18 +24,8 @@ const toolVariants = {
     y: 0,
     scale: 1,
     opacity: 1,
-    transition: { 
-      delay, 
-      duration: 2,
-      ease: [0.43, 0.13, 0.23, 0.96],
-      type: "tween"
-    },
+    transition: { delay, duration: 1.8, ease: "easeInOut" },
   }),
-  hover: {
-    scale: 1.1,
-    rotate: 10,
-    transition: { duration: 0.3, ease: "easeOut" }
-  }
 };
 
 const floatingAnimation = {
@@ -45,15 +35,16 @@ const floatingAnimation = {
       repeat: Infinity,
       repeatType: "reverse",
       duration: 2,
-      ease: "easeInOut"
-    }
-  }
+      ease: "easeInOut",
+    },
+  },
 };
 
 const Banner = () => {
   // const isLargeScreen = useMediaQuery({ minWidth: 768 });
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
-
+  const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
+  const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
   const { handleScroll } = useScrollHandler();
   const [scrollY, setScrollY] = React.useState(0);
 
@@ -79,7 +70,7 @@ const Banner = () => {
         // style={{ x: scrollY * -0.2 }}
       >
         <Image
-        width={100}
+          width={100}
           height={100}
           src={RightArrow.src}
           alt="Left Arrow"
@@ -88,10 +79,7 @@ const Banner = () => {
         />
       </motion.div>
 
-      <motion.div
-        animate={floatingAnimation}
-        style={{ x: scrollY * 0.2 }}
-      >
+      <motion.div animate={floatingAnimation} style={{ x: scrollY * 0.2 }}>
         <Image
           width={200}
           height={200}
@@ -120,9 +108,9 @@ const Banner = () => {
             alt="Moon"
             priority
             draggable="false"
-            className="rotate-[338deg] lg:rotate-0 absolute -top-1 md:-top-5 lg:-top-10 xl:-top-24 left-[15%] lg:left-[20%] xl:left-[18%] w-[19rem] md:w-[24rem] lg:w-[33rem] xl:w-[45rem] 2xl:w-[50rem] transform-gpu"
+            className={`rotate-[338deg] lg:rotate-0 absolute ms:top-3 mm:-top-3  -top-1 md:-top-5 lg:-top-10 xl:-top-24 left-[15%] ms:left-[10%] mm:left-[15%] ml:left-[15%] lg:left-[20%] xl:left-[18%] ms:w-[16rem] mm:w-[17rem] ml:w-[20rem] w-[19rem] md:w-[24rem] lg:w-[33rem] xl:w-[45rem] 2xl:w-[50rem] transform-gpu`}
           />
-          <div className="absolute left-[4%] lg:left-[6%] top-20 lg:-top-5 xl:-top-20 w-[92vw] md:w-[80vw] lg:w-[55vw] xl:w-[46rem] 2xl:w-[48rem]">
+          <div className="absolute left-[4%] lg:left-[6%] top-20 lg:-top-5 xl:-top-20 ms:w-[95vw] w-[92vw] md:w-[80vw] lg:w-[55vw] xl:w-[46rem] 2xl:w-[48rem]">
             {/* Left Lady */}
             <motion.div
               initial={{ opacity: 0, y: 100 }}
@@ -133,9 +121,9 @@ const Banner = () => {
               }}
               viewport={{ once: true }}
               className="relative z-10 transform-gpu"
-              style={{ 
+              style={{
                 willChange: "transform",
-                x: scrollY * -0.2
+                x: scrollY * -0.2,
               }}
             >
               <Image
@@ -145,7 +133,7 @@ const Banner = () => {
                 alt="Left Lady"
                 priority
                 draggable="false"
-                className="absolute w-[20rem] md:w-[29rem] lg:w-full -left-3 -top-16 lg:inset-0 lg:relative transform-gpu"
+                className="absolute ms:w-[18rem] mm:w-[21rem] w-[20rem] md:w-[29rem] lg:w-full ms:-left-1 -left-3 ms:-top-10 -top-16 mm:-top-20  lg:inset-0 lg:relative transform-gpu"
               />
             </motion.div>
 
@@ -155,18 +143,18 @@ const Banner = () => {
               whileInView={{
                 y: 0,
                 opacity: 1,
-                transition: { 
-                  delay: 0.2, 
+                transition: {
+                  delay: 0.2,
                   duration: 2,
                   ease: [0.43, 0.13, 0.23, 0.96],
-                  type: "tween" 
+                  type: "tween",
                 },
               }}
               viewport={{ once: true, margin: "-100px" }}
               className="relative z-20 transform-gpu"
-              style={{ 
+              style={{
                 willChange: "transform",
-                x: scrollY * 0.2
+                x: scrollY * 0.2,
               }}
             >
               <Image
@@ -176,11 +164,11 @@ const Banner = () => {
                 alt="Right Lady"
                 priority
                 draggable="false"
-                className="absolute -top-3 left-[5%] lg:-top-96 w-[25rem] md:w-[50rem] lg:w-full xl:w-[55rem] 2xl:w-[70rem] lg:left-[13rem] xl:left-[20rem] transform-gpu"
+                className="absolute ms:top-16 mm:top-10 md:top-20 lg:-top-64 xl:-top-96 -top-3 left-[2%] md:left-[5rem]  lg:left-[13rem] xl:left-[20rem]   w-[25rem] md:w-[35rem] lg:w-full xl:w-[55rem] 2xl:w-[70rem] transform-gpu"
               />
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="lg:static absolute top-[17rem] md:top-[18rem] lg:top-[17rem] left-[18%]"
               style={{ y: scrollY * -0.1 }}
             >
@@ -201,7 +189,7 @@ const Banner = () => {
                   className="absolute top-80 md:top-96 lg:-top-14 right-10 lg:-right-[15rem] xl:-right-[35rem] w-12 md:w-20 lg:w-24 h-auto transform-gpu"
                 />
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="absolute top-[24rem] md:top-[30rem] lg:top-[10rem] right-[5rem] lg:-right-[18rem] xl:-right-[30rem] z-50"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -215,37 +203,28 @@ const Banner = () => {
                 />
               </motion.div>
             </div>
-
-            {/* Tools with hover effects */}
             <motion.div
-              className="flex flex-col items-center absolute space-y-3.5 lg:space-y-7 left-[1%] lg:left-[6%] -top-16 md:-top-10 lg:top-7 xl:top-32 transform-gpu"
+              className="flex flex-col items-center absolute space-y-3.5 lg:space-y-7 left-[1%] lg:left-[6%] -top-16 md:-top-10 lg:top-7 xl:top-32"
               initial="hidden"
               whileInView="visible"
-              viewport={{ margin: "-50px" }}
-              style={{ 
-                willChange: "transform",
-                y: scrollY * -0.15
-              }}
+              // viewport={{ once: true }}
             >
               {[
-                { src: C4D, delay: 1.3, size: "w-16 md:w-20 lg:w-24" },
-                { src: ps, delay: 1.6, size: "w-10 md:w-14 lg:w-16" },
-                { src: Blender, delay: 1.9, size: "w-8 md:w-10 lg:w-14" },
+                { src: C4D, delay: 1, size: "w-16 md:w-20 lg:w-24" },
+                { src: ps, delay: 1.2, size: "w-10 md:w-14 lg:w-16" },
+                { src: Blender, delay: 1.4, size: "w-8 md:w-10 lg:w-14" },
               ].map((tool, index) => (
                 <motion.div
                   key={index}
                   variants={toolVariants}
                   custom={tool.delay}
-                  whileHover="hover"
-                  style={{ willChange: "transform" }}
-                  className="transform-gpu cursor-pointer"
                 >
                   <Image
                     width={100}
                     height={100}
                     src={tool.src.src}
                     alt="Tool"
-                    className={`${tool.size} scale-y-[-1] transform-gpu`}
+                    className={`${tool.size} scale-y-[-1]`}
                   />
                 </motion.div>
               ))}

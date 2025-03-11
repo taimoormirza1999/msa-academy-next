@@ -15,7 +15,7 @@ const Loading = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-screen bg-black relative overflow-hidden">
+    <div className="flex flex-col items-center justify-center w-full h-[100vh] bg-black relative overflow-hidden">
       {/* Background Gradient */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-t from-purple-900 to-black"
@@ -36,7 +36,7 @@ const Loading = () => {
       />
       {/* Loading Percentage */}
       <motion.h4
-        className="text-pink200 lg:absolute bottom-16 lg:bottom-16 text-5xl lg:text-6xl 2xl:text-6xl font-primary z-10 mt-10 lg:mt-4"
+        className="text-pink200 lg:absolute bottom-20 lg:bottom-16 text-[3.5rem] lg:text-6xl 2xl:text-7xl font-primary z-10 mt-10 lg:mt-4"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
@@ -48,7 +48,7 @@ const Loading = () => {
       <motion.img
         src={DownElipse.src}
         alt="Elipse Logo"
-        className="h-auto absolute bottom-0"
+        className="h-[70rem] lg:h-auto absolute bottom-0 md:bottom-0"
         initial={{ opacity: 0, y: 30, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}

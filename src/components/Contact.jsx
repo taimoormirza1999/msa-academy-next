@@ -140,7 +140,7 @@ function Contact() {
                   width={155}
                   height={38}
                   value={10}
-                  classes={"mt-1"}
+                  classes={"mt-1 pt-1.5 lg:pt-0"}
                   strokeWidth={1.26}
                   strokeColor="#fff"
                   clipId={`clip-privacypolicy}`}
@@ -167,6 +167,14 @@ function Contact() {
           </div>
         </div>
       </div>
+      <Image
+            width={200}
+            height={200}
+            src={CharacterFoo.src}
+            alt="Character Image"
+            draggable="false"
+            className="mt-4 md:mt-0  w-[75%] xl:w-[32rem] h-auto  hidden"
+          />
       <div className="flex justify-start  mx-auto lg:absolute bottom-0 left-1">
         <div className="realtive ">
           <Image
@@ -180,14 +188,14 @@ function Contact() {
           <motion.div  initial={issmallScreen && { opacity: 0, y: 50 }}
               whileInView={issmallScreen && { opacity: 1, y: 0 }}
               transition={issmallScreen && { duration: 0.8, delay: 0.8 }}
-              className="absolute bottom-44 lg:top-10 xl:top-24 right-36 xl:right-10 mt-3">
+              className="absolute bottom-48 md:bottom-44 left-52  md:left-52 lg:left-52  lg:top-10 xl:top-24   mt-3">
 
           <Image
             width={60}
             height={60}
             src={Bubble.src}
             alt="Floating small Bubble"
-            className="  w-12 md:w-72 lg:w-16 xl:w-16 h-auto "
+            className="  w-12 md:w-16 lg:w-16 xl:w-16 h-auto "
             draggable="false"
             />
             </motion.div>

@@ -25,7 +25,7 @@ const Checkout = ({ showModal, setShowModal }) => {
       name: "Basic",
       description: "Basic plan with essential features.",
       price: 20,
-      bubble:{classes:' -top-8 left-5 lg:-left-12'},
+      bubble: { classes: " -top-8 left-5 lg:-left-12" },
       includes: [
         { text: "ACCESS TO ALL DRAWING COURSES", status: 1 },
         {
@@ -45,7 +45,7 @@ const Checkout = ({ showModal, setShowModal }) => {
       name: "Premium",
       description: "Standard plan with more features.",
       price: 30,
-      bubble:{classes:' -bottom-6 right-8 lg:-right-10 xl:-right-16'},
+      bubble: { classes: " -bottom-6 right-8 lg:-right-10 xl:-right-16" },
       includes: [
         { text: "Access to all drawing courses", status: 1 },
         { text: "Access to all animation courses", status: 1 },
@@ -69,7 +69,7 @@ const Checkout = ({ showModal, setShowModal }) => {
       description: packageDetails?.description || "Default Description",
       priceAmount: packageDetails?.price || 0,
     };
-    console.log(body)
+    console.log(body);
     // return body;
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_VITE_BACKEND_API}create-checkout-session`,
@@ -96,7 +96,7 @@ const Checkout = ({ showModal, setShowModal }) => {
   };
   return (
     <div
-      className="flex flex-col items-center mt-[64.5px] mb-[40.5px] md:mt-24 md:mb-16 lg:mb-0 lg:mt-[87.5px] justify-center w-85 md:w-90 mx-auto lg:w-1/2 2x:w-[75%] max-w-[1920px]"
+      className="flex flex-col items-center mt-[64.5px] mb-[40.5px] md:mt-24 md:mb-16 lg:mb-0 lg:mt-[87.5px] justify-center w-85 md:w-90 mx-auto xl:w-1/2 2x:w-[75%] max-w-[1920px]"
       id="enroll-checkout"
     >
       {loadScript && (
@@ -108,31 +108,35 @@ const Checkout = ({ showModal, setShowModal }) => {
       )}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
-          <div className={`relative ${isMobileSScreen?'w-[95%]':"w-[80%]"} w-[80%] md:w-[70%]`}>
-         <OuterBorderChildren
-                  width={isMediumScreen?555:isLargeScreen?555:385}
-                  height={isLargeScreen?200:isMediumScreen?200:200}
-                  value={30}
-                  strokeWidth={3.6}
-                  strokeColor="rgba(255, 0, 255, 0.8)"
-                  clipId={`clip-privacypolicy}`}
-                >
-            <div className="flex flex-col items-center justify-center my-10" >
-            <h2 className="text-white text-2xl text-center font-primary">
-              Redirecting to Secure Checkout...
-            </h2>
-            <p className="text-white text-sm text-center mt-2 font-primary">
-              Please wait while we process your request.
-            </p>
-            <div className="flex justify-center my-5">
-              <div className="w-10 h-10 border-4 border-white border-opacity-90 rounded-full border-t-[#ff00ff]/90 animate-spin"></div>
-            </div>
-            </div>
-          </OuterBorderChildren>
+          <div
+            className={`relative ${
+              isMobileSScreen ? "w-[95%]" : "w-[80%]"
+            } w-[80%] md:w-[70%]`}
+          >
+            <OuterBorderChildren
+              width={isMediumScreen ? 555 : isLargeScreen ? 555 : 385}
+              height={isLargeScreen ? 200 : isMediumScreen ? 200 : 200}
+              value={30}
+              strokeWidth={3.6}
+              strokeColor="rgba(255, 0, 255, 0.8)"
+              clipId={`clip-privacypolicy}`}
+            >
+              <div className="flex flex-col items-center justify-center my-10">
+                <h2 className="text-white text-2xl text-center font-primary">
+                  Redirecting to Secure Checkout...
+                </h2>
+                <p className="text-white text-sm text-center mt-2 font-primary">
+                  Please wait while we process your request.
+                </p>
+                <div className="flex justify-center my-5">
+                  <div className="w-10 h-10 border-4 border-white border-opacity-90 rounded-full border-t-[#ff00ff]/90 animate-spin"></div>
+                </div>
+              </div>
+            </OuterBorderChildren>
           </div>
         </div>
       )}
-      <div className="grid gap-8 gap-y-2 md:gap-5 lg:gap-8  lg:grid-cols-1 xl:grid-cols-2 ">
+      <div className="grid gap-8 gap-y-2 md:gap-5 lg:gap-8  lg:grid-cols-2 xl:grid-cols-2 ">
         {packages.map((pkg, index) => (
           <div
             key={index}
@@ -148,8 +152,16 @@ const Checkout = ({ showModal, setShowModal }) => {
               className={`absolute ${pkg.bubble.classes} w-24 md:w-24 h-auto animate-pulse`}
             />
             <ClippedCard
-              height={isMobileSScreen?610:isMobileMScreen?580:isMediumScreen?540:540}
-              width={isMobileSScreen?290:isMobileMScreen?330:359.36}
+              height={
+                isMobileSScreen
+                  ? 620
+                  : isMobileMScreen
+                  ? 590
+                  : isMediumScreen
+                  ? 540
+                  : 540
+              }
+              width={isMobileSScreen ? 290 : isMobileMScreen ? 330 : 359.36}
               strokeColor={index == 0 ? "#8339FC" : "#FF00FF"}
               strokeWidth={2.1}
             >
@@ -201,9 +213,18 @@ const Checkout = ({ showModal, setShowModal }) => {
                   ))}
                 </ul>
                 <div className="animate-bounceSlow">
-                  <Button height={97.39} width={225}  textSize={isMobileSScreen?"text-xl":"text-2xl"} onClick={()=>handleCheckout({name: pkg.name,
-      description: pkg.description,
-      price: pkg.price})}/>
+                  <Button
+                    height={97.39}
+                    width={225}
+                    textSize={isMobileSScreen ? "text-xl" : "text-2xl"}
+                    onClick={() =>
+                      handleCheckout({
+                        name: pkg.name,
+                        description: pkg.description,
+                        price: pkg.price,
+                      })
+                    }
+                  />
                 </div>
               </div>
             </ClippedCard>

@@ -9,6 +9,9 @@ export default {
 	  extend: {
 		screens: {
 		  'ultrawide': '1920px', 
+			ms: "320px", // Small mobile
+			mm: "321px", // Medium mobile
+			ml: "376px", // Large mobile
 		},
 		fontSize:{
 			'4.5xl': '2.50rem',
