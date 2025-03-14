@@ -9,10 +9,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import DownElipse from "@/assets/DownElipse.png";
 import Image from "next/image";
 import useScrollHandler from "@/store/useScrollHandler";
+import useScreenStore from "@/store/useScreenStore";
 
 const Navigation = () => {
   const { isMenuOpen, toggleMenu, handleScroll, setIsMenuOpen } = useScrollHandler();
-
+  const is4klScreen = useScreenStore((state) => state.is4klScreen);
   // const router = useRouter();
   // const pathname = usePathname();
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,28 +50,30 @@ const Navigation = () => {
         <Image
         height={500}
         width={500}
+        draggable="false"
         src={DownElipse.src}
           alt="Elipse Top"
           className="w-full absolute top-0 lg:-top-10  scale-y-[-1]"
         />
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between   ">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between  4kl:max-w-[90vw] ">
           <Link
             href="/"
-            className="cursor-pointer"
+            className="cursor-pointer z-20"
             suppressHydrationWarning={true}
           >
             <img
               src={"/logo.png"}
-              className="w-32 lg:w-40 h-auto px-3   shadow-xl"
+              className="w-32 lg:w-40 h-auto px-3 shadow-xl 4kl:w-72 4kl:py-10"
               alt="Logo"
+              draggable="false"
             />
           </Link>
           {/* Menu Button */}
           <Button
             text="MENU"
-            height={88.51}
-            width={126}
-            textSize="text-xl"
+            height={is4klScreen?100:88.51}
+            width={is4klScreen?246:126}
+            textSize="text-xl 4kl:text-4xl"
             onClick={toggleMenu}
             handleScroll={handleScroll}
             navButton={true}

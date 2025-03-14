@@ -37,13 +37,13 @@ const Card = ({ imageUrl, title, description, title2, index }) => {
       />
       <OutlineTextEffect
         title={title}
-        classes="mt-1.5 lg:-mt-8 xl:-mt-0 w-full lg:text-[2.5rem]"
+        classes="mt-1.5 lg:-mt-8 xl:-mt-0 w-full lg:text-[2.5rem] 4kl:text-7xl"
       />
       {title2 && (
-        <OutlineTextEffect title={title2} classes="w-full lg:text-[2.5rem]" />
+        <OutlineTextEffect title={title2} classes="w-full lg:text-[2.5rem] 4kl:text-7xl" />
       )}
 
-      <p className="text-xl text-grayPrimary mt-5 text-center font-primary">
+      <p className="text-xl text-grayPrimary mt-5 text-center font-primary 4kl:text-5xl">
         {description}
       </p>
     </motion.div>
@@ -177,9 +177,9 @@ const MSALearningSection = () => {
   ];
 
   return (
-    <section className="relative py-16 md:pb-8 xl:pt-5 ">
-      <SectionWrapper>
-        <div className="container mx-auto px-4 ">
+    <section className="relative py-16 md:pb-8 xl:pt-5  ">
+      {/* <SectionWrapper> */}
+        <div className="lg:max-w-[1280px] xl:max-w-[1440px]  4kl:max-w-[90vw] mx-auto px-4  ">
           <motion.h4
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -187,9 +187,9 @@ const MSALearningSection = () => {
             className="text-2xl text-center font-primary lg:text-5xl uppercase text-white font-bold mb-2 font-ebold-ccm text-transparent bg-gradient-to-br from-[#B14BF4] to-[#4D91FF] bg-clip-text"
           >
             <div className="relative mx-auto w-full md:w-[70%] lg:w-full justify-start ">
-              {<OutlineTextEffect title={"LEARN TO CREATE"} />}
+              {<OutlineTextEffect title={"LEARN TO CREATE"} classes="4kl:text-8xl" />}
               <div className="my-2">
-                {<OutlineTextEffect title={"LIKE MSA"} />}
+                {<OutlineTextEffect title={"LIKE MSA"} classes="4kl:text-8xl" />}
               </div>
               <Image
                 width={60}
@@ -213,7 +213,7 @@ const MSALearningSection = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base text-center font-primary lg:text-xl lg:w-[60%] mx-auto uppercase text-grayPrimary font-bold mt-3 mb-6"
+            className="text-base text-center font-primary lg:text-xl lg:w-[60%] 4kl:w-[80%] mx-auto uppercase text-grayPrimary font-bold mt-3 mb-6 4kl:text-5xl"
           >
             Embark on a transformative journey to master the art of content
             creation, animation, and storytelling. Our curriculum is designed to
@@ -230,9 +230,9 @@ const MSALearningSection = () => {
           </div>
 
           <motion.div className="lg:p-16 shadow-2xl rounded-[1rem] mt-10">
-            {<OutlineTextEffect title={"THE MSA LEARNING"} classes="w-full " />}
+            {<OutlineTextEffect title={"THE MSA LEARNING"} classes="w-full 4kl:text-8xl" />}
             <div className="my-2">
-              {<OutlineTextEffect title={"EXPERIENCE"} classes="w-full " />}
+              {<OutlineTextEffect title={"EXPERIENCE"} classes="w-full 4kl:text-8xl" />}
             </div>
             <div className="relative flex flex-col-reverse justify-center items-center  lg:gap-0 2xl:gap-5 lg:items-center  mt-14 ">
               <div className="order md:order-0 lg:w-full flex flex-col items-center xl:items-start">
@@ -293,7 +293,7 @@ const MSALearningSection = () => {
                 }}
               >
                 <Image
-                  className="-mt-3 lg:mt-4 md:mt-0 w-[18rem] self-center mb-5 lg:w-[28rem] xl:absolute bottom-0 lg:right-0 "
+                  className="-mt-3 lg:mt-4 md:mt-0 w-[18rem] self-center mb-5 lg:w-[28rem] xl:absolute bottom-0 4kl:bottom-[-10%] lg:right-0 4kl:w-[20vw] "
                   width={600}
                   height={600}
                   src={CharacterFoo.src}
@@ -313,7 +313,7 @@ const MSALearningSection = () => {
             </div>
           </motion.div>
         </div>
-      </SectionWrapper>
+      {/* </SectionWrapper> */}
     </section>
   );
 };

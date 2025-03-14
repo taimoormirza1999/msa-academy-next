@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import ClippedImageGeneric from "../utils/ClippedImageGeneric";
+import useScreenStore from "@/store/useScreenStore";
 
 export default function BlogCard({ blogItem }) {
+  const is4KLScreen = useScreenStore((state) => state.is4KLScreen);
   return (
     <div className="relative text-white m-1   lg:m-2 px-[10px] py-[15px] lg:py-[20px]  z-20 overflow-hidden ">
       <Link
@@ -11,8 +13,8 @@ export default function BlogCard({ blogItem }) {
       >
         <ClippedImageGeneric
           imageUrl={blogItem?.coverImage}
-          width={476.6}
-          height={327.29}
+          width={"4xl:850 476.6"}
+          height={is4KLScreen?390:327.29}
         />
 
         <div className="lg:mb-3 pl-2 lg:pl-0 mb-2 w-[100%] max-w-full flex flex-col z-100 ">

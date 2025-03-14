@@ -12,6 +12,7 @@ export default {
 			ms: "320px", // Small mobile
 			mm: "321px", // Medium mobile
 			ml: "376px", // Large mobile
+			'4kl': "2048px",
 		},
 		fontSize:{
 			'4.5xl': '2.50rem',

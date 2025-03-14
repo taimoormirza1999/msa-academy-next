@@ -4,7 +4,6 @@ import Loader from "../Loader";
 import ScrollAnimation from "./ScrollAnimation";
 import LoaderWrapper from "./LoaderWrapper";
 import FAQ from "../FAQ";
-import { EnrollmentToast } from "../EnrollmentToast";
 import Footer from "../Footer";
 // import CookiePolicy from "../PrivacyPolicy";
 
@@ -43,13 +42,6 @@ export default function FooterWrapper() {
       </Suspense>
       {showToast && (
         <Suspense fallback={<Loader />}>
-          {/* <EnrollmentToast
-            name={currentName}
-            courseName="Character Animation Design Course"
-            timestamp={`About ${Math.round(joinTime)} hours ago`}
-            onDismiss={() => setShowToast(false)}
-            duration={10000000}
-          /> */}
           {/* <CookiePolicy/> */}
         </Suspense>
     )} 

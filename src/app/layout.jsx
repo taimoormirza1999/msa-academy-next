@@ -197,10 +197,8 @@ export default function RootLayout({ children }) {
         <div className="mx-0 relative bg-cover bg-center overflow-hidden xl:overflow-x-hidden">
        
           {/* <Navigation /> */}
-          {/* <SuppressErrors /> */}
           <ScreenProvider>{children}</ScreenProvider>
-          {/* <Menu>
-          </Menu> */}
+          {/* <FooterWrapper /> */}
         </div>
       </body>
     </html>

@@ -29,16 +29,18 @@ function YourPath() {
           {/* Left Content */}
           <div className="relative flex flex-col items-center lg:items-start lg:w-1/2 z-10 text-center md:text-left">
             {/* Title */}
-            <div className="relative mx-auto w-full md:w-[70%] lg:w-full justify-start ">
+            <div className="relative  w-full md:w-[70%] lg:w-full justify-start ">
               <br />
               {/* AND LEARN ONLINE */}
               <OutlineTextEffect
                 title={"FIND YOUR PATH"}
-                hCenter="justify-center lg:justify-start mb-2"
+                hCenter="justify-center lg:justify-start "
+                classes="4kl:text-8xl mb-2"
               />
               <OutlineTextEffect
                 title={"AND LEARN ONLINE"}
-                hCenter="justify-center lg:justify-start"
+                hCenter="justify-center lg:justify-startS"
+                classes="4kl:text-8xl"
               />
 
               <Image
@@ -47,14 +49,14 @@ function YourPath() {
                 src={Bubble.src}
                 draggable="false"
                 alt="Floating Bubble"
-                className="absolute -top-6 right-[30%]  md:-top-12  w-10 md:w-16 h-auto animate-pulse"
+                className="absolute -top-6 right-[30%]  md:-top-12  w-10 md:w-16 4kl:w-36 h-auto animate-pulse"
               />
             </div>
 
             {/* Description */}
-            <p className="text-gray-300 text-center lg:text-left text-xl md:text-xl mt-4 md:w-4/5 font-primary">
+            <p className="text-gray-300 text-center lg:text-left text-xl md:text-xl mt-4 md:w-4/5 font-primary 4kl:text-5xl">
               Our courses are designed for students of all skill levels. Explore
-              and learn from scratch with our easy-to-follow videos, allowing
+§              and learn from scratch with our easy-to-follow videos, allowing
               you to progress at your own pace.
             </p>
 
@@ -66,15 +68,15 @@ function YourPath() {
 
           {/* Right Image Section */}
           <div className="relative w-full lg:w-1/2 flex items-center justify-center">
-            {/* Puppet Girl Image */}
             <Image
               width={600}
               height={600}
               src={Skating.src}
               alt="Puppet Girl"
               draggable="false"
-              className="w-[99%] md:w-full max-w-md md:max-w-xl"
+              className="w-[99%] md:w-full lg:w-[120%] xl:w-[130%] 2xl:w-[140%] 4kl:w-[38vw]"
             />
+            {/* Puppet Girl Image */}
           </div>
         </div>
       </SectionWrapper>

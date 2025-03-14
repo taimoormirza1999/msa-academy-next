@@ -108,9 +108,12 @@ export default function MarqueeWrapper2() {
         </p>
       </div>
       <div className="relative flex max-w-[1920px] w-full flex-col items-center justify-center rounded-lg">
-        <Marquee pauseOnHover className=" lg:mb-4 ">
+        <Marquee pauseOnHover className=" lg:mb-4 gap-9 mx-5 ">
           {firstRow.map((review) => (
+          <div className=" mx-2 lg:mx-3" key={review.username}>
+
             <ReviewCard key={review.username} {...review} />
+          </div>
           ))}
         </Marquee>
         <div className="pointer-events-none absolute inset-y-0 left-0 w-full  dark:from-background"></div>

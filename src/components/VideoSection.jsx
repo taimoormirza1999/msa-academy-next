@@ -13,6 +13,8 @@ const VideoSection = ({ videoUrl, imageUrl }) => {
   const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
   const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
   const isMediumScreen = useScreenStore((state) => state.isMediumScreen);
+  const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
+  const is4KLScreen = useScreenStore((state) => state.is4KLScreen);
 
   const handleVideoClick = () => {
     // setVideoUrl(url);
@@ -32,7 +34,7 @@ const VideoSection = ({ videoUrl, imageUrl }) => {
       >
        
        <div className="relative">
-        <ClippedImageGeneric  heightAuto={true}  imageUrl={imageUrl} width={isMobileSScreen?310:isMobileMScreen?360:isMediumScreen?540:630} height={isMobileSScreen?300:isMobileMScreen?300:isMediumScreen?310:450} />
+        <ClippedImageGeneric  heightAuto={true}   imageUrl={imageUrl} width={isMobileSScreen?310:isMobileMScreen?360:isMediumScreen?540:630} height={isMobileSScreen?300:isMobileMScreen?300:isMediumScreen?310:is4KLScreen? 850 : 450 } />
       </div>
         <div className="absolute rounded-full p-1.5 md:p-2.5 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
           <motion.div

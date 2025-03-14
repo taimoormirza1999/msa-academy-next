@@ -39,8 +39,8 @@ const VideoGallery = () => {
               delay: index * 0.2, 
             },
           }}
-          viewport={{ once: true }} // Animate only once when in view
-          className={`h-54 lg:h-48 flex justify-center items-center text-center rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ${index === 0 || index === 2 ? '-mt-28 lg:-mt-0 ' : '-mt-16 lg:-mt-0'}`}
+          viewport={{ once: true }} 
+          className={`h-54 lg:h-48 flex justify-center items-center text-center rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ${index === 0 || index === 2 ? '-mt-28 lg:-mt-0' : '-mt-16 lg:-mt-0'}`}
         >
           <VideoSection videoUrl={video.videoUrl} imageUrl={video.imageUrl} />
         </motion.div>

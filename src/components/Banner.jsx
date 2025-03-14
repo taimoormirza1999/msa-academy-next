@@ -55,7 +55,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <motion.div className="relative w-full mx-auto max-w-[1920px]  mb-7 md:mb-10 lg:mb-20 xl:mb-0 pb-10 pt-5 lg:pb-16 min-h-[600px] lg:min-h-[950px] xl:min-h-[70vh] 2xl:min-h-[1150px] z-20 overflow-visible">
+    <motion.div className="relative w-full mx-auto  mb-7 md:mb-10 lg:mb-20 xl:mb-0 pb-10 pt-5 lg:pb-16 min-h-[600px] lg:min-h-[950px] xl:min-h-[70vh] 2xl:min-h-[1150px] 4kl:min-h-screen z-20 overflow-visible">
       <div className="absolute left-[50%] -translate-x-[50%] -bottom-40 xl:-bottom-10 -z-50">
         <RightEllipseSVG
           width={isLargeScreen ? 2786 : 1600}
@@ -73,7 +73,7 @@ const Banner = () => {
           src={RightArrow.src}
           alt="Left Arrow"
           draggable="false"
-          className="absolute bottom-[20%] lg:-bottom-[50vh] left-14 w-7 scale-y-[-1] hidden lg:block transform-gpu"
+          className="absolute bottom-[20%] lg:-bottom-[50vh] left-14 w-7 4kl:w-12 scale-y-[-1] hidden lg:block transform-gpu"
         />
       </motion.div>
 
@@ -84,7 +84,7 @@ const Banner = () => {
           src={ChinsiseText.src}
           alt="Chinese Text"
           draggable="false"
-          className="absolute top-[0rem] right-5 lg:right-10 w-5 lg:w-10 h-auto transform-gpu"
+          className="absolute top-[0rem] right-5 lg:right-10 w-5 lg:w-10 4kl:w-16 h-auto transform-gpu"
         />
       </motion.div>
 
@@ -106,9 +106,9 @@ const Banner = () => {
             alt="Moon"
             priority
             draggable="false"
-            className={`rotate-[338deg] lg:rotate-0 absolute ms:top-3 mm:-top-3  -top-1 md:-top-5 lg:-top-10 xl:-top-24 left-[15%] ms:left-[10%] mm:left-[15%] ml:left-[15%] lg:left-[20%] xl:left-[18%] ms:w-[16rem] mm:w-[17rem] ml:w-[20rem] w-[19rem] md:w-[24rem] lg:w-[33rem] xl:w-[45rem] 2xl:w-[50rem] transform-gpu`}
+            className={`rotate-[338deg] lg:rotate-0 absolute ms:top-3 mm:-top-3  -top-1 md:-top-5 lg:-top-10 xl:-top-24 left-[15%] ms:left-[10%] mm:left-[15%] ml:left-[15%] lg:left-[20%] xl:left-[18%] ms:w-[16rem] mm:w-[17rem] ml:w-[20rem] w-[19rem] md:w-[24rem] lg:w-[33rem] xl:w-[45rem] 2xl:w-[50rem] 4kl:w-[95vw] 4kl:rotate-[348deg] transform-gpu`}
           />
-          <div className="absolute left-[4%] lg:left-[6%] top-20 lg:-top-5 xl:-top-20 ms:w-[95vw] w-[92vw] md:w-[80vw] lg:w-[55vw] xl:w-[46rem] 2xl:w-[48rem]">
+          <div className="absolute left-[4%] lg:left-[6%] top-20 lg:-top-5 xl:-top-20 ms:w-[95vw] w-[92vw] md:w-[80vw] lg:w-[55vw] xl:w-[46rem] 2xl:w-[48rem] 4kl:w-[50vw]">
             {/* Left Lady */}
             <motion.div
               initial={{ opacity: 0, y: 100 }}
@@ -131,7 +131,7 @@ const Banner = () => {
                 alt="Left Lady"
                 priority
                 draggable="false"
-                className="absolute ms:w-[18rem] mm:w-[21rem] w-[20rem] md:w-[29rem] lg:w-full ms:-left-1 -left-3 ms:-top-10 -top-16 mm:-top-20  lg:inset-0 lg:relative transform-gpu"
+                className="absolute ms:w-[18rem] mm:w-[21rem] w-[20rem] md:w-[29rem] lg:w-full 4kl:w-[45vw] ms:-left-1 -left-3 ms:-top-10 -top-16 mm:-top-20  lg:inset-0 lg:relative 4kl:-left-[32%] transform-gpu"
               />
             </motion.div>
 
@@ -162,12 +162,12 @@ const Banner = () => {
                 alt="Right Lady"
                 priority
                 draggable="false"
-                className="absolute ms:top-16 mm:top-10 md:top-20 lg:-top-64 xl:-top-96 -top-3 left-[2%] md:left-[5rem]  lg:left-[13rem] xl:left-[20rem]   w-[25rem] md:w-[35rem] lg:w-full xl:w-[55rem] 2xl:w-[70rem] transform-gpu"
+                className="absolute ms:top-16 mm:top-10 md:top-20 lg:-top-64 xl:-top-96 top-5 4kl:-top-[74rem] left-[2%] md:left-[5rem] lg:left-[13rem] xl:left-[20rem] 4kl:left-[5%]  w-[25rem] md:w-[35rem] lg:w-full xl:w-[55rem] 2xl:w-[70rem] 4kl:w-[50vw] transform-gpu"
               />
             </motion.div>
 
             <motion.div
-              className="lg:static absolute top-[17rem] md:top-[18rem] lg:top-[17rem] left-[18%]"
+              className="lg:static absolute top-[17rem] md:top-[18rem] lg:top-[17rem] left-[18%] "
               style={{ y: scrollY * -0.1 }}
             >
               <BannerMSAText />
@@ -184,7 +184,7 @@ const Banner = () => {
                   src={Bubble.src}
                   alt="Floating Bubble"
                   priority
-                  className="absolute top-80 md:top-96 lg:-top-14 right-10 lg:-right-[15rem] xl:-right-[35rem] w-12 md:w-20 lg:w-24 h-auto transform-gpu"
+                  className="absolute top-80 md:top-96 lg:-top-14 right-10 lg:-right-[15rem] xl:-right-[35rem] w-12 md:w-20 lg:w-24 4kl:w-[4vw] h-auto transform-gpu"
                 />
               </motion.div>
               <motion.div
@@ -202,15 +202,15 @@ const Banner = () => {
               </motion.div>
             </div>
             <motion.div
-              className="flex flex-col items-center absolute space-y-3.5 lg:space-y-7 left-[1%] lg:left-[6%] -top-16 md:-top-10 lg:top-7 xl:top-32"
+              className="flex flex-col items-center absolute space-y-3.5 lg:space-y-7 4kl:space-y-14 left-[1%] lg:left-[6%] 4kl:-left-[28%] -top-16 md:-top-10 lg:top-7 xl:top-32"
               initial="hidden"
               whileInView="visible"
               // viewport={{ once: true }}
             >
               {[
-                { src: C4D, delay: 1, size: "w-16 md:w-20 lg:w-24" },
-                { src: ps, delay: 1.2, size: "w-10 md:w-14 lg:w-16" },
-                { src: Blender, delay: 1.4, size: "w-8 md:w-10 lg:w-14" },
+                { src: C4D, delay: 1, size: "w-16 md:w-20 lg:w-24 4kl:w-[7vw]" },
+                { src: ps, delay: 1.2, size: "w-10 md:w-14 lg:w-16 4kl:w-[5vw]" },
+                { src: Blender, delay: 1.4, size: "w-8 md:w-10 lg:w-14 4kl:w-[4vw]" },
               ].map((tool, index) => (
                 <motion.div
                   key={index}
@@ -222,7 +222,7 @@ const Banner = () => {
                     height={100}
                     src={tool.src.src}
                     alt="Tool"
-                    className={`${tool.size} scale-y-[-1]`}
+                    className={`${tool.size} scale-y-[-1] `}
                   />
                 </motion.div>
               ))}

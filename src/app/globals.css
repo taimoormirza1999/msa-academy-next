@@ -19,3 +19,32 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.blog_description img {
+  width: calc(100% - 8px);
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px), 0 0);
+  position: relative;
+}
+
+.blog_description p:has(img) {
+  position: relative;
+  padding-top: 8px;
+  padding-right: 8px;
+}
+
+.blog_description p:has(img)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px), 0 0);
+  border: 2px solid #ef00ff;
+  pointer-events: none;
+  z-index: 5;
+  filter: drop-shadow(0 0 3px rgba(239, 0, 255, 0.5));
+}

@@ -15,6 +15,7 @@ const Mentors = () => {
   const isLaptopMediumScreen = useScreenStore((state) => state.isLaptopMediumScreen);
   const sliderRef = useRef(null);
   const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
+  const is4KLScreen = useScreenStore((state) => state.is4KLScreen);
   // const isMediumScreen = useScreenStore((state) => state.isMediumScreen);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const Mentors = () => {
         opacity: 1,
         transition: { duration: 1.8, ease: "easeInOut" },
       }}
-      className="relative h-auto bg-cover bg-center mt-5 md:mb-8 md:mt-16 lg:mt-24 lg:mb-10  w-[100%] md:w-full lg:w-95 2xl:w-85 mx-auto max-w-[1920px]"
+      className="relative h-auto bg-cover bg-center mt-5 md:mb-8 md:mt-16 lg:mt-24 lg:mb-10  w-[100%] md:w-full lg:w-95 2xl:w-85 mx-auto max-w-[1920px]  "
     >
       <SectionWrapper>
         <div className="relative h-auto mx-auto w-full md:w-95 xl:w-[90%] flex flex-col-reverse lg:flex-col">
@@ -41,11 +42,11 @@ const Mentors = () => {
             <div className="flex-none snap-start lg:mx-0 overflow-y-visible pl-5 lg:pl-0">
               <ClippedImageGeneric
                 imageUrl={MentorsCard1.src}
-                width={isLaptopMediumScreen ? 280:isLargeScreen ? 348 : 180}
-                height={ isLaptopMediumScreen ? 450 :isLargeScreen ? 530 : 300}
+                width={isLaptopMediumScreen ? 280:isLargeScreen ? 348 : is4KLScreen ? 850 : 180}
+                height={ isLaptopMediumScreen ? 450 :isLargeScreen ? 530 : is4KLScreen ? 850 : 300}
               />
             </div>
-            <div className="mt-10 md:mt-10 lg:-mt-12 relative flex-none snap-center lg:mx-0 overflow-y-visible">
+            <div className="mt-10 md:mt-10 lg:-mt-12 relative flex-none snap-center lg:mx-0 overflow-y-visible ">
               <ClippedImageGeneric
                 imageUrl={MentorsCard2.src}
                 width={isLaptopMediumScreen ? 280:isLargeScreen ? 348 : 220}

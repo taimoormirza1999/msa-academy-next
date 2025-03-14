@@ -22,7 +22,7 @@ function Contact() {
   const issmallScreen = useMediaQuery({ maxWidth: 768 });
 
   return (
-    <div className="relative mx-auto max-w-[1920px] xl:pt-20">
+    <div className="relative mx-auto xl:pt-20">
       <Image
         width={500}
         height={500}
@@ -183,7 +183,7 @@ function Contact() {
             src={CharacterFoo.src}
             alt="Character Image"
             draggable="false"
-            className="mt-4 md:mt-0  w-[75%] xl:w-[32rem] h-auto "
+            className="mt-4 md:mt-0  w-[75%] xl:w-[32rem] 2xl:w-[36rem] h-auto "
           />
           <motion.div  initial={issmallScreen && { opacity: 0, y: 50 }}
               whileInView={issmallScreen && { opacity: 1, y: 0 }}
