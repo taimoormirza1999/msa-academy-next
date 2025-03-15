@@ -20,12 +20,13 @@ const Checkout = ({ showModal, setShowModal }) => {
   const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
   const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
+  const is4KLScreen = useScreenStore((state) => state.is4kLargeScreen);
   const packages = [
     {
       name: "Basic",
       description: "Basic plan with essential features.",
       price: 20,
-      bubble: { classes: " -top-8 left-5 lg:-left-12" },
+      bubble: { classes: " -top-8 left-5 lg:-left-12 4kl:-left-[15%] 4kl:-top-14" },
       includes: [
         { text: "ACCESS TO ALL DRAWING COURSES", status: 1 },
         {
@@ -96,7 +97,7 @@ const Checkout = ({ showModal, setShowModal }) => {
   };
   return (
     <div
-      className="flex flex-col items-center mt-[64.5px] mb-[40.5px] md:mt-24 md:mb-16 lg:mb-0 lg:mt-[87.5px] justify-center w-85 md:w-90 mx-auto xl:w-1/2 2x:w-[75%] max-w-[1920px]"
+      className="flex flex-col items-center mt-[64.5px] mb-[40.5px] md:mt-24 md:mb-16 lg:mb-0 lg:mt-[87.5px] justify-center w-85 md:w-90 mx-auto xl:w-1/2 2x:w-[75%] 4kl:w-[85%] max-w-[1920px]"
       id="enroll-checkout"
     >
       {loadScript && (
@@ -149,11 +150,11 @@ const Checkout = ({ showModal, setShowModal }) => {
               height={60}
               src={Bubbles.src}
               alt="Floating Bubble"
-              className={`absolute ${pkg.bubble.classes} w-24 md:w-24 h-auto animate-pulse`}
+              className={`absolute ${pkg.bubble.classes} w-24 md:w-24 4kl:w-[5vw] h-auto animate-pulse`}
             />
             <ClippedCard
               height={
-                isMobileSScreen
+                is4KLScreen?window.innerHeight*0.22:isMobileSScreen
                   ? 620
                   : isMobileMScreen
                   ? 590
@@ -161,7 +162,7 @@ const Checkout = ({ showModal, setShowModal }) => {
                   ? 540
                   : 540
               }
-              width={isMobileSScreen ? 290 : isMobileMScreen ? 330 : 359.36}
+              width={is4KLScreen?window.innerWidth*0.15:isMobileSScreen ? 290 : isMobileMScreen ? 330 : 359.36}
               strokeColor={index == 0 ? "#8339FC" : "#FF00FF"}
               strokeWidth={2.1}
             >
@@ -169,7 +170,7 @@ const Checkout = ({ showModal, setShowModal }) => {
                 <h2
                   className={`mt-[1rem] text-[13.32pt] text-base font-medium text-center uppercase ${
                     index == 0 ? "text-purple" : "text-pink200"
-                  } -mb-3 font-primary text-left`}
+                  } -mb-3 font-primary text-left 4kl:text-2xl`}
                 >
                   {pkg.name}
                 </h2>
@@ -177,11 +178,11 @@ const Checkout = ({ showModal, setShowModal }) => {
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-white font-bold text-[4.1rem] font-primary"
+                  className="text-white font-bold text-[4.1rem] font-primary 4kl:text-[2.5vw]"
                 >
                   ${pkg.price}
                 </motion.span>
-                <p className="text-white font-semibold text-xs text-[0.6rem] -mt-2 font-primary">
+                <p className="text-white font-semibold text-xs text-[0.6rem] -mt-2 font-primary 4kl:text-2xl">
                   PER MONTH
                 </p>
                 <ul className="mt-[2.5rem] lg:mt-[3.5rem] mb-[0.7rem] lg:mb-[1.1rem]">
@@ -205,7 +206,7 @@ const Checkout = ({ showModal, setShowModal }) => {
                           item.status == 1
                             ? "text-white"
                             : " text-white text-opacity-30"
-                        } text-sm uppercase my-1 text-left text-[0.84rem]  xl:text-[0.84rem] font-eastroman-trial-bold`}
+                        } text-sm uppercase my-1 text-left text-[0.84rem]  xl:text-[0.84rem] font-eastroman-trial-bold 4kl:text-2xl`}
                       >
                         {item.text}
                       </span>
@@ -214,9 +215,9 @@ const Checkout = ({ showModal, setShowModal }) => {
                 </ul>
                 <div className="animate-bounceSlow">
                   <Button
-                    height={97.39}
-                    width={225}
-                    textSize={isMobileSScreen ? "text-xl" : "text-2xl"}
+                    height={is4KLScreen?window.innerHeight*0.05:97.39}
+                    width={is4KLScreen?window.innerWidth*0.12:225}
+                    textSize={isMobileSScreen ? "text-xl" : "text-2xl 4kl:text-5xl"}
                     onClick={() =>
                       handleCheckout({
                         name: pkg.name,

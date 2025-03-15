@@ -157,13 +157,13 @@ function MultipleItems() {
       className="slider-container  lg:-mb-14 mt-0  mb-8 lg:mt-20  w-[95%] lg:w-[100%] mx-auto pb-20 "
     >
       <div className="-mb-8">
-        <p className="text-center text-gray-300 text-lg md:text-xl mt-2 md:w-4/5 font-primary mx-auto">
+        <p className="text-center text-gray-300 text-lg md:text-xl mt-2 md:w-4/5 font-primary mx-auto 4kl:text-5xl">
           Enroll With MSA
         </p>
 
         <div className="mt-6">
-          <OutlineTextEffect title={"FUEL YOUR"} classes={"w-full "} />
-          <OutlineTextEffect title={"CREATIVITY"} classes={"w-full mt-2"} />
+          <OutlineTextEffect title={"FUEL YOUR"} classes={"w-full 4kl:text-8xl"} />
+          <OutlineTextEffect title={"CREATIVITY"} classes={"w-full mt-2 4kl:text-8xl"} />
         </div>
       </div>
       <Slider {...settings} className="rounded">

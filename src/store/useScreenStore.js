@@ -3,7 +3,7 @@ import { useMediaQuery } from "react-responsive";
 import { useEffect } from "react";
 
 const useScreenStore = create((set) => ({
-  is4kLarge: false,
+  is4kLargeScreen: false,
   isLargeScreen: true, // Default value
   isMediumScreen: false, // Default value
   isLaptopMediumScreen: false, // Default value
@@ -16,7 +16,7 @@ const useScreenStore = create((set) => ({
 export const useScreenListener = () => {
   const setScreenSize = useScreenStore((state) => state.setScreenSize);
 
-  const is4kLarge = useMediaQuery({ minWidth: 1920 });
+  const is4kLarge = useMediaQuery({ minWidth: 2048 });
   const isLarge = useMediaQuery({ minWidth: 1024 });
   const isMedium = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
   const isLaptopMedium = useMediaQuery({ minWidth: 1024, maxWidth: 1280 });
@@ -26,7 +26,7 @@ export const useScreenListener = () => {
 
   useEffect(() => {
     setScreenSize({
-      is4kLarge: is4kLarge,
+      is4kLargeScreen: is4kLarge,
       isLargeScreen: isLarge,
       isMediumScreen: isMedium,
       isMobileSScreen: isMobileS,

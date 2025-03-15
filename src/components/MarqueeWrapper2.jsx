@@ -92,18 +92,18 @@ export default function MarqueeWrapper2() {
   return (
     <>
       <div className="mb-5">
-        <p className="text-center text-gray-300 text-lg md:text-xl mt-2 md:w-4/5 font-primary mx-auto">
+        <p className="text-center text-gray-300 text-lg md:text-xl mt-2 md:w-4/5 font-primary mx-auto 4kl:text-5xl">
         One Story At A Time
         </p>
 
         <div className="mt-6">
           <OutlineTextEffect
             title={"MSA ART COMMUNITY"}
-            classes={"w-full -mt-3"}
+            classes={"w-full -mt-3 4kl:text-8xl"}
           />
         </div>
 
-        <p className="text-center text-gray-300 text-lg md:text-xl mt-1 md:w-4/5 font-primary mx-auto">
+        <p className="text-center text-gray-300 text-lg md:text-xl mt-1 md:w-4/5 font-primary mx-auto 4kl:text-5xl">
           No matter where you are
         </p>
       </div>

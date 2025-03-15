@@ -10,7 +10,7 @@ const ClippedImageGeneric = ({ heightAuto=false, rightTopClass='top-2.5 right-2.
         width={width}
         height={height}
         viewBox={`0 0 ${width} ${height}`}
-        className={`absolute ${rightTopClass} w-full ${heightAuto&& "h-auto"} z-0 `}
+        className={`absolute ${rightTopClass} w-full ${heightAuto && "h-auto"} z-0 `}
         // preserveAspectRatio="none"
       >
         <path
@@ -26,7 +26,7 @@ const ClippedImageGeneric = ({ heightAuto=false, rightTopClass='top-2.5 right-2.
         width={width}
         height={height}
         viewBox={`0 0 ${width} ${height}`}
-        className={`relative w-full ${heightAuto&& "h-auto"} max-w-[348px] z-10`}
+        className={`relative w-full ${heightAuto&& "h-auto"} z-10`}
         // preserveAspectRatio="none"
       >
         <defs>

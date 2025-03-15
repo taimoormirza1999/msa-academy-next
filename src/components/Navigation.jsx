@@ -13,7 +13,7 @@ import useScreenStore from "@/store/useScreenStore";
 
 const Navigation = () => {
   const { isMenuOpen, toggleMenu, handleScroll, setIsMenuOpen } = useScrollHandler();
-  const is4klScreen = useScreenStore((state) => state.is4klScreen);
+  const is4klScreen = useScreenStore((state) => state.is4kLargeScreen);
   // const router = useRouter();
   // const pathname = usePathname();
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -63,7 +63,7 @@ const Navigation = () => {
           >
             <img
               src={"/logo.png"}
-              className="w-32 lg:w-40 h-auto px-3 shadow-xl 4kl:w-72 4kl:py-10"
+              className="w-32 lg:w-40 h-auto px-3 shadow-xl 4kl:w-[10vw] 4kl:py-10"
               alt="Logo"
               draggable="false"
             />
@@ -71,9 +71,9 @@ const Navigation = () => {
           {/* Menu Button */}
           <Button
             text="MENU"
-            height={is4klScreen?100:88.51}
-            width={is4klScreen?246:126}
-            textSize="text-xl 4kl:text-4xl"
+            height={is4klScreen?250:88.51}
+            width={is4klScreen?300:126}
+            textSize="text-xl 4kl:text-6xl"
             onClick={toggleMenu}
             handleScroll={handleScroll}
             navButton={true}

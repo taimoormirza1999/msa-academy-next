@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 import useScreenStore from "@/store/useScreenStore";
 
 function Animation() {
-  const is4KLScreen = useScreenStore((state) => state.is4KLScreen);
+  const is4KLScreen = useScreenStore((state) => state.is4kLargeScreen);
   const {handleScroll } = useScrollHandler();
   return (
     <motion.section
@@ -23,15 +23,15 @@ function Animation() {
       opacity: 1,
       transition: { duration: 1.8, ease: "easeInOut" },
     }}
-      className="relative text-white pt-20 pb-0 lg:py-16 4kl:min-h-[100vh] "
+      className="relative text-white pt-20 pb-0 lg:py-16 4kl:min-h-[80vh] "
       id="animation-course"
     >
       <SectionWrapper>
         <div className="relative">
-          <div className="flex flex-col-reverse mx-auto lg:flex-row items-center w-full lg:w-[90%] justify-between px-6  md:px-6 lg:px-2 relative ">
+          <div className="flex flex-col-reverse mx-auto lg:flex-row items-center w-full lg:w-[90%] justify-between px-6  md:px-6 lg:px-2 relative  ">
             {/* Left Content */}
             <div className="relative flex flex-col items-center lg:items-start xl:items-start lg:w-1/2 z-10 text-center md:text-left">
-              <div className="relative w-full lg:w-full  ">
+              <div className="relative w-full lg:w-full ggg  ">
                 <OutlineTextEffect
                   title={"Animation Courses"}
                   classes="lg:text-left 4kl:text-8xl "
@@ -47,7 +47,7 @@ function Animation() {
               </div>
 
               {/* Description */}
-              <p className="text-gray-300 text-center lg:text-left text-lg md:text-xl 4kl:text-5xl  mt-4 md:w-4/5 font-primary">
+              <p className="text-gray-300 text-center lg:text-left text-lg md:text-xl 4kl:text-6xl  mt-4 md:w-4/5 font-primary">
                 Our courses are designed for students of all skill levels.
                 Explore and learn from scratch with our easy-to-follow videos,
                 allowing you to progress at your own pace.
@@ -55,7 +55,7 @@ function Animation() {
 
               {/* Call-to-Action Button */}
               <div className="mt-0">
-                <Button text="Enroll Now" height={is4KLScreen?250:97.39} width={is4KLScreen?500:225} handleScroll={()=>handleScroll("enroll-checkout")} />
+                <Button text="Enroll Now" height={is4KLScreen?250:97.39} width={is4KLScreen?500:225} handleScroll={()=>handleScroll("enroll-checkout")} textSize="text-2xl 4kl:text-6xl" />
               </div>
             </div>
 

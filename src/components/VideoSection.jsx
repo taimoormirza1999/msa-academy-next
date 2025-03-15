@@ -14,7 +14,7 @@ const VideoSection = ({ videoUrl, imageUrl }) => {
   const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
   const isMediumScreen = useScreenStore((state) => state.isMediumScreen);
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
-  const is4KLScreen = useScreenStore((state) => state.is4KLScreen);
+  const is4KLScreen = useScreenStore((state) => state.is4kLargeScreen);
 
   const handleVideoClick = () => {
     // setVideoUrl(url);
@@ -32,10 +32,32 @@ const VideoSection = ({ videoUrl, imageUrl }) => {
         className="relative h-52 md:h-52 flex justify-center items-center text-center rounded-2xl cursor-pointer"
         onClick={() => handleVideoClick()}
       >
-       
-       <div className="relative">
-        <ClippedImageGeneric  heightAuto={true}   imageUrl={imageUrl} width={isMobileSScreen?310:isMobileMScreen?360:isMediumScreen?540:630} height={isMobileSScreen?300:isMobileMScreen?300:isMediumScreen?310:is4KLScreen? 850 : 450 } />
-      </div>
+        <div className="relative">
+          <ClippedImageGeneric
+            heightAuto={true}
+            imageUrl={imageUrl}
+            width={
+              isMobileSScreen
+                ? 310
+                : isMobileMScreen
+                ? 360
+                : isMediumScreen
+                ? 540
+                : is4KLScreen
+                ? 780
+                : 630
+            }
+            height={
+              isMobileSScreen
+                ? 300
+                : isMobileMScreen
+                ? 300
+                : isMediumScreen
+                ? 310
+                : 650
+            }
+          />
+        </div>
         <div className="absolute rounded-full p-1.5 md:p-2.5 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
           <motion.div
             whileHover={{
@@ -43,7 +65,13 @@ const VideoSection = ({ videoUrl, imageUrl }) => {
               transition: { duration: 1, ease: "easeInOut" },
             }}
           >
-            <Image src={PlayButtonSVG.src} height={50} width={50} alt="" className="w-12 h-12"/>
+            <Image
+              src={PlayButtonSVG.src}
+              height={50}
+              width={50}
+              alt=""
+              className="w-12 h-12 4kl:w-40 4kl:h-40 "
+            />
           </motion.div>
         </div>
       </div>
@@ -57,7 +85,6 @@ const VideoSection = ({ videoUrl, imageUrl }) => {
             >
               {/* X */}
               <IoIosCloseCircle />
-
             </button>
             <iframe
               className=" h-96 rounded bg-black w-80vw md:w-80vw 2xl:w-60vw md:h-40vw 2xl:h-30vw"

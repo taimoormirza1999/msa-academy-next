@@ -17,9 +17,11 @@ import { useMediaQuery } from "react-responsive";
 import Bubble from "@/assets/bubble.svg";
 import OuterBorderChildren from "./utils/OuterBorderChildren";
 import LeftEllipse from "@/assets/ElipseDown.png";
+import useScreenStore from "@/store/useScreenStore";
 
 function Contact() {
   const issmallScreen = useMediaQuery({ maxWidth: 768 });
+  const is4KLScreen = useScreenStore((state) => state.is4kLargeScreen);
 
   return (
     <div className="relative mx-auto xl:pt-20">
@@ -37,7 +39,7 @@ function Contact() {
             initial={issmallScreen ? { opacity: 0, y: 50 } : {}}
             whileInView={issmallScreen ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-row items-center gap-4 lg:gap-3 lg:mx-3"
+            className="flex flex-row items-center gap-4 lg:gap-3 lg:mx-3 4kl:gap-10"
             suppressHydrationWarning={true}
           >
             <Image
@@ -45,7 +47,7 @@ function Contact() {
               height={80}
               width={80}
               alt="Character Foo"
-              className="w-14 lg:w-16 h-auto "
+              className="w-14 lg:w-16 4kl:w-[4vw] h-auto "
               draggable="false"
             />
             <Image
@@ -53,7 +55,7 @@ function Contact() {
               height={80}
               width={80}
               alt="Character Foo"
-              className="w-16 lg:w-16 lg:h-16 md:ml-2"
+              className="w-16 lg:w-16 4kl:w-[4vw] lg:h-16 4kl:h-[3.8vw] md:ml-2"
               draggable="false"
             />
           </motion.div>
@@ -79,15 +81,15 @@ function Contact() {
                 className="text-xl flex justify-center items-center hover:text-pink200 transition duration-300 mx-auto"
               >
                 <OuterBorderChildren
-                  width={35}
-                  height={35}
-                  value={5}
-                  strokeWidth={1.26}
+                  width={is4KLScreen?window.innerWidth*0.02:35}
+                  height={is4KLScreen?70:35}
+                  value={is4KLScreen?10:5}
+                  strokeWidth={is4KLScreen?1.96:1.26}
                   strokeColor="#fff"
                   clipId={`clip-${index}`}
                 >
                   <div className="w-full h-full flex justify-center items-center text-white">
-                    <span className="text-xl">{item.icon}</span>
+                    <span className="text-xl 4kl:text-5xl">{item.icon}</span>
                   </div>
                 </OuterBorderChildren>
               </a>
@@ -97,12 +99,12 @@ function Contact() {
 
         <div className="flex flex-col xl:items-start">
           {/* Contact Us Section */}
-          <div className="flex flex-col items-center lg:items-start md:mx-3">
+          <div className="flex flex-col items-center lg:items-start 4kl:justify-center md:mx-3">
             <motion.h5
               initial={issmallScreen && { opacity: 0, y: 50 }}
               whileInView={issmallScreen && { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-semibold text-2xl xl:text-3xl mb-3 lg:mb-2 font-primary "
+              className="font-semibold text-2xl xl:text-3xl mb-3 lg:mb-2 font-primary 4kl:text-5xl"
             >
               CONTACT US
             </motion.h5>
@@ -110,7 +112,7 @@ function Contact() {
               initial={issmallScreen && { opacity: 0, y: 50 }}
               whileInView={issmallScreen && { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-base mb-2 font-primary"
+              className="text-base mb-2 font-primary 4kl:text-3xl"
             >
               Contact@msa-club.com
             </motion.p>
@@ -118,14 +120,14 @@ function Contact() {
               initial={issmallScreen && { opacity: 0, y: 50 }}
               whileInView={issmallScreen && { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-sm mb-2 font-primary"
+              className="text-sm mb-2 font-primary 4kl:text-2xl"
             >
               Dubai, United Arab Emirates - <br /> Dubai World Trade Center, The
               Offices
             </motion.p>
           </div>
           {/* Privacy Policy Button */}
-          <div className="flex flex-row items-center justify-between gap-3 -mt-2 xl:-mt-10">
+          <div className="flex flex-row items-center justify-between gap-3 -mt-2 xl:-mt-10 4kl:-mb-2x0">
             <motion.div
               initial={issmallScreen && { opacity: 0, y: 50 }}
               whileInView={issmallScreen && { opacity: 1, y: 0 }}
@@ -137,16 +139,16 @@ function Contact() {
                 className="font-primary md:mx-4 text-lg text-white py-2 hover:bg-white hover:text-gray-800 transition duration-300 text-center mt-10"
               >
                 <OuterBorderChildren
-                  width={155}
-                  height={38}
-                  value={10}
+                  width={is4KLScreen?window.innerWidth*0.08:155}
+                  height={is4KLScreen?50:38}
+                  value={is4KLScreen?20:10}
                   classes={"mt-1 pt-1.5 lg:pt-0"}
-                  strokeWidth={1.26}
+                  strokeWidth={is4KLScreen?1.96:1.26}
                   strokeColor="#fff"
                   clipId={`clip-privacypolicy}`}
                 >
               
-                  <span className="text-white">Privacy Policy</span>
+                  <span className="text-white 4kl:text-4xl">Privacy Policy</span>
           
                 </OuterBorderChildren>
               </Link>
@@ -159,7 +161,7 @@ function Contact() {
             >
               <Link
                 href={"/privacy-policy"}
-                className="font-primary text-lg text-white  hover:bg-white hover:text-gray-800 transition duration-300 "
+                className="font-primary text-lg text-white  hover:bg-white hover:text-gray-800 transition duration-300 4kl:text-4xl"
               >
                @ MSA Club Official
               </Link>
@@ -183,19 +185,19 @@ function Contact() {
             src={CharacterFoo.src}
             alt="Character Image"
             draggable="false"
-            className="mt-4 md:mt-0  w-[75%] xl:w-[32rem] 2xl:w-[36rem] h-auto "
+            className="mt-4 md:mt-0  w-[75%] xl:w-[32rem] 2xl:w-[36rem] 4kl:w-[25vw]  h-auto "
           />
           <motion.div  initial={issmallScreen && { opacity: 0, y: 50 }}
               whileInView={issmallScreen && { opacity: 1, y: 0 }}
               transition={issmallScreen && { duration: 0.8, delay: 0.8 }}
-              className="absolute bottom-48 md:bottom-44 left-52  md:left-52 lg:left-52 xl:left-96 lg:top-10 xl:top-24  mt-3">
+              className="absolute bottom-48 md:bottom-44 left-52  md:left-52 lg:left-52 xl:left-96 4kl:left-[65%] lg:top-10 xl:top-24  mt-3">
 
           <Image
             width={60}
             height={60}
             src={Bubble.src}
             alt="Floating small Bubble"
-            className="  w-12 md:w-16 lg:w-16 xl:w-16 h-auto "
+            className="  w-12 md:w-16 lg:w-16 xl:w-16 h-auto 4kl:w-[4vw] "
             draggable="false"
             />
             </motion.div>

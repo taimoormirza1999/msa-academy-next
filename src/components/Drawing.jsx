@@ -20,10 +20,10 @@ const Drawing = () => {
           transition: { duration: 1.8, ease: "easeInOut" },
         }}
         viewport={{ once: true }}
-        className="relative w-full md:w-99 h-auto bg-cover bg-center lg:-mt-14  mb-10 md:mb-20 lg:mb-10  z-10"
+        className="relative w-full md:w-99 h-auto bg-cover bg-center lg:-mt-14  mb-10 md:mb-20 lg:mb-10  z-10 4kl:w-[90%] 4kl:mx-auto 4kl:mt-[10vw]"
         id="drawing-course"
       >
-        <div className="relative h-auto mx-auto  w-99 md:w-98 lg:w-[90%] xl:w-[93%]">
+        <div className="relative h-auto mx-auto  w-99 md:w-98 lg:w-[90%] xl:w-[93%] ">
           <Image
             height={1080}
             width={1920}
@@ -34,21 +34,21 @@ const Drawing = () => {
           />
         </div>
         <div className="relative w-full mt-6 z-20">
-          <OutlineTextEffect title={"DRAWING COURSES"} />
+          <OutlineTextEffect title={"DRAWING COURSES"} classes="text-4xl lg:text-5xl 4kl:text-8xl" />
           <Image
             width={60}
             height={60}
             src={Bubble.src}
             alt="Floating Bubble"
             draggable="false"
-            className="absolute bottom-[13rem] md:bottom-[25rem]  lg:bottom-[25rem] xl:bottom-[30rem] left-2  md:left-24 w-12 md:w-24 h-auto animate-pulse -z-30"
+            className="absolute bottom-[13rem] md:bottom-[25rem]  lg:bottom-[25rem] xl:bottom-[30rem] left-2  md:left-24 w-12 md:w-24 4kl:w-[8vw] h-auto animate-pulse -z-30"
           />
         </div>
         <div className="absolute -left-[40%] md:-left-[10%] lg:-left-[10%]  -top-72 lg:top-0  overflow-visible md:scale-x-[-1] -z-20 xl:z-10 ">
           <RightEllipseSVG height={900} width={900} />
         </div>
         {/* Description */}
-        <p className="text-center text-grayPrimary text-lg md:text-xl mt-4 md:w-4/5 font-primary mx-auto z-50">
+        <p className="text-center text-grayPrimary text-lg md:text-xl 4kl:text-6xl mt-4 md:w-4/5 font-primary mx-auto z-50">
           We believe everyone is an artist, Join us to
           <br />
           unleash the artistic talent within you.

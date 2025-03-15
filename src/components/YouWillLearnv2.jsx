@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import SectionWrapper from "./SectionWrapper";
+// import SectionWrapper from "./SectionWrapper";
 import ClippedImageGeneric from "./utils/ClippedImageGeneric";
 import VisualDevelopment from "@/assets/Learn/1.png";
 import AnimationTechniques from "@/assets/Learn/2.png";
@@ -16,6 +16,7 @@ import LeftEllipse from "@/assets/LeftEllipse.png";
 
 const Card = ({ imageUrl, title, description, title2, index }) => {
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
+  const is4KLScreen = useScreenStore((state) => state.is4kLargeScreen);
   return (
     <motion.div
       className="flex flex-col items-center justify-center p-3 lg:p-6 -mt-20 lg:mt-0 min-w-[300px] lg:min-w-auto snap-center"
@@ -31,19 +32,19 @@ const Card = ({ imageUrl, title, description, title2, index }) => {
       }}
     >
       <ClippedImageGeneric
-        height={isLargeScreen ? 320.18 : 350}
-        width={isLargeScreen ? 466.25 : 390}
+        height={is4KLScreen?window.innerWidth * 0.33:isLargeScreen ? 320.18 : 350}
+        width={is4KLScreen?window.innerWidth * 0.49:isLargeScreen ? 466.25 : 390}
         imageUrl={imageUrl}
       />
       <OutlineTextEffect
         title={title}
-        classes="mt-1.5 lg:-mt-8 xl:-mt-0 w-full lg:text-[2.5rem] 4kl:text-7xl"
+        classes="mt-1.5 lg:-mt-8 xl:-mt-0 4kl:-mt-[5vw] w-full lg:text-[2.5rem] 4kl:text-8xl"
       />
       {title2 && (
-        <OutlineTextEffect title={title2} classes="w-full lg:text-[2.5rem] 4kl:text-7xl" />
+        <OutlineTextEffect title={title2} classes="w-full lg:text-[2.5rem] 4kl:text-8xl 4kl:-mt-[1vw]" />
       )}
 
-      <p className="text-xl text-grayPrimary mt-5 text-center font-primary 4kl:text-5xl">
+      <p className="text-xl text-grayPrimary mt-5 text-center font-primary 4kl:text-6xl">
         {description}
       </p>
     </motion.div>
@@ -55,7 +56,7 @@ const MSALearningSection = () => {
   const isMediumScreen = useScreenStore((state) => state.isMediumScreen);
   const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
   const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
-
+  const is4KLScreen = useScreenStore((state) => state.is4kLargeScreen);
   const cards = [
     {
       imageUrl: VisualDevelopment?.src,
@@ -81,14 +82,14 @@ const MSALearningSection = () => {
   const courses_list = [
     {
       title: "Hands-on projects mirroring real MSA productions",
-      height: isLargeScreen
+      height: is4KLScreen?60*2:isLargeScreen
         ? 60
         : isMobileSScreen
         ? 105
         : isMediumScreen
         ? 60
         : 75,
-      width: isLargeScreen
+      width: is4KLScreen ? window.innerWidth * 0.47 : isLargeScreen
         ? 610
         : isMobileSScreen
         ? 270
@@ -100,14 +101,14 @@ const MSALearningSection = () => {
     },
     {
       title: "Personalized feedback from industry professionals",
-      height: isLargeScreen
+      height: is4KLScreen?60*2:isLargeScreen
         ? 60
         : isMobileSScreen
         ? 105
         : isMediumScreen
         ? 60
         : 75,
-      width: isLargeScreen
+      width: is4KLScreen? window.innerWidth * 0.47  :isLargeScreen
         ? 620
         : isMobileSScreen
         ? 270
@@ -119,14 +120,14 @@ const MSALearningSection = () => {
     },
     {
       title: "Access to cutting-edge tools and software",
-      height: isLargeScreen
+      height: is4KLScreen?60*2:isLargeScreen
         ? 60
         : isMobileSScreen
         ? 80
         : isMediumScreen
         ? 60
         : 75,
-      width: isLargeScreen
+      width: is4KLScreen? window.innerWidth * 0.40:isLargeScreen
         ? 520
         : isMobileSScreen
         ? 270
@@ -138,14 +139,14 @@ const MSALearningSection = () => {
     },
     {
       title: "Collaborative workshops with fellow creatives",
-      height: isLargeScreen
+      height: is4KLScreen?60*2:isLargeScreen
         ? 60
         : isMobileSScreen
         ? 80
         : isMediumScreen
         ? 60
         : 75,
-      width: isLargeScreen
+      width: is4KLScreen?window.innerWidth * 0.43:isLargeScreen
         ? 620
         : isMobileSScreen
         ? 270
@@ -157,14 +158,14 @@ const MSALearningSection = () => {
     },
     {
       title: "Insights into MSA's creative process and workflow",
-      height: isLargeScreen
+      height: is4KLScreen?60*2:isLargeScreen
         ? 60
         : isMobileSScreen
         ? 105
         : isMediumScreen
         ? 60
         : 75,
-      width: isLargeScreen
+      width: is4KLScreen?window.innerWidth * 0.47:isLargeScreen
         ? 610
         : isMobileSScreen
         ? 270
@@ -197,7 +198,7 @@ const MSALearningSection = () => {
                 src={Bubble.src}
                 draggable="false"
                 alt="Floating Bubble small"
-                className="absolute -top-[2.5rem] md:-top-[3rem] lg:-top-[4rem]  xl:top-[15rem]   left-[4%] md:left-[8%] lg:left-[22%] xl:-left-[2%] w-7 md:w-8 lg:w-10 h-auto "
+                className="absolute -top-[2.5rem] md:-top-[3rem] lg:-top-[4rem]  xl:top-[15rem]   left-[4%] md:left-[8%] lg:left-[22%] xl:-left-[2%] 4kl:left-[13%]  w-7 md:w-8 lg:w-10 4kl:w-[1.8vw] h-auto "
               />
               <Image
                 width={60}
@@ -205,7 +206,7 @@ const MSALearningSection = () => {
                 src={Bubble.src}
                 draggable="false"
                 alt="Floating Bubble"
-                className="absolute -top-[7rem] lg:-top-[1rem] xl:top-[5rem] -left-[5%] md:-left-[9%] lg:left-[10%] xl:-left-[9%] w-14 md:w-16 lg:w-20 xl:w-28 h-auto "
+                className="absolute -top-[7rem] lg:-top-[1rem] xl:top-[5rem] -left-[5%] md:-left-[9%] lg:left-[10%] xl:-left-[9%] 4kl:left-[3%] w-14 md:w-16 lg:w-20 xl:w-28 4kl:w-[7vw] h-auto "
               />
             </div>
           </motion.h4>
@@ -213,7 +214,7 @@ const MSALearningSection = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base text-center font-primary lg:text-xl lg:w-[60%] 4kl:w-[80%] mx-auto uppercase text-grayPrimary font-bold mt-3 mb-6 4kl:text-5xl"
+            className="text-base text-center font-primary lg:text-xl lg:w-[60%] 4kl:w-[62%] mx-auto uppercase text-grayPrimary font-bold mt-3 mb-6 4kl:text-6xl 4kl:my-[2vw] "
           >
             Embark on a transformative journey to master the art of content
             creation, animation, and storytelling. Our curriculum is designed to
@@ -221,7 +222,7 @@ const MSALearningSection = () => {
             truly exceptional.
           </motion.h3>
 
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-6 justify-center mb-10 overflow-x-hidden ">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-6 justify-center mb-10 overflow-x-hidden 4kl:my-[3vw] ">
             {cards.map((card, index) => (
               <div key={index}>
                 <Card index={index} {...card} />
@@ -234,9 +235,9 @@ const MSALearningSection = () => {
             <div className="my-2">
               {<OutlineTextEffect title={"EXPERIENCE"} classes="w-full 4kl:text-8xl" />}
             </div>
-            <div className="relative flex flex-col-reverse justify-center items-center  lg:gap-0 2xl:gap-5 lg:items-center  mt-14 ">
+            <div className="relative flex flex-col-reverse justify-center items-center  lg:gap-0 2xl:gap-5 lg:items-center  mt-14 4kl:mt-[5vw]">
               <div className="order md:order-0 lg:w-full flex flex-col items-center xl:items-start">
-                <ul className="text-lg text-gray-300 font-primary list-disc flex flex-col justify-start  ">
+                <ul className="text-lg  text-gray-300 font-primary list-disc flex flex-col justify-start 4kl:gap-8  ">
                   {courses_list.map((course, index) => (
                     <motion.div
                       key={index}
@@ -248,13 +249,13 @@ const MSALearningSection = () => {
                         type: "spring",
                         stiffness: 100,
                       }}
-                      className="lg:p-1.5 xl:p-2.5 py-1.5"
+                      className="lg:p-1.5 xl:p-2.5 py-1.5 4kl:py-4 "
                     >
                       <ClippedBtn
                         text={course.title}
                         width={course.width}
                         height={course.height}
-                        textSize={isLargeScreen ? "text-2xl" : "text-xl"}
+                        textSize={isLargeScreen ? "text-2xl 4kl:text-7xl 4kl:pt-7" : "text-xl"}
                         strokeWidth={2.16}
                         key={index}
                       />
@@ -274,9 +275,9 @@ const MSALearningSection = () => {
                   >
                     <Button
                       text="START YOUR JOURNEY"
-                      textSize={isMobileSScreen ? "text-xl" : "text-2xl"}
-                      height={isLargeScreen ? 127 : isMobileSScreen ? 100 : 115}
-                      width={isLargeScreen ? 337 : isMobileSScreen ? 300 : 350}
+                      textSize={isMobileSScreen ? "text-xl" : "text-2xl 4kl:text-6xl"}
+                      height={is4KLScreen?157*2:isLargeScreen ? 127 : isMobileSScreen ? 100 : 115}
+                      width={is4KLScreen?427*2:isLargeScreen ? 337 : isMobileSScreen ? 300 : 350}
                     />
                   </motion.div>
                 </div>
@@ -293,7 +294,7 @@ const MSALearningSection = () => {
                 }}
               >
                 <Image
-                  className="-mt-3 lg:mt-4 md:mt-0 w-[18rem] self-center mb-5 lg:w-[28rem] xl:absolute bottom-0 4kl:bottom-[-10%] lg:right-0 4kl:w-[20vw] "
+                  className="-mt-3 lg:mt-4 md:mt-0 w-[18rem] self-center mb-5 lg:w-[28rem] xl:absolute bottom-0 4kl:-bottom[-10%] lg:right-0 4kl:-right-[7%] 4kl:w-[25vw] "
                   width={600}
                   height={600}
                   src={CharacterFoo.src}

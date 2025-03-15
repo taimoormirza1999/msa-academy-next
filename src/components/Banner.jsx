@@ -43,6 +43,8 @@ const floatingAnimation = {
 const Banner = () => {
   // const isLargeScreen = useMediaQuery({ minWidth: 768 });
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
+  const is4KLScreen = useScreenStore((state) => state.is4kLargeScreen);
+
   const { handleScroll } = useScrollHandler();
   const [scrollY, setScrollY] = React.useState(0);
 
@@ -98,7 +100,7 @@ const Banner = () => {
         viewport={{ once: true }}
         className="flex justify-center items-center mx-auto transform-gpu"
       >
-        <div className="relative -mt-10 lg:mt-0 xl:mt-10 w-full md:w-[85%] lg:w-[90%] xl:w-full max-w-[1400px] flex justify-center">
+        <div className="relative -mt-10 lg:mt-0 xl:mt-10 w-full md:w-[85%] lg:w-[90%] 4kl:w-[95%] xl:w-full max-w-[1400px] flex justify-center 4kl:-ml-[10vw]">
           <Image
             width={1080}
             height={1080}
@@ -195,8 +197,10 @@ const Banner = () => {
               >
                 <Button
                   isRounded={false}
-                  height={97.39}
-                  width={225}
+                  // height={97.39}
+                  // width={225}
+                  height={is4KLScreen?250:97.39} width={is4KLScreen?500:225}
+                  textSize={"4kl:text-6xl"}
                   handleScroll={() => handleScroll("enroll-checkout")}
                 />
               </motion.div>

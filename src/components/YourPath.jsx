@@ -8,9 +8,11 @@ import SectionWrapper from "./SectionWrapper";
 import Button from "./utils/Button";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
 import useScrollHandler from "@/store/useScrollHandler";
+import useScreenStore from "@/store/useScreenStore";
 
 function YourPath() {
   const {handleScroll } = useScrollHandler();
+  const is4KLScreen = useScreenStore((state) => state.is4kLargeScreen);
 
   return (
     <section className="relative  text-white py-0 overflow-x-visible  ">
@@ -39,7 +41,7 @@ function YourPath() {
               />
               <OutlineTextEffect
                 title={"AND LEARN ONLINE"}
-                hCenter="justify-center lg:justify-startS"
+                hCenter="justify-center lg:justify-start"
                 classes="4kl:text-8xl"
               />
 
@@ -54,7 +56,7 @@ function YourPath() {
             </div>
 
             {/* Description */}
-            <p className="text-gray-300 text-center lg:text-left text-xl md:text-xl mt-4 md:w-4/5 font-primary 4kl:text-5xl">
+            <p className="text-gray-300 text-center lg:text-left text-xl md:text-xl mt-4 md:w-4/5 font-primary 4kl:text-6xl">
               Our courses are designed for students of all skill levels. Explore
 §              and learn from scratch with our easy-to-follow videos, allowing
               you to progress at your own pace.
@@ -62,7 +64,7 @@ function YourPath() {
 
             {/* Call-to-Action Button */}
             <div className="mt-0">
-              <Button text="Enroll Now" height={97.39} width={225} handleScroll={()=>handleScroll("enroll-checkout")} />
+              <Button text="Enroll Now" height={is4KLScreen?250:97.39} width={is4KLScreen?550:225} handleScroll={()=>handleScroll("enroll-checkout")} textSize="text-2xl 4kl:text-6xl" />
             </div>
           </div>
 
@@ -74,7 +76,7 @@ function YourPath() {
               src={Skating.src}
               alt="Puppet Girl"
               draggable="false"
-              className="w-[99%] md:w-full lg:w-[120%] xl:w-[130%] 2xl:w-[140%] 4kl:w-[38vw]"
+              className="w-[99%] md:w-full lg:w-[120%] xl:w-[130%] 2xl:w-[140%] 4kl:w-[40vw]"
             />
             {/* Puppet Girl Image */}
           </div>
