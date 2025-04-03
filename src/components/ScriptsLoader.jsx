@@ -29,7 +29,7 @@ const ScriptsLoader = () => {
           <Script
             id="hotjar-script"
             src="https://static.hotjar.com/c/hotjar-5271325.js"
-            strategy="lazyOnload"
+            strategy="worker"
           />
              
         </>

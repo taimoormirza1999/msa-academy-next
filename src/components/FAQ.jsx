@@ -43,7 +43,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="p-6 pt-7 lg:py-24 overflow-hidden px-10">
+    <div className="p-6 pt-7 lg:pt-24 overflow-hidden px-10">
       <SectionWrapper>
       <div className="relative mx-auto w-full md:w-[70%] lg:w-full justify-start ">
               <br />

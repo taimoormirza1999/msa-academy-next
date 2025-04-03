@@ -49,6 +49,9 @@ const firstRow = reviews.slice(0, reviews.length / 2);
 
 const ReviewCard = ({ img, name, username, body }) => {
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
+  const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
+  const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
+  const isMobileL = useScreenStore((state) => state.isMobileLScreen);
 
   return (
     <ClippedTestimonialCard
@@ -59,7 +62,7 @@ const ReviewCard = ({ img, name, username, body }) => {
       <div className="mx-2 ml-5 lg:mx-6 ">
         <div className="flex flex-row items-start gap-2 lg:gap-4 mt-7 pt-[2%] md:pt-[1%] lg:pt-[4%]">
           {/* Image */}
-          <div className="self-start mt-0 lg:-mt-16 ">
+          <div className="self-start ms:-mt-10 ml:-mt-10 mt-0 lg:-mt-16 ">
             <ClippedImageGeneric
               imageUrl={img}
               width={isLargeScreen ? 145.26 : 65.26}
@@ -106,9 +109,11 @@ export default function MarqueeWrapper2() {
         </p>
       </div>
       <div className="relative flex max-w-[1920px] w-full flex-col items-center justify-center rounded-lg">
-        <Marquee pauseOnHover className=" lg:mb-4 ">
+        <Marquee pauseOnHover className=" lg:mb-4 gap-9 mx-5">
           {firstRow.map((review) => (
+            <div className=" mx-2 lg:mx-3" key={review.username}>
             <ReviewCard key={review.username} {...review} />
+            </div>
           ))}
         </Marquee>
         <div className="pointer-events-none absolute inset-y-0 left-0 w-full  dark:from-background"></div>

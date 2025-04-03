@@ -103,7 +103,7 @@ const Checkout = ({ showModal, setShowModal }) => {
         <Script
           id="stripe-script"
           src="https://js.stripe.com/v3/"
-          strategy="lazyOnload"
+          strategy="worker"
         />
       )}
       {showModal && (

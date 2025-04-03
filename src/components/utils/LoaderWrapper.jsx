@@ -17,9 +17,9 @@ const LoaderWrapper = ({ children }) => {
         <div className="flex justify-center items-center h-full z-10">
           {/* <div className="loader-spinner text-white">Loading...</div> */}
           <div className="flex items-center justify-center min-h-screen rounded-circle ">
-      <div className="relative w-16 h-16  bg-transparent rounded-circle">
+      <div className="relative w-10 h-10  bg-transparent rounded-circle">
         <div
-          className="absolute border-4 border-[#ee00a7e4] border-t-transparent rounded-full animate-spin"
+          className="absolute border-4 border-pink200 border-t-transparent rounded-full animate-spin"
           style={{ width: '100%', height: '100%' }}
         ></div>
       </div>

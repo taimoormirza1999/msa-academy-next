@@ -49,9 +49,10 @@ const Navigation = () => {
         <Image
         height={500}
         width={500}
+        draggable="false"
         src={DownElipse.src}
           alt="Elipse Top"
-          className="w-full absolute top-0 lg:-top-10  scale-y-[-1]"
+          className="w-full absolute top-0 lg:-top-10  scale-y-[-1] -z-10"
         />
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between   ">
           <Link

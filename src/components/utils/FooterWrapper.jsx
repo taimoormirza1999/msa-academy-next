@@ -4,7 +4,6 @@ import Loader from "../Loader";
 import ScrollAnimation from "./ScrollAnimation";
 import LoaderWrapper from "./LoaderWrapper";
 import FAQ from "../FAQ";
-import { EnrollmentToast } from "../EnrollmentToast";
 import Footer from "../Footer";
 // import CookiePolicy from "../PrivacyPolicy";
 
