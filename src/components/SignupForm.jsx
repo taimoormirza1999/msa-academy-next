@@ -58,12 +58,12 @@ const SignupForm = React.memo(() => {
     () => (
       <form onSubmit={handleSubmit}>
         <div className="p-6 text-white">
-          <h2 className="text-xl lg:text-2xl font-bold text-white text-center font-medium-fgm uppercase mb-3">
+          <h2 className="text-xl lg:text-2xl font-bold text-white text-center font-medium-fgm uppercase mb-3 font-primary">
             🎉Get exclusive <span className="text-pink200">updates</span> and
             offers🎉
           </h2>
           <div className="flex flex-col">
-            <label htmlFor="email" className="text-sm font-semibold text-white">
+            <label htmlFor="email" className="text-sm font-semibold text-white font-primary">
               Email Address <span className="text-sm text-red">*</span>
             </label>
             <input
@@ -72,20 +72,20 @@ const SignupForm = React.memo(() => {
               value={email}
               onChange={handleChange}
               placeholder="Enter your email"
-              className="mt-1 px-4 py-2 border text-gray-800 border-gray-300 rounded-lg shadow-sm focus:ring-pink200 focus:shadow focus:shadow-pink200/30 font-medium-fgm"
+              className="mt-1 px-4 py-2 border text-gray-800 border-gray-300 rounded-lg shadow-sm focus:ring-pink200 focus:outline-none  focus:shadow-2xl focus:shadow-pink200/40 font-medium-fgm font-primary"
               required
             />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className={`w-full py-2 px-4 bg-pink200  text-white font-semibold rounded-lg shadow hover:bg-pink200 shadow-2xl shadow-pink200/20 focus:outline-none focus:ring-2 focus:ring-pink200 font-medium-fgm my-4 ${
+            className={`w-full py-2 px-4 bg-pink200  text-white font-semibold rounded-lg font-primary hover:bg-pink200 shadow-2xl shadow-pink200/20 focus:outline-none focus:ring-2 focus:ring-pink200 font-medium-fgm my-4 ${
               loading ? "opacity-50 cursor-not-allowed" : ""
             }`}
           >
             {loading ? "Submitting..." : "Subscribe"}
           </button>
-          <p className="text-xs lg:text-sm text-center mt-0 mb-3 font-medium-kgpr">
+          <p className="text-xs lg:text-sm text-center mt-0 mb-3 font-primary">
             Join our community and be the first to know about new courses,
             exclusive offers, and more.
           </p>
