@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import DOMPurify from "dompurify";
 import Image from "next/image";
 import Script from "next/script";
@@ -16,20 +16,45 @@ import BlogCardsDynamic from "./BlogCardsDynamic";
 
 const BlogClient = ({ blogData, recentblogData }) => {
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
-
-
   const [sanitizedContent, setSanitizedContent] = useState("");
+  const contentRef = useRef(null);
 
   // Sanitize the blog content after the component mounts
   useEffect(() => {
     if (blogData?.content) {
-      const sanitized = DOMPurify.sanitize(blogData.content);
-      setSanitizedContent(sanitized);
+      const clean = DOMPurify.sanitize(blogData.content, {
+        ALLOWED_TAGS: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'img', 'a', 'ul', 'ol', 'li', 'strong', 'em', 'blockquote'],
+        ALLOWED_ATTR: ['src', 'alt', 'href', 'class', 'style']
+      });
+      setSanitizedContent(clean);
     }
   }, [blogData]);
 
-  // Apply the custom styling to images after content is rendered
-
+  // Prepare JSON-LD for Article Schema
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: blogData?.metaTitle || '',
+    datePublished: blogData?.postedDate || '',
+    image: blogData?.coverImage || '',
+    author: {
+      "@type": "Person",
+      name: "Taimoor Hamza",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "MSA Club",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://msa-club.com/logo.png",
+      },
+    },
+    description: blogData?.metaDescription || "",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://msa-club.com/blog/post/${blogData?.friendlyUrl || ''}`,
+    },
+  };
 
   if (!blogData) {
     return (
@@ -45,31 +70,6 @@ const BlogClient = ({ blogData, recentblogData }) => {
       </div>
     );
   }
-  // ADDED: Prepare JSON-LD for Article Schema
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: blogData.metaTitle,
-    datePublished: blogData.postedDate,
-    image: blogData.coverImage,
-    author: {
-      "@type": "Person",
-      name: "Taimoor Hamza",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "MSA Club ",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://msa-club.com/logo.png",
-      },
-    },
-    description: blogData.metaDescription || "",
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://msa-club.com/blog/post/${blogData.friendlyUrl}`,
-    },
-  };
 
   return (
     <>
@@ -80,17 +80,10 @@ const BlogClient = ({ blogData, recentblogData }) => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
 
-
-      <div
-        className=" mt-3  xl:-mt-3 mx-0 bg-cover bg-center "
-        // style={{ backgroundImage: `url(${BackgroundImage.src})`, height:'auto', width:'100%' }}
-      >
+      <div className="mt-3 xl:-mt-3 mx-0 bg-cover bg-center">
         <SectionWrapper>
-          {/* Main Blog Content */}
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
-            {/* Blog Content Area */}
-            <div className=" lg:col-span-2 px-2 lg:p-4 rounded-2xl relative ">
-              {/* Blog Top Image */}
+            <div className="lg:col-span-2 px-2 lg:p-4 rounded-2xl relative">
               <div className="relative">
                 <BlogDetailHeroImage
                   imageUrl={blogData?.coverImage}
@@ -101,52 +94,45 @@ const BlogClient = ({ blogData, recentblogData }) => {
                   height={60}
                   src={Bubble.src}
                   alt="Floating big Bubble"
-                  className="absolute -bottom-7 left-0  w-12 md:w-12 lg:w-24 2xl:left-5 z-50 "
+                  className="absolute -bottom-7 left-0 w-12 md:w-12 lg:w-24 2xl:left-5 z-50"
+                  priority
                 />
-                <div className="absolute -left-[40%] md:-left-[10%] lg:-right-[30%]  lg:-bottom-96  overflow-visible md:scale-x-[-1] -z-20 xl:-z-10  ">
+                <div className="absolute -left-[40%] md:-left-[10%] lg:-right-[30%] lg:-bottom-96 overflow-visible md:scale-x-[-1] -z-20 xl:-z-10">
                   <RightEllipseSVG height={900} width={900} />
                 </div>
               </div>
 
-
               <div className="px-2 lg:px-0">
-                {/* Blog Title */}
-                <div className=" items-center mt-6 lg:mt-10  w-full ">
-                  <h1 className="text-2xl lg:text-4xl xl:text-5xl  font-bold text-white font-primary mb-1 ">
+                <div className="items-center mt-6 lg:mt-10 w-full">
+                  <h1 className="text-2xl lg:text-4xl xl:text-5xl font-bold text-white font-primary mb-1">
                     {blogData?.title}
                   </h1>
-                  <span className="justify-end text-xs pe-2 mt-10 text-white font-medium-kgpr text-right"></span>
                   <div className="mb-0 mt-0 flex flex-wrap gap-1.5 gap-x-3 my-2">
-                    {blogData?.categories
-                      ?.slice(0, 3)
-                      .map((category, index) => (
-                        <ClippedAutoWidthBtn
-                          text={category}
-                          textSize={isLargeScreen ? "lg:text-2xl p-3" : "md:text-xl text-lg p-2"}
-                          strokeWidth={1.16}
-                          key={index}
-                        />
-                      ))}
+                    {blogData?.categories?.slice(0, 3).map((category, index) => (
+                      <ClippedAutoWidthBtn
+                        key={index}
+                        text={category}
+                        textSize={isLargeScreen ? "lg:text-2xl p-3" : "md:text-xl text-lg p-2"}
+                        strokeWidth={1.16}
+                      />
+                    ))}
                   </div>
                 </div>
 
-                {/* Blog Description */}
                 <div
-                  className="text-gray-100 blog_description leading-relaxed  bg-opacity-90 lg:p-3 lg:px-0 rounded mt-3 lg:mt-5 font-medium-kgpr  text-sm"
+                  ref={contentRef}
+                  className="text-gray-100 blog_description leading-relaxed bg-opacity-90 lg:p-3 lg:px-0 rounded mt-3 lg:mt-5 font-medium-kgpr text-sm"
                   dangerouslySetInnerHTML={{
                     __html: sanitizedContent,
                   }}
-                ></div>
+                />
               </div>
             </div>
-
-            {/* Sidebar Area */}
-            
           </div>
         </SectionWrapper>
-        <BlogCardsDynamic apiEndpoint={`${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs?limit=8`} text1={"Recomened Blogs"}   />
+        {blogData && <BlogImageProcessor contentRef={contentRef} />}
       </div>
-      <BlogImageProcessor />
+      <BlogCardsDynamic apiEndpoint={`${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs?limit=8`} text1={"Recomened Blogs"}   />
     </>
   );
 };
