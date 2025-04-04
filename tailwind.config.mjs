@@ -107,6 +107,10 @@ export default {
 		  '0%, 100%': { transform: 'translateY(0)', animationTimingFunction: 'ease-in-out' },
 		  '50%': { transform: 'translateY(-10px)', animationTimingFunction: 'ease-in-out' },
 		},
+		bounceSlowV2: {
+		  '0%, 100%': { transform: 'translateY(0)', animationTimingFunction: 'ease-in-out' },
+		  '50%': { transform: 'translateY(-10px)', animationTimingFunction: 'ease-in-out' },
+		},
 		textGlow: {
 		  '0%, 100%': { textShadow: '0 0 15px #ff00ff, 0 0 25px #ff00ff, 0 0 35px #ffffff' },
 		  '50%': { textShadow: '0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ff00ff' },
@@ -120,6 +124,7 @@ export default {
 		  'spin-fast': 'spin 0.8s linear infinite',
 		  'animate-glow': 'glow 1.85s infinite ease-in-out',
 		   bounceSlow: 'bounceSlow 1.58s infinite',
+		   bounceSlowV2: 'bounceSlowV2 2s infinite',
 		   glowRed: 'glowRed 2s infinite',
 		   textGlow:'textGlow 1.7s infinite ease-in-out',
 		   marquee: "marquee 15s linear infinite ",

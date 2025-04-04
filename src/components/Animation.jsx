@@ -21,7 +21,7 @@ function Animation() {
       opacity: 1,
       transition: { duration: 1.8, ease: "easeInOut" },
     }}
-      className="relative text-white pt-20 pb-0 lg:py-16 "
+      className="relative text-white pt-20 pb-0 lg:py-20"
       id="animation-course"
     >
       <SectionWrapper>

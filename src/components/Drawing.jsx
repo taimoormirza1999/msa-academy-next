@@ -1,7 +1,4 @@
 import React from "react";
-import DrawingImage from "../assets/drawing_banner.png";
-// import Button from "./utils/Button";
-// import BannerTextHeading from "./utils/BannerTextHeading";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionWrapper from "./SectionWrapper";
@@ -27,7 +24,7 @@ const Drawing = () => {
           <Image
             height={1080}
             width={1920}
-            src={DrawingImage.src}
+            src={"https://res.cloudinary.com/da6qujoed/image/upload/v1743794654/drawing_banner_hxjtl2.png"}
             alt="Banner"
             draggable="false"
             className="w-full h-[37vh] sm:h-[60vh] md:h-full lg:h-full 2xl:h-3/4 object-cover md:object-contain"
@@ -41,7 +38,7 @@ const Drawing = () => {
             src={Bubble.src}
             alt="Floating Bubble"
             draggable="false"
-            className="absolute bottom-[13rem] md:bottom-[25rem]  lg:bottom-[25rem] xl:bottom-[30rem] left-2  md:left-24 w-12 md:w-24 h-auto animate-pulse -z-30"
+          className="absolute bottom-[13rem] md:bottom-[25rem]  lg:bottom-[25rem] xl:bottom-[30rem] left-2  md:left-24 w-12 md:w-24 h-auto animate-pulse -z-30"
           />
         </div>
         <div className="absolute -left-[40%] md:-left-[10%] lg:-left-[10%]  -top-72 lg:top-0  overflow-visible md:scale-x-[-1] -z-20 xl:z-10 ">

@@ -20,7 +20,7 @@ export default function BannerMSAText() {
           <GradeinetOutlineText text="MSA" className="text-8xl md:text-8xl lg:text-9xl xl:text-[10rem]" />
         </div>
         {/* ACADEMY text */}
-        <div className="absolute -right-36 lg:right-32 -bottom-12  md:-bottom-24 lg:-bottom-28 ">
+        <div className="absolute -right-36 lg:right-32 -bottom-12  md:-bottom-24 lg:-bottom-28 animate-bounceSlow ">
           <GradeinetOutlineText text="Club" className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl" />
         </div>
       </div>

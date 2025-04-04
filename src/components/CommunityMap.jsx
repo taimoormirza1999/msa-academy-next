@@ -1,5 +1,4 @@
 import React from "react";
-import CommunityMapImage from "@/assets/map.png";
 import BackgroundImage from "@/assets/map-vector.svg";
 import Image from "next/image";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
@@ -27,7 +26,7 @@ const CommunityMap = () => {
             width={1920}
             height={1080}
             draggable="false"
-            src={CommunityMapImage}
+            src={"https://res.cloudinary.com/da6qujoed/image/upload/v1743794433/map_ugwglc.png"}
             className="w-full h-auto sm:h-[60vh] md:h-auto lg:h-[40rem] xl:w-[80%] xl:h-auto object-cover mx-auto rounded-lg"
           />
         </div>
