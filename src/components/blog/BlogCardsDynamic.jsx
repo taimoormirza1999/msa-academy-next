@@ -8,6 +8,7 @@ import ClippedTestimonialCard from "../utils/ClippedTestimonialCard";
 import useScreenStore from "@/store/useScreenStore";
 import OutlineTextEffect from "../utils/OutlineTextEffect";
 import { HiChevronLeft } from "react-icons/hi";
+import { blogResponsiveCards } from "@/constants";
 
 const CustomNextArrow = ({ onClick, isLargeScreen }) => (
   <button
@@ -66,11 +67,7 @@ function BlogCardsDynamic({ apiEndpoint, title, text1, text2 }) {
     centerMode: true,
     cssEase: "linear",
     pauseOnHover: true,
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 3 } },
-      { breakpoint: 768, settings: { slidesToShow: 2, slidesToScroll: 2 } },
-      { breakpoint: 500, settings: { slidesToShow: 1, slidesToScroll: 1 } },
-    ],
+    responsive: blogResponsiveCards,
   };
 
   return data ? (

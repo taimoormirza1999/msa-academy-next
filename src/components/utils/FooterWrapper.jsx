@@ -1,7 +1,7 @@
 "use client";
 import React, { Suspense, useEffect, useState } from "react";
 import Loader from "../Loader";
-import ScrollAnimation from "./ScrollAnimation";
+// import EnrollmentToast from "@/components/EnrollmentToast";
 import LoaderWrapper from "./LoaderWrapper";
 import FAQ from "../FAQ";
 import Footer from "../Footer";
@@ -34,11 +34,9 @@ export default function FooterWrapper() {
   return (
     <>
       <Suspense fallback={<Loader />}>
-        <ScrollAnimation>
           <LoaderWrapper>
             <FAQ />
           </LoaderWrapper>
-        </ScrollAnimation>
       </Suspense>
       {showToast && (
         <Suspense fallback={<Loader />}>
@@ -49,7 +47,6 @@ export default function FooterWrapper() {
             onDismiss={() => setShowToast(false)}
             duration={10000000}
           /> */}
-          {/* <CookiePolicy/> */}
         </Suspense>
     )} 
       <Footer />

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 // import { FiMenu, FiX } from "react-icons/fi";
@@ -10,7 +10,7 @@ import DownElipse from "@/assets/DownElipse.png";
 import Image from "next/image";
 import useScrollHandler from "@/store/useScrollHandler";
 
-const Navigation = () => {
+  const Navigation = memo(() => {
   const { isMenuOpen, toggleMenu, handleScroll, setIsMenuOpen } = useScrollHandler();
 
   // const router = useRouter();
@@ -47,22 +47,23 @@ const Navigation = () => {
     <>
       <nav className="relative py-1 lg:py-2.5 ">
         <Image
-        height={500}
-        width={500}
-        draggable="false"
-        src={DownElipse.src}
+          height={500}
+          width={500}
+          draggable="false"
+          src={DownElipse.src}
           alt="Elipse Top"
           className="w-full absolute top-0 lg:-top-10  scale-y-[-1] -z-10"
+          priority
         />
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between   ">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link
             href="/"
             className="cursor-pointer"
             suppressHydrationWarning={true}
           >
             <img
-              src={"/logo.png"}
-              className="w-32 lg:w-40 h-auto px-3   shadow-xl"
+              src="/logo.png"
+              className="w-32 lg:w-40 h-auto px-3 shadow-xl"
               alt="Logo"
             />
           </Link>
@@ -94,6 +95,6 @@ const Navigation = () => {
       </AnimatePresence>
     </>
   );
-};
-
+});
+Navigation.displayName = 'Navigation';
 export default Navigation;
