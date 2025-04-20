@@ -144,13 +144,12 @@ const Banner = () => {
                 y: 0,
                 opacity: 1,
                 transition: {
-                  delay: 0.2,
-                  duration: 2,
+                  delay: 0.13,
+                  duration: 1.9,
                   ease: [0.43, 0.13, 0.23, 0.96],
-                  type: "tween",
                 },
               }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true}}
               className="relative z-20 transform-gpu"
               style={{
                 willChange: "transform",
