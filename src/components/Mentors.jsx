@@ -11,12 +11,32 @@ import useScreenStore from "@/store/useScreenStore";
 import RightEllipseSVG from "./utils/icons/RightEllipseSVG";
 
 const Mentors = () => {
-  const isLargeScreen = useScreenStore((state) => state.isLargeScreen); 
-  const isLaptopMediumScreen = useScreenStore((state) => state.isLaptopMediumScreen);
+  const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
+  const isLaptopMediumScreen = useScreenStore(
+    (state) => state.isLaptopMediumScreen
+  );
   const sliderRef = useRef(null);
   const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
-  // const isMediumScreen = useScreenStore((state) => state.isMediumScreen);
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.5,
+      },
+    },
+  };
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 60 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: [0.43, 0.13, 0.23, 0.96],
+      },
+    },
+  };
   useEffect(() => {
     if (sliderRef.current) {
       sliderRef.current.scrollLeft = 100;
@@ -34,22 +54,32 @@ const Mentors = () => {
     >
       <SectionWrapper>
         <div className="relative h-auto mx-auto w-full md:w-95 xl:w-[90%] flex flex-col-reverse lg:flex-col">
-          <div
+          <motion.div
             ref={sliderRef}
             className="mt-10 pb-12 lg:pb-0 flex gap-10 md:gap-8 xl:gap-16 justify-start snap-x snap-mandatory scrollbar-hide w-full overflow-x-auto lg:overflow-visible  overflow-y-visible"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
           >
-            <div className="flex-none snap-start lg:mx-0 overflow-y-visible pl-5 lg:pl-0">
+            <motion.div
+              variants={cardVariants}
+              className="flex-none snap-start lg:mx-0 overflow-y-visible pl-5 lg:pl-0"
+            >
               <ClippedImageGeneric
                 imageUrl={MentorsCard1.src}
-                width={isLaptopMediumScreen ? 280:isLargeScreen ? 348 : 180}
-                height={ isLaptopMediumScreen ? 450 :isLargeScreen ? 530 : 300}
+                width={isLaptopMediumScreen ? 280 : isLargeScreen ? 348 : 180}
+                height={isLaptopMediumScreen ? 450 : isLargeScreen ? 530 : 300}
               />
-            </div>
-            <div className="mt-10 md:mt-10 lg:-mt-12 relative flex-none snap-center lg:mx-0 overflow-y-visible">
+            </motion.div>
+            <motion.div
+              variants={cardVariants}
+              className="mt-10 md:mt-10 lg:-mt-12 relative flex-none snap-center lg:mx-0 overflow-y-visible"
+            >
               <ClippedImageGeneric
                 imageUrl={MentorsCard2.src}
-                width={isLaptopMediumScreen ? 280:isLargeScreen ? 348 : 220}
-                height={isLaptopMediumScreen ? 450 :isLargeScreen ? 530 : 350}
+                width={isLaptopMediumScreen ? 280 : isLargeScreen ? 348 : 220}
+                height={isLaptopMediumScreen ? 450 : isLargeScreen ? 530 : 350}
               />
               <Image
                 width={60}
@@ -58,20 +88,25 @@ const Mentors = () => {
                 alt="Floating Bubble"
                 className="absolute -bottom-12 md:bottom-5 lg:bottom-12 right-[38%]  xl:-right-8 z-10 w-12 md:w-16 lg:w-24 h-auto animate-pulse"
               />
-            </div>
+            </motion.div>
 
-           <div 
-        className="absolute left-[50%] -translate-x-[50%] -bottom-[98%]  xl:bottom-10 -z-10 ">
-      <RightEllipseSVG width={isLargeScreen ? 2786 : 1086} height={isLargeScreen ? 2000 : 1086} />
-      </div>
-            <div className="flex-none snap-center lg:mx-0">
-              <ClippedImageGeneric
-                imageUrl={MentorsCard3.src}
-                width={isLaptopMediumScreen ? 280:isLargeScreen ? 348 : 210}
-                height={isLaptopMediumScreen ? 450 :isLargeScreen ? 530 : 350}
+            <div className="absolute left-[50%] -translate-x-[50%] -bottom-[98%]  xl:bottom-10 -z-10 ">
+              <RightEllipseSVG
+                width={isLargeScreen ? 2786 : 1086}
+                height={isLargeScreen ? 2000 : 1086}
               />
             </div>
-          </div>
+            <motion.div
+              variants={cardVariants}
+              className="flex-none snap-center lg:mx-0"
+            >
+              <ClippedImageGeneric
+                imageUrl={MentorsCard3.src}
+                width={isLaptopMediumScreen ? 280 : isLargeScreen ? 348 : 210}
+                height={isLaptopMediumScreen ? 450 : isLargeScreen ? 530 : 350}
+              />
+            </motion.div>
+          </motion.div>
 
           <div className="flex flex-col justify-center items-center">
             <h3 className="font-primary text-2xl lg:text-3xl text-grayPrimary text-center mb-2 lg:mb-7">

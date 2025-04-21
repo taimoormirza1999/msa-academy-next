@@ -43,8 +43,6 @@ const floatingAnimation = {
 const Banner = () => {
   // const isLargeScreen = useMediaQuery({ minWidth: 768 });
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
-  const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
-  const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
   const { handleScroll } = useScrollHandler();
   const [scrollY, setScrollY] = React.useState(0);
 
@@ -144,13 +142,12 @@ const Banner = () => {
                 y: 0,
                 opacity: 1,
                 transition: {
-                  delay: 0.2,
-                  duration: 2,
+                  delay: 0.4,
+                  duration: 1.8,
                   ease: [0.43, 0.13, 0.23, 0.96],
-                  type: "tween",
                 },
               }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true}}
               className="relative z-20 transform-gpu"
               style={{
                 willChange: "transform",
