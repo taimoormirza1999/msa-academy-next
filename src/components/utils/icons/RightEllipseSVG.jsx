@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 
-const RightEllipseSVG = React.memo(({ width, height }) => {
+const RightEllipseSVG = React.memo(({ width, height, extraClass }) => {
   const viewBox = useMemo(() => "0 0 1786 1686", []);
   
   const filterId = useMemo(() => "filter0_f_180_10", []);
   
   return (
-    <svg width={width} height={height} viewBox={viewBox} fill="none" xmlns="http://www.w3.org/2000/svg" className='-z-40'>
+    <svg width={width} height={height} viewBox={viewBox} fill="none" xmlns="http://www.w3.org/2000/svg" className={`-z-40 ${extraClass}`}>
       <g filter={`url(#${filterId})`}>
         <ellipse cx="893" cy="843" rx="277" ry="227" fill="#CA2AD3" />
       </g>

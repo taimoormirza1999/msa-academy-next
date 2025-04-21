@@ -24,18 +24,20 @@ const toolVariants = {
     y: 0,
     scale: 1,
     opacity: 1,
-    transition: { delay, duration: 1.8, ease: "easeInOut" },
+    transition: { delay, duration: 1.8, ease: "easeInOut" , type: "spring",},
   }),
 };
 
 const floatingAnimation = {
-  y: [-10, 10],
+  y: [-15, 15],
   transition: {
     y: {
       repeat: Infinity,
       repeatType: "reverse",
-      duration: 2,
+      duration: 1.6,
       ease: "easeInOut",
+      type: "spring",
+      stiffness: 20,
     },
   },
 };
@@ -115,7 +117,7 @@ const Banner = () => {
               whileInView={{
                 y: 0,
                 opacity: 1,
-                transition: { delay: 0.2, duration: 1.8, ease: "easeInOut" },
+                transition: { delay: 0.2, duration: 1.8, ease: "easeInOut" , type: "spring"},
               }}
               viewport={{ once: true }}
               className="relative z-10 transform-gpu"
@@ -142,9 +144,11 @@ const Banner = () => {
                 y: 0,
                 opacity: 1,
                 transition: {
-                  delay: 0.4,
+                  delay: 0.9,
                   duration: 1.8,
                   ease: [0.43, 0.13, 0.23, 0.96],
+                  type: "spring",
+                  // stiffness: 100,
                 },
               }}
               viewport={{ once: true}}
@@ -190,7 +194,7 @@ const Banner = () => {
                 className="absolute top-[24rem] md:top-[30rem] lg:top-[10rem] right-[5rem] lg:-right-[18rem] xl:-right-[30rem] z-50"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: 0.2, type: "spring",ease: "easeInOut" }}
               >
                 <Button
                   isRounded={false}

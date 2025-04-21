@@ -187,7 +187,7 @@ function Contact() {
           />
           <motion.div  initial={issmallScreen && { opacity: 0, y: 50 }}
               whileInView={issmallScreen && { opacity: 1, y: 0 }}
-              transition={issmallScreen && { duration: 0.8, delay: 0.8 }}
+              transition={issmallScreen && { duration: 0.8, delay: 0.8, type: "spring" }}
               className="absolute bottom-48 md:bottom-44 left-52  md:left-52 lg:left-52  lg:top-10 xl:top-24 xl:left-96  mt-3">
 
           <Image

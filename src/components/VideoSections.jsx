@@ -37,6 +37,8 @@ const VideoGallery = () => {
               duration: 1.2,
               ease: "easeInOut",
               delay: index * 0.2, 
+              type: "spring",
+              stiffness: 100,
             },
           }}
           viewport={{ once: true }} // Animate only once when in view

@@ -3,14 +3,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import PlayButtonSVG from "@/assets/playbutton.svg";
-// import ClippedImage from "./utils/ClippedImage";
 import ClippedImageGeneric from "./utils/ClippedImageGeneric";
 import useScreenStore from "@/store/useScreenStore";
 import { IoIosCloseCircle } from "react-icons/io";
-import ClippedImage from "./utils/ClippedImage";
 const VideoSection = React.memo(({ videoUrl, imageUrl }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [videoUrl, setVideoUrl] = useState(videoUrl);
   const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
   const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
   const isMediumScreen = useScreenStore((state) => state.isMediumScreen);
@@ -37,7 +34,7 @@ const VideoSection = React.memo(({ videoUrl, imageUrl }) => {
           <motion.div
             whileHover={{
               rotate: 180,
-              transition: { duration: 1, ease: "easeInOut" },
+              transition: { duration: 1, ease: "easeInOut", type: "spring", stiffness: 100 },
             }}
           >
             <Image src={PlayButtonSVG.src} height={50} width={50} alt="" className="w-12 h-12"/>
@@ -54,7 +51,6 @@ const VideoSection = React.memo(({ videoUrl, imageUrl }) => {
             >
               {/* X */}
               <IoIosCloseCircle />
-
             </button>
             <iframe
               className="h-96 rounded bg-black w-80vw md:w-80vw 2xl:w-60vw md:h-40vw 2xl:h-30vw"

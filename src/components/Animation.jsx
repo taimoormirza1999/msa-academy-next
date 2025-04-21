@@ -19,7 +19,7 @@ function Animation() {
     whileInView={{
       y: 0,
       opacity: 1,
-      transition: { duration: 1.8, ease: "easeInOut" },
+      transition: { duration: 1.8, ease: "easeInOut", type: "spring", stiffness: 100 },
     }}
       className="relative text-white pt-20 pb-0 lg:py-20"
       id="animation-course"
@@ -58,8 +58,11 @@ function Animation() {
 
             {/* Right Image Section */}
             {/* <div className="relative w-full lg:w-1/2 flex items-center justify-center "> */}
-            <div className="relative w-full lg:w-1/2 flex items-center justify-center overflow-visible">
+            <motion.div   initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 2, ease: "easeInOut", type: "spring" }} className="relative w-full lg:w-1/2 flex items-center justify-center overflow-visible z-10">
               {/* Puppet Girl Image */}
+             
               <Image
                 width={600}
                 height={600}
@@ -68,10 +71,11 @@ function Animation() {
                 alt="Puppet Girl"
                 className="w-[90%] md:w-[70%] lg:w-full max-w-md md:max-w-xl"
               />
+            
               <div className="absolute right-0 top-0 lg:right-5 w-full h-full   overflow-visible">
                 <RightEllipseSVG height={900} width={900} />
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
         <VideoGallery />

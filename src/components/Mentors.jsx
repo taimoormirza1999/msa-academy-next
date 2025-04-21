@@ -19,23 +19,21 @@ const Mentors = () => {
   const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
   const containerVariants = {
     hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.5,
-      },
-    },
+    show: {},
   };
 
   const cardVariants = {
     hidden: { opacity: 0, y: 60 },
-    show: {
+    show: (i) => ({
       opacity: 1,
       y: 0,
       transition: {
-        duration: 1,
-        ease: [0.43, 0.13, 0.23, 0.96],
+        delay: 0.3 * i,
+        duration: 1.5,
+        type: "spring",
+        stiffness: 100,
       },
-    },
+    }),
   };
   useEffect(() => {
     if (sliderRef.current) {
@@ -48,7 +46,7 @@ const Mentors = () => {
       whileInView={{
         y: 0,
         opacity: 1,
-        transition: { duration: 1.8, ease: "easeInOut" },
+        transition: { duration: 1.8, ease: "easeInOut" , type: "spring", stiffness: 100},
       }}
       className="relative h-auto bg-cover bg-center mt-5 md:mb-8 md:mt-16 lg:mt-24 lg:mb-10  w-[100%] md:w-full lg:w-95 2xl:w-85 mx-auto max-w-[1920px]"
     >
@@ -63,7 +61,11 @@ const Mentors = () => {
             viewport={{ once: true }}
           >
             <motion.div
+            custom={1}
               variants={cardVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
               className="flex-none snap-start lg:mx-0 overflow-y-visible pl-5 lg:pl-0"
             >
               <ClippedImageGeneric
@@ -73,6 +75,10 @@ const Mentors = () => {
               />
             </motion.div>
             <motion.div
+            custom={2}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
               variants={cardVariants}
               className="mt-10 md:mt-10 lg:-mt-12 relative flex-none snap-center lg:mx-0 overflow-y-visible"
             >
@@ -91,12 +97,23 @@ const Mentors = () => {
             </motion.div>
 
             <div className="absolute left-[50%] -translate-x-[50%] -bottom-[98%]  xl:bottom-10 -z-10 ">
+             <motion.div
+             initial={{ opacity: 0, y: 100 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             transition={{ duration: 1.8, ease: "easeInOut", type: "spring", stiffness: 100 }}
+             >
               <RightEllipseSVG
                 width={isLargeScreen ? 2786 : 1086}
                 height={isLargeScreen ? 2000 : 1086}
+                extraClass="opacity-70 -z-50"
               />
+            </motion.div>
             </div>
             <motion.div
+            custom={3}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
               variants={cardVariants}
               className="flex-none snap-center lg:mx-0"
             >
