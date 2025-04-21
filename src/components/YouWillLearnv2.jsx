@@ -3,9 +3,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionWrapper from "./SectionWrapper";
 import ClippedImageGeneric from "./utils/ClippedImageGeneric";
-import VisualDevelopment from "@/assets/Learn/1.png";
-import AnimationTechniques from "@/assets/Learn/2.png";
-import StoryTelling from "@/assets/Learn/3.png";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
 import ClippedBtn from "./utils/ClippedImageBtn";
 import CharacterFoo from "@/assets/characterFoo.png";
@@ -58,19 +55,19 @@ const MSALearningSection = () => {
 
   const cards = [
     {
-      imageUrl: VisualDevelopment?.src,
+      imageUrl: "https://res.cloudinary.com/da6qujoed/image/upload/v1745222078/1_kvsfln.png",
       title: "VISUAL DEVELOPMENT",
       description:
         "Explore the process of creating stunning visuals, from concept art to final rendered scenes.",
     },
     {
-      imageUrl: AnimationTechniques?.src,
+      imageUrl: "https://res.cloudinary.com/da6qujoed/image/upload/v1745222078/2_cnlveb.png",
       title: "Animation Techniques",
       description:
         "Dive deep into both traditional and digital animation methods to bring your characters and stories to life.",
     },
     {
-      imageUrl: StoryTelling?.src,
+      imageUrl: "https://res.cloudinary.com/da6qujoed/image/upload/v1745222078/3_ymmopd.png",
       title: "Story",
       title2: "Telling",
       description:
