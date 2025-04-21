@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
 // import { useMediaQuery } from "react-responsive";
 import Button from "./utils/Button";
@@ -43,10 +43,42 @@ const floatingAnimation = {
 const Banner = () => {
   // const isLargeScreen = useMediaQuery({ minWidth: 768 });
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
-  const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
-  const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
+
   const { handleScroll } = useScrollHandler();
   const [scrollY, setScrollY] = React.useState(0);
+  const leftLadyRef = useRef(null);
+  const rightLadyRef = useRef(null);
+
+  const leftControls = useAnimation();
+  const rightControls = useAnimation();
+
+  const leftInView = useInView(leftLadyRef, { once: true });
+
+  useEffect(() => {
+    if (leftInView) {
+      leftControls.start({
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: 0.2,
+          duration: 1.8,
+          ease: [0.43, 0.13, 0.23, 0.96],
+        },
+      });
+
+      // Start Right Lady after Left Lady's animation ends (1.8s + delay)
+      setTimeout(() => {
+        rightControls.start({
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 1.8,
+            ease: [0.43, 0.13, 0.23, 0.96],
+          },
+        });
+      }, 1500); // wait a bit more than 1.8s
+    }
+  }, [leftInView]);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -113,13 +145,9 @@ const Banner = () => {
           <div className="absolute left-[4%] lg:left-[6%] top-20 lg:-top-5 xl:-top-20 ms:w-[95vw] w-[92vw] md:w-[80vw] lg:w-[55vw] xl:w-[46rem] 2xl:w-[48rem]">
             {/* Left Lady */}
             <motion.div
+              ref={leftLadyRef}
               initial={{ opacity: 0, y: 100 }}
-              whileInView={{
-                y: 0,
-                opacity: 1,
-                transition: { delay: 0.2, duration: 1.8, ease: "easeInOut" },
-              }}
-              viewport={{ once: true }}
+              animate={leftControls}
               className="relative z-10 transform-gpu"
               style={{
                 willChange: "transform",
@@ -139,17 +167,9 @@ const Banner = () => {
 
             {/* Right Lady */}
             <motion.div
+              ref={rightLadyRef}
               initial={{ opacity: 0, y: 100 }}
-              whileInView={{
-                y: 0,
-                opacity: 1,
-                transition: {
-                  delay: 0.13,
-                  duration: 1.9,
-                  ease: [0.43, 0.13, 0.23, 0.96],
-                },
-              }}
-              viewport={{ once: true}}
+              animate={rightControls}
               className="relative z-20 transform-gpu"
               style={{
                 willChange: "transform",
