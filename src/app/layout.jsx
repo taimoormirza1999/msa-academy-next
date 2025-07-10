@@ -10,6 +10,7 @@ import SuppressErrors from "@/components/utils/SuppressErrors";
 import Loading from "@/components/Loading";
 import Menu from "@/components/Menu";
 import ScreenProvider from "@/components/ScreenProvider";
+// import SEOSchemas from "@/components/SEOSchemas";
 
 const MenschTrialBlack = localFont({
   src: "../../public/fonts/MenschTrialBlack.otf",
@@ -184,7 +185,7 @@ export default function RootLayout({ children }) {
       <meta name="google-site-verification" content="XwcHgu0NYksA4p3lf8Xr_na4o6gCuLD55KaJ6KznLSk" />
       <head>
         <ScriptsLoader />
-        <SEOSchemas />
+        {/* <SEOSchemas /> */}
       </head>
       <body>
         {/* NoScript Fallback for GTM */}
