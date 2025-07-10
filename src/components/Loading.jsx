@@ -1,10 +1,11 @@
 "use client";
 import React, { useState, useEffect, useCallback, memo } from "react";
-import { motion } from "framer-motion";
+import { motion,useReducedMotion } from "framer-motion";
 import DownElipse from "@/assets/DownElipse.png";
 import AnimatedNumber from "./AnimatedNumber";
 
 const Loading = memo(() => {
+  const reduceMotion = useReducedMotion();
   const [progress, setProgress] = useState(10);
 
   const updateProgress = useCallback(() => {
@@ -17,27 +18,27 @@ const Loading = memo(() => {
   }, [updateProgress]);
 
   const backgroundVariants = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    transition: { duration: 1 }
+    initial: reduceMotion ? {} : { opacity: 0 },
+    animate: reduceMotion ? {} : { opacity: 1 },
+    transition: reduceMotion ? {} : { duration: 1 }
   };
 
   const logoVariants = {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: { opacity: 1, scale: 1 },
-    transition: { duration: 0.8, delay: 0.2, ease: "easeInOut" }
+    initial: reduceMotion ? {} : { opacity: 0, scale: 0.8 },
+    animate: reduceMotion ? {} : { opacity: 1, scale: 1 },
+    transition: reduceMotion ? {} : { duration: 0.8, delay: 0.2, ease: "easeInOut" }
   };
 
   const percentageVariants = {
-    initial: { opacity: 0, y: 10 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, delay: 0.5, ease: "easeOut" }
+    initial: reduceMotion ? {} : { opacity: 0, y: 10 },
+    animate: reduceMotion ? {} : { opacity: 1, y: 0 },
+    transition: reduceMotion ? {} : { duration: 0.8, delay: 0.5, ease: "easeOut" }
   };
 
   const ellipseVariants = {
-    initial: { opacity: 0, y: 30, scale: 0.9 },
-    animate: { opacity: 1, y: 0, scale: 1 },
-    transition: { duration: 1, delay: 0.7, ease: "easeOut" }
+    initial: reduceMotion ? {} : { opacity: 0, y: 30, scale: 0.9 },
+    animate: reduceMotion ? {} : { opacity: 1, y: 0, scale: 1 },
+    transition: reduceMotion ? {} : { duration: 1, delay: 0.7, ease: "easeOut" }
   };
 
   return (

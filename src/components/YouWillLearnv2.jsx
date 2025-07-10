@@ -1,5 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
+import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import SectionWrapper from "./SectionWrapper";
 import ClippedImageGeneric from "./utils/ClippedImageGeneric";
@@ -13,19 +14,23 @@ import LeftEllipse from "@/assets/LeftEllipse.png";
 
 const Card = ({ imageUrl, title, description, title2, index }) => {
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
+  const reduce = useReducedMotion();
+
+  // only animate if NOT reduced
+  const initial = reduce ? {} : { y: -100, x: 100, opacity: 0 };
+  const animate = reduce ? {} : { y: 0, x: 0, opacity: 1 };
+  const transition = reduce
+    ? {}
+    : { type: "spring", stiffness: 100, damping: 20, duration: 0.8, delay: index * 0.2 };
+
   return (
     <motion.div
       className="flex flex-col items-center justify-center p-3 lg:p-6 -mt-20 lg:mt-0 min-w-[300px] lg:min-w-auto snap-center"
       whileTap={{ scale: 0.95 }}
-      initial={{ y: -100, x: 100, opacity: 0 }}
-      whileInView={{ y: 0, x: 0, opacity: 1 }}
-      transition={{
-        type: "spring",
-        stiffness: 100,
-        damping: 20,
-        duration: 0.8,
-        delay: index * 0.2,
-      }}
+      initial={initial}
+      whileInView={animate}
+      transition={transition}
+      viewport={{ once: true, amount: 0.3 }}
     >
       <ClippedImageGeneric
         height={isLargeScreen ? 320.18 : 350}
@@ -39,7 +44,6 @@ const Card = ({ imageUrl, title, description, title2, index }) => {
       {title2 && (
         <OutlineTextEffect title={title2} classes="w-full lg:text-[2.5rem]" />
       )}
-
       <p className="text-xl text-grayPrimary mt-5 text-center font-primary">
         {description}
       </p>
@@ -52,6 +56,7 @@ const MSALearningSection = () => {
   const isMediumScreen = useScreenStore((state) => state.isMediumScreen);
   const isMobileMScreen = useScreenStore((state) => state.isMobileMScreen);
   const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
+  const reduce = useReducedMotion();
 
   const cards = [
     {
@@ -173,20 +178,25 @@ const MSALearningSection = () => {
     },
   ];
 
+  // common heading animation props if not reduced
+  const headingAnim = !reduce
+    ? {
+        initial: { opacity: 0, y: 50 },
+        whileInView: { opacity: 1, y: 0 },
+        transition: { duration: 0.8, delay: 0.2 },
+        viewport: { once: true, amount: 0.3 },
+      }
+    : {};
+
   return (
     <section className="relative py-16 md:pb-8 xl:pt-5 ">
       <SectionWrapper>
         <div className="container mx-auto px-4 ">
-          <motion.h4
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl text-center font-primary lg:text-5xl uppercase text-white font-bold mb-2 font-ebold-ccm text-transparent bg-gradient-to-br from-[#B14BF4] to-[#4D91FF] bg-clip-text"
-          >
+          <motion.h4 {...headingAnim} className="text-2xl text-center font-primary lg:text-5xl uppercase text-white font-bold mb-2 font-ebold-ccm text-transparent bg-gradient-to-br from-[#B14BF4] to-[#4D91FF] bg-clip-text">
             <div className="relative mx-auto w-full md:w-[70%] lg:w-full justify-start ">
-              {<OutlineTextEffect title={"LEARN TO CREATE"} />}
+              <OutlineTextEffect title={"LEARN TO CREATE"} />
               <div className="my-2">
-                {<OutlineTextEffect title={"LIKE MSA"} />}
+                <OutlineTextEffect title={"LIKE MSA"} />
               </div>
               <Image
                 width={60}
@@ -207,9 +217,7 @@ const MSALearningSection = () => {
             </div>
           </motion.h4>
           <motion.h3
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            {...{ ...headingAnim, transition: { duration: 0.8, delay: 0.4 } }}
             className="text-base text-center font-primary lg:text-xl lg:w-[60%] mx-auto uppercase text-grayPrimary font-bold mt-3 mb-6"
           >
             Embark on a transformative journey to master the art of content
@@ -219,32 +227,41 @@ const MSALearningSection = () => {
           </motion.h3>
 
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-6 justify-center mb-10 overflow-x-hidden ">
-            {cards.map((card, index) => (
-              <div key={index}>
-                <Card index={index} {...card} />
-              </div>
+            {cards.map((card, idx) => (
+              <Card key={idx} index={idx} {...card} />
             ))}
           </div>
 
-          <motion.div className="lg:p-16 shadow-2xl rounded-[1rem] mt-10">
-            {<OutlineTextEffect title={"THE MSA LEARNING"} classes="w-full " />}
+          <motion.div
+            {...(!reduce
+              ? {
+                  initial: { opacity: 0, scale: 0.9 },
+                  whileInView: { opacity: 1, scale: 1 },
+                  transition: { duration: 0.8 },
+                  viewport: { once: true, amount: 0.3 },
+                }
+              : {})}
+            className="lg:p-16 shadow-2xl rounded-[1rem] mt-10"
+          >
+            <OutlineTextEffect title={"THE MSA LEARNING"} classes="w-full " />
             <div className="my-2">
-              {<OutlineTextEffect title={"EXPERIENCE"} classes="w-full " />}
+              <OutlineTextEffect title={"EXPERIENCE"} classes="w-full " />
             </div>
             <div className="relative flex flex-col-reverse justify-center items-center  lg:gap-0 2xl:gap-5 lg:items-center  mt-14 ">
               <div className="order md:order-0 lg:w-full flex flex-col items-center xl:items-start">
                 <ul className="text-lg text-gray-300 font-primary list-disc flex flex-col justify-start  ">
-                  {courses_list.map((course, index) => (
+                  {courses_list.map((course, idx) => (
                     <motion.div
-                      key={index}
-                      initial={{ x: -100, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
+                      key={idx}
+                      initial={reduce ? {} : { x: -100, opacity: 0 }}
+                      whileInView={reduce ? {} : { x: 0, opacity: 1 }}
                       transition={{
                         duration: 0.8,
-                        delay: index * 0.2,
+                        delay: idx * 0.2,
                         type: "spring",
                         stiffness: 100,
                       }}
+                      viewport={{ once: true, amount: 0.3 }}
                       className="lg:p-1.5 xl:p-2.5 py-1.5"
                     >
                       <ClippedBtn
@@ -253,21 +270,16 @@ const MSALearningSection = () => {
                         height={course.height}
                         textSize={isLargeScreen ? "text-2xl" : "text-xl"}
                         strokeWidth={2.16}
-                        key={index}
                       />
                     </motion.div>
                   ))}
                 </ul>
                 <div className="-ml-4 lg:-ml-4 self-center xl:self-start ">
                   <motion.div
-                    initial={{ x: -100, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    transition={{
-                      delay: 6 * 0.2,
-                      duration: 0.8,
-                      type: "spring",
-                      stiffness: 100,
-                    }}
+                    initial={reduce ? {} : { x: -100, opacity: 0 }}
+                    whileInView={reduce ? {} : { x: 0, opacity: 1 }}
+                    transition={{ delay: 6 * 0.2, duration: 0.8, type: "spring", stiffness: 100 }}
+                    viewport={{ once: true, amount: 0.3 }}
                   >
                     <Button
                       text="START YOUR JOURNEY"
@@ -280,14 +292,10 @@ const MSALearningSection = () => {
               </div>
 
               <motion.div
-                initial={{ scale: 0.5, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{
-                  duration: 0.5,
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 15,
-                }}
+                initial={reduce ? {} : { scale: 0.5, opacity: 0 }}
+                whileInView={reduce ? {} : { scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5, type: "spring", stiffness: 100, damping: 15 }}
+                viewport={{ once: true, amount: 0.3 }}
               >
                 <Image
                   className="-mt-3 lg:mt-4 md:mt-0 w-[18rem] self-center mb-5 lg:w-[28rem] xl:absolute bottom-0 lg:right-0 "

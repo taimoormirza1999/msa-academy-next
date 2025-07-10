@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion,useReducedMotion } from "framer-motion";
 import Image from "next/image";
 // import { useMediaQuery } from "react-responsive";
 import Button from "./utils/Button";
@@ -42,7 +42,8 @@ const floatingAnimation = {
   },
 };
 
-const Banner = () => {
+export const Banner = () => {
+  const reduceMotion = useReducedMotion();
   // const isLargeScreen = useMediaQuery({ minWidth: 768 });
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
   const { handleScroll } = useScrollHandler();
@@ -57,7 +58,9 @@ const Banner = () => {
   }, []);
 
   return (
-    <motion.div className="relative w-full mx-auto max-w-[1920px]  mb-7 md:mb-10 lg:mb-20 xl:mb-0 pb-10 pt-5 lg:pb-16 min-h-[600px] lg:min-h-[950px] xl:min-h-[70vh] 2xl:min-h-[1150px] z-20 overflow-visible">
+    <motion.div className="relative w-full mx-auto max-w-[1920px]  mb-7 md:mb-10 lg:mb-20 xl:mb-0 pb-10 pt-5 lg:pb-16 min-h-[600px] lg:min-h-[950px] xl:min-h-[70vh] 2xl:min-h-[1150px] z-20 overflow-visible"
+    initial={reduceMotion ? {} : undefined}
+    animate={reduceMotion ? {} : undefined}>
       <div className="absolute left-[50%] -translate-x-[50%] -bottom-40 xl:-bottom-10 -z-50">
         <RightEllipseSVG
           width={isLargeScreen ? 2786 : 1600}
@@ -66,8 +69,7 @@ const Banner = () => {
       </div>
 
       <motion.div
-        animate={floatingAnimation}
-        // style={{ x: scrollY * -0.2 }}
+       animate={reduceMotion ? {} : floatingAnimation}
       >
         <Image
           width={100}
@@ -79,7 +81,7 @@ const Banner = () => {
         />
       </motion.div>
 
-      <motion.div animate={floatingAnimation} style={{ x: scrollY * 0.2 }}>
+      <motion.div animate={reduceMotion ? {} : floatingAnimation} style={{ x: scrollY * 0.2 }}>
         <Image
           width={200}
           height={200}
@@ -91,8 +93,8 @@ const Banner = () => {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{
+         initial={reduceMotion ? {} : { opacity: 0, y: 100 }}
+         whileInView={reduceMotion ? {} : {
           y: 0,
           opacity: 1,
           transition: { delay: 0.5, duration: 1.8, ease: "easeInOut" },
@@ -217,7 +219,7 @@ const Banner = () => {
               ].map((tool, index) => (
                 <motion.div
                   key={index}
-                  variants={toolVariants}
+                  variants={reduceMotion ? {} : toolVariants}
                   custom={tool.delay}
                 >
                   <Image
@@ -237,4 +239,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+

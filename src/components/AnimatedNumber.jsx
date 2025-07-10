@@ -1,10 +1,18 @@
 "use client";
 
-import { motion, useSpring, useTransform } from "framer-motion";
+import { motion, useSpring, useTransform, useReducedMotion } from "framer-motion";
 import { useEffect } from "react";
 
 const AnimatedNumber = ({ value }) => {
-  const spring = useSpring(value, { mass: 0.8, stiffness: 75, damping: 15 });
+  const reduce = useReducedMotion();
+  if (reduce) {
+    return <span>{Math.round(value).toLocaleString()}</span>;
+  }
+  const spring = useSpring(value, {
+    mass: 0.8,
+    stiffness: 75,
+    damping: 15,
+  });
   const display = useTransform(spring, (current) =>
     Math.round(current).toLocaleString()
   );

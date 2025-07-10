@@ -1,9 +1,11 @@
 import Image from "next/image";
 import React, { useState, useCallback, useMemo } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { motion, useReducedMotion } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignupForm = React.memo(() => {
+  const reduceMotion = useReducedMotion();
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [showPopup, setShowPopup] = useState(true);
@@ -96,8 +98,10 @@ const SignupForm = React.memo(() => {
   );
 
   return showPopup ? (
-    <div className="fixed inset-0 bg-black/90 bg-opacity-80 flex justify-center items-center z-50">
-      <div className="w-[90%] lg:w-full bg-[#111] rounded-lg max-w-md shadow-2xl shadow-pink200/30 lg:shadow-pink200/20">
+    <motion.div className="shadow shadow-pink200/40 fixed inset-0 bg-black/90 bg-opacity-80 flex justify-center items-center z-50" initial={reduceMotion ? {} : { opacity: 0 }}
+       animate={reduceMotion ? {} : { opacity: 1 }}
+       transition={{ duration: reduceMotion ? 0 : 0.5 }}>
+      <div className=" w-[90%] lg:w-full bg-[#111] rounded-lg max-w-md shadow-2xl shadow-pink200/60 lg:shadow-pink200/20">
         <Image
           height={500}
           width={1080}
@@ -125,7 +129,7 @@ const SignupForm = React.memo(() => {
         )}
       </div>
       <ToastContainer />
-    </div>
+    </motion.div>
   ) : null;
 });
 

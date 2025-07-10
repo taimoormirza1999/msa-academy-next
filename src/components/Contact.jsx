@@ -12,7 +12,7 @@ import logoogdgirl from "../assets/logoogdgirl.png";
 import HerogramLogo from "../assets/herogrmlogo.png";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion,useReducedMotion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import Bubble from "@/assets/bubble.svg";
 import OuterBorderChildren from "./utils/OuterBorderChildren";
@@ -20,9 +20,11 @@ import LeftEllipse from "@/assets/ElipseDown.png";
 
 function Contact() {
   const issmallScreen = useMediaQuery({ maxWidth: 768 });
-
+  const reduceMotion = useReducedMotion();
   return (
-    <div className="relative mx-auto max-w-[1920px] xl:pt-20">
+    <motion.div className="relative mx-auto max-w-[1920px] xl:pt-20"
+    initial={reduceMotion ? {} : undefined}
+    animate={reduceMotion ? {} : undefined}>
       <Image
         width={500}
         height={500}
@@ -34,8 +36,8 @@ function Contact() {
       <div className="flex flex-col lg:flex-row justify-end items-center p-0 lg-w-1/2 lg:p-8  text-white">
         <div className="flex flex-col items-center">
           <motion.div
-            initial={issmallScreen ? { opacity: 0, y: 50 } : {}}
-            whileInView={issmallScreen ? { opacity: 1, y: 0 } : {}}
+            initial={reduceMotion ? {} : issmallScreen ? { opacity: 0, y: 50 } : {}}
+            whileInView={reduceMotion ? {} : issmallScreen ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-row items-center gap-4 lg:gap-3 lg:mx-3"
             suppressHydrationWarning={true}
@@ -59,10 +61,10 @@ function Contact() {
           </motion.div>
           {/* Social Media Links */}
           <motion.div
-            initial={issmallScreen ? { opacity: 0, y: 50 } : undefined}
-            whileInView={issmallScreen ? { opacity: 1, y: 0 } : undefined}
+            initial={reduceMotion ? {} : issmallScreen ? { opacity: 0, y: 50 } : undefined}
+            whileInView={reduceMotion ? {} : issmallScreen ? { opacity: 1, y: 0 } : undefined}
             transition={
-              issmallScreen ? { duration: 0.8, delay: 0.4 } : undefined
+              reduceMotion ? {} : issmallScreen ? { duration: 0.8, delay: 0.4 } : undefined
             }
             className="flex justify-center items-center space-x-0.5 md:mx-4 my-5"
           >
@@ -99,24 +101,24 @@ function Contact() {
           {/* Contact Us Section */}
           <div className="flex flex-col items-center lg:items-start md:mx-3">
             <motion.h5
-              initial={issmallScreen && { opacity: 0, y: 50 }}
-              whileInView={issmallScreen && { opacity: 1, y: 0 }}
+              initial={reduceMotion ? {} : issmallScreen && { opacity: 0, y: 50 }}
+              whileInView={reduceMotion ? {} : issmallScreen && { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="font-semibold text-2xl xl:text-3xl mb-3 lg:mb-2 font-primary "
             >
               CONTACT US
             </motion.h5>
             <motion.p
-              initial={issmallScreen && { opacity: 0, y: 50 }}
-              whileInView={issmallScreen && { opacity: 1, y: 0 }}
+              initial={reduceMotion ? {} : issmallScreen && { opacity: 0, y: 50 }}
+              whileInView={reduceMotion ? {} : issmallScreen && { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-base mb-2 font-primary"
             >
               Contact@msa-club.com
             </motion.p>
             <motion.p
-              initial={issmallScreen && { opacity: 0, y: 50 }}
-              whileInView={issmallScreen && { opacity: 1, y: 0 }}
+              initial={reduceMotion ? {} : issmallScreen && { opacity: 0, y: 50 }}
+              whileInView={reduceMotion ? {} : issmallScreen && { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-sm mb-2 font-primary"
             >
@@ -127,9 +129,9 @@ function Contact() {
           {/* Privacy Policy Button */}
           <div className="flex flex-row items-center justify-between gap-3 -mt-2 xl:-mt-10">
             <motion.div
-              initial={issmallScreen && { opacity: 0, y: 50 }}
-              whileInView={issmallScreen && { opacity: 1, y: 0 }}
-              transition={issmallScreen && { duration: 0.8, delay: 0.4 }}
+              initial={reduceMotion ? {} : issmallScreen && { opacity: 0, y: 50 }}
+              whileInView={reduceMotion ? {} : issmallScreen && { opacity: 1, y: 0 }}
+              transition={reduceMotion ? {} : issmallScreen && { duration: 0.8, delay: 0.4 }}
               className="mb-5 mt-4 md:mb-7 lg:mb-0"
             >
               <Link
@@ -152,9 +154,9 @@ function Contact() {
               </Link>
             </motion.div>
             <motion.div
-              initial={issmallScreen && { opacity: 0, y: 50 }}
-              whileInView={issmallScreen && { opacity: 1, y: 0 }}
-              transition={issmallScreen && { duration: 0.8, delay: 0.4 }}
+              initial={reduceMotion ? {} : issmallScreen && { opacity: 0, y: 50 }}
+              whileInView={reduceMotion ? {} : issmallScreen && { opacity: 1, y: 0 }}
+              transition={reduceMotion ? {} : issmallScreen && { duration: 0.8, delay: 0.4 }}
               className="mb-5 mt-4 md:mb-7 lg:mb-0"
             >
               <Link
@@ -185,9 +187,9 @@ function Contact() {
             draggable="false"
             className="mt-4 md:mt-0  w-[75%] xl:w-[32rem] h-auto "
           />
-          <motion.div  initial={issmallScreen && { opacity: 0, y: 50 }}
-              whileInView={issmallScreen && { opacity: 1, y: 0 }}
-              transition={issmallScreen && { duration: 0.8, delay: 0.8, type: "spring" }}
+          <motion.div  initial={reduceMotion ? {} : issmallScreen && { opacity: 0, y: 50 }}
+              whileInView={reduceMotion ? {} : issmallScreen && { opacity: 1, y: 0 }}
+              transition={reduceMotion ? {} : issmallScreen && { duration: 0.8, delay: 0.8, type: "spring" }}
               className="absolute bottom-48 md:bottom-44 left-52  md:left-52 lg:left-52  lg:top-10 xl:top-24 xl:left-96  mt-3">
 
           <Image
@@ -201,7 +203,7 @@ function Contact() {
             </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

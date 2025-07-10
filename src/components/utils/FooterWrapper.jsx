@@ -38,17 +38,17 @@ export default function FooterWrapper() {
             <FAQ />
           </LoaderWrapper>
       </Suspense>
-      {showToast && (
+      {/* {showToast && (
         <Suspense fallback={<Loader />}>
-          {/* <EnrollmentToast
+          <EnrollmentToast
             name={currentName}
             courseName="Character Animation Design Course"
             timestamp={`About ${Math.round(joinTime)} hours ago`}
             onDismiss={() => setShowToast(false)}
             duration={10000000}
-          /> */}
+          />
         </Suspense>
-    )} 
+    )}  */}
       <Footer />
     </>
   );

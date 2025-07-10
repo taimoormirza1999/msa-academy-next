@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Link from "next/link";
 import ClippedImageGeneric from "../utils/ClippedImageGeneric";
 

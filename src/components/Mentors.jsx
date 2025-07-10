@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import MentorsCard1 from "../assets/Mentors/1.png";
 import MentorsCard2 from "../assets/Mentors/2.png";
 import MentorsCard3 from "../assets/Mentors/3.png";
-import { motion } from "framer-motion";
+import { motion,useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Bubble from "@/assets/bubble.svg";
 import SectionWrapper from "./SectionWrapper";
@@ -11,28 +11,27 @@ import useScreenStore from "@/store/useScreenStore";
 import RightEllipseSVG from "./utils/icons/RightEllipseSVG";
 
 const Mentors = () => {
+  const shouldReduceMotion = useReducedMotion();
+  const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
+  const disableMotion = shouldReduceMotion || isMobileSScreen;
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
   const isLaptopMediumScreen = useScreenStore(
     (state) => state.isLaptopMediumScreen
   );
   const sliderRef = useRef(null);
-  const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
   const containerVariants = {
     hidden: {},
-    show: {},
+    show: { transition: disableMotion ? {} : { staggerChildren: 0.3 }},
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 60 },
+    hidden: { opacity: disableMotion ? 1 : 0, y: disableMotion ? 0 : 60 },
     show: (i) => ({
       opacity: 1,
       y: 0,
-      transition: {
-        delay: 0.3 * i,
-        duration: 1.5,
-        type: "spring",
-        stiffness: 100,
-      },
+      transition: disableMotion
+         ? { duration: 0 }
+         : { delay: 0.3 * i, duration: 1.5, type: "spring", stiffness: 100 },
     }),
   };
   useEffect(() => {
@@ -42,12 +41,9 @@ const Mentors = () => {
   }, []);
   return (
     <motion.div
-      initial={{ opacity: 0, y: 100 }}
-      whileInView={{
-        y: 0,
-        opacity: 1,
-        transition: { duration: 1.8, ease: "easeInOut" , type: "spring", stiffness: 100},
-      }}
+     initial="hidden"
+     whileInView="show"
+     transition={{ duration: 1.8, ease: "easeInOut" , type: "spring", stiffness: 100}}
       className="relative h-auto bg-cover bg-center mt-5 md:mb-8 md:mt-16 lg:mt-24 lg:mb-10  w-[100%] md:w-full lg:w-95 2xl:w-85 mx-auto max-w-[1920px]"
     >
       <SectionWrapper>
@@ -98,10 +94,19 @@ const Mentors = () => {
 
             <div className="absolute left-[50%] -translate-x-[50%] -bottom-[98%]  xl:bottom-10 -z-10 ">
              <motion.div
-             initial={{ opacity: 0, y: 100 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             transition={{ duration: 1.8, ease: "easeInOut", type: "spring", stiffness: 100 }}
-             >
+             initial="hidden"
+             whileInView="show"
+             variants={{
+                        hidden: { opacity: disableMotion ? 1 : 0, y: disableMotion ? 0 : 100 },
+                          show: {
+                            opacity: 1,
+                            y: 0,
+                            transition: disableMotion
+                              ? { duration: 0 }
+                              : { duration: 1.8, ease: "easeInOut", type: "spring", stiffness: 100 },
+                          },
+                        }}
+                        viewport={{ once: true, amount: disableMotion ? 1 : 0.3 }}             >
               <RightEllipseSVG
                 width={isLargeScreen ? 2786 : 1086}
                 height={isLargeScreen ? 2000 : 1086}
@@ -154,4 +159,4 @@ const Mentors = () => {
   );
 };
 
-export default Mentors;
+export default React.memo(Mentors);

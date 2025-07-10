@@ -18,6 +18,15 @@ const Button = React.memo(({width = 250, height = 133, text = "Enroll Now", text
       </button>
     </div>
   );
-});
+}, (prev, next) => (
+  prev.width === next.width &&
+  prev.height === next.height &&
+  prev.text === next.text &&
+  prev.textSize === next.textSize &&
+  prev.handleScroll === next.handleScroll &&
+  prev.onClick === next.onClick &&
+  prev.navButton === next.navButton
+));
+
 Button.displayName = 'Button';
 export default Button;

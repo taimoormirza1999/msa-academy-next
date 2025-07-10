@@ -45,9 +45,6 @@ const ClippedTestimonialCard = ({
           height={height}
           clipPath={`url(#${clipId})`} // Corrected unique clip ID
         >
-          {/* <h3 className="text-center flex items-center justify-center bg-black text-white text-3xl leading-tight font-primary  p-4">
-            {text}
-          </h3> */}
           {children}
         </foreignObject>
 

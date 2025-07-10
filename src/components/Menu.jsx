@@ -1,18 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import DownElipse from "@/assets/DownElipse.png";
-import AnimatedNumber from "./AnimatedNumber";
 import { IoClose } from "react-icons/io5";
 
 const Menu = ({onClose, handleScroll}) => {
-  const [progress, setProgress] = useState(10);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prev) => (prev < 100 ? prev + 10 : 100));
-    }, 500);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="relative flex flex-col items-center justify-center w-full h-screen bg-black overflow-y-hidden ">

@@ -62,13 +62,13 @@ const ReviewCard = ({ img, name, username, body }) => {
       <div className="mx-2 ml-5 lg:mx-6 ">
         <div className="flex flex-row items-start gap-2 lg:gap-4 mt-7 pt-[2%] md:pt-[1%] lg:pt-[4%]">
           {/* Image */}
-          <div className="self-start ms:-mt-10 ml:-mt-10 mt-0 lg:-mt-16 ">
+          <div className="self-start -mt-2 lg:-mt-16 ">
             <ClippedImageGeneric
               imageUrl={img}
-              width={isLargeScreen ? 145.26 : 65.26}
-              height={isLargeScreen ? 145.26 : 65.26}
+              width={isLargeScreen ? 145.26 : 75}
+              height={isLargeScreen ? 145.26 : 75}
               value={15}
-              rightTopClass="top-[7.5px] right-[7.5px]"
+              rightTopClass="top-2 lg:top-[7.5px] right-[7.5px]"
             />
           </div>
           <div className="flex flex-col">

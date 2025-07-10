@@ -1,14 +1,15 @@
 import React from "react";
 import YourPathImage from "../assets/path_banner.png"; // Replace with your actual image path
 import BannerTextHeading from "./utils/BannerTextHeading";
-import { motion } from "framer-motion";
+import { motion,useReducedMotion } from "framer-motion";
 import Image from "next/image";
 
-const YourPath = () => {
+const YourPath = () => { 
+  const reduceMotion = useReducedMotion();
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{
+      initial={reduceMotion ? {} : { opacity: 0 }}
+      whileInView={reduceMotion ? {} : {
         opacity: 1,
         transition: { duration: 1.5, ease: "easeInOut" },
       }}

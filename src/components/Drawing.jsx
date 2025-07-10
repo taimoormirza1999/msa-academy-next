@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion,useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import SectionWrapper from "./SectionWrapper";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
@@ -7,11 +7,12 @@ import Bubble from "@/assets/bubble.svg";
 import RightEllipseSVG from "./utils/icons/RightEllipseSVG";
 
 const Drawing = () => {
+  const reduceMotion = useReducedMotion();
   return (
     <SectionWrapper>
       <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{
+        initial={reduceMotion ? {} : { opacity: 0, y: 100 }}
+        whileInView={reduceMotion ? {} : {
           y: 0,
           opacity: 1,
           transition: { duration: 1.8, ease: "easeInOut" },

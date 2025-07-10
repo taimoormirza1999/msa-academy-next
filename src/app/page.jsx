@@ -3,6 +3,7 @@ import { useEffect, useState, lazy, Suspense } from "react";
 import LoaderWrapper from "@/components/utils/LoaderWrapper";
 import Loading from "@/components/Loading";
 import Navigation from "@/components/Navigation";
+import { Banner } from "@/components/Banner";
 
 const SignupForm = lazy(() => import("../components/SignupForm"));
 const BlogCards = lazy(() => import("../components/blog/BlogCards"));
@@ -10,7 +11,6 @@ const MSALearningSection = lazy(() => import("@/components/YouWillLearnv2"));
 const FooterWrapper = lazy(() => import("@/components/utils/FooterWrapper"));
 
 const MarqueeWrapper2 = lazy(() => import("../components/MarqueeWrapper2"));
-const Banner = lazy(() => import("../components/Banner"));
 const YourPath = lazy(() => import("../components/YourPath"));
 const Animation = lazy(() => import("../components/Animation"));
 const Drawing = lazy(() => import("../components/Drawing"));
@@ -77,7 +77,6 @@ const Home = () => {
               </LoaderWrapper>
           </Suspense>
           <Suspense fallback={<LoadingFallback />}>
-            
               <LoaderWrapper>
                 <YourPath />
               </LoaderWrapper>

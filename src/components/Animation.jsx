@@ -9,18 +9,15 @@ import VideoGallery from "./VideoSections";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
 import RightEllipseSVG from "./utils/icons/RightEllipseSVG";
 import useScrollHandler from "@/store/useScrollHandler";
-import { motion } from "framer-motion";
+import { motion,useReducedMotion } from "framer-motion";
 
 function Animation() {
   const {handleScroll } = useScrollHandler();
+  const shouldReduce = useReducedMotion();
   return (
     <motion.section
-    initial={{ opacity: 0, y: 100 }}
-    whileInView={{
-      y: 0,
-      opacity: 1,
-      transition: { duration: 1.8, ease: "easeInOut", type: "spring", stiffness: 100 },
-    }}
+    initial={shouldReduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+    whileInView={shouldReduce ? {} : { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" }}}
       className="relative text-white pt-20 pb-0 lg:py-20"
       id="animation-course"
     >
@@ -58,9 +55,14 @@ function Animation() {
 
             {/* Right Image Section */}
             {/* <div className="relative w-full lg:w-1/2 flex items-center justify-center "> */}
-            <motion.div   initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 2, ease: "easeInOut", type: "spring" }} className="relative w-full lg:w-1/2 flex items-center justify-center overflow-visible z-10">
+            <motion.div   initial="hidden"
+            whileInView="show"
+            variants={{
+              hidden: { opacity: 0, scale: 0.8 },
+              show: { opacity: 1, scale: 1 },
+            }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 2, ease: "easeInOut", type: "spring" }} className="relative w-full lg:w-1/2 flex items-center justify-center overflow-visible z-10">
               {/* Puppet Girl Image */}
              
               <Image
