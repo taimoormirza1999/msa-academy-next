@@ -33,7 +33,7 @@ const Home = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
       const totalHeight = document.documentElement.scrollHeight;
-      if (scrollPosition >= totalHeight * 0.4) {
+      if (scrollPosition >= totalHeight * 0.7) {
         const cookies = document.cookie.split("; ");
         const emailCookie = cookies.find((row) => row.startsWith("email="));
         if (emailCookie) {

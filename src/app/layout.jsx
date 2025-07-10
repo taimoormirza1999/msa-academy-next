@@ -141,7 +141,7 @@ export const metadata = {
     authors: ["Taimoor Hamza"],
     locale: 'en_US',
     type: 'website',
-    url: "https://msa-academy.com/",
+    url: "https://msa-club.com/",
   },
 
   twitter: {
@@ -184,6 +184,7 @@ export default function RootLayout({ children }) {
       <meta name="google-site-verification" content="XwcHgu0NYksA4p3lf8Xr_na4o6gCuLD55KaJ6KznLSk" />
       <head>
         <ScriptsLoader />
+        <SEOSchemas />
       </head>
       <body>
         {/* NoScript Fallback for GTM */}

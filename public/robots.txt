@@ -1,2 +1,32 @@
+# MSA Club - Animation Academy Robots.txt
+# Allow all search engines to crawl the site
 User-agent: *
 Allow: /
+
+# Specific rules for Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Specific rules for Bingbot  
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Block access to admin areas and API endpoints
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow access to important pages
+Allow: /blog/
+Allow: /privacy-policy
+Allow: /success
+
+# Sitemap location
+Sitemap: https://msa-club.com/sitemap.xml
+Sitemap: https://msa-club.com/sitemap-0.xml
+
+# Host declaration (preferred domain)
+Host: https://msa-club.com
