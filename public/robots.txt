@@ -23,6 +23,7 @@ Disallow: /private/
 Allow: /blog/
 Allow: /privacy-policy
 Allow: /success
+Allow: /blog/post/*
 
 # Sitemap location
 Sitemap: https://msa-club.com/sitemap.xml

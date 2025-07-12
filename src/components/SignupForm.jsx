@@ -23,7 +23,7 @@ const SignupForm = React.memo(() => {
       setLoading(true);
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_VITE_BACKEND_API}subscribe2`,
+          `/api/mailchimp`,
           {
             method: "POST",
             headers: {
