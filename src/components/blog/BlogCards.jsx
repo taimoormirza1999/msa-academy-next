@@ -58,7 +58,7 @@ function MultipleItems() {
     const fetchBlogs = async () => {
       try {
         const response = await fetch(
-          `${process.env.FRONTEND}/api/blogs?limit=8`
+          `/api/blogs?limit=8`
         );
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const data = await response.json();
