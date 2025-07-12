@@ -132,7 +132,7 @@ const BlogClient = ({ blogData, recentblogData }) => {
         </SectionWrapper>
         {blogData && <BlogImageProcessor contentRef={contentRef} />}
       </div>
-      <BlogCardsDynamic apiEndpoint={`${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs?limit=8`} text1={"Recomened Blogs"}   />
+      <BlogCardsDynamic apiEndpoint={`/api/blogs?limit=8`} text1={"Recomened Blogs"}   />
     </>
   );
 };

@@ -58,7 +58,7 @@ function MultipleItems() {
     const fetchBlogs = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs?limit=8`
+          `${process.env.FRONTEND}/api/blogs?limit=8`
         );
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const data = await response.json();

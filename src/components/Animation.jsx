@@ -18,7 +18,7 @@ function Animation() {
     <motion.section
     initial={shouldReduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
     whileInView={shouldReduce ? {} : { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" }}}
-      className="relative text-white pt-20 pb-0 lg:py-20"
+      className="relative text-white pt-20 pb-0 lg:py-20 lg:pt-24"
       id="animation-course"
     >
       <SectionWrapper>

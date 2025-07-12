@@ -3,7 +3,10 @@ import { notFound } from "next/navigation";
 
 const fetchBlogData = async (name) => {
   try {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs/post/${name}`);
+  // Use absolute URL for server-side fetching
+  const baseUrl = process.env.FRONTEND || (typeof window === 'undefined' ? 'http://localhost:3000' : '');
+  const url = baseUrl ? `${baseUrl}/api/blogs/post/${name}` : `/api/blogs/post/${name}`;
+  const response = await fetch(url);
       
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -18,7 +21,10 @@ const fetchBlogData = async (name) => {
 
 const fetchRecentBlogs = async (name) => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_VITE_BACKEND_ADMIN_APIS}blogs/recent-blogs?limit=5`)
+    // Use absolute URL for server-side fetching
+    const baseUrl = process.env.FRONTEND || (typeof window === 'undefined' ? 'http://localhost:3000' : '');
+    const url = baseUrl ? `${baseUrl}/api/blogs/recent-blogs?limit=5` : `/api/blogs/recent-blogs?limit=5`;
+    const response = await fetch(url);
     const data = await response.json();
     return data.filter((blog) => blog.friendlyUrl !== name);
   } catch (error) {

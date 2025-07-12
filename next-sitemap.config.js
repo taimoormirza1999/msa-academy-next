@@ -8,7 +8,8 @@ module.exports = {
     '/admin/*',
     '/api/*', 
     '/private/*',
-    '/_next/*'
+    '/_next/*',
+    '/sitemap-blogs.xml'
   ],
   
   // Static routes configuration

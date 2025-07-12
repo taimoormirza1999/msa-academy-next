@@ -9,9 +9,7 @@ import useScreenStore from "@/store/useScreenStore";
 import OuterBorderChildren from "./utils/OuterBorderChildren";
 import Script from "next/script";
 
-const stripePromise = loadStripe(
-  "pk_live_51Qhw1HLwU3D5iSNdsBrJTd7f7yj9esN4q1AHQq5mrIZ97b9zMIXZm2bGuGE4rWor9g834yX69XQaJyTK7YTZZoBv006QEY1UVB"
-);
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_VITE_STRIPE_PUBLIC_KEY);
 
 const Checkout = ({ showModal, setShowModal }) => {
   const [loadScript] = useState(true);
@@ -60,7 +58,7 @@ const Checkout = ({ showModal, setShowModal }) => {
       priceAmount: pkg.price,
     };
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_VITE_BACKEND_API}create-checkout-session`,
+      `/api/create-checkout-session`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
