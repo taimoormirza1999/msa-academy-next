@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import DownElipse from "@/assets/DownElipse.png";
+import DownElipse from "@/assets/DownElipse.webp";
 import { IoClose } from "react-icons/io5";
 
 const Menu = ({onClose, handleScroll}) => {
@@ -40,12 +40,12 @@ const Menu = ({onClose, handleScroll}) => {
         </ul>
       </div>
       <img
-        src={DownElipse.src}
+        src={DownElipse.src} loading="lazy"
         alt="Elipse Logo"
         className="h-auto absolute -bottom-20 opacity-60"
       />
       <img
-        src={DownElipse.src}
+        src={DownElipse.src} loading="lazy"
         alt="Elipse Logo"
         className="h-auto absolute -top-20 opacity-60 scale-y-[-1]"
       />

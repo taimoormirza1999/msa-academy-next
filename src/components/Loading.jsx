@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useCallback, memo } from "react";
 import { motion,useReducedMotion } from "framer-motion";
-import DownElipse from "@/assets/DownElipse.png";
+import DownElipse from "@/assets/DownElipse.webp";
 import AnimatedNumber from "./AnimatedNumber";
 
 const Loading = memo(() => {
@@ -68,7 +68,7 @@ const Loading = memo(() => {
 
       {/* Bottom Ellipse Animation */}
       <motion.img
-        src={DownElipse.src}
+        src={DownElipse.src} loading="eager"
         alt="Elipse Logo"
         className="h-[70rem] lg:h-auto absolute bottom-0 md:bottom-0"
         {...ellipseVariants}

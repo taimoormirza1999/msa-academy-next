@@ -75,9 +75,10 @@ const EastmanRomanTrialBold = localFont({
 // });
 
 export const metadata = {
-  manifest: "https://msa-club.com/manifest.json",
+  metadataBase: new URL("https://msa-club.com"),
+  manifest: "/manifest.json",
   title:
-    "Animation Character Design Course | Master Chracter Creation | MSA Club",
+    "Animation Character Design Course | Master Character Creation | MSA Club",
   description:
     "Learn character animation and drawing with MSA Academy. Master Blender, After Effects, and 3D animation through expert-led courses. Join now for free resources and certification!",
   keywords: [
@@ -104,6 +105,18 @@ export const metadata = {
   referrer: "origin-when-cross-origin",
   creator: "Taimoor Hamza",
   publisher: "Artoul",
+  alternates: {
+    canonical: "https://msa-club.com",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/favicon-192x192.png",
+  },
   robots: {
     index: true,
     follow: true,
@@ -122,29 +135,25 @@ export const metadata = {
     locale: "en_US",
     type: "website",
     title:
-      "Animation 3D Design Course | Master Chracter Creation | MSA Club",
+      "Animation 3D Design Course | Master Character Creation | MSA Club",
     description:
-      "Transform your artistic skills with our comprehensive Animation Character Design	Course. Learn from industry experts and bring your characters to life. Enroll now!",
+      "Transform your artistic skills with our comprehensive Animation Character Design Course. Learn from industry experts and bring your characters to life. Enroll now!",
+    url: "https://msa-club.com/",
     images: [
-      {
-        url: "https://msa-club.com/logo.png",
-        width: 800,
-        height: 600,
-        alt: "MSA Club Logo Image",
-      },
       {
         url: "https://msa-club.com/hero_banner.png",
         width: 1800,
         height: 1600,
-        alt: "MSA Club Logo Image",
+        alt: "MSA Club Hero Banner",
+      },
+      {
+        url: "https://msa-club.com/logo.png",
+        width: 245,
+        height: 95,
+        alt: "MSA Club Logo",
       },
     ],
-    authors: ["Taimoor Hamza"],
-    locale: 'en_US',
-    type: 'website',
-    url: "https://msa-club.com/",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "MSA Academy | Master Anime & Character Animation",
@@ -155,23 +164,12 @@ export const metadata = {
         url: "https://msa-club.com/hero_banner.png",
         width: 1200,
         height: 630,
-        alt: "MSA Academy Logo",
+        alt: "MSA Academy Banner",
       },
     ],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
   verification: {
-    google: ' XwcHgu0NYksA4p3lf8Xr_na4o6gCuLD55KaJ6KznLSk', // آپ کا Google Search Console verification ID
+    google: "XwcHgu0NYksA4p3lf8Xr_na4o6gCuLD55KaJ6KznLSk",
   },
 };
 
@@ -182,7 +180,6 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning={true}
       className={`${MenschTrialBlack.variable} ${EastmanRomanTrialBlack.variable} ${EastmanRomanTrialDemiBold.variable} ${EastmanRomanTrialBold.variable} `}
     >
-      <meta name="google-site-verification" content="XwcHgu0NYksA4p3lf8Xr_na4o6gCuLD55KaJ6KznLSk" />
       <head>
         <ScriptsLoader />
         {/* <SEOSchemas /> */}

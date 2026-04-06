@@ -6,7 +6,7 @@ import Link from "next/link";
 import Button from "./utils/Button";
 import Menu from "./Menu";
 import { motion, AnimatePresence } from "framer-motion";
-import DownElipse from "@/assets/DownElipse.png";
+import DownElipse from "@/assets/DownElipse.webp";
 import Image from "next/image";
 import useScrollHandler from "@/store/useScrollHandler";
 
@@ -50,7 +50,7 @@ import useScrollHandler from "@/store/useScrollHandler";
           height={500}
           width={500}
           draggable="false"
-          src={DownElipse.src}
+          src={DownElipse} quality={60} sizes="100vw" loading="eager"
           alt="Elipse Top"
           className="w-full absolute top-0 lg:-top-10  scale-y-[-1] -z-10"
           priority

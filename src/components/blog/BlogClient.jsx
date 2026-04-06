@@ -5,7 +5,7 @@ import DOMPurify from "dompurify";
 import Image from "next/image";
 import Script from "next/script";
 import BlogDetailHeroImage from "../utils/BlogDetailHeroImage";
-import Bubble from "@/assets/bubble.svg";
+import Bubble from "@/assets/bubble.webp";
 import RightEllipseSVG from "../utils/icons/RightEllipseSVG";
 import SectionWrapper from "../SectionWrapper";
 import ClippedAutoWidthBtn from "../utils/ClippedAutoWidthBtn";

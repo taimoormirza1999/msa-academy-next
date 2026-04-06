@@ -5,7 +5,7 @@ import ClippedBtn from "./utils/ClippedImageBtn";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
 import SectionWrapper from "./SectionWrapper";
 import useScreenStore from "@/store/useScreenStore";
-import Bubble from "@/assets/bubble.svg";
+import Bubble from "@/assets/bubble.webp";
 import Image from "next/image";
 
 const FAQ = () => {

@@ -6,9 +6,10 @@ module.exports = {
   outDir: './public',
   exclude: [
     '/admin/*',
-    '/api/*', 
+    '/api/*',
     '/private/*',
     '/_next/*',
+    '/success',
     '/sitemap-blogs.xml'
   ],
   
@@ -28,9 +29,39 @@ module.exports = {
         lastmod: new Date().toISOString(),
       },
       {
-        loc: '/success',
+        loc: '/blog',
+        changefreq: 'daily',
+        priority: 0.9,
+        lastmod: new Date().toISOString(),
+      },
+      {
+        loc: '/about',
         changefreq: 'monthly',
-        priority: 0.5,
+        priority: 0.8,
+        lastmod: new Date().toISOString(),
+      },
+      {
+        loc: '/courses',
+        changefreq: 'weekly',
+        priority: 0.9,
+        lastmod: new Date().toISOString(),
+      },
+      {
+        loc: '/animation-course',
+        changefreq: 'weekly',
+        priority: 0.9,
+        lastmod: new Date().toISOString(),
+      },
+      {
+        loc: '/character-design',
+        changefreq: 'weekly',
+        priority: 0.9,
+        lastmod: new Date().toISOString(),
+      },
+      {
+        loc: '/contact',
+        changefreq: 'monthly',
+        priority: 0.7,
         lastmod: new Date().toISOString(),
       }
     ];

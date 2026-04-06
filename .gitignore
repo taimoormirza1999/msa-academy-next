@@ -42,3 +42,16 @@ next-env.d.ts
 package-lock.json
 yarn.lock
 package-lock.json
+pnpm-lock.yaml
+pnpm-workspace.yaml
+.pnpmrc.json
+
+# logs
+.log
+
+# scripts
+proxy.sh
+proxyv2.sh
+
+# misc
+let

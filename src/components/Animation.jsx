@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import PuppetGirl from "../assets/SecondSection/PuppetGirl.png";
-import Bubble from "@/assets/bubble.svg";
+import PuppetGirl from "../assets/SecondSection/PuppetGirl.webp";
+import Bubble from "@/assets/bubble.webp";
 import SectionWrapper from "./SectionWrapper";
 import Button from "./utils/Button";
 import VideoGallery from "./VideoSections";
@@ -34,7 +34,7 @@ function Animation() {
                 <Image
                   width={60}
                   height={60}
-                  src={Bubble.src}
+                  src={Bubble} quality={50} loading="lazy"
                   alt="Floating Bubble"
                   className="absolute -top-72 left-10 md:-top-[29rem] lg:-top-16 md:left-14 lg:-left-12 w-10 md:w-16 lg:w-14 h-auto animate-pulse"
                 />
@@ -68,7 +68,7 @@ function Animation() {
               <Image
                 width={600}
                 height={600}
-                src={PuppetGirl.src}
+                src={PuppetGirl} quality={75} sizes="(max-width: 768px) 90vw, 30rem" loading="lazy"
                 draggable="false"
                 alt="Puppet Girl"
                 className="w-[90%] md:w-[70%] lg:w-full max-w-md md:max-w-xl"

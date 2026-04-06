@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
-import Bubbles from "@/assets/bubbles.svg";
+import Bubbles from "@/assets/bubbles.webp";
 import { motion, useReducedMotion } from "framer-motion";
 import ClippedCard from "./utils/ClippedCard";
 import Button from "./utils/Button";
@@ -120,7 +120,7 @@ const Checkout = ({ showModal, setShowModal }) => {
             <img
               width={60}
               height={60}
-              src={Bubbles.src}
+              src={Bubbles.src} loading="lazy"
               alt="Floating Bubble"
               className={`absolute ${pkg.bubble.classes} w-24 md:w-24 h-auto animate-pulse`}
             />

@@ -4,7 +4,7 @@ import MentorsCard2 from "../assets/Mentors/2.png";
 import MentorsCard3 from "../assets/Mentors/3.png";
 import { motion,useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import Bubble from "@/assets/bubble.svg";
+import Bubble from "@/assets/bubble.webp";
 import SectionWrapper from "./SectionWrapper";
 import ClippedImageGeneric from "./utils/ClippedImageGeneric";
 import useScreenStore from "@/store/useScreenStore";
@@ -86,7 +86,7 @@ const Mentors = () => {
               <Image
                 width={60}
                 height={60}
-                src={Bubble.src}
+                src={Bubble} quality={50} loading="lazy"
                 alt="Floating Bubble"
                 className="absolute -bottom-12 md:bottom-5 lg:bottom-12 right-[38%]  xl:-right-8 z-10 w-12 md:w-16 lg:w-24 h-auto animate-pulse"
               />

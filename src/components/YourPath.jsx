@@ -2,9 +2,9 @@
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import Skating from "@/assets/Path/Skating.png";
-import LeftEllipse from "@/assets/LeftEllipse.png";
-import Bubble from "@/assets/bubble.svg";
+import Skating from "@/assets/Path/Skating.webp";
+import LeftEllipse from "@/assets/LeftEllipse.webp";
+import Bubble from "@/assets/bubble.webp";
 import SectionWrapper from "./SectionWrapper";
 import Button from "./utils/Button";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
@@ -38,7 +38,7 @@ export default function YourPath() {
       <Image
         width={500}
         height={500}
-        src={LeftEllipse.src}
+        src={LeftEllipse} quality={50} loading="lazy"
         alt="Background Glow"
         draggable="false"
         className="absolute w-[80rem] h-[55rem] xl:h-[85rem] xl:w-[85rem] left-0 2xl:left-0 -top-20"
@@ -73,7 +73,7 @@ export default function YourPath() {
               <Image
                 width={60}
                 height={60}
-                src={Bubble.src}
+                src={Bubble} quality={50} loading="lazy"
                 draggable="false"
                 alt="Floating Bubble"
                 className="absolute -top-6 right-[30%] md:-top-12 w-10 md:w-16 h-auto animate-pulse"
@@ -101,7 +101,7 @@ export default function YourPath() {
             <Image
               width={600}
               height={600}
-              src={Skating.src}
+              src={Skating} quality={75} sizes="(max-width: 768px) 99vw, 30rem" loading="lazy"
               alt="Puppet Girl"
               draggable="false"
               className="w-[99%] md:w-full max-w-md md:max-w-xl"

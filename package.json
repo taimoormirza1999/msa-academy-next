@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "postbuild": "next-sitemap",
-    "start": "next start",
+    "start": "next start -H 127.0.0.1",
+    "deploy": "npm run build && pm2 reload 'MSA Academy Next' && pm2 save",
+    "sitemap": "next-sitemap",
     "lint": "next lint"
   },
   "dependencies": {

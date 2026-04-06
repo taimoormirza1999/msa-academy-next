@@ -6,11 +6,11 @@ import SectionWrapper from "./SectionWrapper";
 import ClippedImageGeneric from "./utils/ClippedImageGeneric";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
 import ClippedBtn from "./utils/ClippedImageBtn";
-import CharacterFoo from "@/assets/characterFoo.png";
+import CharacterFoo from "@/assets/characterFoo.webp";
 import Button from "./utils/Button";
 import useScreenStore from "@/store/useScreenStore";
-import Bubble from "@/assets/bubble.svg";
-import LeftEllipse from "@/assets/LeftEllipse.png";
+import Bubble from "@/assets/bubble.webp";
+import LeftEllipse from "@/assets/LeftEllipse.webp";
 
 const Card = ({ imageUrl, title, description, title2, index }) => {
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
@@ -60,19 +60,19 @@ const MSALearningSection = () => {
 
   const cards = [
     {
-      imageUrl: "https://res.cloudinary.com/da6qujoed/image/upload/v1745222078/1_kvsfln.png",
+      imageUrl: "https://res.cloudinary.com/da6qujoed/image/upload/f_auto,q_auto,w_600/v1745222078/1_kvsfln.png",
       title: "VISUAL DEVELOPMENT",
       description:
         "Explore the process of creating stunning visuals, from concept art to final rendered scenes.",
     },
     {
-      imageUrl: "https://res.cloudinary.com/da6qujoed/image/upload/v1745222078/2_cnlveb.png",
+      imageUrl: "https://res.cloudinary.com/da6qujoed/image/upload/f_auto,q_auto,w_600/v1745222078/2_cnlveb.png",
       title: "Animation Techniques",
       description:
         "Dive deep into both traditional and digital animation methods to bring your characters and stories to life.",
     },
     {
-      imageUrl: "https://res.cloudinary.com/da6qujoed/image/upload/v1745222078/3_ymmopd.png",
+      imageUrl: "https://res.cloudinary.com/da6qujoed/image/upload/f_auto,q_auto,w_600/v1745222078/3_ymmopd.png",
       title: "Story",
       title2: "Telling",
       description:
@@ -201,7 +201,7 @@ const MSALearningSection = () => {
               <Image
                 width={60}
                 height={60}
-                src={Bubble.src}
+                src={Bubble} quality={50} loading="lazy"
                 draggable="false"
                 alt="Floating Bubble small"
                 className="absolute -top-[2.5rem] md:-top-[3rem] lg:-top-[4rem]  xl:top-[15rem]   left-[4%] md:left-[8%] lg:left-[22%] xl:-left-[2%] w-7 md:w-8 lg:w-10 h-auto "
@@ -209,7 +209,7 @@ const MSALearningSection = () => {
               <Image
                 width={60}
                 height={60}
-                src={Bubble.src}
+                src={Bubble} quality={50} loading="lazy"
                 draggable="false"
                 alt="Floating Bubble"
                 className="absolute -top-[7rem] lg:-top-[1rem] xl:top-[5rem] -left-[5%] md:-left-[9%] lg:left-[10%] xl:-left-[9%] w-14 md:w-16 lg:w-20 xl:w-28 h-auto "
@@ -301,7 +301,7 @@ const MSALearningSection = () => {
                   className="-mt-3 lg:mt-4 md:mt-0 w-[18rem] self-center mb-5 lg:w-[28rem] xl:absolute bottom-0 lg:right-0 "
                   width={600}
                   height={600}
-                  src={CharacterFoo.src}
+                  src={CharacterFoo} quality={75} sizes="(max-width: 768px) 18rem, 28rem" loading="lazy"
                   alt="Character Image"
                   priority
                   draggable="false"
@@ -309,7 +309,7 @@ const MSALearningSection = () => {
                 <Image
                   width={500}
                   height={500}
-                  src={LeftEllipse.src}
+                  src={LeftEllipse} quality={50} sizes="50rem" loading="lazy"
                   draggable="false"
                   alt="Background Glow"
                   className="absolute  w-[50rem] h-[50rem] xl:h-[60rem] xl:w-[70rem] -right-[15%] xl:-right-[35%] -top-[35%] xl:-top-[70%] -z-10"

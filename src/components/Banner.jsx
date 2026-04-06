@@ -7,12 +7,12 @@ import Button from "./utils/Button";
 import RightArrow from "@/assets/rightArrows.png";
 import ChinsiseText from "@/assets/chinise.png";
 import Moon from "@/assets/moon.png";
-import RightLady from "@/assets/RightLady.png";
-import LeftLady from "@/assets/LeftLady.png";
+import RightLady from "@/assets/RightLady.webp";
+import LeftLady from "@/assets/LeftLady.webp";
 import ps from "@/assets/ps.png";
 import C4D from "@/assets/C4D.png";
 import Blender from "@/assets/Blender.png";
-import Bubble from "@/assets/bubble.svg";
+import Bubble from "@/assets/bubble.webp";
 import BannerMSAText from "./BannerMSAText";
 import RightEllipseSVG from "./utils/icons/RightEllipseSVG";
 import useScrollHandler from "@/store/useScrollHandler";
@@ -50,8 +50,15 @@ export const Banner = () => {
   const [scrollY, setScrollY] = React.useState(0);
 
   React.useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrollY(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -74,7 +81,7 @@ export const Banner = () => {
         <Image
           width={100}
           height={100}
-          src={RightArrow.src}
+          src={RightArrow} quality={60}
           alt="Left Arrow"
           draggable="false"
           className="absolute bottom-[20%] lg:-bottom-[50vh] left-14 w-7 scale-y-[-1] hidden lg:block transform-gpu"
@@ -85,7 +92,7 @@ export const Banner = () => {
         <Image
           width={200}
           height={200}
-          src={ChinsiseText.src}
+          src={ChinsiseText} quality={60}
           alt="Chinese Text"
           draggable="false"
           className="absolute top-[0rem] right-5 lg:right-10 w-5 lg:w-10 h-auto transform-gpu"
@@ -93,11 +100,11 @@ export const Banner = () => {
       </motion.div>
 
       <motion.div
-         initial={reduceMotion ? {} : { opacity: 0, y: 100 }}
+         initial={reduceMotion ? {} : { opacity: 0, y: 60 }}
          whileInView={reduceMotion ? {} : {
           y: 0,
           opacity: 1,
-          transition: { delay: 0.5, duration: 1.8, ease: "easeInOut" },
+          transition: { delay: 0.2, duration: 1.2, ease: "easeOut" },
         }}
         viewport={{ once: true }}
         className="flex justify-center items-center mx-auto transform-gpu"
@@ -106,7 +113,7 @@ export const Banner = () => {
           <Image
             width={1080}
             height={1080}
-            src={Moon.src}
+            src={Moon} quality={70} sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33rem, 50rem"
             alt="Moon"
             priority
             draggable="false"
@@ -115,11 +122,11 @@ export const Banner = () => {
           <div className="absolute left-[4%] lg:left-[6%] top-20 lg:-top-5 xl:-top-20 ms:w-[95vw] w-[92vw] md:w-[80vw] lg:w-[55vw] xl:w-[46rem] 2xl:w-[48rem]">
             {/* Left Lady */}
             <motion.div
-              initial={{ opacity: 0, y: 100 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{
                 y: 0,
                 opacity: 1,
-                transition: { delay: 0.2, duration: 1.8, ease: "easeInOut" , type: "spring"},
+                transition: { delay: 0, duration: 1, ease: "easeOut", type: "spring" },
               }}
               viewport={{ once: true }}
               className="relative z-10 transform-gpu"
@@ -131,9 +138,11 @@ export const Banner = () => {
               <Image
                 width={1080}
                 height={1080}
-                src={LeftLady.src}
+                src={LeftLady}
                 alt="Left Lady"
                 priority
+                quality={75}
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 60vw, 46rem"
                 draggable="false"
                 className="absolute ms:w-[18rem] mm:w-[21rem] w-[20rem] md:w-[29rem] lg:w-full ms:-left-1 -left-3 ms:-top-10 -top-16 mm:-top-20  lg:inset-0 lg:relative transform-gpu"
               />
@@ -141,16 +150,15 @@ export const Banner = () => {
 
             {/* Right Lady */}
             <motion.div
-              initial={{ opacity: 0, y: 100 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{
                 y: 0,
                 opacity: 1,
                 transition: {
-                  delay: 0.9,
-                  duration: 1.8,
+                  delay: 0.15,
+                  duration: 1,
                   ease: [0.43, 0.13, 0.23, 0.96],
                   type: "spring",
-                  // stiffness: 100,
                 },
               }}
               viewport={{ once: true}}
@@ -163,9 +171,11 @@ export const Banner = () => {
               <Image
                 width={1080}
                 height={1080}
-                src={RightLady.src}
+                src={RightLady}
                 alt="Right Lady"
                 priority
+                quality={75}
+                sizes="(max-width: 768px) 60vw, (max-width: 1024px) 80vw, 55rem"
                 draggable="false"
                 className="absolute ms:top-16 mm:top-10 md:top-20 lg:-top-64 xl:-top-96 -top-3 left-[2%] md:left-[5rem]  lg:left-[13rem] xl:left-[20rem]   w-[25rem] md:w-[35rem] lg:w-full xl:w-[55rem] 2xl:w-[70rem] transform-gpu"
               />
@@ -186,7 +196,7 @@ export const Banner = () => {
                 <Image
                   height={500}
                   width={500}
-                  src={Bubble.src}
+                  src={Bubble} quality={50} loading="lazy"
                   alt="Floating Bubble"
                   priority
                   className="absolute top-80 md:top-96 lg:-top-14 right-10 lg:-right-[15rem] xl:-right-[35rem] w-12 md:w-20 lg:w-24 h-auto transform-gpu"
@@ -225,7 +235,7 @@ export const Banner = () => {
                   <Image
                     width={100}
                     height={100}
-                    src={tool.src.src}
+                    src={tool.src} quality={70}
                     alt="Tool"
                     className={`${tool.size} scale-y-[-1]`}
                   />

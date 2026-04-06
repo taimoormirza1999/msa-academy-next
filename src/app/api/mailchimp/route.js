@@ -1,20 +1,23 @@
 // app/api/mailchimp/route.js
+import crypto from 'crypto';
+
 export async function POST(req) {
     try {
       const body = await req.json();
       const { email } = body;
-  
+
       if (!email) {
         return new Response(JSON.stringify({ error: 'Email is required' }), {
           status: 400,
           headers: { 'Content-Type': 'application/json' },
         });
       }
-  
-      const url = `https://${process.env.DATACENTER}.api.mailchimp.com/3.0/lists/${process.env.AUDIENCE_ID}/members`;
-  
+
+      const emailHash = crypto.createHash('md5').update(email.toLowerCase()).digest('hex');
+      const url = `https://${process.env.DATACENTER}.api.mailchimp.com/3.0/lists/${process.env.AUDIENCE_ID}/members/${emailHash}`;
+
       const options = {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           Authorization: `Basic ${Buffer.from(`anystring:${process.env.API_KEY}`).toString('base64')}`,
           'Content-Type': 'application/json',
@@ -25,10 +28,10 @@ export async function POST(req) {
           tags: ['Customer'],
         }),
       };
-  
+
       const response = await fetch(url, options);
       const data = await response.json();
-  
+
       if (response.ok) {
         return new Response(JSON.stringify({ message: 'Successfully subscribed!' }), {
           status: 200,

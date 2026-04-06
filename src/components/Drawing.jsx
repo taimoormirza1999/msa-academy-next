@@ -3,7 +3,7 @@ import { motion,useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import SectionWrapper from "./SectionWrapper";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
-import Bubble from "@/assets/bubble.svg";
+import Bubble from "@/assets/bubble.webp";
 import RightEllipseSVG from "./utils/icons/RightEllipseSVG";
 
 const Drawing = () => {
@@ -25,7 +25,10 @@ const Drawing = () => {
           <Image
             height={1080}
             width={1920}
-            src={"https://res.cloudinary.com/da6qujoed/image/upload/v1743794654/drawing_banner_hxjtl2.png"}
+            src={"https://res.cloudinary.com/da6qujoed/image/upload/f_auto,q_auto,w_1200/v1743794654/drawing_banner_hxjtl2.png"}
+            quality={75}
+            loading="lazy"
+            sizes="(max-width: 768px) 99vw, 90vw"
             alt="Banner"
             draggable="false"
             className="w-full h-[37vh] sm:h-[60vh] md:h-full lg:h-full 2xl:h-3/4 object-cover md:object-contain"

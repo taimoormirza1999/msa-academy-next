@@ -14,9 +14,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion,useReducedMotion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
-import Bubble from "@/assets/bubble.svg";
+import Bubble from "@/assets/bubble.webp";
 import OuterBorderChildren from "./utils/OuterBorderChildren";
-import LeftEllipse from "@/assets/ElipseDown.png";
+import LeftEllipse from "@/assets/ElipseDown.webp";
 
 function Contact() {
   const issmallScreen = useMediaQuery({ maxWidth: 768 });
