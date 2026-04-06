@@ -6,12 +6,13 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start -H 127.0.0.1",
-    "deploy": "npm run build && pm2 reload 'MSA Academy Next' && pm2 save",
+    "deploy": "pnpm run build && pm2 reload 1 && pm2 save",
     "sitemap": "next-sitemap",
     "lint": "next lint"
   },
   "dependencies": {
     "@stripe/stripe-js": "^5.6.0",
+    "clsx": "^2.1.1",
     "dompurify": "^3.2.4",
     "framer-motion": "^12.4.2",
     "mongoose": "^8.16.3",

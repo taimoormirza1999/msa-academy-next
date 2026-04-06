@@ -9,14 +9,14 @@ const Button = React.memo(({width = 250, height = 133, text = "Enroll Now", text
     }
   }, [navButton, handleScroll, onClick]);
   return (
-    <div className={`relative inline-block z-40 ${text=="Enroll Now" ? "animate-bounceSlowV2" : ""}`} style={{ width: `${width}px`, height: `${height}px`  }}>
+    <button onClick={handleClick} className={`relative inline-block z-40 cursor-pointer bg-transparent border-none p-0 ${text=="Enroll Now" ? "animate-bounceSlowV2" : ""}`} style={{ width: `${width}px`, height: `${height}px`  }}>
       {/* SVG as background */}
       <ButtonSVG width={width} height={height} />
       {/* Button text */}
-      <button onClick={handleClick} className={`font-primary absolute top-1/2 left-1/2 transform -translate-x-[43%] -translate-y-1/2 bg-transparent border-none text-white  font-bold cursor-pointer z-10 whitespace-nowrap uppercase ${textSize} `}>
+      <span className={`font-primary absolute top-1/2 left-1/2 transform -translate-x-[43%] -translate-y-1/2 text-white font-bold z-10 whitespace-nowrap uppercase pointer-events-none ${textSize} `}>
         {text}
-      </button>
-    </div>
+      </span>
+    </button>
   );
 }, (prev, next) => (
   prev.width === next.width &&

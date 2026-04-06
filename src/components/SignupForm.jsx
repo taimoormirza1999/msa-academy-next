@@ -107,6 +107,8 @@ const SignupForm = React.memo(() => {
           width={1080}
           src="https://mcusercontent.com/e1f1a4e7afa29f4705570bedf/images/e212dfae-95cb-0a7c-afb0-47948cedbf32.png"
           alt="Newsletter"
+          quality={50}
+          priority
           className="w-full h-64 object-cover rounded-t-lg"
         />
         {!submitted ? (

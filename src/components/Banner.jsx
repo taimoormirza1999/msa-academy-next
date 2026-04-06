@@ -196,7 +196,7 @@ export const Banner = () => {
                 <Image
                   height={500}
                   width={500}
-                  src={Bubble} quality={50} loading="lazy"
+                  src={Bubble} quality={50}
                   alt="Floating Bubble"
                   priority
                   className="absolute top-80 md:top-96 lg:-top-14 right-10 lg:-right-[15rem] xl:-right-[35rem] w-12 md:w-20 lg:w-24 h-auto transform-gpu"

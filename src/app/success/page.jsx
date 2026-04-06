@@ -1,5 +1,14 @@
-import Navigation from '@/components/Navigation';
 import React from 'react';
+
+export const metadata = {
+  title: "Order Successful | MSA Club",
+  description: "Your MSA Club subscription was successful. Welcome to the premium community.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
 const SubscriptionSuccess = () => {
   return (
     <div

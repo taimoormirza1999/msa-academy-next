@@ -124,8 +124,8 @@ export default function CoursesPage() {
     <SEOPageWrapper>
     <main className="min-h-screen text-white">
       <div className="max-w-5xl mx-auto px-6 py-16 pt-28">
-        <h1 className="font-primary text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple to-pink200 bg-clip-text text-transparent">
-          MSA Club Animation Courses
+        <h1 className="font-primary text-2xl lg:text-4xl xl:text-5xl font-bold text-white mb-4">
+          MSA Club <span className="bg-gradient-to-r from-purple to-pink200 bg-clip-text text-transparent">Animation Courses</span>
         </h1>
         <p className="font-eastroman-trial-demibold text-gray-400 text-lg mb-12 max-w-2xl">
           Learn animation and character design from the team behind My Story

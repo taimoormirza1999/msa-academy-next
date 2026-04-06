@@ -301,7 +301,7 @@ const MSALearningSection = () => {
                   className="-mt-3 lg:mt-4 md:mt-0 w-[18rem] self-center mb-5 lg:w-[28rem] xl:absolute bottom-0 lg:right-0 "
                   width={600}
                   height={600}
-                  src={CharacterFoo} quality={75} sizes="(max-width: 768px) 18rem, 28rem" loading="lazy"
+                  src={CharacterFoo} quality={75} sizes="(max-width: 768px) 18rem, 28rem"
                   alt="Character Image"
                   priority
                   draggable="false"
