@@ -1,54 +1,60 @@
-"use client"
-import React from 'react';
+import SEOPageWrapper from "@/components/SEOPageWrapper";
+import PrivacyPolicyClient from "@/components/PrivacyPolicyClient";
 
-const PrivacyPolicy = () => {
-  return (
-<div className='lg:pt-20'>
-      <div className=" w-90 max-w-5xl font-medium-fgm border-white/[21%] bg-white/[9%] border-2 border-pink200 bg-opacity-90 p-6 lg:p-8 rounded-2xl shadow-lg shadow-pink200/30  mt-28 mx-auto  mb-5  ">
-        <h1 className="text-2xl font-bold text-white mb-4">Privacy Policy</h1>
-        <p className="text-gray-50">
-          This Privacy Statement explains our practices, including your choices, regarding the collection, security, and use of your personal information in connection with the MSA-Academy service.
-        </p>
-
-        <h2 className="text-xl font-semibold text-white mt-4">Contact Us</h2>
-        <p className="text-gray-50">
-          If you have general questions about your account or how to contact customer service for assistance and for questions specifically about this Privacy Statement, or our use of your personal information, cookies, or similar technologies, please contact our Data Protection Officer/Privacy Office at:  
-          <strong className="block text-pink200">contact@msa-club.com</strong>
-        </p>
-
-        <h2 className="text-xl font-semibold text-white mt-4">Collection of Information</h2>
-        <p className="text-gray-50">
-          We receive and store information about you such as:
-        </p>
-        <ul className="list-disc list-inside text-gray-50">
-          <li>Your name, email address, payment method(s), and telephone number.</li>
-          <li>Information you provide when using our service, interacting with customer support, or participating in surveys.</li>
-          <li>Activity on the MSA-Academy service, such as search queries and shows watched.</li>
-          <li>Your interactions with our emails, push notifications, and customer service.</li>
-        </ul>
-
-        <h2 className="text-xl font-semibold text-white mt-4">Security</h2>
-        <p className="text-gray-50">
-          MSA-Academy uses reasonable security measures to protect your personal information against unauthorized access, theft, and loss.
-        </p>
-
-        <h2 className="text-xl font-semibold text-white mt-4">Your Rights</h2>
-        <p className="text-gray-50">
-          You can request access to, correct, update, or delete your personal information by contacting:
-          <strong className="block text-pink200">contact@msa-club.com</strong>
-        </p>
-
-        <h2 className="text-xl font-semibold text-white mt-4 ">Subscription Policy</h2>
-      
-        <ul className="list-disc list-inside text-gray-50 ">
-          <li className=' '>You will be automatically charged unless canceled 24 hours before the trial ends.</li>
-          <li>The subscription renews automatically until you cancel it.</li>
-          <li>Canceling stops renewal, but you keep access until the end of the current period.</li>
-          <li>Deleting the app does not cancel your subscription.</li>
-        </ul>
-      </div>
-</div>
-  );
+export const metadata = {
+  metadataBase: new URL("https://msa-club.com"),
+  title: "Privacy Policy | MSA Club - MSA Academy",
+  description:
+    "Read the MSA Club privacy policy. Learn how MSA Academy collects, uses, and protects your personal information, payment data, and account details.",
+  keywords: [
+    "MSA Club privacy policy",
+    "MSA Academy privacy",
+    "MSA Club data protection",
+    "MSA Club terms",
+  ].join(", "),
+  alternates: {
+    canonical: "https://msa-club.com/privacy-policy",
+  },
+  openGraph: {
+    siteName: "MSA-Club.com",
+    locale: "en_US",
+    type: "website",
+    title: "Privacy Policy | MSA Club",
+    description:
+      "Read the MSA Club privacy policy. Learn how we collect, use, and protect your personal information.",
+    url: "https://msa-club.com/privacy-policy",
+    images: [
+      {
+        url: "https://msa-club.com/hero_banner.png",
+        width: 1800,
+        height: 1600,
+        alt: "MSA Club - Animation Academy",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | MSA Club",
+    description:
+      "Read the MSA Club privacy policy. Learn how we protect your personal information.",
+    images: ["https://msa-club.com/hero_banner.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
-export default PrivacyPolicy;
+export default function PrivacyPolicyPage() {
+  return (
+    <SEOPageWrapper>
+      <PrivacyPolicyClient />
+    </SEOPageWrapper>
+  );
+}

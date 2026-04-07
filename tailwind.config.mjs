@@ -9,14 +9,24 @@ export default {
 	  extend: {
 		screens: {
 		  'ultrawide': '1920px', 
+			ms: "320px", // Small mobile
+			mm: "321px", // Medium mobile
+			ml: "376px", // Large mobile
 		},
+		fontSize:{
+			'4.5xl': '2.50rem',
+		},
+		lineHeight: {
+			'4.5': '2.50rem',
+		  },
 		colors: {
 		  primary: '#ee00a7e4',
 		  red: '#f02d00',
 		  ferozi: '#00ffff',
-		  purple:'#7f7fff',
+		  purple:'#A400E8',
 		  pink200:'#ff00ff',
 		  gray636: '#636363',
+		  grayPrimary:'#9E9E9E'
 		},
 		backgroundImage: {
 		  'custom-gradient': 'linear-gradient(to right, #7f7fff, #ff00ff)',
@@ -97,6 +107,10 @@ export default {
 		  '0%, 100%': { transform: 'translateY(0)', animationTimingFunction: 'ease-in-out' },
 		  '50%': { transform: 'translateY(-10px)', animationTimingFunction: 'ease-in-out' },
 		},
+		bounceSlowV2: {
+		  '0%, 100%': { transform: 'translateY(0)', animationTimingFunction: 'ease-in-out' },
+		  '50%': { transform: 'translateY(-10px)', animationTimingFunction: 'ease-in-out' },
+		},
 		textGlow: {
 		  '0%, 100%': { textShadow: '0 0 15px #ff00ff, 0 0 25px #ff00ff, 0 0 35px #ffffff' },
 		  '50%': { textShadow: '0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ff00ff' },
@@ -110,6 +124,7 @@ export default {
 		  'spin-fast': 'spin 0.8s linear infinite',
 		  'animate-glow': 'glow 1.85s infinite ease-in-out',
 		   bounceSlow: 'bounceSlow 1.58s infinite',
+		   bounceSlowV2: 'bounceSlowV2 2s infinite',
 		   glowRed: 'glowRed 2s infinite',
 		   textGlow:'textGlow 1.7s infinite ease-in-out',
 		   marquee: "marquee 15s linear infinite ",
@@ -124,5 +139,5 @@ export default {
 		
 	  },
 	},
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide"),],
 };

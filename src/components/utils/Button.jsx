@@ -1,28 +1,32 @@
-import Link from 'next/link';
-import React from 'react'
-
-function Button({isRounded = true}) {
-  const style2 = {
-    "--bgColor": '#25d366',
-      };
+import ButtonSVG from '@/components/utils/icons/ButtonSVG'
+import React, { useCallback } from 'react';
+const Button = React.memo(({width = 250, height = 133, text = "Enroll Now", textSize="text-2xl", handleScroll , onClick, navButton=false }) => {
+  const handleClick = useCallback((e) => {
+    if (navButton || !handleScroll) {
+      onClick?.(e);
+    } else {
+      handleScroll(e);
+    }
+  }, [navButton, handleScroll, onClick]);
   return (
-    <div
-    className="outter-wrapper"
-  >
-    <div className="wrapper-inner-main ">
-      
-         <Link 
-      href='#enroll-checkout' 
-      // smooth={true}
-  duration={800}
-      className={`animate-glowRed  bg-red cursor-pointer text-white border-2 border-red hover:scale-105 hover:text-white py-3 text-sm md:text-[1.129rem] font-medium px-6 md:px-7  shadow-lg transform  transition-all duration-1000  ease-out hover:-translate-y-2 hover:shadow-2xl shadow-red/70 ${isRounded ? 'rounded-[14px]' : 'rounded-[0.7rem]'}`}
-    >ENROLL NOW!
-    </Link>
-    </div>
-    </div>
-   
-  
-  )
-}
+    <button onClick={handleClick} className={`relative inline-block z-40 cursor-pointer bg-transparent border-none p-0 ${text=="Enroll Now" ? "animate-bounceSlowV2" : ""}`} style={{ width: `${width}px`, height: `${height}px`  }}>
+      {/* SVG as background */}
+      <ButtonSVG width={width} height={height} />
+      {/* Button text */}
+      <span className={`font-primary absolute top-1/2 left-1/2 transform -translate-x-[43%] -translate-y-1/2 text-white font-bold z-10 whitespace-nowrap uppercase pointer-events-none ${textSize} `}>
+        {text}
+      </span>
+    </button>
+  );
+}, (prev, next) => (
+  prev.width === next.width &&
+  prev.height === next.height &&
+  prev.text === next.text &&
+  prev.textSize === next.textSize &&
+  prev.handleScroll === next.handleScroll &&
+  prev.onClick === next.onClick &&
+  prev.navButton === next.navButton
+));
 
-export default Button
+Button.displayName = 'Button';
+export default Button;

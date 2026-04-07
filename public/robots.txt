@@ -1,2 +1,30 @@
+# MSA Club - Animation Academy Robots.txt
 User-agent: *
 Allow: /
+Allow: /about
+Allow: /courses
+Allow: /animation-course
+Allow: /character-design
+Allow: /contact
+Allow: /blog/
+Allow: /blog/post/*
+Allow: /privacy-policy
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /success
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Sitemap location
+Sitemap: https://msa-club.com/sitemap.xml
+Sitemap: https://msa-club.com/sitemap-blogs.xml
+
+Host: https://msa-club.com

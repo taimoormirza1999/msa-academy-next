@@ -1,24 +1,162 @@
-import React from "react";
-import MentorsBanner from "../assets/Mentors_done.png"; // Replace with your actual image path
-import { motion } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import MentorsCard1 from "../assets/Mentors/1.png";
+import MentorsCard2 from "../assets/Mentors/2.png";
+import MentorsCard3 from "../assets/Mentors/3.png";
+import { motion,useReducedMotion } from "framer-motion";
 import Image from "next/image";
+import Bubble from "@/assets/bubble.webp";
+import SectionWrapper from "./SectionWrapper";
+import ClippedImageGeneric from "./utils/ClippedImageGeneric";
+import useScreenStore from "@/store/useScreenStore";
+import RightEllipseSVG from "./utils/icons/RightEllipseSVG";
+
 const Mentors = () => {
+  const shouldReduceMotion = useReducedMotion();
+  const isMobileSScreen = useScreenStore((state) => state.isMobileSScreen);
+  const disableMotion = shouldReduceMotion || isMobileSScreen;
+  const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
+  const isLaptopMediumScreen = useScreenStore(
+    (state) => state.isLaptopMediumScreen
+  );
+  const sliderRef = useRef(null);
+  const containerVariants = {
+    hidden: {},
+    show: { transition: disableMotion ? {} : { staggerChildren: 0.3 }},
+  };
+
+  const cardVariants = {
+    hidden: { opacity: disableMotion ? 1 : 0, y: disableMotion ? 0 : 60 },
+    show: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: disableMotion
+         ? { duration: 0 }
+         : { delay: 0.3 * i, duration: 1.5, type: "spring", stiffness: 100 },
+    }),
+  };
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft = 100;
+    }
+  }, []);
   return (
     <motion.div
-    initial={{opacity:0, y:100}} whileInView={{y:0,opacity:1,transition:{duration:1.8, ease: "easeInOut", }}}
-      className="relative w-full h-auto bg-cover bg-center mt-16 md:mb-8 md:mt-16 lg:mt-24 lg:mb-10  md:w-95  lg:w-95 2xl:w-85 mx-auto max-w-[1920px]"
+     initial="hidden"
+     whileInView="show"
+     transition={{ duration: 1.8, ease: "easeInOut" , type: "spring", stiffness: 100}}
+      className="relative h-auto bg-cover bg-center mt-5 md:mb-8 md:mt-16 lg:mt-24 lg:mb-10  w-[100%] md:w-full lg:w-95 2xl:w-85 mx-auto max-w-[1920px]"
     >
-      <div className="relative h-auto mx-auto w-full md:w-95 lg:w-80">
-        <Image
-          height={1080}
-          width={1400}
-          src={MentorsBanner.src}
-          alt="Banner"
-          className="w-full  h-[34vh] sm:h-[60vh] md:h-full lg:h-full  object-cover md:object-contain  rounded-lg  md:object-center -me-20"
-        />
-      </div>
+      <SectionWrapper>
+        <div className="relative h-auto mx-auto w-full md:w-95 xl:w-[90%] flex flex-col-reverse lg:flex-col">
+          <motion.div
+            ref={sliderRef}
+            className="mt-10 pb-12 lg:pb-0 flex gap-10 md:gap-8 xl:gap-16 justify-start snap-x snap-mandatory scrollbar-hide w-full overflow-x-auto lg:overflow-visible  overflow-y-visible"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            <motion.div
+            custom={1}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="flex-none snap-start lg:mx-0 overflow-y-visible pl-5 lg:pl-0"
+            >
+              <ClippedImageGeneric
+                imageUrl={MentorsCard1.src}
+                width={isLaptopMediumScreen ? 280 : isLargeScreen ? 348 : 180}
+                height={isLaptopMediumScreen ? 450 : isLargeScreen ? 530 : 300}
+              />
+            </motion.div>
+            <motion.div
+            custom={2}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+              variants={cardVariants}
+              className="mt-10 md:mt-10 lg:-mt-12 relative flex-none snap-center lg:mx-0 overflow-y-visible"
+            >
+              <ClippedImageGeneric
+                imageUrl={MentorsCard2.src}
+                width={isLaptopMediumScreen ? 280 : isLargeScreen ? 348 : 220}
+                height={isLaptopMediumScreen ? 450 : isLargeScreen ? 530 : 350}
+              />
+              <Image
+                width={60}
+                height={60}
+                src={Bubble} quality={50} loading="lazy"
+                alt="Floating Bubble"
+                className="absolute -bottom-12 md:bottom-5 lg:bottom-12 right-[38%]  xl:-right-8 z-10 w-12 md:w-16 lg:w-24 h-auto animate-pulse"
+              />
+            </motion.div>
+
+            <div className="absolute left-[50%] -translate-x-[50%] -bottom-[98%]  xl:bottom-10 -z-10 ">
+             <motion.div
+             initial="hidden"
+             whileInView="show"
+             variants={{
+                        hidden: { opacity: disableMotion ? 1 : 0, y: disableMotion ? 0 : 100 },
+                          show: {
+                            opacity: 1,
+                            y: 0,
+                            transition: disableMotion
+                              ? { duration: 0 }
+                              : { duration: 1.8, ease: "easeInOut", type: "spring", stiffness: 100 },
+                          },
+                        }}
+                        viewport={{ once: true, amount: disableMotion ? 1 : 0.3 }}             >
+              <RightEllipseSVG
+                width={isLargeScreen ? 2786 : 1086}
+                height={isLargeScreen ? 2000 : 1086}
+                extraClass="opacity-70 -z-50"
+              />
+            </motion.div>
+            </div>
+            <motion.div
+            custom={3}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+              variants={cardVariants}
+              className="flex-none snap-center lg:mx-0"
+            >
+              <ClippedImageGeneric
+                imageUrl={MentorsCard3.src}
+                width={isLaptopMediumScreen ? 280 : isLargeScreen ? 348 : 210}
+                height={isLaptopMediumScreen ? 450 : isLargeScreen ? 530 : 350}
+              />
+            </motion.div>
+          </motion.div>
+
+          <div className="flex flex-col justify-center items-center">
+            <h3 className="font-primary text-2xl lg:text-3xl text-grayPrimary text-center mb-2 lg:mb-7">
+              Get feedback directly from
+            </h3>
+            <div className="relative w-full flex justify-center items-center py-10">
+              {/* Outline Text (Behind) */}
+              <h1
+                className={`absolute ${
+                  isMobileSScreen ? "text-[3.3rem]" : "text-[4.3rem]"
+                }  lg:text-[8rem] mt-3.5 lg:mt-5 font-extrabold uppercase text-transparent stroke-text`}
+              >
+                MENTORS
+              </h1>
+              {/* Gradient Filled Text (Front) */}
+              <h1
+                className={`absolute  ${
+                  isMobileSScreen ? "text-[3.3rem]" : "text-[4.3rem]"
+                } lg:text-[8rem] ml-3 lg:ml-4 font-extrabold uppercase bg-gradient-to-r from-[#A400E8] to-[#F7009E] text-transparent bg-clip-text font-primary `}
+              >
+                MENTORS
+              </h1>
+            </div>
+          </div>
+        </div>
+      </SectionWrapper>
     </motion.div>
   );
 };
 
-export default Mentors;
+export default React.memo(Mentors);
