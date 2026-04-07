@@ -5,7 +5,6 @@ import Bubble from "@/assets/bubble.webp";
 import LeftEllipse from "@/assets/LeftEllipse.webp";
 import ElipseDown from "@/assets/ElipseDown.webp";
 import Button from "@/components/utils/Button";
-import ClippedCard from "@/components/utils/ClippedCard";
 import useScrollHandler from "@/store/useScrollHandler";
 
 const learnItems = [
@@ -37,7 +36,7 @@ export default function CharacterDesignClient() {
       <Image src={Bubble} quality={50} alt="" loading="lazy" className="absolute top-[40rem] left-5 w-10 md:w-16 h-auto animate-pulse pointer-events-none" />
       <Image src={Bubble} quality={50} alt="" loading="lazy" className="absolute bottom-40 right-20 w-8 md:w-14 h-auto animate-pulse pointer-events-none" />
 
-      <div className="w-90 max-w-5xl font-eastroman-trial-bold p-6 lg:p-8 mt-28 mx-auto mb-5 relative z-10">
+      <div className="w-[90%] max-w-5xl font-eastroman-trial-bold p-6 lg:p-8 mt-28 mx-auto mb-5 relative z-10">
         <h1 className="text-2xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 font-primary">
           Character <span className="bg-gradient-to-r from-purple to-pink200 bg-clip-text text-transparent">Design Course</span>
         </h1>
@@ -60,32 +59,28 @@ export default function CharacterDesignClient() {
         </h2>
         <div className="space-y-4 mt-4">
           {learnItems.map((item, i) => (
-            <ClippedCard key={i} width={900} height={90} value={12}>
-              <div className="bg-black w-full h-full px-6 flex flex-col justify-center">
-                <h3 className="font-primary text-sm lg:text-base font-semibold text-white">{item.title}</h3>
-                <p className="text-gray-50 text-xs lg:text-sm mt-1">{item.desc}</p>
-              </div>
-            </ClippedCard>
+            <div key={i} className="custom-border bg-black p-5 lg:p-6">
+              <h3 className="font-primary text-base lg:text-xl font-semibold text-white">{item.title}</h3>
+              <p className="text-gray-50 text-sm lg:text-base mt-2">{item.desc}</p>
+            </div>
           ))}
         </div>
 
         <h2 className="text-xl lg:text-2xl xl:text-3xl font-semibold text-white mt-8 font-primary">
           The MSA Character Design Process
         </h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
           {[
             { step: "01", title: "Concept", desc: "Define personality, backstory, and visual direction" },
             { step: "02", title: "Sketch", desc: "Explore shapes, poses, and expressions" },
             { step: "03", title: "Refine", desc: "Clean up linework, finalize proportions" },
             { step: "04", title: "Color", desc: "Apply color palette, shading, and polish" },
           ].map((s, i) => (
-            <ClippedCard key={i} width={220} height={120} value={12}>
-              <div className="bg-black w-full h-full p-4 flex flex-col items-center justify-center text-center">
-                <span className="font-primary text-2xl font-bold text-purple">{s.step}</span>
-                <h3 className="font-primary font-semibold text-white text-sm mt-1">{s.title}</h3>
-                <p className="text-gray-50 text-xs mt-1">{s.desc}</p>
-              </div>
-            </ClippedCard>
+            <div key={i} className="custom-border bg-black p-4 flex flex-col items-center justify-center text-center">
+              <span className="font-primary text-2xl font-bold text-purple">{s.step}</span>
+              <h3 className="font-primary font-semibold text-white text-base mt-1">{s.title}</h3>
+              <p className="text-gray-50 text-sm mt-1">{s.desc}</p>
+            </div>
           ))}
         </div>
 
@@ -109,12 +104,10 @@ export default function CharacterDesignClient() {
         </h2>
         <div className="space-y-4 mt-4">
           {faqs.map((faq, i) => (
-            <ClippedCard key={i} width={900} height={90} value={12}>
-              <div className="bg-black w-full h-full px-6 flex flex-col justify-center">
-                <h3 className="font-primary text-sm lg:text-base font-semibold text-white">{faq.q}</h3>
-                <p className="text-gray-50 text-xs lg:text-sm mt-1">{faq.a}</p>
-              </div>
-            </ClippedCard>
+            <div key={i} className="custom-border bg-black p-5 lg:p-6">
+              <h3 className="font-primary text-base lg:text-xl font-semibold text-white">{faq.q}</h3>
+              <p className="text-gray-50 text-sm lg:text-base mt-2">{faq.a}</p>
+            </div>
           ))}
         </div>
 
