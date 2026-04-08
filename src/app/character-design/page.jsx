@@ -34,9 +34,9 @@ export const metadata = {
     url: "https://msa-club.com/character-design",
     images: [
       {
-        url: "https://msa-club.com/hero_banner.png",
-        width: 1800,
-        height: 1600,
+        url: "https://msa-club.com/hero_banner.jpg",
+        width: 1200,
+        height: 630,
         alt: "MSA Club Character Design Course",
       },
     ],
@@ -46,7 +46,7 @@ export const metadata = {
     title: "Character Design Course | MSA Club",
     description:
       "Master animation character design from the team behind My Story Animated.",
-    images: ["https://msa-club.com/hero_banner.png"],
+    images: ["https://msa-club.com/hero_banner.jpg"],
   },
   robots: {
     index: true,

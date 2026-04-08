@@ -51,9 +51,11 @@ const Home = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  if (loading) {
-    return <Loading />;
-  }
+  // Loading splash is rendered as an overlay below (inside the main return)
+  // so the underlying page (Navigation + Banner + lazy sections) mounts on
+  // frame 1. That lets Next.js emit <link rel="preload"> for the hero images
+  // and lets them download in parallel while the 3s splash plays — instead of
+  // waiting until the splash unmounts to even start fetching.
   const LoadingFallback = () => (
     <div className="w-full h-32 flex items-center justify-center">
       <div className="w-10 h-10 border-4 border-white border-opacity-90 rounded-full border-t-[#ff00ff]/90 animate-spin"></div>
@@ -62,9 +64,13 @@ const Home = () => {
 
   return (
     <>
-        
+          {loading && (
+            <div className="fixed inset-0 z-[9999] overflow-hidden">
+              <Loading />
+            </div>
+          )}
           <Navigation />
-          <Banner />
+          <Banner heroReady={!loading} />
       <Suspense fallback={<LoadingFallback />}>
           <LoaderWrapper>
             <Animation />

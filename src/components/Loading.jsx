@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useCallback, memo } from "react";
 import { motion,useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import DownElipse from "@/assets/DownElipse.webp";
 import AnimatedNumber from "./AnimatedNumber";
 
@@ -50,13 +51,20 @@ const Loading = memo(() => {
       />
 
       {/* Centered Logo */}
-      <motion.img
-        src="/logo.png"
-        alt="MSA Academy Logo"
-        draggable="false"
-        className="w-40 lg:w-64 2xl:w-54 h-auto relative z-10 mb-10"
+      <motion.div
+        className="relative z-10 mb-10"
         {...logoVariants}
-      />
+      >
+        <Image
+          src="/logo.png"
+          alt="MSA Academy Logo"
+          width={245}
+          height={95}
+          priority
+          draggable="false"
+          className="w-40 lg:w-64 2xl:w-54 h-auto"
+        />
+      </motion.div>
 
       {/* Loading Percentage */}
       <motion.h4
@@ -67,12 +75,18 @@ const Loading = memo(() => {
       </motion.h4>
 
       {/* Bottom Ellipse Animation */}
-      <motion.img
-        src={DownElipse.src} loading="eager"
-        alt="Elipse Logo"
-        className="h-[70rem] lg:h-auto absolute bottom-0 md:bottom-0"
+      <motion.div
+        className="absolute bottom-0 md:bottom-0"
         {...ellipseVariants}
-      />
+      >
+        <Image
+          src={DownElipse}
+          alt=""
+          sizes="100vw"
+          priority
+          className="h-[70rem] lg:h-auto w-auto"
+        />
+      </motion.div>
     </div>
   );
 });

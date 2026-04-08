@@ -141,9 +141,9 @@ export const metadata = {
     url: "https://msa-club.com/",
     images: [
       {
-        url: "https://msa-club.com/hero_banner.png",
-        width: 1800,
-        height: 1600,
+        url: "https://msa-club.com/hero_banner.jpg",
+        width: 1200,
+        height: 630,
         alt: "MSA Club Hero Banner",
       },
       {
@@ -161,7 +161,7 @@ export const metadata = {
       "Join MSA Academy's industry-leading animation courses and learn anime character design, 3D animation, and more. Start your journey today!",
     images: [
       {
-        url: "https://msa-club.com/hero_banner.png",
+        url: "https://msa-club.com/hero_banner.jpg",
         width: 1200,
         height: 630,
         alt: "MSA Academy Banner",

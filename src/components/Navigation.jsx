@@ -61,8 +61,11 @@ import useScrollHandler from "@/store/useScrollHandler";
             className="cursor-pointer"
             suppressHydrationWarning={true}
           >
-            <img
+            <Image
               src="/logo.png"
+              width={245}
+              height={95}
+              priority
               className="w-32 lg:w-40 h-auto px-3 shadow-xl"
               alt="Logo"
             />

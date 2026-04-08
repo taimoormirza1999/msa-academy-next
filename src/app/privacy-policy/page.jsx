@@ -25,9 +25,9 @@ export const metadata = {
     url: "https://msa-club.com/privacy-policy",
     images: [
       {
-        url: "https://msa-club.com/hero_banner.png",
-        width: 1800,
-        height: 1600,
+        url: "https://msa-club.com/hero_banner.jpg",
+        width: 1200,
+        height: 630,
         alt: "MSA Club - Animation Academy",
       },
     ],
@@ -37,7 +37,7 @@ export const metadata = {
     title: "Privacy Policy | MSA Club",
     description:
       "Read the MSA Club privacy policy. Learn how we protect your personal information.",
-    images: ["https://msa-club.com/hero_banner.png"],
+    images: ["https://msa-club.com/hero_banner.jpg"],
   },
   robots: {
     index: true,

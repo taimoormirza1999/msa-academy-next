@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import DownElipse from "@/assets/DownElipse.webp";
 import { IoClose } from "react-icons/io5";
 import Button from "./utils/Button";
@@ -27,9 +28,12 @@ const Menu = ({onClose, handleScroll}) => {
 
       {/* Centered Logo */}
       <button onClick={onClose} className="z-10">
-        <img
+        <Image
           src="/logo.png"
           alt="MSA Academy Logo"
+          width={245}
+          height={95}
+          priority
           className="w-40 lg:w-64 h-auto relative mb-10 lg:mb-20"
         />
       </button>
@@ -42,15 +46,19 @@ const Menu = ({onClose, handleScroll}) => {
           <Button text="ANIMATION COURSE" width={300} height={80} textSize="text-xl lg:text-2xl" navButton={true} onClick={() => handleMenuClick("animation-course")} />
         </div>
       </div>
-      <img
-        src={DownElipse.src} loading="lazy"
-        alt="Elipse Logo"
-        className="h-auto absolute -bottom-20 opacity-60"
+      <Image
+        src={DownElipse}
+        alt=""
+        sizes="100vw"
+        loading="lazy"
+        className="h-auto w-full absolute -bottom-20 opacity-60"
       />
-      <img
-        src={DownElipse.src} loading="lazy"
-        alt="Elipse Logo"
-        className="h-auto absolute -top-20 opacity-60 scale-y-[-1]"
+      <Image
+        src={DownElipse}
+        alt=""
+        sizes="100vw"
+        loading="lazy"
+        className="h-auto w-full absolute -top-20 opacity-60 scale-y-[-1]"
       />
     </div>
   );

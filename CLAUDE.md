@@ -1,10 +1,12 @@
 # MSA Academy Next.js Project
 
 ## Deploy
-After making changes, build, purge caches, and restart PM2:
+After making changes, run the atomic deploy script:
 ```bash
-cd /root/msa-academy-next && pnpm build && rm -rf /var/cache/nginx/* && nginx -s reload && pm2 restart "MSA Academy Next"
+cd /root/msa-academy-next && ./scripts/deploy.sh
 ```
+The script builds to `.next.new`, validates, atomically swaps into `.next`, restarts PM2, health-checks, and auto-rolls back on failure. Nginx cache is only purged after the new build is verified healthy. See `scripts/deploy.sh` for details.
+
 After deploy, **manually purge Cloudflare cache**: dash.cloudflare.com → msa-club.com → Caching → Configuration → Purge Everything.
 This prevents stale JS chunk 404 errors.
 

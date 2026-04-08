@@ -19,12 +19,13 @@ import useScrollHandler from "@/store/useScrollHandler";
 import useScreenStore from "@/store/useScreenStore";
 
 const toolVariants = {
-  hidden: { opacity: 0, scale: 0.9, y: 100 },
+  hidden: { opacity: 0, scale: 0.85, y: 70 },
   visible: (delay) => ({
     y: 0,
     scale: 1,
     opacity: 1,
-    transition: { delay, duration: 1.8, ease: "easeInOut" , type: "spring",},
+    // Soft, natural ease-out (cubic-bezier ~ easeOutExpo). No spring — cleaner feel.
+    transition: { delay, duration: 0.85, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
@@ -42,7 +43,11 @@ const floatingAnimation = {
   },
 };
 
-export const Banner = () => {
+// heroReady controls the entrance animations for Moon, LeftLady, RightLady, Bubble.
+// Driven by app/page.jsx — flips to true when the loading splash unmounts.
+// Until then, the elements sit in their "below" start state (covered by the splash);
+// when it flips, they slide into final position with a tiny stagger.
+export const Banner = ({ heroReady = true }) => {
   const reduceMotion = useReducedMotion();
   // const isLargeScreen = useMediaQuery({ minWidth: 768 });
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);
@@ -99,36 +104,31 @@ export const Banner = () => {
         />
       </motion.div>
 
-      <motion.div
-         initial={reduceMotion ? {} : { opacity: 0, y: 60 }}
-         whileInView={reduceMotion ? {} : {
-          y: 0,
-          opacity: 1,
-          transition: { delay: 0.2, duration: 1.2, ease: "easeOut" },
-        }}
-        viewport={{ once: true }}
-        className="flex justify-center items-center mx-auto transform-gpu"
-      >
+      <div className="flex justify-center items-center mx-auto transform-gpu">
         <div className="relative -mt-10 lg:mt-0 xl:mt-10 w-full md:w-[85%] lg:w-[90%] xl:w-full max-w-[1400px] flex justify-center">
-          <Image
-            width={1080}
-            height={1080}
-            src={Moon} quality={70} sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33rem, 50rem"
-            alt="Moon"
-            priority
-            draggable="false"
+          {/* Moon — first to enter, no delay */}
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 80 }}
+            animate={reduceMotion || heroReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
+            transition={{ delay: 0, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
             className={`rotate-[338deg] lg:rotate-0 absolute ms:top-3 mm:-top-3  -top-1 md:-top-5 lg:-top-10 xl:-top-24 left-[15%] ms:left-[10%] mm:left-[15%] ml:left-[15%] lg:left-[20%] xl:left-[18%] ms:w-[16rem] mm:w-[17rem] ml:w-[20rem] w-[19rem] md:w-[24rem] lg:w-[33rem] xl:w-[45rem] 2xl:w-[50rem] transform-gpu`}
-          />
+          >
+            <Image
+              width={1080}
+              height={1080}
+              src={Moon} quality={70} sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33rem, 50rem"
+              alt="Moon"
+              priority
+              draggable="false"
+              className="w-full h-auto"
+            />
+          </motion.div>
           <div className="absolute left-[4%] lg:left-[6%] top-20 lg:-top-5 xl:-top-20 ms:w-[95vw] w-[92vw] md:w-[80vw] lg:w-[55vw] xl:w-[46rem] 2xl:w-[48rem]">
-            {/* Left Lady */}
+            {/* Left Lady — slight stagger after Moon */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{
-                y: 0,
-                opacity: 1,
-                transition: { delay: 0, duration: 1, ease: "easeOut", type: "spring" },
-              }}
-              viewport={{ once: true }}
+              initial={reduceMotion ? false : { opacity: 0, y: 80 }}
+              animate={reduceMotion || heroReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
+              transition={{ delay: 0.12, duration: 1.05, ease: [0.16, 1, 0.3, 1] }}
               className="relative z-10 transform-gpu"
               style={{
                 willChange: "transform",
@@ -148,20 +148,11 @@ export const Banner = () => {
               />
             </motion.div>
 
-            {/* Right Lady */}
+            {/* Right Lady — alongside LeftLady, slightly later */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{
-                y: 0,
-                opacity: 1,
-                transition: {
-                  delay: 0.15,
-                  duration: 1,
-                  ease: [0.43, 0.13, 0.23, 0.96],
-                  type: "spring",
-                },
-              }}
-              viewport={{ once: true}}
+              initial={reduceMotion ? false : { opacity: 0, y: 80 }}
+              animate={reduceMotion || heroReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
+              transition={{ delay: 0.22, duration: 1.05, ease: [0.16, 1, 0.3, 1] }}
               className="relative z-20 transform-gpu"
               style={{
                 willChange: "transform",
@@ -189,18 +180,25 @@ export const Banner = () => {
             </motion.div>
 
             <div className="relative">
+              {/* Bubble — settles in after the ladies, before the tool icons */}
               <motion.div
-                animate={floatingAnimation}
-                style={{ x: scrollY * 0.3 }}
+                initial={reduceMotion ? false : { opacity: 0, y: 60, scale: 0.85 }}
+                animate={reduceMotion || heroReady ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 60, scale: 0.85 }}
+                transition={{ delay: 0.55, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
               >
-                <Image
-                  height={500}
-                  width={500}
-                  src={Bubble} quality={50}
-                  alt="Floating Bubble"
-                  priority
-                  className="absolute top-80 md:top-96 lg:-top-14 right-10 lg:-right-[15rem] xl:-right-[35rem] w-12 md:w-20 lg:w-24 h-auto transform-gpu"
-                />
+                <motion.div
+                  animate={floatingAnimation}
+                  style={{ x: scrollY * 0.3 }}
+                >
+                  <Image
+                    height={500}
+                    width={500}
+                    src={Bubble} quality={50}
+                    alt="Floating Bubble"
+                    priority
+                    className="absolute top-80 md:top-96 lg:-top-14 right-10 lg:-right-[15rem] xl:-right-[35rem] w-12 md:w-20 lg:w-24 h-auto transform-gpu"
+                  />
+                </motion.div>
               </motion.div>
               <motion.div
                 className="absolute top-[24rem] md:top-[30rem] lg:top-[10rem] right-[5rem] lg:-right-[18rem] xl:-right-[30rem] z-50"
@@ -216,16 +214,18 @@ export const Banner = () => {
                 />
               </motion.div>
             </div>
+            {/* Tool icons (C4D, Photoshop, Blender) — appear one-by-one
+                AFTER the ladies and bubble, gated on heroReady so they wait
+                for the loading splash to finish. */}
             <motion.div
               className="flex flex-col items-center absolute space-y-3.5 lg:space-y-7 left-[1%] lg:left-[6%] -top-16 md:-top-10 lg:top-7 xl:top-32"
               initial="hidden"
-              whileInView="visible"
-              // viewport={{ once: true }}
+              animate={reduceMotion || heroReady ? "visible" : "hidden"}
             >
               {[
-                { src: C4D, delay: 1, size: "w-16 md:w-20 lg:w-24" },
-                { src: ps, delay: 1.2, size: "w-10 md:w-14 lg:w-16" },
-                { src: Blender, delay: 1.4, size: "w-8 md:w-10 lg:w-14" },
+                { src: C4D, delay: 0.85, size: "w-16 md:w-20 lg:w-24" },
+                { src: ps, delay: 1.05, size: "w-10 md:w-14 lg:w-16" },
+                { src: Blender, delay: 1.25, size: "w-8 md:w-10 lg:w-14" },
               ].map((tool, index) => (
                 <motion.div
                   key={index}
@@ -244,7 +244,7 @@ export const Banner = () => {
             </motion.div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };

@@ -108,7 +108,10 @@ const SignupForm = React.memo(() => {
           src="https://mcusercontent.com/e1f1a4e7afa29f4705570bedf/images/e212dfae-95cb-0a7c-afb0-47948cedbf32.png"
           alt="Newsletter"
           quality={50}
-          priority
+          // Popup is max-w-md (28rem ≈ 448px) on lg+, 90vw on mobile.
+          // Without sizes, Next.js was serving the 1920w variant — ~4x too big.
+          sizes="(min-width: 1024px) 28rem, 90vw"
+          loading="lazy"
           className="w-full h-64 object-cover rounded-t-lg"
         />
         {!submitted ? (
