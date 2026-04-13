@@ -6,11 +6,11 @@ import SectionWrapper from "./SectionWrapper";
 import ClippedImageGeneric from "./utils/ClippedImageGeneric";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
 import ClippedBtn from "./utils/ClippedImageBtn";
-import CharacterFoo from "@/assets/characterFoo.webp";
+import CharacterFoo from "@/assets/msa-club-academy-character-design-foo.webp";
 import Button from "./utils/Button";
 import useScreenStore from "@/store/useScreenStore";
-import Bubble from "@/assets/bubble.webp";
-import LeftEllipse from "@/assets/LeftEllipse.webp";
+import Bubble from "@/assets/msa-club-academy-bubble-background.webp";
+import LeftEllipse from "@/assets/msa-club-academy-left-ellipse-background.webp";
 
 const Card = ({ imageUrl, title, description, title2, index }) => {
   const isLargeScreen = useScreenStore((state) => state.isLargeScreen);

@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
-import Bubbles from "@/assets/bubbles.webp";
+import Bubbles from "@/assets/msa-club-academy-bubbles-background.webp";
 import { motion, useReducedMotion } from "framer-motion";
 import ClippedCard from "./utils/ClippedCard";
 import Button from "./utils/Button";

@@ -2,9 +2,9 @@
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import Skating from "@/assets/Path/Skating.webp";
-import LeftEllipse from "@/assets/LeftEllipse.webp";
-import Bubble from "@/assets/bubble.webp";
+import Skating from "@/assets/Path/msa-club-academy-learning-path-skating.webp";
+import LeftEllipse from "@/assets/msa-club-academy-left-ellipse-background.webp";
+import Bubble from "@/assets/msa-club-academy-bubble-background.webp";
 import SectionWrapper from "./SectionWrapper";
 import Button from "./utils/Button";
 import OutlineTextEffect from "./utils/OutlineTextEffect";

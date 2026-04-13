@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback, memo } from "react";
 import { motion,useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import DownElipse from "@/assets/DownElipse.webp";
+import DownElipse from "@/assets/msa-club-academy-down-ellipse-background.webp";
 import AnimatedNumber from "./AnimatedNumber";
 
 const Loading = memo(() => {
@@ -56,8 +56,8 @@ const Loading = memo(() => {
         {...logoVariants}
       >
         <Image
-          src="/logo.png"
-          alt="MSA Academy Logo"
+          src="/msa-club-academy-logo.png"
+          alt="MSA Club Academy logo - animation and character design courses Dubai"
           width={245}
           height={95}
           priority

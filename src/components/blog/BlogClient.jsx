@@ -5,7 +5,7 @@ import DOMPurify from "dompurify";
 import Image from "next/image";
 import Script from "next/script";
 import BlogDetailHeroImage from "../utils/BlogDetailHeroImage";
-import Bubble from "@/assets/bubble.webp";
+import Bubble from "@/assets/msa-club-academy-bubble-background.webp";
 import RightEllipseSVG from "../utils/icons/RightEllipseSVG";
 import SectionWrapper from "../SectionWrapper";
 import ClippedAutoWidthBtn from "../utils/ClippedAutoWidthBtn";
@@ -46,7 +46,7 @@ const BlogClient = ({ blogData, recentblogData }) => {
       name: "MSA Club",
       logo: {
         "@type": "ImageObject",
-        url: "https://msa-club.com/logo.png",
+        url: "https://msa-club.com/msa-club-academy-logo.png",
       },
     },
     description: blogData?.metaDescription || "",

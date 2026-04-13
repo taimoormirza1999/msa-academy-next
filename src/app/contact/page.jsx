@@ -27,7 +27,7 @@ export const metadata = {
     url: "https://msa-club.com/contact",
     images: [
       {
-        url: "https://msa-club.com/hero_banner.jpg",
+        url: "https://msa-club.com/msa-club-academy-animation-character-design-dubai-hero.jpg",
         width: 1200,
         height: 630,
         alt: "MSA Club - Animation Academy",
@@ -39,7 +39,7 @@ export const metadata = {
     title: "Contact MSA Club | MSA Academy",
     description:
       "Get in touch with the MSA Club team for questions about courses, enrollment, or partnerships.",
-    images: ["https://msa-club.com/hero_banner.jpg"],
+    images: ["https://msa-club.com/msa-club-academy-animation-character-design-dubai-hero.jpg"],
   },
   robots: {
     index: true,

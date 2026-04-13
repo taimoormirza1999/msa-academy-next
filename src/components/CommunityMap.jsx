@@ -1,5 +1,5 @@
 import React from "react";
-import BackgroundImage from "@/assets/map-vector.webp";
+import BackgroundImage from "@/assets/msa-club-academy-community-map-worldwide.webp";
 import Image from "next/image";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
 

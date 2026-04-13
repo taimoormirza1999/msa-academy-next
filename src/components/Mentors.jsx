@@ -1,10 +1,10 @@
 import React, { useRef, useEffect } from "react";
-import MentorsCard1 from "../assets/Mentors/1.png";
-import MentorsCard2 from "../assets/Mentors/2.png";
-import MentorsCard3 from "../assets/Mentors/3.png";
+import MentorsCard1 from "../assets/Mentors/msa-club-academy-mentor-1-animation-instructor.png";
+import MentorsCard2 from "../assets/Mentors/msa-club-academy-mentor-2-animation-instructor.png";
+import MentorsCard3 from "../assets/Mentors/msa-club-academy-mentor-3-animation-instructor.png";
 import { motion,useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import Bubble from "@/assets/bubble.webp";
+import Bubble from "@/assets/msa-club-academy-bubble-background.webp";
 import SectionWrapper from "./SectionWrapper";
 import ClippedImageGeneric from "./utils/ClippedImageGeneric";
 import useScreenStore from "@/store/useScreenStore";

@@ -6,7 +6,7 @@ import Link from "next/link";
 import Button from "./utils/Button";
 import Menu from "./Menu";
 import { motion, AnimatePresence } from "framer-motion";
-import DownElipse from "@/assets/DownElipse.webp";
+import DownElipse from "@/assets/msa-club-academy-down-ellipse-background.webp";
 import Image from "next/image";
 import useScrollHandler from "@/store/useScrollHandler";
 
@@ -62,12 +62,12 @@ import useScrollHandler from "@/store/useScrollHandler";
             suppressHydrationWarning={true}
           >
             <Image
-              src="/logo.png"
+              src="/msa-club-academy-logo.png"
               width={245}
               height={95}
               priority
               className="w-32 lg:w-40 h-auto px-3 shadow-xl"
-              alt="Logo"
+              alt="MSA Club Academy logo - animation and character design courses Dubai"
             />
           </Link>
           {/* Menu Button */}

@@ -76,7 +76,7 @@ export async function generateMetadata({ params }) {
       type: 'website',
       title: blogData.title,
       description: blogData.metaDescription || "Read this blog on MSA-Club.com.",
-      images: [blogData.coverImage || "https://msa-club.com/hero_banner.jpg"],
+      images: [blogData.coverImage || "https://msa-club.com/msa-club-academy-animation-character-design-dubai-hero.jpg"],
       url: `https://msa-club.com/blog/post/${blogData.friendlyUrl}`,
       authors: ['Taimoor Hamza',],
     },
@@ -84,7 +84,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: blogData.metaTitle,
       description: blogData.metaDescription || "Read this blog on MSA-Club.com.",
-      images: [blogData.coverImage || "https://msa-club.com/hero_banner.jpg"],
+      images: [blogData.coverImage || "https://msa-club.com/msa-club-academy-animation-character-design-dubai-hero.jpg"],
     },
   };
 }

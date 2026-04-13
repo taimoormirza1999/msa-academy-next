@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import PuppetGirl from "../assets/SecondSection/PuppetGirl.webp";
-import Bubble from "@/assets/bubble.webp";
+import PuppetGirl from "../assets/SecondSection/msa-club-academy-puppet-girl-animation.webp";
+import Bubble from "@/assets/msa-club-academy-bubble-background.webp";
 import SectionWrapper from "./SectionWrapper";
 import Button from "./utils/Button";
 import VideoGallery from "./VideoSections";

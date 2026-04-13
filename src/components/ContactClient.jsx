@@ -2,9 +2,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaYoutube, FaInstagram, FaTiktok, FaFacebook } from "react-icons/fa";
-import Bubble from "@/assets/bubble.webp";
-import LeftEllipse from "@/assets/LeftEllipse.webp";
-import ElipseDown from "@/assets/ElipseDown.webp";
+import Bubble from "@/assets/msa-club-academy-bubble-background.webp";
+import LeftEllipse from "@/assets/msa-club-academy-left-ellipse-background.webp";
+import ElipseDown from "@/assets/msa-club-academy-ellipse-down-background.webp";
 import Button from "@/components/utils/Button";
 import useScrollHandler from "@/store/useScrollHandler";
 

@@ -30,7 +30,7 @@ export const metadata = {
     url: "https://msa-club.com/about",
     images: [
       {
-        url: "https://msa-club.com/hero_banner.jpg",
+        url: "https://msa-club.com/msa-club-academy-animation-character-design-dubai-hero.jpg",
         width: 1200,
         height: 630,
         alt: "MSA Club - Animation Academy",
@@ -42,7 +42,7 @@ export const metadata = {
     title: "About MSA Club | Animation Academy",
     description:
       "MSA Club is an online animation academy by My Story Animated. Learn character design, 3D animation, and more.",
-    images: ["https://msa-club.com/hero_banner.jpg"],
+    images: ["https://msa-club.com/msa-club-academy-animation-character-design-dubai-hero.jpg"],
   },
   robots: {
     index: true,

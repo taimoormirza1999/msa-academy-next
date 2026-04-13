@@ -7,16 +7,16 @@ import {
   FaTwitter,
   FaTiktok,
 } from "react-icons/fa";
-import CharacterFoo from "@/assets/girl2.png";
-import logoogdgirl from "../assets/logoogdgirl.png";
-import HerogramLogo from "../assets/herogrmlogo.png";
+import CharacterFoo from "@/assets/msa-club-academy-character-design-girl.png";
+import logoogdgirl from "../assets/msa-club-academy-logo-character-design.png";
+import HerogramLogo from "../assets/msa-club-academy-animation-character-dubai.png";
 import Image from "next/image";
 import Link from "next/link";
 import { motion,useReducedMotion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
-import Bubble from "@/assets/bubble.webp";
+import Bubble from "@/assets/msa-club-academy-bubble-background.webp";
 import OuterBorderChildren from "./utils/OuterBorderChildren";
-import LeftEllipse from "@/assets/ElipseDown.webp";
+import LeftEllipse from "@/assets/msa-club-academy-ellipse-down-background.webp";
 
 function Contact() {
   const issmallScreen = useMediaQuery({ maxWidth: 768 });
@@ -46,7 +46,7 @@ function Contact() {
               src={HerogramLogo.src}
               height={80}
               width={80}
-              alt="Character Foo"
+              alt="MSA Club Academy - character design and animation courses Dubai"
               className="w-14 lg:w-16 h-auto "
               draggable="false"
             />

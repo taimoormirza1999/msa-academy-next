@@ -37,7 +37,7 @@ export const metadata = {
     url: "https://msa-club.com/animation-course",
     images: [
       {
-        url: "https://msa-club.com/hero_banner.jpg",
+        url: "https://msa-club.com/msa-club-academy-animation-character-design-dubai-hero.jpg",
         width: 1200,
         height: 630,
         alt: "MSA Club Animation Course",
@@ -49,7 +49,7 @@ export const metadata = {
     title: "Animation Course Online | MSA Club",
     description:
       "Learn 3D and 2D animation from the MSA team. Blender, After Effects, and more.",
-    images: ["https://msa-club.com/hero_banner.jpg"],
+    images: ["https://msa-club.com/msa-club-academy-animation-character-design-dubai-hero.jpg"],
   },
   robots: {
     index: true,

@@ -3,7 +3,7 @@ import { motion,useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import SectionWrapper from "./SectionWrapper";
 import OutlineTextEffect from "./utils/OutlineTextEffect";
-import Bubble from "@/assets/bubble.webp";
+import Bubble from "@/assets/msa-club-academy-bubble-background.webp";
 import RightEllipseSVG from "./utils/icons/RightEllipseSVG";
 
 const Drawing = () => {
