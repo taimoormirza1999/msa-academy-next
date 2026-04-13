@@ -10,7 +10,7 @@ import useScrollHandler from "@/store/useScrollHandler";
 
 const socials = [
   {
-    href: "https://www.youtube.com/@MSAOfficial",
+    href: "https://www.youtube.com/channel/UCYzEMRKqrh01-tauv7MYyVQ",
     icon: <FaYoutube className="text-red-500 text-2xl lg:text-3xl" />,
     name: "YouTube",
     desc: "Watch MSA animated stories and tutorials",
@@ -40,12 +40,12 @@ export default function ContactClient() {
 
   return (
     <main className="min-h-screen text-white relative overflow-hidden">
-      <Image src={LeftEllipse} quality={50} alt="" loading="lazy" className="absolute top-0 left-0 w-[30rem] h-auto opacity-60 pointer-events-none" />
-      <Image src={ElipseDown} quality={50} alt="" loading="lazy" className="absolute top-[30rem] -right-40 w-[30rem] h-auto opacity-60 pointer-events-none" />
-      <Image src={LeftEllipse} quality={50} alt="" loading="lazy" className="absolute bottom-0 left-0 w-[30rem] h-auto opacity-40 pointer-events-none" />
-      <Image src={Bubble} quality={50} alt="" loading="lazy" className="absolute top-20 right-10 w-12 md:w-20 h-auto animate-pulse pointer-events-none" />
-      <Image src={Bubble} quality={50} alt="" loading="lazy" className="absolute top-[40rem] left-5 w-10 md:w-16 h-auto animate-pulse pointer-events-none" />
-      <Image src={Bubble} quality={50} alt="" loading="lazy" className="absolute bottom-40 right-20 w-8 md:w-14 h-auto animate-pulse pointer-events-none" />
+      <Image src={LeftEllipse} quality={50} alt="" loading="lazy" className="absolute top-0 left-0 w-[18rem] md:w-[28rem] h-auto opacity-70 pointer-events-none select-none" />
+      <Image src={ElipseDown} quality={50} alt="" loading="lazy" className="absolute top-[20rem] -right-20 md:top-[30rem] md:-right-40 w-[18rem] md:w-[28rem] h-auto opacity-60 pointer-events-none select-none" />
+      <Image src={LeftEllipse} quality={50} alt="" loading="lazy" className="absolute bottom-0 left-0 w-[18rem] md:w-[28rem] h-auto opacity-50 pointer-events-none select-none" />
+      <Image src={Bubble} quality={50} alt="" loading="lazy" className="absolute top-20 right-6 w-10 md:w-20 h-auto animate-pulse pointer-events-none select-none" />
+      <Image src={Bubble} quality={50} alt="" loading="lazy" className="absolute top-[22rem] left-4 w-8 md:w-16 h-auto animate-pulse pointer-events-none select-none" />
+      <Image src={Bubble} quality={50} alt="" loading="lazy" className="absolute bottom-32 right-10 w-7 md:w-14 h-auto animate-pulse pointer-events-none select-none" />
 
       <div className="w-[90%] max-w-5xl font-eastroman-trial-bold p-6 lg:p-8 mt-28 mx-auto mb-5 relative z-10">
         <h1 className="text-2xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 font-primary">

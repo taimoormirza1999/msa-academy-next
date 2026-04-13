@@ -6,9 +6,18 @@ Allow: /courses
 Allow: /animation-course
 Allow: /character-design
 Allow: /contact
-Allow: /blog/
+Allow: /blog
 Allow: /blog/post/*
+Allow: /blog/category/*
+Allow: /blog/tag/*
 Allow: /privacy-policy
+Allow: /faq
+Allow: /glossary
+Allow: /animation-courses-dubai
+Allow: /animation-courses-online
+Allow: /learn-blender
+Allow: /learn-after-effects
+Allow: /anime-character-drawing
 Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/
@@ -26,5 +35,7 @@ Crawl-delay: 2
 # Sitemap location
 Sitemap: https://msa-club.com/sitemap.xml
 Sitemap: https://msa-club.com/sitemap-blogs.xml
+Sitemap: https://msa-club.com/sitemap-categories.xml
+Sitemap: https://msa-club.com/sitemap-tags.xml
 
 Host: https://msa-club.com

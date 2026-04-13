@@ -201,6 +201,33 @@ export default function CoursesPage() {
           </div>
         </section>
 
+        <section className="mt-16">
+          <h2 className="font-primary text-2xl font-semibold mb-6 text-purple-300 text-center">
+            Explore More Resources
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { href: "/learn-blender", title: "Learn Blender", desc: "Free 3D animation software, full course." },
+              { href: "/learn-after-effects", title: "Learn After Effects", desc: "2D character animation with Duik." },
+              { href: "/anime-character-drawing", title: "Anime Drawing", desc: "Draw anime characters from scratch." },
+              { href: "/animation-courses-online", title: "Online Animation Courses", desc: "Self-paced with certificates." },
+              { href: "/animation-courses-dubai", title: "Courses in Dubai", desc: "For students across the UAE." },
+              { href: "/blog", title: "Animation Blog", desc: "Tutorials, tips and guides." },
+              { href: "/faq", title: "FAQ", desc: "Common questions answered." },
+              { href: "/glossary", title: "Animation Glossary", desc: "Animation terms explained." },
+            ].map((r) => (
+              <Link
+                key={r.href}
+                href={r.href}
+                className="block bg-white/5 border border-white/10 hover:border-purple-500/30 rounded-xl p-4 transition"
+              >
+                <div className="font-primary text-white font-semibold mb-1">{r.title}</div>
+                <div className="font-eastroman-trial-demibold text-gray-400 text-sm">{r.desc}</div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section className="mt-16 text-center">
           <h2 className="font-primary text-2xl font-semibold mb-4 text-purple-300">
             Start Learning Today

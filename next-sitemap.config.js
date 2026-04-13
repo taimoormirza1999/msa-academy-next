@@ -10,7 +10,11 @@ module.exports = {
     '/private/*',
     '/_next/*',
     '/success',
-    '/sitemap-blogs.xml'
+    '/sitemap-blogs.xml',
+    '/sitemap-categories.xml',
+    '/sitemap-tags.xml',
+    '/blog/category/*',
+    '/blog/tag/*'
   ],
   
   // Static routes configuration
@@ -63,6 +67,48 @@ module.exports = {
         changefreq: 'monthly',
         priority: 0.7,
         lastmod: new Date().toISOString(),
+      },
+      {
+        loc: '/faq',
+        changefreq: 'monthly',
+        priority: 0.7,
+        lastmod: new Date().toISOString(),
+      },
+      {
+        loc: '/glossary',
+        changefreq: 'monthly',
+        priority: 0.7,
+        lastmod: new Date().toISOString(),
+      },
+      {
+        loc: '/animation-courses-dubai',
+        changefreq: 'monthly',
+        priority: 0.8,
+        lastmod: new Date().toISOString(),
+      },
+      {
+        loc: '/animation-courses-online',
+        changefreq: 'monthly',
+        priority: 0.8,
+        lastmod: new Date().toISOString(),
+      },
+      {
+        loc: '/learn-blender',
+        changefreq: 'monthly',
+        priority: 0.8,
+        lastmod: new Date().toISOString(),
+      },
+      {
+        loc: '/learn-after-effects',
+        changefreq: 'monthly',
+        priority: 0.8,
+        lastmod: new Date().toISOString(),
+      },
+      {
+        loc: '/anime-character-drawing',
+        changefreq: 'monthly',
+        priority: 0.8,
+        lastmod: new Date().toISOString(),
       }
     ];
 
@@ -76,7 +122,9 @@ module.exports = {
 
   // Dynamic blog routes - fetch from API
   additionalSitemaps: [
-    'https://msa-club.com/sitemap-blogs.xml'
+    'https://msa-club.com/sitemap-blogs.xml',
+    'https://msa-club.com/sitemap-categories.xml',
+    'https://msa-club.com/sitemap-tags.xml'
   ],
 
   // Default values for all pages
@@ -114,6 +162,8 @@ module.exports = {
     ],
     additionalSitemaps: [
       'https://msa-club.com/sitemap-blogs.xml',
+      'https://msa-club.com/sitemap-categories.xml',
+      'https://msa-club.com/sitemap-tags.xml',
     ],
   },
 }; 
